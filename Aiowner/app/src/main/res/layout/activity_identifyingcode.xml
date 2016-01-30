@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/container_operation_tips_text"
+            android:text="已发送验证码请输入" />
+
+        <EditText
+            style="@style/registAndLogin_editText"
+            android:layout_marginTop="80dp" />
+
+        <Button
+            style="@style/button"
+            android:layout_marginTop="170dp"
+            android:background="@drawable/btn_bg_sel_line"
+            android:onClick="startInitPassword"
+            android:text="确 定" />
+
+    </RelativeLayout>
+
+</LinearLayout>

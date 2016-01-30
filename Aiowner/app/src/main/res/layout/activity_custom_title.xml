@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.graphics.drawable.Drawable" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="title"
+            type="com.dudu.aiowner.ui.observable.TitleBarObservable" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/title_back_btn"
+            android:layout_width="12dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/back_btn_selector"
+            android:onClick="backLastPage" />
+
+        <TextView
+            android:id="@+id/title_changeable_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@{title.titleText}"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/title_userinfo_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="18dp"
+            android:background="@{title.userCommon ? @drawable/user_icon : @drawable/user_message}"
+            android:visibility="@{title.userIcon ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+</layout>

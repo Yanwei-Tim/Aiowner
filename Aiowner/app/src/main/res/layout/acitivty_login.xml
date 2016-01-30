@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/login_user_tx"
+            style="@style/login_container_tips_text_"
+            android:layout_marginTop="75dp"
+            android:text="用户" />
+
+        <EditText
+            style="@style/registAndLogin_editText"
+            android:layout_marginTop="85dp"
+            android:gravity="left"
+            android:hint="Username"
+            android:textColorHint="@color/hintcolor" />
+
+
+        <TextView
+            android:id="@+id/login_password_tx"
+            style="@style/login_container_tips_text_"
+            android:layout_marginTop="165dp"
+            android:text="密码" />
+
+        <EditText
+            android:id="@+id/login_password_et"
+            style="@style/registAndLogin_editText"
+            android:layout_marginTop="175dp"
+            android:gravity="left"
+            android:hint="Password"
+            android:textColorHint="@color/hintcolor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="220dp"
+            android:paddingRight="35dp"
+            android:clickable="true"
+            android:text="Forget?"
+            android:onClick="startFogetPassword"
+            android:textColor="@color/hintcolor" />
+
+        <Button
+            style="@style/button"
+            android:layout_marginTop="275dp"
+            android:background="@drawable/btn_bg_sel_line"
+            android:onClick="startMain"
+            android:text="登 录" />
+
+    </RelativeLayout>
+
+</LinearLayout>

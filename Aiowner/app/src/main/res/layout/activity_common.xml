@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.dudu.aiowner.ui.observable.TitleBarObservable" />
+
+        <import type="com.dudu.aiowner.ui.observable.CommonObservable" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="title"
+            type="TitleBarObservable" />
+
+        <variable
+            name="common"
+            type="CommonObservable" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/base_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/base_title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{common.hasTitle ? View.VISIBLE : View.GONE}">
+
+            <include
+                layout="@layout/activity_custom_title"
+                bind:title="@{title}" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/base_title_layout">
+
+            <RelativeLayout
+                android:id="@+id/main_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/base_title_layout">
+
+                <ImageView
+                    android:id="@+id/base_bottom_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentBottom="true"
+                    android:paddingBottom="18dp"
+                    android:src="@drawable/bottom_logo"
+                    android:visibility="@{common.hasBottomIcon ? View.VISIBLE : View.GONE}" />
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</layout>

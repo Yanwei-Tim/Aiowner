@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/container_operation_tips_text"
+            android:text="请输入您的手机号码" />
+
+
+        <EditText
+            style="@style/registAndLogin_editText"
+            android:layout_marginTop="80dp" />
+
+        <!--<View-->
+        <!--android:id="@+id/blue_line"-->
+        <!--android:layout_width="280dp"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="115dp"-->
+        <!--android:background="@drawable/blue_line"/>-->
+
+        <Button
+            style="@style/button"
+            android:layout_marginTop="170dp"
+            android:background="@drawable/btn_bg_sel_line"
+            android:onClick="startIdentifyingCode"
+            android:text="注 册" />
+
+    </RelativeLayout>
+
+</LinearLayout>
