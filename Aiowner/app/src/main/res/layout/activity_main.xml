@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="25sp"
-    android:textColor="@android:color/white"
-    android:text="主页内容"/>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="com.dudu.aiowner.ui.main.observable.MainObservable"/>
 
+        <variable
+            name="MainPage"
+            type="MainObservable"/>
 
-</RelativeLayout>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="292"
+            android:src="@drawable/car"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="90"/>
+
+        <include
+            layout="@layout/real_data_show"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_gravity="center"
+            android:layout_weight="184"
+            bind:MainPage="@{MainPage}" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="110"/>
+
+        <include
+            layout="@layout/navigation_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="319"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="122"/>
+
+    </LinearLayout>
+
+</layout>
+

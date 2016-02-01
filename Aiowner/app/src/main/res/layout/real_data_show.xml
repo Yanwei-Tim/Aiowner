@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="com.dudu.aiowner.ui.main.observable.MainObservable"/>
+
+        <variable
+            name="MainPage"
+            type="MainObservable"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="42"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="87">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="78dp"
+                    android:layout_height="43dp"
+                    android:src="@drawable/group"/>
+
+                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                    android:id="@+id/remaining_oil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="35dp"
+                    android:textColor="@android:color/white"
+                    android:text="@{MainPage.remainingOil}"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/shape"
+                    android:layout_gravity="center"/>
+
+                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ml"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="remainingOil"
+                android:textSize="11dp"
+                android:textColor="@android:color/white"/>
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="剩余油量"
+                android:textSize="10dp"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="42"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="87">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="78dp"
+                    android:layout_height="43dp"
+                    android:src="@drawable/group"/>
+
+                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                    android:id="@+id/gas_mileage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="35dp"
+                    android:textColor="@android:color/white"
+                    android:text="@{MainPage.gasMileage}"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/shape"
+                    android:layout_gravity="center"/>
+
+                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ml"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gas Mileage"
+                android:textSize="11dp"
+                android:textColor="@android:color/white"/>
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="平均油量"
+                android:textSize="10dp"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="42"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="87">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="78dp"
+                    android:layout_height="43dp"
+                    android:src="@drawable/group"/>
+
+                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                    android:id="@+id/total_mileage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="35dp"
+                    android:textColor="@android:color/white"
+                    android:text="@{MainPage.totalMileage}"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/shape"
+                    android:layout_gravity="center"/>
+
+                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ah"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Mileage"
+                android:textSize="11dp"
+                android:textColor="@android:color/white"/>
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="电量"
+                android:textSize="10dp"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="42"/>
+    </LinearLayout>
+</layout>
+
