@@ -1,38 +1,40 @@
 package com.dudu.aiowner.ui.main;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.os.Bundle;
-import android.view.View;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.databinding.ActivityMainBinding;
 import com.dudu.aiowner.ui.activity.preventTheft.PreventTheftActivity;
-import com.dudu.aiowner.ui.base.observable.ObservableFactory;
+import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.main.observable.MainObservable;
-import com.dudu.aiowner.utils.ActivitiesManager;
+
 
 /**
  * Created by sunny_zhang on 2016/1/27.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
     private MainObservable mainObservable;
     private ActivityMainBinding activityMainBinding;
-    protected ObservableFactory observableFactory;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        observableFactory.setToMainUi();
 
-        ActivitiesManager.getInstance().addActivity(this);
         mainObservable = new MainObservable();
-        activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        activityMainBinding = ActivityMainBinding.bind(childView);
+        activityMainBinding.setMainPage(mainObservable);
 
-        observableFactory = ObservableFactory.creatInstance();
         activityMainBinding.setTitle(observableFactory.getTitleObservable());
         activityMainBinding.setMainPage(mainObservable);
+    }
+
+    @Override
+    protected View getChildView() {
+        return LayoutInflater.from(this).inflate(R.layout.activity_main, null);
     }
 
     public void startPreventTheft(View view) {
@@ -70,10 +72,6 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onResume() {
-
-        observableFactory.getTitleObservable().titleText.set("");
-        observableFactory.getTitleObservable().titleLogo.set(true);
-        observableFactory.getTitleObservable().userIcon.set(true);
         super.onResume();
     }
 }

@@ -14,7 +14,7 @@ public class MainObservable {
 
     public MainObservable() {
         remainingOil.set("0%");
-        gasMileage.set("11lr");
+        gasMileage.set("0lr");
         totalMileage.set("0");
     }
 

@@ -14,199 +14,273 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="22dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="42"/>
-
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="87">
+            android:layout_weight="1">
 
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="78dp"
-                    android:layout_height="43dp"
-                    android:src="@drawable/group"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="21dp">
 
-                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
-                    android:id="@+id/remaining_oil"
+                <FrameLayout
+                    android:id="@+id/group1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textSize="35dp"
-                    android:textColor="@android:color/white"
-                    android:text="@{MainPage.remainingOil}"/>
-            </FrameLayout>
+                    android:layout_gravity="center">
+                    <ImageView
+                        android:layout_width="95dp"
+                        android:layout_height="43.5dp"
+                        android:src="@drawable/group"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                        android:id="@+id/remaining_oil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="25dp"
+                        android:textColor="@android:color/white"
+                        android:text="@{MainPage.remainingOil}"/>
+                </FrameLayout>
 
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/shape"
-                    android:layout_gravity="center"/>
-
-                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ml"
-                    android:textSize="20dp"
-                    android:textColor="@android:color/white"/>
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:layout_below="@+id/group1">
 
-            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="remainingOil"
-                android:textSize="11dp"
-                android:textColor="@android:color/white"/>
+                    <RelativeLayout
+                        android:id="@+id/unit1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="剩余油量"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"/>
+                        <ImageView
+                            android:id="@+id/shape1"
+                            android:layout_width="18dp"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="9dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/shape"/>
+
+                        <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="9dp"
+                            android:layout_toRightOf="@+id/shape1"
+                            android:text="ml"
+                            android:textSize="20dp"
+                            android:paddingLeft="6dp"
+                            android:textColor="@android:color/white"/>
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/unit1">
+
+                        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="6dp"
+                            android:text="remainingOil"
+                            android:textSize="11dp"
+                            android:textColor="@android:color/white"/>
+
+                        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="6dp"
+                            android:text="剩余油量"
+                            android:textSize="10dp"
+                            android:textColor="@color/bluecolorAmount"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
         </LinearLayout>
-
-        <ImageView
-            android:layout_width="22dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="42"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="87">
+            android:layout_weight="1">
 
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="78dp"
-                    android:layout_height="43dp"
-                    android:src="@drawable/group"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="21dp">
 
-                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
-                    android:id="@+id/gas_mileage"
+                <FrameLayout
+                    android:id="@+id/group2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textSize="35dp"
-                    android:textColor="@android:color/white"
-                    android:text="@{MainPage.gasMileage}"/>
-            </FrameLayout>
+                    android:layout_gravity="center">
+                    <ImageView
+                        android:layout_width="95dp"
+                        android:layout_height="43.5dp"
+                        android:src="@drawable/group"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                        android:id="@+id/gas_mileage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="27dp"
+                        android:textColor="@android:color/white"
+                        android:text="@{MainPage.gasMileage}"/>
+                </FrameLayout>
 
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/shape"
-                    android:layout_gravity="center"/>
-
-                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ml"
-                    android:textSize="20dp"
-                    android:textColor="@android:color/white"/>
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:layout_below="@+id/group2">
 
-            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gas Mileage"
-                android:textSize="11dp"
-                android:textColor="@android:color/white"/>
+                    <RelativeLayout
+                        android:id="@+id/unit2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="平均油量"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"/>
+                        <ImageView
+                            android:id="@+id/shape2"
+                            android:layout_width="18dp"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="9dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/shape"/>
+
+                        <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="9dp"
+                            android:layout_toRightOf="@+id/shape2"
+                            android:text="ml"
+                            android:textSize="20dp"
+                            android:paddingLeft="6dp"
+                            android:textColor="@android:color/white"/>
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/unit1">
+
+                        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="6dp"
+                            android:text="Gas Mileage"
+                            android:textSize="11dp"
+                            android:textColor="@android:color/white"/>
+
+                        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="6dp"
+                            android:text="平均油量"
+                            android:textSize="10dp"
+                            android:textColor="@color/bluecolorAmount"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="22dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="42"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="87">
+            android:layout_weight="1">
 
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="78dp"
-                    android:layout_height="43dp"
-                    android:src="@drawable/group"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="21dp">
 
-                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
-                    android:id="@+id/total_mileage"
+                <FrameLayout
+                    android:id="@+id/group3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textSize="35dp"
-                    android:textColor="@android:color/white"
-                    android:text="@{MainPage.totalMileage}"/>
-            </FrameLayout>
+                    android:layout_gravity="center">
+                    <ImageView
+                        android:layout_width="95dp"
+                        android:layout_height="43.5dp"
+                        android:src="@drawable/group"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                        android:id="@+id/total_mileage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="27dp"
+                        android:textColor="@android:color/white"
+                        android:text="@{MainPage.totalMileage}"/>
+                </FrameLayout>
 
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/shape"
-                    android:layout_gravity="center"/>
-
-                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ah"
-                    android:textSize="20dp"
-                    android:textColor="@android:color/white"/>
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:layout_below="@+id/group3">
 
-            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Total Mileage"
-                android:textSize="11dp"
-                android:textColor="@android:color/white"/>
+                    <RelativeLayout
+                        android:id="@+id/unit3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="电量"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"/>
+                        <ImageView
+                            android:id="@+id/shape3"
+                            android:layout_width="18dp"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="9dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/shape"/>
+
+                        <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="9dp"
+                            android:layout_toRightOf="@+id/shape3"
+                            android:text="Ah"
+                            android:textSize="20dp"
+                            android:paddingLeft="6dp"
+                            android:textColor="@android:color/white"/>
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/unit1">
+
+                        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="6dp"
+                            android:text="Total Mileage"
+                            android:textSize="11dp"
+                            android:textColor="@android:color/white"/>
+
+                        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="6dp"
+                            android:text="电量"
+                            android:textSize="10dp"
+                            android:textColor="@color/bluecolorAmount"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
         </LinearLayout>
-
-        <ImageView
-            android:layout_width="22dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="42"/>
     </LinearLayout>
 </layout>
 

@@ -6,4 +6,6 @@
     <color name="aiowner">#111111</color>
     <color name="hintcolor">#808080</color>
     <color name="bluecolor">#00bfff</color>
+
+    <color name="bluecolorAmount">#03bfff</color>
 </resources>

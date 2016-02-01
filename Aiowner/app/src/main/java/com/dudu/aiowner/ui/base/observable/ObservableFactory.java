@@ -29,4 +29,12 @@ public class ObservableFactory {
 
         return commonObservable;
     }
+
+    public void setToMainUi(){
+        titleBarObservable.userIcon.set(true);
+        this.titleBarObservable.userCommon.set(false);
+        titleBarObservable.hasBackButton.set(false);
+        titleBarObservable.titleLogo.set(true);
+        commonObservable.hasBottomIcon.set(false);
+    }
 }

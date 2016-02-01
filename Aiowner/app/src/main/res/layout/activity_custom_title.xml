@@ -16,7 +16,7 @@
     <RelativeLayout
         android:id="@+id/title_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="50dp">
 
         <Button
             android:id="@+id/title_back_btn"
@@ -27,16 +27,25 @@
             android:layout_marginLeft="18dp"
             android:layout_marginTop="36dp"
             android:background="@drawable/back_btn_selector"
-            android:onClick="backLastPage" />
+            android:onClick="backLastPage"
+            android:visibility="@{title.hasBackButton ? View.VISIBLE : View.GONE}"/>
 
-        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-            android:id="@+id/title_changeable_tv"
+        <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@{title.titleText}"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:layout_centerInParent="true">
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:id="@+id/title_changeable_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{title.titleText}"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:visibility="@{title.titleLogo ? View.GONE : View.VISIBLE}"/>
+
+        </FrameLayout>
 
         <ImageView
             android:layout_width="96dp"
