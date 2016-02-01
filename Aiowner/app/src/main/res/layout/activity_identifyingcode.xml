@@ -8,15 +8,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             style="@style/container_operation_tips_text"
             android:text="已发送验证码请输入" />
 
-        <EditText
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
             style="@style/registAndLogin_editText"
             android:layout_marginTop="80dp" />
 
-        <Button
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontButton
             style="@style/button"
             android:layout_marginTop="170dp"
             android:background="@drawable/btn_bg_sel_line"

@@ -10,7 +10,7 @@
 
         <variable
             name="title"
-            type="com.dudu.aiowner.ui.observable.TitleBarObservable" />
+            type="com.dudu.aiowner.ui.base.observable.TitleBarObservable" />
     </data>
 
     <RelativeLayout
@@ -29,7 +29,7 @@
             android:background="@drawable/back_btn_selector"
             android:onClick="backLastPage" />
 
-        <TextView
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             android:id="@+id/title_changeable_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

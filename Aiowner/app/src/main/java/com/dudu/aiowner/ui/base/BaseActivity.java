@@ -8,7 +8,7 @@ import android.view.Window;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.databinding.ActivityCommonBinding;
-import com.dudu.aiowner.ui.observable.ObservableFactory;
+import com.dudu.aiowner.ui.base.observable.ObservableFactory;
 import com.dudu.aiowner.utils.ActivitiesManager;
 
 /**

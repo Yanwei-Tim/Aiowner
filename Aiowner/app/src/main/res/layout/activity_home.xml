@@ -13,54 +13,54 @@
         android:layout_marginTop="148dp"
         android:src="@drawable/logo" />
 
-    <TextView
+    <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="206dp"
         android:gravity="center"
         android:text="THANKS TO USE"
         android:textColor="@android:color/white"
-        android:textSize="23sp" />
+        android:textSize="25sp" />
 
-    <TextView
+    <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="245dp"
         android:gravity="center"
         android:text="AIO SMART REVIEW"
         android:textColor="@android:color/white"
-        android:textSize="23sp" />
+        android:textSize="25sp" />
 
-    <TextView
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="288dp"
         android:gravity="center"
         android:text="感谢使用AIO智能后视镜"
         android:textColor="@android:color/white"
-        android:textSize="14sp" />
+        android:textSize="12sp"/>
 
-    <Button
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontButton
         android:id="@+id/register_btn1"
         android:layout_width="280dp"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="96dp"
+        android:layout_marginBottom="110dp"
         android:background="@drawable/btn_bg_sel_fill"
         android:onClick="startRegister"
         android:text="注 册"
         android:textColor="@android:color/white"
-        android:textSize="24dp" />
+        android:textSize="22sp" />
 
-    <TextView
+    <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:paddingBottom="50dp"
+        android:paddingBottom="65dp"
         android:text="use phonenumber sign up"
         android:textColor="@android:color/white"
-        android:textSize="14sp" />
+        android:textSize="10sp" />
 
 </RelativeLayout>

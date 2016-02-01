@@ -5,9 +5,9 @@
 
     <data>
 
-        <import type="com.dudu.aiowner.ui.observable.TitleBarObservable" />
+        <import type="com.dudu.aiowner.ui.base.observable.TitleBarObservable" />
 
-        <import type="com.dudu.aiowner.ui.observable.CommonObservable" />
+        <import type="com.dudu.aiowner.ui.base.observable.CommonObservable" />
 
         <import type="android.view.View" />
 
