@@ -12,7 +12,7 @@
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             android:id="@+id/login_user_tx"
             style="@style/login_container_tips_text_"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="70dp"
             android:text="用户" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
@@ -26,7 +26,7 @@
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             android:id="@+id/login_password_tx"
             style="@style/login_container_tips_text_"
-            android:layout_marginTop="165dp"
+            android:layout_marginTop="160dp"
             android:text="密码" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
@@ -42,10 +42,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="220dp"
+            android:layout_marginTop="216dp"
             android:clickable="true"
             android:onClick="startFogetPassword"
-            android:paddingRight="35dp"
+            android:paddingRight="42dp"
             android:textSize="14sp"
             android:text="Forget?"
             android:textColor="@color/hintcolor" />
