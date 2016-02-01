@@ -35,7 +35,7 @@ public abstract class BaseActivity extends Activity {
 
         baseBinding.mainContainer.addView(childView);
 
-        observableFactory = ObservableFactory.getInstance();
+        observableFactory = ObservableFactory.creatInstance();
 
         baseBinding.setTitle(observableFactory.getTitleObservable());
 

@@ -20,4 +20,5 @@ public class TitleBarObservable {
         this.userIcon.set(false);
         this.titleText.set("Aiowner");
     }
+
 }

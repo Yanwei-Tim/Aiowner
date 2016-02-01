@@ -5,37 +5,28 @@ package com.dudu.aiowner.ui.base.observable;
  */
 public class ObservableFactory {
 
-    private static ObservableFactory observableFactory;
-
     private TitleBarObservable titleBarObservable;
 
     private CommonObservable commonObservable;
 
     public ObservableFactory() {
 
+        titleBarObservable = new TitleBarObservable();
+        commonObservable = new CommonObservable();
     }
 
-    public static ObservableFactory getInstance() {
+    public static ObservableFactory creatInstance() {
 
-        if (observableFactory == null) {
-            observableFactory = new ObservableFactory();
-        }
-        return observableFactory;
+        return new ObservableFactory();
     }
 
     public TitleBarObservable getTitleObservable() {
 
-        if (titleBarObservable == null) {
-            titleBarObservable = new TitleBarObservable();
-        }
         return titleBarObservable;
     }
 
     public CommonObservable getCommonObservable() {
 
-        if (commonObservable == null) {
-            commonObservable = new CommonObservable();
-        }
         return commonObservable;
     }
 }

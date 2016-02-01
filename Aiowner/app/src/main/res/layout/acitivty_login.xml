@@ -12,43 +12,54 @@
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             android:id="@+id/login_user_tx"
             style="@style/login_container_tips_text_"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="75dp"
             android:text="用户" />
+
+        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="92dp"
+            android:text="Username"
+            android:textColor="@android:color/white" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
             style="@style/registAndLogin_editText"
-            android:layout_marginTop="85dp"
-            android:gravity="left"
-            android:hint="Username"
-            android:textColorHint="@color/hintcolor" />
-
+            android:layout_marginTop="93dp"
+            android:gravity="center" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             android:id="@+id/login_password_tx"
             style="@style/login_container_tips_text_"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="162dp"
             android:text="密码" />
+
+        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="179dp"
+            android:text="Password"
+            android:textColor="@android:color/white" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
             android:id="@+id/login_password_et"
             style="@style/registAndLogin_editText"
-            android:layout_marginTop="175dp"
-            android:gravity="left"
-            android:hint="Password"
-            android:password="true"
-            android:textColorHint="@color/hintcolor" />
+            android:layout_marginTop="180dp"
+            android:gravity="center"
+            android:password="true" />
 
         <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="216dp"
+            android:layout_marginTop="217dp"
             android:clickable="true"
             android:onClick="startFogetPassword"
             android:paddingRight="42dp"
-            android:textSize="14sp"
             android:text="Forget?"
-            android:textColor="@color/hintcolor" />
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontButton
             style="@style/button"
