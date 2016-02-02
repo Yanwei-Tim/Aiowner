@@ -10,6 +10,8 @@ public class TitleBarObservable {
 
     public final ObservableBoolean userCommon = new ObservableBoolean();
 
+    public final ObservableBoolean titleLogo = new ObservableBoolean();
+
     public final ObservableBoolean userIcon = new ObservableBoolean();
 
     public final ObservableField<String> titleText = new ObservableField<>();
@@ -19,6 +21,7 @@ public class TitleBarObservable {
         this.userCommon.set(true);
         this.userIcon.set(false);
         this.titleText.set("Aiowner");
+        this.titleLogo.set(false);
     }
 
 }

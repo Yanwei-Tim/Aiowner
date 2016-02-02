@@ -38,6 +38,13 @@
             android:textColor="@android:color/white"
             android:textSize="16sp" />
 
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="8.5dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/main_logo"
+            android:visibility="@{title.titleLogo ? View.VISIBLE : View.GONE}"/>
+
         <Button
             android:id="@+id/title_userinfo_btn"
             android:layout_width="25dp"
@@ -45,6 +52,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:layout_marginRight="18dp"
+            android:onClick="userInfo"
             android:background="@{title.userCommon ? @drawable/user_icon : @drawable/user_message}"
             android:visibility="@{title.userIcon ? View.VISIBLE : View.GONE}" />
 

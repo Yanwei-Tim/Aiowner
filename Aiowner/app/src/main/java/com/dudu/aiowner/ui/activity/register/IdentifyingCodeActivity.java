@@ -8,14 +8,11 @@ import android.view.View;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.base.BaseActivity;
-import com.dudu.aiowner.ui.base.observable.TitleBarObservable;
 
 /**
  * Created by sunny_zhang on 2016/1/27.
  */
 public class IdentifyingCodeActivity extends BaseActivity {
-
-    private TitleBarObservable titleBarObservable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
