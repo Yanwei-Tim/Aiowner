@@ -39,6 +39,41 @@
         <item name="android:textColor">@color/bluecolor</item>
         <item name="android:textSize">11sp</item>
     </style>
+    
+    <style name="test_Speed_imageview_style1">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">6dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="test_Speed_imageview_style2">
+        <item name="android:layout_width">9.5dp</item>
+        <item name="android:layout_height">16.5dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="test_Speed_imageview_style3">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:layout_marginTop">13dp</item>
+    </style>
+
+    <style name="test_Speed_FZLFontTextView_style1">
+        <item name="android:layout_width">36dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">18dp</item>
+        <item name="android:textColor">@color/bluecolor</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="test_Speed_FZLFontTextView_style2">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">19dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18dp</item>
+    </style>
 
 </resources>
 

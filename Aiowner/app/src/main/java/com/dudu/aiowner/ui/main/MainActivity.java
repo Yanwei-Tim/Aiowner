@@ -11,6 +11,7 @@ import com.dudu.aiowner.ui.activity.drive.DrivingHabitsActivity;
 import com.dudu.aiowner.ui.activity.maintenanceAssistant.MaintenanceAssistantActivity;
 import com.dudu.aiowner.ui.activity.preventLooting.PreventLootingActivity;
 import com.dudu.aiowner.ui.activity.preventTheft.PreventTheftActivity;
+import com.dudu.aiowner.ui.activity.testSpeed.SelectCarActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.activity.testSpeed.TestSpeedActivity;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
@@ -54,7 +55,7 @@ public class MainActivity extends BaseActivity {
 
     public void startTestSpeed(View view) {
 
-        startActivity(new Intent(MainActivity.this, TestSpeedActivity.class));
+        startActivity(new Intent(MainActivity.this, SelectCarActivity.class));
     }
 
     public void startDrive(View view) {

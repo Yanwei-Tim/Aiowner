@@ -52,6 +52,10 @@
             android:name=".ui.activity.drive.DrivingHabitsActivity"
             android:screenOrientation="portrait"></activity>
 
+        <activity
+            android:name=".ui.activity.testSpeed.SelectCarActivity"
+            android:screenOrientation="portrait"></activity>
+
     </application>
 
 </manifest>
