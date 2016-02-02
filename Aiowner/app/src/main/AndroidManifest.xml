@@ -42,6 +42,16 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventLooting.PreventLootingActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.testSpeed.TestSpeedActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.drive.DrivingHabitsActivity"
+            android:screenOrientation="portrait"></activity>
+
     </application>
 
 </manifest>

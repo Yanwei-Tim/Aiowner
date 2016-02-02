@@ -7,8 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.databinding.ActivityMainBinding;
+import com.dudu.aiowner.ui.activity.drive.DrivingHabitsActivity;
+import com.dudu.aiowner.ui.activity.maintenanceAssistant.MaintenanceAssistantActivity;
+import com.dudu.aiowner.ui.activity.preventLooting.PreventLootingActivity;
 import com.dudu.aiowner.ui.activity.preventTheft.PreventTheftActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
+import com.dudu.aiowner.ui.activity.testSpeed.TestSpeedActivity;
+import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.main.observable.MainObservable;
 
 
@@ -44,30 +49,26 @@ public class MainActivity extends BaseActivity {
 
     public void startPreventLooting(View view) {
 
-        startActivity(new Intent(MainActivity.this, PreventTheftActivity.class));
+        startActivity(new Intent(MainActivity.this, PreventLootingActivity.class));
     }
 
     public void startTestSpeed(View view) {
 
-        startActivity(new Intent(MainActivity.this, PreventTheftActivity.class));
+        startActivity(new Intent(MainActivity.this, TestSpeedActivity.class));
     }
 
     public void startDrive(View view) {
 
-        startActivity(new Intent(MainActivity.this, PreventTheftActivity.class));
+        startActivity(new Intent(MainActivity.this, DrivingHabitsActivity.class));
     }
 
     public void startMaintenanceAssistant(View view) {
 
-        startActivity(new Intent(MainActivity.this, PreventTheftActivity.class));
+        startActivity(new Intent(MainActivity.this, MaintenanceAssistantActivity.class));
     }
 
     public void userInfo(View view){
-        startActivity(new Intent(MainActivity.this, PreventTheftActivity.class));
-    }
-
-    public void backLastPage(View view) {
-        finish();
+        startActivity(new Intent(MainActivity.this, UserInfoActivity.class));
     }
 
     @Override

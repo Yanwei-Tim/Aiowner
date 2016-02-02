@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center">
@@ -8,7 +7,7 @@
     <ImageView
         android:layout_width="300dp"
         android:layout_height="159.5dp"
-        android:src="@drawable/key_frame"/>
+        android:src="@drawable/key_frame" />
 
     <ImageView
 
@@ -16,49 +15,56 @@
         android:layout_height="40dp"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="24dp"
-        android:src="@drawable/prevent_theft_normal"
-        android:onClick="startPreventTheft"/>
+        android:onClick="startPreventTheft"
+        android:src="@drawable/preventtheft_btn_sel" />
+
 
     <ImageView
         android:layout_width="41dp"
         android:layout_height="40dp"
         android:layout_marginLeft="221.5dp"
         android:layout_marginTop="24dp"
-        android:src="@drawable/prevent_looting_normal"
-        android:onClick="startPreventLooting"/>
+        android:onClick="startPreventLooting"
+        android:src="@drawable/preventlooting_btn_sel" />
 
     <ImageView
         android:layout_width="134dp"
         android:layout_height="80dp"
         android:layout_gravity="center"
-        android:src="@drawable/center_button"
+        android:onClick="startMaintenanceAssistant"
+        android:src="@drawable/center_btn" />
+
+    <ImageView
+        android:layout_width="134dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:src="@drawable/center_btn"
         android:onClick="startMaintenanceAssistant"/>
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="15dp"
-        android:textColor="@android:color/white"
         android:layout_gravity="center"
-        android:text="保养助手"/>
+        android:layout_weight="1"
+        android:text="保养助手"
+        android:textColor="@android:color/white"
+        android:textSize="15dp" />
 
     <ImageView
         android:layout_width="41dp"
         android:layout_height="40dp"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="95dp"
-        android:src="@drawable/test_speed_normal"
-        android:onClick="startTestSpeed"/>
+        android:onClick="startTestSpeed"
+        android:src="@drawable/testspeed_btn_sel" />
 
     <ImageView
         android:layout_width="41dp"
         android:layout_height="40dp"
         android:layout_marginLeft="221.5dp"
         android:layout_marginTop="95dp"
-        android:src="@drawable/drive_normal"
-        android:onClick="startDrive"/>
-
+        android:onClick="startDrive"
+        android:src="@drawable/drive_btn_sel" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         android:layout_width="wrap_content"
@@ -66,20 +72,20 @@
         android:layout_marginLeft="104dp"
         android:layout_marginTop="16.5dp"
         android:layout_weight="1"
-        android:textSize="15dp"
-        android:textColor="@android:color/white"
         android:gravity="center"
-        android:text="防盗"/>
+        android:text="防盗"
+        android:textColor="@android:color/white"
+        android:textSize="15dp" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="166dp"
         android:layout_marginTop="16.5dp"
-        android:textSize="15dp"
-        android:textColor="@android:color/white"
         android:gravity="center"
-        android:text="防劫"/>
+        android:text="防劫"
+        android:textColor="@android:color/white"
+        android:textSize="15dp" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         android:layout_width="wrap_content"
@@ -87,19 +93,19 @@
         android:layout_marginLeft="104dp"
         android:layout_marginTop="127.5dp"
         android:layout_weight="1"
-        android:textSize="15dp"
-        android:textColor="@android:color/white"
         android:gravity="center"
-        android:text="测速"/>
+        android:text="测速"
+        android:textColor="@android:color/white"
+        android:textSize="15dp" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="166dp"
         android:layout_marginTop="127.5dp"
-        android:textSize="15dp"
-        android:textColor="@android:color/white"
         android:gravity="center"
-        android:text="驾驶"/>
+        android:text="驾驶"
+        android:textColor="@android:color/white"
+        android:textSize="15dp" />
 
 </FrameLayout>

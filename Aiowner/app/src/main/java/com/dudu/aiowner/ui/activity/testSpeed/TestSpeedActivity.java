@@ -1,6 +1,5 @@
-package com.dudu.aiowner.ui.activity.preventTheft;
+package com.dudu.aiowner.ui.activity.testSpeed;
 
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,21 +7,18 @@ import android.view.View;
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
-public class PreventTheftActivity extends BaseActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
+/**
+ * Created by Administrator on 2016/2/2.
+ */
+public class TestSpeedActivity extends BaseActivity {
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.activity_prevent_theft, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_test_speed, null);
     }
 
     @Override
     protected void onResume() {
-        observableFactory.getTitleObservable().titleText.set("车辆防盗");
+        observableFactory.getTitleObservable().titleText.set("加速测试");
         observableFactory.getTitleObservable().userIcon.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);
         super.onResume();
