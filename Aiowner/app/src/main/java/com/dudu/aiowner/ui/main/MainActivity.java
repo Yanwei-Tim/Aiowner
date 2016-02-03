@@ -5,16 +5,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.databinding.ActivityMainBinding;
 import com.dudu.aiowner.ui.activity.drive.DrivingHabitsActivity;
 import com.dudu.aiowner.ui.activity.maintenanceAssistant.MaintenanceAssistantActivity;
 import com.dudu.aiowner.ui.activity.preventLooting.PreventLootingActivity;
+<<<<<<< HEAD
 import com.dudu.aiowner.ui.activity.preventTheft.PreventTheftActivity;
 import com.dudu.aiowner.ui.activity.testSpeed.SelectCarActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
+=======
+import com.dudu.aiowner.ui.activity.preventTheft.OwnersCertificationActivity;
+>>>>>>> 0f84951... 增加车主认证的Activity
 import com.dudu.aiowner.ui.activity.testSpeed.TestSpeedActivity;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
+import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.main.observable.MainObservable;
 
 
@@ -45,7 +51,7 @@ public class MainActivity extends BaseActivity {
 
     public void startPreventTheft(View view) {
 
-        startActivity(new Intent(MainActivity.this, PreventTheftActivity.class));
+        startActivity(new Intent(MainActivity.this, OwnersCertificationActivity.class));
     }
 
     public void startPreventLooting(View view) {
