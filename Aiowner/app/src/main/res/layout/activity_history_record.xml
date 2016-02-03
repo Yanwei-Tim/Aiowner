@@ -1,8 +1,316 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:gravity="center">
 
+    <ImageView
+        android:id="@+id/acc"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/acc"/>
+
+    <RelativeLayout
+        android:id="@+id/history_records_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/acc"
+        android:layout_marginTop="50dp">
+
+        <ImageView
+            android:id="@+id/rect_1"
+            android:layout_width="9dp"
+            android:layout_height="51dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/rect_35"/>
+
+        <FrameLayout
+            android:id="@+id/speed_show_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="42dp"
+            android:layout_toRightOf="@+id/rect_1">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="79dp"
+                android:layout_gravity="center"
+                android:src="@drawable/shape_8"/>
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0.0s"
+                android:textColor="@android:color/white"
+                android:textSize="86px"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/speed_show_1"
+            android:layout_marginTop="13dp"
+            android:layout_marginLeft="44dp">
+
+            <RelativeLayout
+                android:id="@+id/speed_1"
+                android:layout_width="102dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/group_h_1"
+                    android:layout_width="15dp"
+                    android:layout_height="15.5dp"
+                    android:src="@drawable/group_12"/>
+
+                <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                    android:id="@+id/speed_show_text_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="100km/h"
+                    android:textColor="@android:color/white"
+                    android:textSize="38px" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/time_1"
+                android:layout_width="102dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_below="@+id/speed_1">
+
+                <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                    android:id="@+id/date_show_text_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="02/03"
+                    android:textColor="@android:color/white"
+                    android:textSize="30px" />
+
+                <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                    android:id="@+id/time_show_text_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="12:34:00"
+                    android:textColor="@android:color/white"
+                    android:textSize="30px" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="102dp"
+                android:layout_height="1dp"
+                android:layout_below="@id/time_1"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/line"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/history_records_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/history_records_1"
+        android:layout_marginTop="45dp">
+
+        <ImageView
+            android:id="@+id/rect_2"
+            android:layout_width="9dp"
+            android:layout_height="51dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/rect_35"/>
+
+        <FrameLayout
+            android:id="@+id/speed_show_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="42dp"
+            android:layout_toRightOf="@+id/rect_2">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="79dp"
+                android:layout_gravity="center"
+                android:src="@drawable/shape_8"/>
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0.0s"
+                android:textColor="@android:color/white"
+                android:textSize="86px"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/speed_show_2"
+            android:layout_marginTop="13dp"
+            android:layout_marginLeft="44dp">
+
+            <RelativeLayout
+                android:id="@+id/speed_2"
+                android:layout_width="102dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/group_h_2"
+                    android:layout_width="15dp"
+                    android:layout_height="15.5dp"
+                    android:src="@drawable/group_12"/>
+
+                <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                    android:id="@+id/speed_show_text_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="100km/h"
+                    android:textColor="@android:color/white"
+                    android:textSize="38px" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/time_2"
+                android:layout_width="102dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_below="@+id/speed_2">
+
+                <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                    android:id="@+id/date_show_text_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="02/03"
+                    android:textColor="@android:color/white"
+                    android:textSize="30px" />
+
+                <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                    android:id="@+id/time_show_text_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="12:34:00"
+                    android:textColor="@android:color/white"
+                    android:textSize="30px" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="102dp"
+                android:layout_height="1dp"
+                android:layout_below="@id/time_2"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/line"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/history_records_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/history_records_2"
+        android:layout_marginTop="45dp">
+
+        <ImageView
+            android:id="@+id/rect_3"
+            android:layout_width="9dp"
+            android:layout_height="51dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/rect_35"/>
+
+        <FrameLayout
+            android:id="@+id/speed_show_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="42dp"
+            android:layout_toRightOf="@+id/rect_3">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="79dp"
+                android:layout_gravity="center"
+                android:src="@drawable/shape_8"/>
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0.0s"
+                android:textColor="@android:color/white"
+                android:textSize="86px"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/speed_show_3"
+            android:layout_marginTop="13dp"
+            android:layout_marginLeft="44dp">
+
+            <RelativeLayout
+                android:id="@+id/speed_3"
+                android:layout_width="102dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/group_h_3"
+                    android:layout_width="15dp"
+                    android:layout_height="15.5dp"
+                    android:src="@drawable/group_12"/>
+
+                <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                    android:id="@+id/speed_show_text_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="100km/h"
+                    android:textColor="@android:color/white"
+                    android:textSize="38px" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/time_3"
+                android:layout_width="102dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_below="@+id/speed_3">
+
+                <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                    android:id="@+id/date_show_text_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="02/03"
+                    android:textColor="@android:color/white"
+                    android:textSize="30px" />
+
+                <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                    android:id="@+id/time_show_text_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="12:34:00"
+                    android:textColor="@android:color/white"
+                    android:textSize="30px" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="102dp"
+                android:layout_height="1dp"
+                android:layout_below="@id/time_3"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/line"/>
+        </RelativeLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

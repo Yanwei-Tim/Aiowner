@@ -11,10 +11,13 @@ import com.dudu.aiowner.databinding.ActivityMainBinding;
 import com.dudu.aiowner.ui.activity.drive.DrivingHabitsActivity;
 import com.dudu.aiowner.ui.activity.maintenanceAssistant.MaintenanceAssistantActivity;
 import com.dudu.aiowner.ui.activity.preventLooting.PreventLootingActivity;
+
 import com.dudu.aiowner.ui.activity.preventTheft.OwnersCredentialsUploadActivity;
 import com.dudu.aiowner.ui.activity.testSpeed.SelectCarActivity;
-import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
+
 import com.dudu.aiowner.ui.base.BaseActivity;
+
+import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.main.observable.MainObservable;
 
 
