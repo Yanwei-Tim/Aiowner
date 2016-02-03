@@ -140,7 +140,7 @@
             android:src="@drawable/vector_smart_line1"/>
     </RelativeLayout>
 
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontButton
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         style="@style/button"
         android:layout_width="280dp"
         android:layout_height="wrap_content"

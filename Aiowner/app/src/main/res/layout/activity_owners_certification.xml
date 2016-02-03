@@ -97,7 +97,7 @@
             android:layout_marginTop="16dp"
             android:src="@drawable/fd_driving_iv" />
 
-        <com.dudu.aiowner.utils.customFontUtils.FZLFontButton
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             style="@style/button"
             android:layout_marginTop="50dp"
             android:background="@drawable/btn_bg_sel_line"

@@ -27,6 +27,8 @@
     <style name="button">
         <item name="android:layout_width">280dp</item>
         <item name="android:layout_height">48dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">21sp</item>
@@ -39,7 +41,7 @@
         <item name="android:textColor">@color/bluecolor</item>
         <item name="android:textSize">11sp</item>
     </style>
-    
+
     <style name="test_Speed_imageview_style1">
         <item name="android:layout_width">10dp</item>
         <item name="android:layout_height">6dp</item>
