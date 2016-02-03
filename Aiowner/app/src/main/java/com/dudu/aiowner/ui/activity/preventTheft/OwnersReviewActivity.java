@@ -1,6 +1,6 @@
 package com.dudu.aiowner.ui.activity.preventTheft;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,16 +11,15 @@ import com.dudu.aiowner.ui.base.BaseActivity;
 /**
  * Created by sunny_zhang on 2016/2/3.
  */
-public class PreventTheftActivity extends BaseActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
+public class OwnersReviewActivity extends BaseActivity {
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.activity_prevent_theft, null);
+            return LayoutInflater.from(this).inflate(R.layout.activity_owners_review, null);
+    }
+
+    public void startOwnersReviewOk(View view) {
+
+        startActivity(new Intent(OwnersReviewActivity.this, OwnersReviewOkActivity.class));
     }
 
     @Override
@@ -38,4 +37,6 @@ public class PreventTheftActivity extends BaseActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+
 }

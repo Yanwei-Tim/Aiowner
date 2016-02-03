@@ -34,9 +34,6 @@
             android:name=".ui.activity.login.LoginActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".ui.base.BaseActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity
             android:name=".ui.activity.login.ForgetPasswordActitivy"
             android:screenOrientation="portrait"></activity>
         <activity
@@ -52,15 +49,22 @@
             android:name=".ui.activity.drive.DrivingHabitsActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".ui.activity.preventTheft.OwnersCertificationActivity"
+            android:name=".ui.activity.preventTheft.OwnersCredentialsUploadActivity"
             android:screenOrientation="portrait"></activity>
-
         <activity
             android:name=".ui.activity.testSpeed.SelectCarActivity"
             android:screenOrientation="portrait"></activity>
-
         <activity
             android:name=".ui.activity.testSpeed.HistoryRecordActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventTheft.OwnersCredentialsUploadOkActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventTheft.OwnersReviewActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventTheft.OwnersReviewOkActivity"
             android:screenOrientation="portrait"></activity>
 
     </application>

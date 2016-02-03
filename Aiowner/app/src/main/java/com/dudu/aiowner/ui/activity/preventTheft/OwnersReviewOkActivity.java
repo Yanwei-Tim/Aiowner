@@ -8,13 +8,12 @@ import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
- * Created by Administrator on 2016/2/2.
+ * Created by sunny_zhang on 2016/2/3.
  */
-public class OwnersCertificationActivity extends BaseActivity {
-
+public class OwnersReviewOkActivity extends BaseActivity {
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.activity_owners_certification, null);
+            return LayoutInflater.from(this).inflate(R.layout.activity_owners_review_ok, null);
     }
 
     @Override
