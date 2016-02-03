@@ -59,6 +59,10 @@
             android:name=".ui.activity.testSpeed.SelectCarActivity"
             android:screenOrientation="portrait"></activity>
 
+        <activity
+            android:name=".ui.activity.testSpeed.HistoryRecordActivity"
+            android:screenOrientation="portrait"></activity>
+
     </application>
 
 </manifest>

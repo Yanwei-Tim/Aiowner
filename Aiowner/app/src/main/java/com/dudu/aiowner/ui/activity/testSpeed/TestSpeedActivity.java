@@ -1,5 +1,6 @@
 package com.dudu.aiowner.ui.activity.testSpeed;
 
+import android.content.Intent;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,5 +31,13 @@ public class TestSpeedActivity extends BaseActivity {
             return false;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void startTestSpeed(View view){
+
+    }
+
+    public void startHistoryRecords(View view){
+        startActivity(new Intent(TestSpeedActivity.this, HistoryRecordActivity.class));
     }
 }
