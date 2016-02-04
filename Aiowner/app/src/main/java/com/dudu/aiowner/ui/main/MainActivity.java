@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity {
         return LayoutInflater.from(this).inflate(R.layout.activity_main, null);
     }
 
-    public void startPreventTheft(View view) {
+    public void startOwnersCredentialsUpload(View view) {
 
         startActivity(new Intent(MainActivity.this, OwnersCredentialsUploadActivity.class));
     }

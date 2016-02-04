@@ -41,7 +41,7 @@
         android:textSize="12sp"/>
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-        style="@style/button"
+        style="@style/button_big"
         android:id="@+id/register_btn1"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="110dp"
