@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="drvingHabitsItemObservable"
+            type="com.dudu.aiowner.ui.activity.drive.observable.DrvingHabitsItemObservable">
+        </variable>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/driving_habits_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:id="@+id/driving_habits_4_iamge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/habits_image"
+                    android:layout_width="112.5dp"
+                    android:layout_height="31.5dp"
+                    android:src="@{drvingHabitsItemObservable.driveHabitsTypeImage}"/>
+
+                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                    android:id="@+id/habits_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@{drvingHabitsItemObservable.driveHabitsType}"
+                    android:textColor="@android:color/white"
+                    android:textSize="11sp"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/driving_habits_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/driving_habits_4_iamge"
+                android:orientation="vertical">
+
+                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                    android:id="@+id/driving_habits_time_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{drvingHabitsItemObservable.driveHabitsTime}"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:id="@+id/time_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    android:src="@{drvingHabitsItemObservable.driveHabitsTimeImage}"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/driving_habits_4_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/driving_habits_time"
+                android:orientation="vertical">
+
+                <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                    android:id="@+id/driving_habits_date_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{drvingHabitsItemObservable.driveHabitsDate}"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:id="@+id/date_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    android:src="@{drvingHabitsItemObservable.driveHabitsTimeImage}"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/habits_info_button"
+                android:layout_width="13dp"
+                android:layout_height="12dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/driving_habits_sel"
+                android:onClick="@{drvingHabitsItemObservable.startDriveHabitsInfoAcitity}"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_below="@+id/driving_habits_view"/>
+    </RelativeLayout>
+
+</layout>

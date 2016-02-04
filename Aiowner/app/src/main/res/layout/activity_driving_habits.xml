@@ -1,6 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
 
-</LinearLayout>
+    <data>
+        <variable
+            name="drvingHabitsItemObservable"
+            type="com.dudu.aiowner.ui.activity.drive.observable.DrvingHabitsItemObservable">
+        </variable>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/habits_info_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+            android:id="@+id/driving_habits_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            android:text="DRIVING HABITS"
+            android:textColor="@android:color/white"
+            android:textSize="19sp"/>
+
+        <FrameLayout
+            android:id="@+id/driving_habits_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/driving_habits_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp">
+
+            <ImageView
+                android:layout_width="227.5dp"
+                android:layout_height="107dp"
+                android:src="@drawable/blue_sorces"/>
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="乐驰者"
+                android:textColor="@android:color/white"
+                android:textSize="19sp"/>
+        </FrameLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/driving_habits_image"
+            android:layout_marginLeft="27dp"
+            android:layout_marginRight="26dp"
+            android:layout_marginTop="50dp"/>
+
+    </RelativeLayout>
+</layout>

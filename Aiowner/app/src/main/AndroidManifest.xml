@@ -22,72 +22,78 @@
     <uses-permission android:name="android.permission.BATTERY_STATS" />
 
     <application
+        android:name=".AiownerApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AiownerBackground">
+        android:theme="@style/AiownerBackground" >
         <activity
             android:name=".ui.main.HomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.activity.preventTheft.PreventTheftActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.register.TelephoneNumberActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.register.IdentifyingCodeActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.register.InitPswActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.activity.login.LoginActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.login.ForgetLoginPswActitivy"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait">
+        </activity>
+            android:name=".ui.activity.login.ForgetPasswordActitivy"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.main.MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.preventLooting.PreventLootingActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.preventLooting.InsuranceCertificationActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.testSpeed.TestSpeedActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.drive.DrivingHabitsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.preventTheft.OwnersCredentialsUploadActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.testSpeed.SelectCarActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.testSpeed.HistoryRecordActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.preventTheft.OwnersCredentialsUploadOkActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.preventTheft.OwnersReviewActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.preventTheft.OwnersReviewOkActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.preventTheft.SetGesturePswActivity"
             android:screenOrientation="portrait"></activity>
@@ -120,6 +126,9 @@
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.activity.user.UserInfoActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.drive.DrvingHabitsInfoAcitity"
             android:screenOrientation="portrait"></activity>
 
         <receiver
@@ -184,6 +193,7 @@
         <meta-data
             android:name="XG_V2_ACCESS_KEY"
             android:value="AJ696H55TCWR" />
+
     </application>
 
 </manifest>
