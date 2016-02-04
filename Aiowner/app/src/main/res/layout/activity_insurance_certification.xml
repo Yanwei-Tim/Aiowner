@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+    <LinearLayout
+        android:id="@+id/insureence_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="35dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/fd_hint_jsz_iv"
+            android:layout_width="37dp"
+            android:layout_height="25dp"
+            android:src="@drawable/fd_hint_icon" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="保险卡"
+            android:textColor="@color/bluecolor"
+            android:textSize="19sp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:text="insurance card"
+            android:textColor="@android:color/white"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/add_insurence_card"
+        android:layout_width="268dp"
+        android:layout_height="136dp"
+        android:layout_below="@+id/insureence_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/fd_driving_iv" />
+
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        android:id="@+id/hint_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_insurence_card"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:text="点击“+”号"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hint_add"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="上传保险卡证明图片"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        style="@style/button_big"
+        android:layout_marginTop="450dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/btn_bg_sel_line"
+        android:onClick="startPreventLootingActivity"
+        android:text="确 定" />
+</RelativeLayout>

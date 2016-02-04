@@ -43,6 +43,9 @@
             android:name=".ui.activity.preventLooting.PreventLootingActivity"
             android:screenOrientation="portrait"></activity>
         <activity
+            android:name=".ui.activity.preventLooting.InsuranceCertificationActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
             android:name=".ui.activity.testSpeed.TestSpeedActivity"
             android:screenOrientation="portrait"></activity>
         <activity
