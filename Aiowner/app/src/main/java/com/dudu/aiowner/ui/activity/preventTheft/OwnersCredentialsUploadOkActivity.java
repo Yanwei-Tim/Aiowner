@@ -30,7 +30,7 @@ public class OwnersCredentialsUploadOkActivity extends BaseActivity {
             public void run() {
                 startActivity(new Intent(OwnersCredentialsUploadOkActivity.this, OwnersReviewActivity.class));
             }
-        }, 2000);
+        }, 3000);
     }
 
     @Override
@@ -38,10 +38,10 @@ public class OwnersCredentialsUploadOkActivity extends BaseActivity {
         return LayoutInflater.from(this).inflate(R.layout.activity_owners_credentials_upload_ok, null);
     }
 
-    public void startOwnersReview(View view) {
-
-        startActivity(new Intent(OwnersCredentialsUploadOkActivity.this, OwnersReviewActivity.class));
-    }
+//    public void startOwnersReview(View view) {
+//
+//        startActivity(new Intent(OwnersCredentialsUploadOkActivity.this, OwnersReviewActivity.class));
+//    }
 
     @Override
     protected void onResume() {

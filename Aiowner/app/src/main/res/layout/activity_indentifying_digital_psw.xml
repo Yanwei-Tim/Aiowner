@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                style="@style/container_operation_tips_text"
+                android:text="密码解锁"
+                android:textColor="#00bfff"
+                android:textSize="16sp" />
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:text="PASSWORD UNLOCK"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="50dp"
+            android:stretchColumns="0,1,2,0">
+
+            <TableRow>
+
+                <ImageView
+                    style="@style/theft_psw_ring"
+                    android:src="@drawable/sel_1" />
+
+                <ImageView
+                    style="@style/theft_psw_ring"
+                    android:layout_marginLeft="34dp"
+                    android:src="@drawable/sel_2" />
+
+                <ImageView
+                    style="@style/theft_psw_ring"
+                    android:layout_marginLeft="34dp"
+                    android:src="@drawable/sel_3" />
+            </TableRow>
+
+            <TableRow>
+
+                <ImageView
+                    style="@style/theft_psw_ring"
+                    android:layout_marginTop="34dp"
+                    android:src="@drawable/sel_4" />
+
+                <ImageView
+                    style="@style/theft_psw_ring"
+                    android:layout_marginLeft="34dp"
+                    android:layout_marginTop="34dp"
+                    android:src="@drawable/sel_5" />
+
+                <ImageView
+                    style="@style/theft_psw_ring"
+                    android:layout_marginLeft="34dp"
+                    android:layout_marginTop="34dp"
+                    android:src="@drawable/sel_6" />
+            </TableRow>
+
+            <TableRow>
+
+                <ImageView
+                    style="@style/theft_psw_ring"
+                    android:layout_marginTop="34dp"
+                    android:src="@drawable/sel_7" />
+
+                <ImageView
+                    style="@style/theft_psw_ring"
+                    android:layout_marginLeft="34dp"
+                    android:layout_marginTop="34dp"
+                    android:src="@drawable/sel_8" />
+
+                <ImageView
+                    style="@style/theft_psw_ring"
+                    android:layout_marginLeft="34dp"
+                    android:layout_marginTop="34dp"
+                    android:src="@drawable/sel_9" />
+
+            </TableRow>
+
+            <TableRow android:gravity="center_horizontal">
+
+                <ImageView
+                    style="@style/theft_psw_ring"
+                    android:layout_marginTop="34dp"
+                    android:onClick="startPreventTheft"
+                    android:src="@drawable/sel_0" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

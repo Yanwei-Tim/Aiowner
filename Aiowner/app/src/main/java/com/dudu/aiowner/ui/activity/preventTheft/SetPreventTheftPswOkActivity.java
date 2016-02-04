@@ -15,7 +15,7 @@ import java.util.TimerTask;
 /**
  * Created by sunny_zhang on 2016/2/3.
  */
-public class OwnersReviewOkActivity extends BaseActivity {
+public class SetPreventTheftPswOkActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +27,7 @@ public class OwnersReviewOkActivity extends BaseActivity {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(OwnersReviewOkActivity.this, PreventTheftActivity.class));
+                startActivity(new Intent(SetPreventTheftPswOkActivity.this, PreventTheftActivity.class));
             }
         }, 3000);
     }
@@ -35,13 +35,13 @@ public class OwnersReviewOkActivity extends BaseActivity {
 
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.activity_owners_review_ok, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_set_prevent_theft_psw_ok, null);
     }
 
-//    public void startPreventTheft(View view) {
-//
-//        startActivity(new Intent(OwnersReviewOkActivity.this, PreventTheftActivity.class));
-//    }
+    public void startPreventTheft(View view) {
+
+        startActivity(new Intent(SetPreventTheftPswOkActivity.this, PreventTheftActivity.class));
+    }
 
 
     @Override

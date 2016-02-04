@@ -27,7 +27,7 @@ public class IdentifyingCodeActivity extends BaseActivity {
     }
 
     public void startInitPassword(View view) {
-        startActivity(new Intent(IdentifyingCodeActivity.this, InitPasswordActivity.class));
+        startActivity(new Intent(IdentifyingCodeActivity.this, InitPswActivity.class));
     }
 
     @Override

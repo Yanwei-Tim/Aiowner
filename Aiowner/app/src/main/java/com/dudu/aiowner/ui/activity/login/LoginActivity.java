@@ -29,9 +29,9 @@ public class LoginActivity extends BaseActivity {
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
     }
 
-    public void startFogetPassword(View view) {
+    public void startForgetPreventTheftPsw(View view) {
 
-        startActivity(new Intent(LoginActivity.this, ForgetPasswordActitivy.class));
+//        startActivity(new Intent(LoginActivity.this, ForgetPreventTheftPswActivity.class));
     }
 
     @Override

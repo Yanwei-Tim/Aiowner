@@ -1,4 +1,4 @@
-package com.dudu.aiowner.ui.activity.testSpeed;
+package com.dudu.aiowner.ui.activity.preventTheft;
 
 import android.content.Intent;
 import android.view.KeyEvent;
@@ -6,20 +6,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.ui.activity.login.ForgetLoginPswActitivy;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
- * Created by Administrator on 2016/2/2.
+ * Created by sunny_zhang on 2016/2/4.
  */
-public class SelectCarActivity extends BaseActivity {
+public class IndentifyingGesturePswActivity extends BaseActivity {
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.activity_sel_car, null);
+
+        return LayoutInflater.from(this).inflate(R.layout.i, null);
     }
+
+    public void startDigitalPassword(View view) {
+
+        startActivity(new Intent(IndentifyingGesturePswActivity.this, SetDigitalPswActivity.class));
+    }
+
+    public void startFogetPassword(View view) {
+
+        startActivity(new Intent(IndentifyingGesturePswActivity.this, ForgetLoginPswActitivy.class));
+    }
+
 
     @Override
     protected void onResume() {
-        observableFactory.getTitleObservable().titleText.set("加速测试");
+        observableFactory.getTitleObservable().titleText.set("车辆防盗");
         observableFactory.getTitleObservable().userIcon.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);
         super.onResume();
@@ -31,9 +44,5 @@ public class SelectCarActivity extends BaseActivity {
             return false;
         }
         return super.onKeyDown(keyCode, event);
-    }
-
-    public void startTestSpeed(View view){
-        startActivity(new Intent(SelectCarActivity.this, TestSpeedActivity.class));
     }
 }

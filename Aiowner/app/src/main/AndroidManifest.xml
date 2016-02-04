@@ -28,13 +28,13 @@
             android:name=".ui.activity.register.IdentifyingCodeActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".ui.activity.register.InitPasswordActivity"
+            android:name=".ui.activity.register.InitPswActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.activity.login.LoginActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".ui.activity.login.ForgetPasswordActitivy"
+            android:name=".ui.activity.login.ForgetLoginPswActitivy"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.main.MainActivity"
@@ -70,9 +70,20 @@
             android:name=".ui.activity.preventTheft.OwnersReviewOkActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".ui.activity.preventTheft.SetGesturePasswordActivity"
+            android:name=".ui.activity.preventTheft.SetGesturePswActivity"
             android:screenOrientation="portrait"></activity>
-
+        <activity
+            android:name=".ui.activity.preventTheft.SetDigitalPswActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventTheft.ConfirmGesturePswActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventTheft.ConfirmDigitalPswActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventTheft.SetPreventTheftPswOkActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

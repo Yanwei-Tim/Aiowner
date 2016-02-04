@@ -55,7 +55,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="217dp"
             android:clickable="true"
-            android:onClick="startFogetPassword"
+            android:onClick="startForgetPreventTheftPsw"
             android:paddingRight="42dp"
             android:text="Forget?"
             android:textColor="@android:color/white"

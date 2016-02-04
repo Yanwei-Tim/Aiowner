@@ -1,37 +1,30 @@
-package com.dudu.aiowner.ui.activity.register;
+package com.dudu.aiowner.ui.activity.login;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
-import com.dudu.aiowner.ui.activity.login.LoginActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
- * Created by sunny_zhang on 2016/1/27.
+ * Created by sunny_zhang on 2016/1/29.
  */
-public class InitPasswordActivity extends BaseActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
+public class ForgetLoginPswActitivy extends BaseActivity {
 
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.activity_initpassword, null);
+        return LayoutInflater.from(this).inflate(R.layout.acitivty_forget_login_psw, null);
     }
 
     public void startLoginActivity(View view) {
-        startActivity(new Intent(InitPasswordActivity.this, LoginActivity.class));
+        startActivity(new Intent(ForgetLoginPswActitivy.this, LoginActivity.class));
     }
 
     @Override
     protected void onResume() {
-        observableFactory.getTitleObservable().titleText.set("注册");
+        observableFactory.getTitleObservable().titleText.set("忘记密码");
         super.onResume();
     }
 
