@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.ui.activity.login.LoginActivity;
 import com.dudu.aiowner.ui.activity.register.TelephoneNumberActivity;
 
 /**
@@ -21,5 +22,10 @@ public class HomeActivity extends Activity {
     public void startRegister(View view) {
 
         startActivity(new Intent(HomeActivity.this, TelephoneNumberActivity.class));
+    }
+
+    public void startLoginActivity(View view) {
+
+        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
     }
 }

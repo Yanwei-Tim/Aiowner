@@ -66,6 +66,9 @@
         <activity
             android:name=".ui.activity.preventTheft.OwnersReviewOkActivity"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventTheft.SetGesturePasswordActivity"
+            android:screenOrientation="portrait"></activity>
 
     </application>
 

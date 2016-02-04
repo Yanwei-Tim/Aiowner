@@ -44,6 +44,21 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="theft_gesture_psw_ring">
+        <item name="android:layout_width">69dp</item>
+        <item name="android:layout_height">69dp</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="geture_btn">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 
 
 
