@@ -31,21 +31,17 @@
         android:layout_width="134dp"
         android:layout_height="80dp"
         android:layout_gravity="center"
+        android:clickable="true"
         android:onClick="startMaintenanceAssistant"
         android:src="@drawable/center_btn" />
-
-    <ImageView
-        android:layout_width="134dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:src="@drawable/center_btn"
-        android:onClick="startMaintenanceAssistant"/>
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
+        android:clickable="true"
+        android:onClick="startMaintenanceAssistant"
         android:text="保养助手"
         android:textColor="@android:color/white"
         android:textSize="15dp" />

@@ -96,6 +96,9 @@
         <activity
             android:name=".ui.activity.preventTheft.ForgetPreventTheftPswActitivy"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.maintenanceAssistant.MaintenanceAssistantActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

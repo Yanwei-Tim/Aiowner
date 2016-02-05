@@ -17,7 +17,7 @@ public class MaintenanceAssistantActivity extends BaseActivity {
     @Override
     protected View getChildView() {
 
-        return LayoutInflater.from(this).inflate(R.layout.activity_indentifying_gesture_psw, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_maintenance_assistant, null);
     }
 
     public void startDigitalPassword(View view) {
@@ -33,7 +33,7 @@ public class MaintenanceAssistantActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
-        observableFactory.getTitleObservable().titleText.set("车辆防盗");
+        observableFactory.getTitleObservable().titleText.set("保养助手");
         observableFactory.getTitleObservable().userIcon.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);
         super.onResume();
