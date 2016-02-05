@@ -11,14 +11,10 @@ import com.dudu.aiowner.databinding.ActivityMainBinding;
 import com.dudu.aiowner.ui.activity.drive.DrivingHabitsActivity;
 import com.dudu.aiowner.ui.activity.maintenanceAssistant.MaintenanceAssistantActivity;
 import com.dudu.aiowner.ui.activity.preventLooting.InsuranceCertificationActivity;
-import com.dudu.aiowner.ui.activity.preventLooting.PreventLootingActivity;
-
 import com.dudu.aiowner.ui.activity.preventTheft.OwnersCredentialsUploadActivity;
 import com.dudu.aiowner.ui.activity.testSpeed.SelectCarActivity;
-
-import com.dudu.aiowner.ui.base.BaseActivity;
-
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
+import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.main.observable.MainObservable;
 
 
@@ -26,12 +22,15 @@ import com.dudu.aiowner.ui.main.observable.MainObservable;
  * Created by sunny_zhang on 2016/1/27.
  */
 public class MainActivity extends BaseActivity {
+    private static final String TAG = "MainActivity";
+
     private MainObservable mainObservable;
     private ActivityMainBinding activityMainBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         observableFactory.setToMainUi();
 
         mainObservable = new MainObservable();
@@ -41,6 +40,8 @@ public class MainActivity extends BaseActivity {
         activityMainBinding.setTitle(observableFactory.getTitleObservable());
         activityMainBinding.setMainPage(mainObservable);
     }
+
+
 
     @Override
     protected View getChildView() {
@@ -72,7 +73,7 @@ public class MainActivity extends BaseActivity {
         startActivity(new Intent(MainActivity.this, MaintenanceAssistantActivity.class));
     }
 
-    public void userInfo(View view){
+    public void userInfo(View view) {
         startActivity(new Intent(MainActivity.this, UserInfoActivity.class));
     }
 
