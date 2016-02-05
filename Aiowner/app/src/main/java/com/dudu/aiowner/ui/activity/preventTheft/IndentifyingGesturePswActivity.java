@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
-import com.dudu.aiowner.ui.activity.login.ForgetLoginPswActitivy;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
@@ -16,17 +15,22 @@ public class IndentifyingGesturePswActivity extends BaseActivity {
     @Override
     protected View getChildView() {
 
-        return LayoutInflater.from(this).inflate(R.layout.i, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_indentifying_gesture_psw, null);
     }
 
-    public void startDigitalPassword(View view) {
+    public void startUnlockSuccess(View view) {
 
-        startActivity(new Intent(IndentifyingGesturePswActivity.this, SetDigitalPswActivity.class));
+        startActivity(new Intent(IndentifyingGesturePswActivity.this, UnlockSuccessActivity.class));
     }
 
-    public void startFogetPassword(View view) {
+    public void startIndentifyingDigitalPsw(View view) {
 
-        startActivity(new Intent(IndentifyingGesturePswActivity.this, ForgetLoginPswActitivy.class));
+        startActivity(new Intent(IndentifyingGesturePswActivity.this, IndentifyingDigitalPswActivity.class));
+    }
+
+    public void startFogetPreventTheftPsw(View view) {
+
+        startActivity(new Intent(IndentifyingGesturePswActivity.this, ForgetPreventTheftPswActitivy.class));
     }
 
 

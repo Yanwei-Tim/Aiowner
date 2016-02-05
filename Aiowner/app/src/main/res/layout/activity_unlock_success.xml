@@ -16,14 +16,14 @@
             android:layout_width="92dp"
             android:layout_height="92dp"
             android:clickable="true"
-            android:onClick="startIndentifyingGesturePsw"
+            android:onClick="startPreventTheft"
             android:src="@drawable/ok_icon" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="19dp"
-            android:text="设置成功"
+            android:text="解 锁 成 功"
             android:textColor="@android:color/white"
             android:textSize="19sp" />
 

@@ -84,6 +84,18 @@
         <activity
             android:name=".ui.activity.preventTheft.SetPreventTheftPswOkActivity"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventTheft.IndentifyingGesturePswActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventTheft.IndentifyingDigitalPswActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventTheft.UnlockSuccessActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventTheft.ForgetPreventTheftPswActitivy"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

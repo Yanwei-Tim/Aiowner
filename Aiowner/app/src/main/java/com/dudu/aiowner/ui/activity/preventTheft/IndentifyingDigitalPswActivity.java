@@ -1,4 +1,4 @@
-package com.dudu.aiowner.ui.activity.maintenanceAssistant;
+package com.dudu.aiowner.ui.activity.preventTheft;
 
 import android.content.Intent;
 import android.view.KeyEvent;
@@ -6,30 +6,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
-import com.dudu.aiowner.ui.activity.login.ForgetLoginPswActitivy;
-import com.dudu.aiowner.ui.activity.preventTheft.SetDigitalPswActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
- * Created by Administrator on 2016/2/2.
+ * Created by sunny_zhang on 2016/2/4.
  */
-public class MaintenanceAssistantActivity extends BaseActivity {
+public class IndentifyingDigitalPswActivity extends BaseActivity {
     @Override
     protected View getChildView() {
 
-        return LayoutInflater.from(this).inflate(R.layout.activity_indentifying_gesture_psw, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_indentifying_digital_psw, null);
     }
 
-    public void startDigitalPassword(View view) {
+    public void startUnlockSuccess(View view) {
 
-        startActivity(new Intent(MaintenanceAssistantActivity.this, SetDigitalPswActivity.class));
+        startActivity(new Intent(IndentifyingDigitalPswActivity.this, UnlockSuccessActivity.class));
     }
-
-    public void startFogetPassword(View view) {
-
-        startActivity(new Intent(MaintenanceAssistantActivity.this, ForgetLoginPswActitivy.class));
-    }
-
 
     @Override
     protected void onResume() {
