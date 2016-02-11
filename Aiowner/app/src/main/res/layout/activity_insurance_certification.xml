@@ -73,7 +73,6 @@
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         style="@style/button_big"
         android:layout_marginTop="450dp"
-        android:layout_marginBottom="50dp"
         android:background="@drawable/btn_bg_sel_line"
         android:onClick="startPreventLootingActivity"
         android:text="确 定" />

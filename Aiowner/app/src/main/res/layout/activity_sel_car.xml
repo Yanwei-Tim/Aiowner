@@ -142,8 +142,6 @@
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         style="@style/button_big"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:singleLine="true"
         android:layout_marginTop="50dp"

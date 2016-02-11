@@ -12,11 +12,15 @@ public class TitleBarObservable {
 
     public final ObservableBoolean titleLogo = new ObservableBoolean();
 
+    public final ObservableBoolean userTitleLogo = new ObservableBoolean();
+
     public final ObservableBoolean userIcon = new ObservableBoolean();
 
     public final ObservableField<String> titleText = new ObservableField<>();
 
     public final ObservableBoolean hasBackButton = new ObservableBoolean();
+
+    public final ObservableBoolean hasBackGround = new ObservableBoolean();
 
     public TitleBarObservable() {
 
@@ -25,6 +29,8 @@ public class TitleBarObservable {
         this.titleText.set("Aiowner");
         this.titleLogo.set(false);
         this.hasBackButton.set(true);
+        this.userTitleLogo.set(false);
+        this.hasBackGround.set(false);
     }
 
 }

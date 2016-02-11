@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        style="@style/container_operation_tips_text"
+        android:text="已发送验证码请输入" />
 
-        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-            style="@style/container_operation_tips_text"
-            android:text="已发送验证码请输入" />
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+        style="@style/registAndLogin_editText"
+        android:layout_marginTop="80dp" />
 
-        <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
-            style="@style/registAndLogin_editText"
-            android:layout_marginTop="80dp" />
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        style="@style/button_big"
+        android:layout_marginTop="170dp"
+        android:background="@drawable/btn_bg_sel_line"
+        android:onClick="startInitPassword"
+        android:text="确 定" />
 
-        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-            style="@style/button_big"
-            android:layout_marginTop="170dp"
-            android:background="@drawable/btn_bg_sel_line"
-            android:onClick="startInitPassword"
-            android:text="确 定" />
-
-    </RelativeLayout>
-
-</LinearLayout>
+</RelativeLayout>

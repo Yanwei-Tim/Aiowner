@@ -178,6 +178,9 @@
         <meta-data
             android:name="XG_V2_ACCESS_KEY"
             android:value="AJ696H55TCWR" />
+        <activity
+            android:name=".ui.activity.user.UserInfoActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

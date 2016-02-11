@@ -62,6 +62,16 @@
             android:background="@{title.userCommon ? @drawable/user_icon : @drawable/user_message}"
             android:visibility="@{title.userIcon ? View.VISIBLE : View.GONE}" />
 
+        <ImageView
+            android:layout_width="41dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="17dp"
+            android:src="@drawable/user_title_logo"
+            android:visibility="@{title.userTitleLogo ? View.VISIBLE : View.GONE}" />
+
+
     </RelativeLayout>
 
 </layout>
