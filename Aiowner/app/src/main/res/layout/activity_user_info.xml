@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:background="@drawable/user_title_bg"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="8dp"
+            android:background="#01000000">
+
+            <ImageView
+                android:layout_width="97dp"
+                android:layout_height="97dp"
+                android:background="@drawable/user_icon_ring" />
+
+            <ImageView
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:layout_gravity="center"
+                android:background="@drawable/user_icon_nor" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="32dp"
+            android:background="#01000000"
+            android:orientation="vertical">
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#01000000"
+                android:text="Jack's Home"
+                android:textColor="@android:color/white"
+                android:textSize="27sp" />
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#01000000"
+                android:text="welcome back"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="13.5dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/user_set_icon_btn_sel" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="40dp"
+            android:background="#01000000"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="#01000000"
+                android:src="@drawable/user_icon_user" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="#01000000"
+                android:text="账号"
+                android:textColor="#727171"
+                android:textSize="17sp" />
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="112dp"
+                android:background="#01000000"
+                android:text="13800138000"
+                android:textColor="#727171"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="290dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="#BBBCBC"></View>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="20dp"
+            android:background="#01000000"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="#01000000"
+                android:src="@drawable/user_icon_password" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="#01000000"
+                android:text="密码"
+                android:textColor="#727171"
+                android:textSize="17sp" />
+
+            <Button
+                android:layout_width="9.5dp"
+                android:layout_height="16.5dp"
+                android:layout_marginLeft="216dp"
+                android:background="@drawable/user_set_psw_btn_sel" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="290dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="#BBBCBC"></View>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="20dp"
+            android:background="#01000000"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="#01000000"
+                android:src="@drawable/user_icon_hand" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="#01000000"
+                android:text="手势密码"
+                android:textColor="#727171"
+                android:textSize="17sp" />
+
+            <Button
+                android:layout_width="9.5dp"
+                android:layout_height="16.5dp"
+                android:layout_marginLeft="182dp"
+                android:background="@drawable/user_set_psw_btn_sel" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="290dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="#BBBCBC"></View>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="20dp"
+            android:background="#01000000"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="#01000000"
+                android:src="@drawable/user_icon_feedback" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="#01000000"
+                android:text="用户反馈"
+                android:textColor="#727171"
+                android:textSize="17sp" />
+
+            <Button
+                android:layout_width="9.5dp"
+                android:layout_height="16.5dp"
+                android:layout_marginLeft="182dp"
+                android:background="@drawable/user_set_psw_btn_sel" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="290dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="#BBBCBC"></View>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="20dp"
+            android:background="#01000000"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="#01000000"
+                android:src="@drawable/user_icon_matching" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="#01000000"
+                android:text="设备匹配"
+                android:textColor="#727171"
+                android:textSize="17sp" />
+
+            <Button
+                android:layout_width="9.5dp"
+                android:layout_height="16.5dp"
+                android:layout_marginLeft="182dp"
+                android:background="@drawable/user_set_psw_btn_sel" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="290dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="#BBBCBC"></View>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -20,10 +20,11 @@ public class TitleBarObservable {
 
     public final ObservableBoolean hasBackButton = new ObservableBoolean();
 
+    public final ObservableBoolean hasUserBackButton = new ObservableBoolean();
+
     public final ObservableBoolean hasBackGround = new ObservableBoolean();
 
     public TitleBarObservable() {
-
         this.userCommon.set(true);
         this.userIcon.set(false);
         this.titleText.set("Aiowner");
@@ -31,6 +32,6 @@ public class TitleBarObservable {
         this.hasBackButton.set(true);
         this.userTitleLogo.set(false);
         this.hasBackGround.set(false);
+        this.hasUserBackButton.set(false);
     }
-
 }

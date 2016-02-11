@@ -28,14 +28,15 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="115dp"
-                        android:layout_height="115dp"
-                        android:src="@drawable/user_icon_ringa" />
+                        android:layout_width="97dp"
+                        android:layout_height="97dp"
+                        android:src="@drawable/user_icon_ring" />
 
                     <ImageView
                         android:layout_width="76dp"
                         android:layout_height="76dp"
                         android:layout_gravity="center"
+                        android:background="#01000000"
                         android:src="@drawable/user_icon_nor" />
 
                 </FrameLayout>
