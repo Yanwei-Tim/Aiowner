@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.login.ForgetLoginPswActitivy;
+import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
@@ -27,6 +28,10 @@ public class SetGesturePswActivity extends BaseActivity {
     public void startFogetPassword(View view) {
 
         startActivity(new Intent(SetGesturePswActivity.this, ForgetLoginPswActitivy.class));
+    }
+
+    public void userInfo(View view) {
+        startActivity(new Intent(SetGesturePswActivity.this, UserInfoActivity.class));
     }
 
     @Override

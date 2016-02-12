@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
@@ -15,6 +16,14 @@ public class InsuranceCertificationActivity extends BaseActivity {
     @Override
     protected View getChildView() {
         return LayoutInflater.from(this).inflate(R.layout.activity_insurance_certification, null);
+    }
+
+    public void userInfo(View view) {
+        startActivity(new Intent(InsuranceCertificationActivity.this, UserInfoActivity.class));
+    }
+
+    public void startPreventLootingActivity(View view) {
+        startActivity(new Intent(InsuranceCertificationActivity.this, PreventLootingActivity.class));
     }
 
     @Override
@@ -31,9 +40,5 @@ public class InsuranceCertificationActivity extends BaseActivity {
             return false;
         }
         return super.onKeyDown(keyCode, event);
-    }
-
-    public void startPreventLootingActivity(View view){
-        startActivity(new Intent(InsuranceCertificationActivity.this, PreventLootingActivity.class));
     }
 }

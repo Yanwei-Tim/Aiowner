@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
@@ -15,6 +16,18 @@ public class TestSpeedActivity extends BaseActivity {
     @Override
     protected View getChildView() {
         return LayoutInflater.from(this).inflate(R.layout.activity_test_speed, null);
+    }
+
+    public void startTestSpeed(View view) {
+
+    }
+
+    public void userInfo(View view) {
+        startActivity(new Intent(TestSpeedActivity.this, UserInfoActivity.class));
+    }
+
+    public void startHistoryRecords(View view) {
+        startActivity(new Intent(TestSpeedActivity.this, HistoryRecordActivity.class));
     }
 
     @Override
@@ -31,13 +44,5 @@ public class TestSpeedActivity extends BaseActivity {
             return false;
         }
         return super.onKeyDown(keyCode, event);
-    }
-
-    public void startTestSpeed(View view){
-
-    }
-
-    public void startHistoryRecords(View view){
-        startActivity(new Intent(TestSpeedActivity.this, HistoryRecordActivity.class));
     }
 }

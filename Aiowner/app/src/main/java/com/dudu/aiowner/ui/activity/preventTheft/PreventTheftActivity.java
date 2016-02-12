@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
@@ -27,6 +28,10 @@ public class PreventTheftActivity extends BaseActivity {
     public void startSetGesturePassword(View view) {
 
         startActivity(new Intent(PreventTheftActivity.this, SetGesturePswActivity.class));
+    }
+
+    public void userInfo(View view) {
+        startActivity(new Intent(PreventTheftActivity.this, UserInfoActivity.class));
     }
 
     @Override

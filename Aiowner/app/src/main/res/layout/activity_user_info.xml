@@ -61,6 +61,7 @@
             android:layout_height="25dp"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="45dp"
+            android:onClick="startModifyHeadPortraitAndNickname"
             android:background="@drawable/user_set_icon_btn_sel" />
 
     </LinearLayout>

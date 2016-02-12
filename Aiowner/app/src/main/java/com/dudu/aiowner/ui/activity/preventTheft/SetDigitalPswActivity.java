@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
@@ -18,11 +19,14 @@ public class SetDigitalPswActivity extends BaseActivity {
         return LayoutInflater.from(this).inflate(R.layout.activity_set_digital_psw, null);
     }
 
-        public void startConfirmDigitalPsw(View view) {
+    public void startConfirmDigitalPsw(View view) {
 
         startActivity(new Intent(SetDigitalPswActivity.this, ConfirmDigitalPswActivity.class));
     }
 
+    public void userInfo(View view) {
+        startActivity(new Intent(SetDigitalPswActivity.this, UserInfoActivity.class));
+    }
 
     @Override
     protected void onResume() {

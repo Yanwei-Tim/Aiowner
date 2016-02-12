@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
@@ -16,6 +17,10 @@ public class OwnersCredentialsUploadActivity extends BaseActivity {
     @Override
     protected View getChildView() {
         return LayoutInflater.from(this).inflate(R.layout.activity_owners_credentials_upload, null);
+    }
+
+    public void userInfo(View view) {
+        startActivity(new Intent(OwnersCredentialsUploadActivity.this, UserInfoActivity.class));
     }
 
     @Override

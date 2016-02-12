@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
@@ -20,6 +21,10 @@ public class ForgetPreventTheftPswActitivy extends BaseActivity {
 
     public void startGesturePsw(View view) {
         startActivity(new Intent(ForgetPreventTheftPswActitivy.this, SetGesturePswActivity.class));
+    }
+
+    public void userInfo(View view) {
+        startActivity(new Intent(ForgetPreventTheftPswActitivy.this, UserInfoActivity.class));
     }
 
     @Override

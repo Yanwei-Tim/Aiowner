@@ -7,7 +7,6 @@ import android.view.View;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.login.ForgetLoginPswActitivy;
-import com.dudu.aiowner.ui.activity.preventTheft.SetDigitalPswActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
@@ -20,9 +19,9 @@ public class UserInfoActivity extends BaseActivity {
         return LayoutInflater.from(this).inflate(R.layout.activity_user_info, null);
     }
 
-    public void startDigitalPassword(View view) {
+    public void startModifyHeadPortraitAndNickname(View view) {
 
-        startActivity(new Intent(UserInfoActivity.this, SetDigitalPswActivity.class));
+        startActivity(new Intent(UserInfoActivity.this, ModifyHeadPortraitAndNicknameActivity.class));
     }
 
     public void startFogetPassword(View view) {

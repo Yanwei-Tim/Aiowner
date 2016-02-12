@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 import java.util.Timer;
@@ -43,6 +44,9 @@ public class UnlockSuccessActivity extends BaseActivity {
         startActivity(new Intent(UnlockSuccessActivity.this, PreventTheftActivity.class));
     }
 
+    public void userInfo(View view) {
+        startActivity(new Intent(UnlockSuccessActivity.this, UserInfoActivity.class));
+    }
 
     @Override
     protected void onResume() {

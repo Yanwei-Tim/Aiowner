@@ -130,6 +130,9 @@
         <activity
             android:name=".ui.activity.drive.DrvingHabitsInfoAcitity"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.user.ModifyHeadPortraitAndNicknameActivity"
+            android:screenOrientation="portrait"></activity>
 
         <receiver
             android:name="com.dudu.aiowner.receiver.MessagePushReceiver"

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 import java.util.Timer;
@@ -48,6 +49,9 @@ public class SetPreventTheftPswOkActivity extends BaseActivity {
         startActivity(new Intent(SetPreventTheftPswOkActivity.this, IndentifyingGesturePswActivity.class));
     }
 
+    public void userInfo(View view) {
+        startActivity(new Intent(SetPreventTheftPswOkActivity.this, UserInfoActivity.class));
+    }
 
     @Override
     protected void onResume() {

@@ -7,7 +7,9 @@ import android.view.View;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.login.ForgetLoginPswActitivy;
+import com.dudu.aiowner.ui.activity.preventLooting.PreventLootingActivity;
 import com.dudu.aiowner.ui.activity.preventTheft.SetDigitalPswActivity;
+import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
@@ -18,6 +20,10 @@ public class MaintenanceAssistantActivity extends BaseActivity {
     protected View getChildView() {
 
         return LayoutInflater.from(this).inflate(R.layout.activity_maintenance_assistant, null);
+    }
+
+    public void userInfo(View view) {
+        startActivity(new Intent(MaintenanceAssistantActivity.this, UserInfoActivity.class));
     }
 
     public void startDigitalPassword(View view) {

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
@@ -33,6 +34,9 @@ public class IndentifyingGesturePswActivity extends BaseActivity {
         startActivity(new Intent(IndentifyingGesturePswActivity.this, ForgetPreventTheftPswActitivy.class));
     }
 
+    public void userInfo(View view) {
+        startActivity(new Intent(IndentifyingGesturePswActivity.this, UserInfoActivity.class));
+    }
 
     @Override
     protected void onResume() {
