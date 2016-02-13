@@ -10,8 +10,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.rest.Request;
+import com.dudu.aiowner.rest.model.RequestResponse;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.utils.RegisterVerifyUtils.RegisterVerify;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * Created by sunny_zhang on 2016/1/27.
@@ -20,6 +26,7 @@ public class TelephoneNumberActivity extends BaseActivity implements View.OnClic
 
     private TextView regist_btn;
     private EditText regist_phonenumber_et;
+    private String mobiles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +65,25 @@ public class TelephoneNumberActivity extends BaseActivity implements View.OnClic
     @Override
     public void onClick(View v) {
 
-        String mobiles = regist_phonenumber_et.getText().toString();
+        mobiles = regist_phonenumber_et.getText().toString();
 
         if (mobiles == null || mobiles.trim().equals("")) {
             Toast.makeText(this, "账号不能为空", Toast.LENGTH_SHORT).show();
         } else if (RegisterVerify.isPhoneNumberValid(mobiles)) {
-            startActivity(new Intent(TelephoneNumberActivity.this, IdentifyingCodeActivity.class));
+            Request.getInstance().getRegisterService().getSecurityCode(mobiles, "method", "messageId", "register", new Callback<RequestResponse>() {
+                @Override
+                public void success(RequestResponse requestResponse, Response response) {
+                    Intent intent = new Intent(TelephoneNumberActivity.this, IdentifyingCodeActivity.class);
+                    intent.putExtra("cellphone", mobiles);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    Toast.makeText(TelephoneNumberActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
         } else {
             Toast.makeText(this, "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
         }

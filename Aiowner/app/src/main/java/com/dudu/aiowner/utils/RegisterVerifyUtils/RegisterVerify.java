@@ -15,9 +15,4 @@ public class RegisterVerify {
 
         return m.matches();
     }
-
-    public static boolean isPasswordValid(String password) {
-        //TODO
-        return false;
-    }
 }
