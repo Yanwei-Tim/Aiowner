@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,14 +9,15 @@
         android:text="请输入您的手机号码" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+        android:id="@+id/regist_input_phonenumber_et"
         style="@style/registAndLogin_editText"
         android:layout_marginTop="80dp" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        android:id="@+id/regist_btn"
         style="@style/button_big"
         android:layout_marginTop="170dp"
         android:background="@drawable/btn_bg_sel_line"
-        android:onClick="startIdentifyingCode"
         android:text="注 册" />
 
 </RelativeLayout>

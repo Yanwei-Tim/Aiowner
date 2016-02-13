@@ -10,13 +10,13 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="140dp"
         android:src="@drawable/logo" />
 
     <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="206dp"
+        android:layout_marginTop="202dp"
         android:gravity="center"
         android:text="THANKS TO USE"
         android:textColor="@android:color/white"
@@ -25,7 +25,7 @@
     <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="245dp"
+        android:layout_marginTop="240dp"
         android:gravity="center"
         android:text="AIO SMART REVIEW"
         android:textColor="@android:color/white"
@@ -41,24 +41,20 @@
         android:textSize="12sp" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        style="@style/button_big"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="125dp"
+        android:background="@drawable/btn_bg_sel_fill"
+        android:onClick="startLogin"
+        android:text="登 录" />
+
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         android:id="@+id/register_btn1"
         style="@style/button_big"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="110dp"
-        android:background="@drawable/btn_bg_sel_fill"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/btn_bg_sel_line"
         android:onClick="startRegister"
         android:text="注 册" />
-
-    <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:clickable="true"
-        android:gravity="center"
-        android:onClick="startLoginActivity"
-        android:paddingBottom="65dp"
-        android:text="use phonenumber sign up"
-        android:textColor="@android:color/white"
-        android:textSize="10sp" />
 
 </RelativeLayout>

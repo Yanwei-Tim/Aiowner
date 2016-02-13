@@ -8,11 +8,13 @@
         android:text="设置初始密码" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+        android:id="@+id/initpsw_psw_et"
         style="@style/registAndLogin_editText"
         android:layout_marginTop="80dp"
         android:password="true" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+        android:id="@+id/initpsw_repsw_et"
         style="@style/registAndLogin_editText"
         android:layout_marginTop="150dp"
         android:hint="请再次输入初始密码"
@@ -20,10 +22,10 @@
         android:textColorHint="@color/hintcolor" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        android:id="@+id/initpsw_confirm_btn"
         style="@style/button_big"
         android:layout_marginTop="250dp"
         android:background="@drawable/btn_bg_sel_line"
-        android:onClick="startLoginActivity"
         android:text="确 定" />
 
 </RelativeLayout>
