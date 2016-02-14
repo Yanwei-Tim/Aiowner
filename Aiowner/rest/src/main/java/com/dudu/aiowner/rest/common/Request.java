@@ -1,4 +1,4 @@
-package com.dudu.aiowner.rest;
+package com.dudu.aiowner.rest.common;
 
 import com.dudu.aiowner.rest.service.LoginService;
 import com.dudu.aiowner.rest.service.RegisterService;
@@ -21,8 +21,8 @@ public class Request {
 
     private Request() {
         mClient = new RetrofitClient();
-        mLoginService = mClient.getRestAdapter().create(LoginService.class);
-        mRegisterService = mClient.getRestAdapter().create(RegisterService.class);
+        mLoginService = mClient.getRetrofit().create(LoginService.class);
+        mRegisterService = mClient.getRetrofit().create(RegisterService.class);
     }
 
     public LoginService getLoginService() {

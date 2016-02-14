@@ -12,6 +12,8 @@ public class CommonLib {
 
     private Context context;
 
+    private static ConfigReader mConfigReader;
+
     public static CommonLib getInstance(){
         if (instance == null){
             synchronized (CommonLib.class){
@@ -29,6 +31,16 @@ public class CommonLib {
 
     public void init(Context context){
        this.context = context;
+        mConfigReader = new ConfigReader();
+        mConfigReader.readDefaultConfig();
+    }
+
+    public ConfigReader getConfigReader(){
+        return mConfigReader;
+    }
+
+    public static boolean isTest(){
+        return mConfigReader.isTest();
     }
 
     public Context getContext(){

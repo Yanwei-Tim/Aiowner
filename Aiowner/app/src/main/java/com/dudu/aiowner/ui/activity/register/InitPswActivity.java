@@ -12,14 +12,10 @@ import android.widget.Toast;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.commonlib.MultVerify;
-import com.dudu.aiowner.rest.Request;
-import com.dudu.aiowner.rest.model.RegisterResponse;
 import com.dudu.aiowner.ui.activity.login.LoginActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
-
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.user.UserRequest;
 
 /**
  * Created by sunny_zhang on 2016/1/27.
@@ -87,18 +83,15 @@ public class InitPswActivity extends BaseActivity {
             Toast.makeText(getApplicationContext(), "两次密码不一致", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        Request.getInstance().getRegisterService().registerWithPhone(mCellphone, "", newPassword, "method", "messageId", new Callback<RegisterResponse>() {
-            @Override
-            public void success(RegisterResponse registerResponse, Response response) {
-                startActivity(new Intent(InitPswActivity.this, LoginActivity.class));
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(InitPswActivity.this, LoginActivity.class));
-            }
-        });
+        RequestFactory.getUserRequest().settingPassword(mCellphone, "securityCode", newPassword, new UserRequest.RegisterCallback() {
+                @Override
+                public void registerSuccess(boolean success) {
+                    if (success) {
+                        startActivity(new Intent(InitPswActivity.this, LoginActivity.class));
+                    }else{
+                        Toast.makeText(InitPswActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
     }
 }

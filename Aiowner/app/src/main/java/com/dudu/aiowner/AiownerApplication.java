@@ -1,6 +1,7 @@
 package com.dudu.aiowner;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.dudu.aiowner.commonlib.CommonLib;
 
@@ -9,6 +10,7 @@ import com.dudu.aiowner.commonlib.CommonLib;
  * Description :
  */
 public class AiownerApplication extends Application {
+
     @Override
     public void onCreate() {
         super.onCreate();

@@ -10,14 +10,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dudu.aiowner.R;
-import com.dudu.aiowner.rest.Request;
-import com.dudu.aiowner.rest.model.RequestResponse;
-import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.commonlib.MultVerify;
-
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+import com.dudu.aiowner.ui.base.BaseActivity;
+import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.user.UserRequest;
 
 /**
  * Created by sunny_zhang on 2016/1/27.
@@ -73,20 +69,17 @@ public class TelephoneNumberActivity extends BaseActivity {
 //            dialog.setContentView(R.layout.mydialog);
 //            dialog.show();
 
-            Request.getInstance().getRegisterService().getSecurityCode(mobiles, "method", "messageId", "register", new Callback<RequestResponse>() {
-                @Override
-                public void success(RequestResponse requestResponse, Response response) {
-                    Intent intent = new Intent(TelephoneNumberActivity.this, IdentifyingCodeActivity.class);
-                    intent.putExtra("cellphone", mobiles);
-                    startActivity(intent);
-                }
+             RequestFactory.getUserRequest().requestVerifyCode(mobiles, new UserRequest.RequestVerifyCodeCallback() {
 
                 @Override
-                public void failure(RetrofitError error) {
-                    Toast.makeText(getApplicationContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(TelephoneNumberActivity.this, IdentifyingCodeActivity.class);
-                    intent.putExtra("cellphone", mobiles);
-                    startActivity(intent);
+                public void requestVerifyCodeResult(boolean success) {
+                    if (success) {
+                        Intent intent = new Intent(TelephoneNumberActivity.this, IdentifyingCodeActivity.class);
+                        intent.putExtra("cellphone", mobiles);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(TelephoneNumberActivity.this, "请求验证码失败", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
 

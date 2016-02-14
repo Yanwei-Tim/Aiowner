@@ -9,14 +9,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.dudu.aiowner.R;
-import com.dudu.aiowner.rest.Request;
-import com.dudu.aiowner.rest.model.LoginResponse;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.main.MainActivity;
-
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.user.UserRequest;
 
 /**
  * Created by sunny_zhang on 2016/1/27.
@@ -55,19 +51,18 @@ public class LoginActivity extends BaseActivity {
             return;
         }
 
-        Request.getInstance().getLoginService().login(login_user_edittext.getText().toString()
-                , login_password_et.getText().toString(), "", "", new Callback<LoginResponse>() {
-            @Override
-            public void success(LoginResponse loginResponse, Response response) {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            }
+        RequestFactory.getUserRequest()
+                .login(login_user_edittext.getText().toString(), login_password_et.getText().toString(), new UserRequest.LoginCallback() {
+                    @Override
+                    public void loginSuccess(boolean success) {
+                        if (success) {
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        } else {
+                            Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+                        }
+                    }
 
-            @Override
-            public void failure(RetrofitError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            }
-        });
+                });
 
     }
 
