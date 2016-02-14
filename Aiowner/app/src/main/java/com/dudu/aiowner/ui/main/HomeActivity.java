@@ -20,6 +20,7 @@ import com.tencent.android.tpush.XGPushManager;
  */
 public class HomeActivity extends Activity {
     private static final String TAG = "HomeActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +52,7 @@ public class HomeActivity extends Activity {
         startActivity(new Intent(HomeActivity.this, TelephoneNumberActivity.class));
     }
 
-    public void startLoginActivity(View view) {
+    public void startLogin(View view) {
 
         startActivity(new Intent(HomeActivity.this, LoginActivity.class));
     }

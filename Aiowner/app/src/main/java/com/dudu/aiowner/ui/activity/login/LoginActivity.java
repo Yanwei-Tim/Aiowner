@@ -33,7 +33,7 @@ public class LoginActivity extends BaseActivity {
 
     private void initView() {
         login_user_edittext = (EditText) findViewById(R.id.login_user_edittext);
-        login_password_et = (EditText) findViewById(R.id.login_password_et);
+        login_password_et = (EditText) findViewById(R.id.forgetPsw_newPsw_et);
     }
 
     @Override
@@ -42,7 +42,21 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void startMain(View view) {
-        Request.getInstance().getLoginService().login(login_user_edittext.getText().toString(), login_password_et.getText().toString(), "", "", new Callback<LoginResponse>() {
+
+        final String username = login_user_edittext.getText().toString();
+        final String password = login_password_et.getText().toString();
+
+        if (username.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "请输入用户名", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (password.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "请输入密码", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Request.getInstance().getLoginService().login(login_user_edittext.getText().toString()
+                , login_password_et.getText().toString(), "", "", new Callback<LoginResponse>() {
             @Override
             public void success(LoginResponse loginResponse, Response response) {
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
@@ -50,7 +64,8 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(LoginActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
         });
 

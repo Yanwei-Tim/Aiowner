@@ -8,6 +8,7 @@
         android:text="已发送验证码请输入" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+        android:id="@+id/verifyCode_et"
         style="@style/registAndLogin_editText"
         android:layout_marginTop="80dp" />
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.dudu.aiowner.R;
@@ -22,12 +23,14 @@ import retrofit.client.Response;
 public class IdentifyingCodeActivity extends BaseActivity {
 
     private String mCellphone;
+    private EditText verifyCode_et;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCellphone = getIntent().getStringExtra("cellphone");
 
+        mCellphone = getIntent().getStringExtra("cellphone");
+        verifyCode_et = (EditText) findViewById(R.id.verifyCode_et);
     }
 
     @Override
@@ -36,6 +39,10 @@ public class IdentifyingCodeActivity extends BaseActivity {
     }
 
     public void startInitPassword(View view) {
+        if (verifyCode_et.getText().toString().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "请输入验证码", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Request.getInstance().getRegisterService().getSecurityCode(mCellphone, "method", "messageId", "register", new Callback<RequestResponse>() {
             @Override
             public void success(RequestResponse requestResponse, Response response) {
@@ -46,7 +53,10 @@ public class IdentifyingCodeActivity extends BaseActivity {
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(IdentifyingCodeActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(IdentifyingCodeActivity.this, InitPswActivity.class);
+                intent.putExtra("cellphone", mCellphone);
+                startActivity(intent);
             }
         });
     }

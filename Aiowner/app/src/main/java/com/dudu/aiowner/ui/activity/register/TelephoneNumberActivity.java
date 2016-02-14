@@ -13,7 +13,7 @@ import com.dudu.aiowner.R;
 import com.dudu.aiowner.rest.Request;
 import com.dudu.aiowner.rest.model.RequestResponse;
 import com.dudu.aiowner.ui.base.BaseActivity;
-import com.dudu.aiowner.utils.RegisterVerifyUtils.RegisterVerify;
+import com.dudu.aiowner.utils.RegisterVerifyUtils.MultVerify;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -67,9 +67,9 @@ public class TelephoneNumberActivity extends BaseActivity implements View.OnClic
 
         mobiles = regist_phonenumber_et.getText().toString();
 
-        if (mobiles == null || mobiles.trim().equals("")) {
-            Toast.makeText(this, "账号不能为空", Toast.LENGTH_SHORT).show();
-        } else if (RegisterVerify.isPhoneNumberValid(mobiles)) {
+        if (mobiles.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "请输入手机号码", Toast.LENGTH_SHORT).show();
+        } else if (MultVerify.isPhoneNumberValid(mobiles)) {
             Request.getInstance().getRegisterService().getSecurityCode(mobiles, "method", "messageId", "register", new Callback<RequestResponse>() {
                 @Override
                 public void success(RequestResponse requestResponse, Response response) {
@@ -80,12 +80,15 @@ public class TelephoneNumberActivity extends BaseActivity implements View.OnClic
 
                 @Override
                 public void failure(RetrofitError error) {
-                    Toast.makeText(TelephoneNumberActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(TelephoneNumberActivity.this, IdentifyingCodeActivity.class);
+                    intent.putExtra("cellphone", mobiles);
+                    startActivity(intent);
                 }
             });
 
         } else {
-            Toast.makeText(this, "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
         }
     }
 }

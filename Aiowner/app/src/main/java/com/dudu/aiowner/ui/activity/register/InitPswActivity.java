@@ -2,6 +2,7 @@ package com.dudu.aiowner.ui.activity.register;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ import retrofit.client.Response;
 /**
  * Created by sunny_zhang on 2016/1/27.
  */
-public class InitPswActivity extends BaseActivity implements View.OnClickListener {
+public class InitPswActivity extends BaseActivity {
     private EditText initpsw_psw_et;
     private EditText initpsw_repsw_et;
     private TextView initpsw_confirm_btn;
@@ -32,7 +33,6 @@ public class InitPswActivity extends BaseActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initView();
-        initpsw_confirm_btn.setOnClickListener(this);
         mCellphone = getIntent().getStringExtra("cellphone");
     }
 
@@ -61,31 +61,39 @@ public class InitPswActivity extends BaseActivity implements View.OnClickListene
         return super.onKeyDown(keyCode, event);
     }
 
-    @Override
-    public void onClick(View v) {
+    public void startLoginActivity(View v) {
 
-        String password = initpsw_psw_et.getText().toString();
-        String affPassword = initpsw_repsw_et.getText().toString();
+        String newPassword = initpsw_psw_et.getText().toString();
+        String confirmPassword = initpsw_repsw_et.getText().toString();
 
-        if (password == null || password.trim().equals("")) {
-            Toast.makeText(this, "密码不能为空", Toast.LENGTH_SHORT).show();
-        } else if (password.length() < 6) {
-            Toast.makeText(this, "密码不能少于6位", Toast.LENGTH_SHORT).show();
-        } else if (!(password.equals(affPassword))) {
-            Toast.makeText(this, "两次密码不一致", Toast.LENGTH_SHORT).show();
-        } else {
-            Request.getInstance().getRegisterService().registerWithPhone(mCellphone, "", password, "method", "messageId", new Callback<RegisterResponse>() {
-                @Override
-                public void success(RegisterResponse registerResponse, Response response) {
-                    startActivity(new Intent(InitPswActivity.this, LoginActivity.class));
-                }
-
-                @Override
-                public void failure(RetrofitError error) {
-                    Toast.makeText(InitPswActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
-                }
-            });
-
+        if (TextUtils.isEmpty(newPassword)) {
+            Toast.makeText(getApplicationContext(), "请输入新密码", Toast.LENGTH_SHORT).show();
+            return;
         }
+        if (newPassword.length() < 6) {
+            Toast.makeText(getApplicationContext(), "密码不能少于6位", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(confirmPassword)) {
+            Toast.makeText(getApplicationContext(), "请确认密码", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!(newPassword.equals(confirmPassword))) {
+            Toast.makeText(getApplicationContext(), "两次密码不一致", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Request.getInstance().getRegisterService().registerWithPhone(mCellphone, "", newPassword, "method", "messageId", new Callback<RegisterResponse>() {
+            @Override
+            public void success(RegisterResponse registerResponse, Response response) {
+                startActivity(new Intent(InitPswActivity.this, LoginActivity.class));
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast.makeText(getApplicationContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(InitPswActivity.this, LoginActivity.class));
+            }
+        });
     }
 }

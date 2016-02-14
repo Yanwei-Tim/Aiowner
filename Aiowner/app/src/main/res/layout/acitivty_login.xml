@@ -38,7 +38,7 @@
         android:textColor="@android:color/white" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
-        android:id="@+id/login_password_et"
+        android:id="@+id/forgetPsw_newPsw_et"
         style="@style/registAndLogin_editText"
         android:layout_marginTop="180dp"
         android:gravity="center"
