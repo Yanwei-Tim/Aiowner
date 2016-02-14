@@ -13,7 +13,7 @@ import com.dudu.aiowner.R;
 import com.dudu.aiowner.rest.Request;
 import com.dudu.aiowner.rest.model.RequestResponse;
 import com.dudu.aiowner.ui.base.BaseActivity;
-import com.dudu.aiowner.utils.RegisterVerifyUtils.MultVerify;
+import com.dudu.aiowner.commonlib.MultVerify;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -22,23 +22,22 @@ import retrofit.client.Response;
 /**
  * Created by sunny_zhang on 2016/1/27.
  */
-public class TelephoneNumberActivity extends BaseActivity implements View.OnClickListener {
+public class TelephoneNumberActivity extends BaseActivity {
 
-    private TextView regist_btn;
     private EditText regist_phonenumber_et;
     private String mobiles;
+    private TextView mydialog_phone_tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         initView();
-        regist_btn.setOnClickListener(this);
     }
 
     private void initView() {
         regist_phonenumber_et = (EditText) findViewById(R.id.regist_input_phonenumber_et);
-        regist_btn = (TextView) findViewById(R.id.regist_btn);
+        mydialog_phone_tv = (TextView) findViewById(R.id.mydialog_phone_tv);
     }
 
     @Override
@@ -62,14 +61,18 @@ public class TelephoneNumberActivity extends BaseActivity implements View.OnClic
         return super.onKeyDown(keyCode, event);
     }
 
-    @Override
-    public void onClick(View v) {
-
+    public void startIdentifyingCode(View v) {
         mobiles = regist_phonenumber_et.getText().toString();
 
         if (mobiles.isEmpty()) {
             Toast.makeText(getApplicationContext(), "请输入手机号码", Toast.LENGTH_SHORT).show();
         } else if (MultVerify.isPhoneNumberValid(mobiles)) {
+
+//            Dialog dialog = new Dialog(TelephoneNumberActivity.this, R.style.MyDialog);
+//            //设置它的ContentView
+//            dialog.setContentView(R.layout.mydialog);
+//            dialog.show();
+
             Request.getInstance().getRegisterService().getSecurityCode(mobiles, "method", "messageId", "register", new Callback<RequestResponse>() {
                 @Override
                 public void success(RequestResponse requestResponse, Response response) {

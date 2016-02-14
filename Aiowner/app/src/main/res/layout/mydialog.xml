@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="124dp"
+    android:background="@drawable/dialog_bg"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical">
+
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:background="#01000000"
+        android:text="确认手机号码"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
+
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#01000000"
+        android:text="我们将发送验证码到这个号码"
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        android:id="@+id/mydialog_phone_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#01000000"
+        android:textColor="@android:color/black"
+        android:textSize="12sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/hintcolor" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#01000000"
+        android:orientation="horizontal">
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/dialog_button_cancel"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:background="@drawable/big_dialog_left_btn_sel"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="#00bfff"
+            android:textSize="14sp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/dialog_button_ok"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:background="@drawable/big_dialog_right_btn_sel"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#00bfff"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.commonlib.MultVerify;
 import com.dudu.aiowner.rest.Request;
 import com.dudu.aiowner.rest.model.RegisterResponse;
 import com.dudu.aiowner.ui.activity.login.LoginActivity;
@@ -61,7 +62,7 @@ public class InitPswActivity extends BaseActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    public void startLoginActivity(View v) {
+    public void startLogin(View v) {
 
         String newPassword = initpsw_psw_et.getText().toString();
         String confirmPassword = initpsw_repsw_et.getText().toString();
@@ -70,10 +71,14 @@ public class InitPswActivity extends BaseActivity {
             Toast.makeText(getApplicationContext(), "请输入新密码", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (newPassword.length() < 6) {
-            Toast.makeText(getApplicationContext(), "密码不能少于6位", Toast.LENGTH_SHORT).show();
+        if(!(MultVerify.isPasswordValid(newPassword))){
+            Toast.makeText(getApplicationContext(), "密码必须为大于6位的数字和字母的组合，且至少包含一位大写字母", Toast.LENGTH_SHORT).show();
             return;
         }
+//        if (newPassword.length() < 6) {
+//            Toast.makeText(getApplicationContext(), "密码不能少于6位", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
         if (TextUtils.isEmpty(confirmPassword)) {
             Toast.makeText(getApplicationContext(), "请确认密码", Toast.LENGTH_SHORT).show();
             return;

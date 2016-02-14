@@ -43,22 +43,23 @@ public class IdentifyingCodeActivity extends BaseActivity {
             Toast.makeText(getApplicationContext(), "请输入验证码", Toast.LENGTH_SHORT).show();
             return;
         }
-        Request.getInstance().getRegisterService().getSecurityCode(mCellphone, "method", "messageId", "register", new Callback<RequestResponse>() {
-            @Override
-            public void success(RequestResponse requestResponse, Response response) {
-                Intent intent = new Intent(IdentifyingCodeActivity.this, InitPswActivity.class);
-                intent.putExtra("cellphone", mCellphone);
-                startActivity(intent);
-            }
+        Request.getInstance().getRegisterService().getSecurityCode
+                (mCellphone, "method", "messageId", "register", new Callback<RequestResponse>() {
+                    @Override
+                    public void success(RequestResponse requestResponse, Response response) {
+                        Intent intent = new Intent(IdentifyingCodeActivity.this, InitPswActivity.class);
+                        intent.putExtra("cellphone", mCellphone);
+                        startActivity(intent);
+                    }
 
-            @Override
-            public void failure(RetrofitError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(IdentifyingCodeActivity.this, InitPswActivity.class);
-                intent.putExtra("cellphone", mCellphone);
-                startActivity(intent);
-            }
-        });
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Toast.makeText(getApplicationContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(IdentifyingCodeActivity.this, InitPswActivity.class);
+                        intent.putExtra("cellphone", mCellphone);
+                        startActivity(intent);
+                    }
+                });
     }
 
     @Override

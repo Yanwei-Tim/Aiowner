@@ -14,10 +14,10 @@
         android:layout_marginTop="80dp" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-        android:id="@+id/regist_btn"
         style="@style/button_big"
         android:layout_marginTop="170dp"
         android:background="@drawable/btn_bg_sel_line"
+        android:onClick="startIdentifyingCode"
         android:text="注 册" />
 
 </RelativeLayout>

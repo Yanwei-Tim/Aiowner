@@ -45,7 +45,8 @@
         android:id="@+id/forgetPsw_newPsw_et"
         style="@style/registAndLogin_editText"
         android:layout_marginTop="162dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:password="true" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         style="@style/login_container_tips_text_"
@@ -59,6 +60,7 @@
         android:layout_marginTop="223dp"
         android:gravity="center"
         android:hint="请确认密码"
+        android:password="true"
         android:textColorHint="@color/hintcolor" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
