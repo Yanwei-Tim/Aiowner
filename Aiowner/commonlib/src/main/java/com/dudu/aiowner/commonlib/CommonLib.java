@@ -2,6 +2,8 @@ package com.dudu.aiowner.commonlib;
 
 import android.content.Context;
 
+import com.dudu.aiowner.commonlib.xml.ConfigReader;
+
 
 /**
  * Created by dengjun on 2016/1/21.
@@ -11,8 +13,6 @@ public class CommonLib {
     private static CommonLib instance = null;
 
     private Context context;
-
-    private static ConfigReader mConfigReader;
 
     public static CommonLib getInstance(){
         if (instance == null){
@@ -30,22 +30,12 @@ public class CommonLib {
     }
 
     public void init(){
-        mConfigReader = new ConfigReader();
-        mConfigReader.setIsTest(true);
+        ConfigReader.getInstance().setIsTest(true);
     }
 
     public void init(Context context){
        this.context = context;
-        mConfigReader = new ConfigReader();
-        mConfigReader.readDefaultConfig();
-    }
-
-    public ConfigReader getConfigReader(){
-        return mConfigReader;
-    }
-
-    public static boolean isTest(){
-        return mConfigReader.isTest();
+        ConfigReader.getInstance().readDefaultConfig();
     }
 
     public Context getContext(){
