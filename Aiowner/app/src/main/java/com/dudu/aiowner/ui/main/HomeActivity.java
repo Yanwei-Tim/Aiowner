@@ -48,7 +48,6 @@ public class HomeActivity extends Activity {
     }
 
     public void startRegister(View view) {
-
         startActivity(new Intent(HomeActivity.this, TelephoneNumberActivity.class));
     }
 

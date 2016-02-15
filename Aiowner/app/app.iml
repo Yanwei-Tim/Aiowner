@@ -103,6 +103,7 @@
     <orderEntry type="library" exported="" scope="TEST" name="byte-buddy-1.2.1" level="project" />
     <orderEntry type="library" exported="" name="Xg_sdk_v2.42_20160111_1539" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="powermock-reflect-1.6.2" level="project" />
+    <orderEntry type="library" exported="" name="jdom2-2.0.6" level="project" />
     <orderEntry type="library" exported="" name="converter-gson-2.0.0-beta4" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="percent-23.1.0" level="project" />
@@ -128,8 +129,8 @@
     <orderEntry type="library" exported="" name="jg_filter_sdk_1.1" level="project" />
     <orderEntry type="library" exported="" name="design-23.1.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="powermock-api-mockito-1.6.2" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="powermock-module-junit4-common-1.6.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-core-1.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-module-junit4-common-1.6.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="junit-4.12" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="powermock-module-junit4-1.6.2" level="project" />
     <orderEntry type="module" module-name="commonlib" exported="" />

@@ -3,6 +3,7 @@ package com.dudu.aiowner;
 import android.app.Application;
 
 import com.dudu.aiowner.commonlib.CommonLib;
+import com.dudu.aiowner.rest.common.Request;
 import com.dudu.workflow.RequestFactory;
 
 /**
@@ -16,5 +17,6 @@ public class AiownerApplication extends Application {
         super.onCreate();
         CommonLib.getInstance().init(this);
         RequestFactory.getInstance().init();
+        Request.getInstance().init();
     }
 }

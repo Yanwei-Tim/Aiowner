@@ -20,4 +20,17 @@ public class RegisterResponse extends RequestResponse {
      */
     @SerializedName("resultCode")
     private long resultCode;
+
+
+    /*
+     * 发送数据时调用的接口名
+     */
+    @SerializedName("method")
+    private long method;
+
+    /*
+     * 消息ID
+     */
+    @SerializedName("messageId")
+    private long messageId;
 }

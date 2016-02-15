@@ -1,8 +1,9 @@
 package com.dudu.aiowner.rest.common;
 
+import com.dudu.aiowner.commonlib.xml.ConfigReader;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -10,15 +11,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class RetrofitClient {
 
-    private static final String BASE_URL = "http://www.github.com/";
     private final Retrofit retrofit;
 
     public RetrofitClient() {
+        String baseUrl = ConfigReader.getInstance().getConfig().getServerAddress();
         retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .client(buildClient())
+//                .client(buildClient())
                 .build();
     }
 
