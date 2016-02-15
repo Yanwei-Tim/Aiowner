@@ -13,6 +13,14 @@ public interface UserRequest {
 
     public void login(String cellphone, String password, final LoginCallback callback);
 
+    void setRequestVerifyCodeResult(boolean requestVerifyCodeResult);
+
+    void setVerifyCodeIsValid(boolean verifyCodeIsValid);
+
+    void setRegisterSuccess(boolean registerSuccess);
+
+    void setLoginSuccess(boolean loginSuccess);
+
     public interface RequestVerifyCodeCallback {
         public void requestVerifyCodeResult(boolean success);
     }

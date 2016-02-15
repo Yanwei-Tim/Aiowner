@@ -11,25 +11,48 @@ public class UserRequestTestImpl implements UserRequest {
         return mInstance;
     }
 
+    private boolean requestVerifyCodeResult;
+
+    private boolean verifyCodeIsValid;
+
+    private boolean registerSuccess;
+
+    private boolean loginSuccess;
     @Override
     public void requestVerifyCode(String cellphone, final RequestVerifyCodeCallback callback) {
-        callback.requestVerifyCodeResult(true);
+        callback.requestVerifyCodeResult(requestVerifyCodeResult);
     }
 
     @Override
     public void isVerifyCodeValid(String cellphone, String securityCode, final VerifyCodeValidCallback callback) {
-        callback.verifyCodeIsValid(true);
+        callback.verifyCodeIsValid(verifyCodeIsValid);
 
     }
 
     @Override
     public void settingPassword(String cellphone, String securityCode, String password, final RegisterCallback callback) {
-        callback.registerSuccess(true);
+        callback.registerSuccess(registerSuccess);
     }
 
     @Override
     public void login(String cellphone, String password, LoginCallback callback) {
-        callback.loginSuccess(true);
+        callback.loginSuccess(loginSuccess);
+    }
+
+    public void setRequestVerifyCodeResult(boolean requestVerifyCodeResult) {
+        this.requestVerifyCodeResult = requestVerifyCodeResult;
+    }
+
+    public void setVerifyCodeIsValid(boolean verifyCodeIsValid) {
+        this.verifyCodeIsValid = verifyCodeIsValid;
+    }
+
+    public void setRegisterSuccess(boolean registerSuccess) {
+        this.registerSuccess = registerSuccess;
+    }
+
+    public void setLoginSuccess(boolean loginSuccess) {
+        this.loginSuccess = loginSuccess;
     }
 }
 

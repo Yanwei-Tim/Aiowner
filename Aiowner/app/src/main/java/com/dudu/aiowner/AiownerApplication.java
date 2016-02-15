@@ -1,9 +1,9 @@
 package com.dudu.aiowner;
 
 import android.app.Application;
-import android.content.Context;
 
 import com.dudu.aiowner.commonlib.CommonLib;
+import com.dudu.workflow.RequestFactory;
 
 /**
  * Created by dengjun on 2016/2/12.
@@ -15,5 +15,6 @@ public class AiownerApplication extends Application {
     public void onCreate() {
         super.onCreate();
         CommonLib.getInstance().init(this);
+        RequestFactory.getInstance().init();
     }
 }

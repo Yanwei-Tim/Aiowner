@@ -50,4 +50,8 @@ public class ConfigReader {
     public boolean isTest() {
         return isTest;
     }
+
+    public void setIsTest(boolean isTest) {
+        this.isTest = isTest;
+    }
 }

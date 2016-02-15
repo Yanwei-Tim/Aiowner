@@ -29,6 +29,11 @@ public class CommonLib {
 
     }
 
+    public void init(){
+        mConfigReader = new ConfigReader();
+        mConfigReader.setIsTest(true);
+    }
+
     public void init(Context context){
        this.context = context;
         mConfigReader = new ConfigReader();

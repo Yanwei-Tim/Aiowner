@@ -88,4 +88,24 @@ public class UserRequestRetrofitImpl implements UserRequest {
         });
     }
 
+    @Override
+    public void setRequestVerifyCodeResult(boolean requestVerifyCodeResult) {
+
+    }
+
+    @Override
+    public void setVerifyCodeIsValid(boolean verifyCodeIsValid) {
+
+    }
+
+    @Override
+    public void setRegisterSuccess(boolean registerSuccess) {
+
+    }
+
+    @Override
+    public void setLoginSuccess(boolean loginSuccess) {
+
+    }
+
 }
