@@ -58,12 +58,10 @@
                 android:src="@drawable/hijack_blue_line_02" />
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="116dp"
-            android:layout_height="75dp"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/open" />
+        <ToggleButton
+            android:id="@+id/prevent_looting_light_switch"
+            style="@style/looting_switch_style" />
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -100,12 +98,10 @@
                 android:src="@drawable/hijack_blue_line_02" />
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="116dp"
-            android:layout_height="75dp"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/open" />
+        <ToggleButton
+            android:id="@+id/prevent_looting_debus_switch"
+            style="@style/looting_switch_style" />
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -143,12 +139,9 @@
                 android:src="@drawable/hijack_blue_line_02" />
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="116dp"
-            android:layout_height="75dp"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/open" />
+        <ToggleButton
+            android:id="@+id/prevent_looting_brake_switch"
+            style="@style/looting_switch_style" />
     </RelativeLayout>
 
 </RelativeLayout>

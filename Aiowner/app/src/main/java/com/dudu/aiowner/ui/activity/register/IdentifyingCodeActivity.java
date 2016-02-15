@@ -35,8 +35,14 @@ public class IdentifyingCodeActivity extends BaseActivity {
     }
 
     public void startInitPassword(View view) {
-        if (verifyCode_et.getText().toString().isEmpty()) {
+        String verifyCode = verifyCode_et.getText().toString();
+        if (verifyCode.isEmpty()) {
             Toast.makeText(getApplicationContext(), "请输入验证码", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        //根据演示需求，注册演示到此，需点击返回登录
+        if (verifyCode.length() < 20) {
+            Toast.makeText(getApplicationContext(), "请输入正确的验证码", Toast.LENGTH_SHORT).show();
             return;
         }
         RequestFactory.getUserRequest().isVerifyCodeValid(mCellphone, "", new UserRequest.VerifyCodeValidCallback() {

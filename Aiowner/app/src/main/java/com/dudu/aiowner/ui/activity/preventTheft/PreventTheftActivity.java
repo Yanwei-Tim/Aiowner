@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
@@ -15,9 +17,30 @@ import com.dudu.aiowner.ui.base.BaseActivity;
  */
 public class PreventTheftActivity extends BaseActivity {
 
+    private ToggleButton theft_switch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initView();
+        initEvent();
+    }
+
+    private void initEvent() {
+        theft_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    theft_switch.setBackgroundResource(R.drawable.theft_lock_off);
+                } else {
+                    theft_switch.setBackgroundResource(R.drawable.theft_lock_on);
+                }
+            }
+        });
+    }
+
+    private void initView() {
+        theft_switch = (ToggleButton) findViewById(R.id.prevent_theft_switch);
     }
 
     @Override
@@ -27,7 +50,8 @@ public class PreventTheftActivity extends BaseActivity {
 
     public void startSetGesturePassword(View view) {
 
-        startActivity(new Intent(PreventTheftActivity.this, SetGesturePswActivity.class));
+
+//        startActivity(new Intent(PreventTheftActivity.this, SetGesturePswActivity.class));
     }
 
     public void userInfo(View view) {

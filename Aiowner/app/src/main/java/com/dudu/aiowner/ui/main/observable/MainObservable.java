@@ -13,9 +13,9 @@ public class MainObservable {
 
 
     public MainObservable() {
-        remainingOil.set("0%");
-        gasMileage.set("0lr");
-        totalMileage.set("0");
+        remainingOil.set("92%");
+        gasMileage.set("80lr");
+        totalMileage.set("88");
     }
 
     public void setRemainingOil(String remainingOil){

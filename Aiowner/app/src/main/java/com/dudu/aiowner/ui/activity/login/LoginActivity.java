@@ -52,7 +52,7 @@ public class LoginActivity extends BaseActivity {
         }
 
         RequestFactory.getUserRequest()
-                .login(login_user_edittext.getText().toString(), login_password_et.getText().toString(), new UserRequest.LoginCallback() {
+                .login(username, password, new UserRequest.LoginCallback() {
                     @Override
                     public void loginSuccess(boolean success) {
                         if (success) {

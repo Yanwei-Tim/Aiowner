@@ -113,6 +113,17 @@
         <item name="android:textSize">18dp</item>
     </style>
 
+    <style name="looting_switch_style">
+        <item name="android:layout_width">116dp</item>
+        <item name="android:layout_height">75dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:background">@drawable/looting_switch_btn_sel</item>
+        <item name="android:checked">false</item>
+        <item name="android:textOff">""</item>
+        <item name="android:textOn">""</item>
+    </style>
+
 </resources>
 
 

@@ -10,8 +10,8 @@ import com.dudu.aiowner.R;
 import com.dudu.aiowner.databinding.ActivityMainBinding;
 import com.dudu.aiowner.ui.activity.drive.DrivingHabitsActivity;
 import com.dudu.aiowner.ui.activity.maintenanceAssistant.MaintenanceAssistantActivity;
-import com.dudu.aiowner.ui.activity.preventLooting.InsuranceCertificationActivity;
-import com.dudu.aiowner.ui.activity.preventTheft.OwnersCredentialsUploadActivity;
+import com.dudu.aiowner.ui.activity.preventLooting.PreventLootingActivity;
+import com.dudu.aiowner.ui.activity.preventTheft.PreventTheftActivity;
 import com.dudu.aiowner.ui.activity.testSpeed.SelectCarActivity;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
@@ -39,23 +39,27 @@ public class MainActivity extends BaseActivity {
 
         activityMainBinding.setTitle(observableFactory.getTitleObservable());
         activityMainBinding.setMainPage(mainObservable);
+
     }
-
-
 
     @Override
     protected View getChildView() {
         return LayoutInflater.from(this).inflate(R.layout.activity_main, null);
     }
 
-    public void startOwnersCredentialsUpload(View view) {
+//    public void startOwnersCredentialsUpload(View view) {
+//
+//        startActivity(new Intent(MainActivity.this, OwnersCredentialsUploadActivity.class));
+//    }
 
-        startActivity(new Intent(MainActivity.this, OwnersCredentialsUploadActivity.class));
+    public void startPreventTheft(View view) {
+
+        startActivity(new Intent(MainActivity.this, PreventTheftActivity.class));
     }
 
     public void startPreventLooting(View view) {
 
-        startActivity(new Intent(MainActivity.this, InsuranceCertificationActivity.class));
+        startActivity(new Intent(MainActivity.this, PreventLootingActivity.class));
     }
 
     public void startTestSpeed(View view) {
@@ -79,6 +83,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
+        mainObservable.setRemainingOil("90");
         super.onResume();
     }
 }

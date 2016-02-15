@@ -27,12 +27,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AiownerBackground" >
+        android:theme="@style/AiownerBackground">
         <activity
             android:name=".ui.main.HomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -50,16 +50,15 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.register.InitPswActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.login.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.login.ForgetLoginPswActitivy"
-            android:screenOrientation="portrait">
-        </activity>
-            android:name=".ui.activity.login.ForgetPasswordActitivy"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"></activity>
+        android:name=".ui.activity.login.ForgetPasswordActitivy"
+        android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.main.MainActivity"
@@ -132,6 +131,9 @@
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.activity.user.ModifyHeadPortraitAndNicknameActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventLooting.PreventLootingControlActivity"
             android:screenOrientation="portrait"></activity>
 
         <receiver

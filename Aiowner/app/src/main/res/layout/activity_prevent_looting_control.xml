@@ -99,7 +99,7 @@
         </LinearLayout>
 
         <ToggleButton
-            android:id="@+id/prevent_theft_switch"
+            android:id="@+id/prevent_looting_switch"
             android:layout_width="130dp"
             android:layout_height="285dp"
             android:layout_alignParentBottom="true"
