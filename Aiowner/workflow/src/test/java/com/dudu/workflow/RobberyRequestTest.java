@@ -1,8 +1,10 @@
 package com.dudu.workflow;
 
+import com.dudu.aiowner.commonlib.CommonLib;
+import com.dudu.aiowner.rest.common.Request;
 import com.dudu.workflow.robbery.RobberyRequest;
-import com.dudu.workflow.robbery.RobberyRequestRetrofitImpl;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
@@ -15,11 +17,20 @@ import static org.junit.Assert.assertTrue;
  * Created by Administrator on 2016/2/15.
  */
 public class RobberyRequestTest {
+
+    @Before
+    public void setUp() {
+        CommonLib.getInstance().init();
+        RequestFactory.getInstance().init();
+        Request.getInstance().init();
+    }
+
     @Test
     public void test_isCarRobbed() throws InterruptedException {
 
         final CountDownLatch signal = new CountDownLatch(1);
-        RobberyRequestRetrofitImpl.getInstance().isCarRobbed("13800138000", new RobberyRequest.CarRobberdCallback() {
+        RequestFactory.getInstance().getRobberyRequest()
+                .isCarRobbed("13800138000", new RobberyRequest.CarRobberdCallback() {
 
             @Override
             public void hasRobbed(boolean success) {
@@ -60,7 +71,8 @@ public class RobberyRequestTest {
     public void test_getRobberyState() throws InterruptedException {
 
         final CountDownLatch signal = new CountDownLatch(1);
-        RobberyRequestRetrofitImpl.getInstance().getRobberyState("13800138000", new RobberyRequest.RobberStateCallback() {
+        RequestFactory.getInstance().getRobberyRequest()
+                .getRobberyState("13800138000", new RobberyRequest.RobberStateCallback() {
 
             @Override
             public void switchsState(boolean flashRateTimes, boolean emergencyCutoff, boolean stepOnTheGas) {

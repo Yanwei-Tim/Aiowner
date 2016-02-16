@@ -54,7 +54,24 @@ public class RobberyRequestRetrofitImpl implements RobberyRequest{
         call.enqueue(new Callback<RequestResponse>() {
             @Override
             public void onResponse(Call<RequestResponse> call, Response<RequestResponse> response) {
-                callback.switchSuccess(true);
+                callback.switchSuccess(response.body().resultCode == 0);
+            }
+
+            @Override
+            public void onFailure(Call<RequestResponse> call, Throwable t) {
+                callback.requestError(t.getMessage().toString());
+            }
+        });
+    }
+
+    @Override
+    public void closeAntiRobberyMode(String cellphone, final CloseRobberyModeCallback callback) {
+        Call<RequestResponse> call = Request.getInstance().getRobberyService()
+                .robberySwitch(cellphone, 0, 0);
+        call.enqueue(new Callback<RequestResponse>() {
+            @Override
+            public void onResponse(Call<RequestResponse> call, Response<RequestResponse> response) {
+                callback.closeSuccess(response.body().resultCode==0);
             }
 
             @Override

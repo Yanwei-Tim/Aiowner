@@ -1,5 +1,6 @@
 package com.dudu.aiowner.rest.common;
 
+import com.dudu.aiowner.rest.service.GuardService;
 import com.dudu.aiowner.rest.service.LoginService;
 import com.dudu.aiowner.rest.service.RegisterService;
 import com.dudu.aiowner.rest.service.RobberyService;
@@ -15,6 +16,7 @@ public class Request {
     private LoginService mLoginService;
     private RegisterService mRegisterService;
     private RobberyService mRobberyService;
+    private GuardService mGuardService;
 
     public static Request getInstance() {
         return mInstance;
@@ -28,6 +30,7 @@ public class Request {
         mLoginService = mClient.getRetrofit().create(LoginService.class);
         mRegisterService = mClient.getRetrofit().create(RegisterService.class);
         mRobberyService = mClient.getRetrofit().create(RobberyService.class);
+        mGuardService = mClient.getRetrofit().create(GuardService.class);
     }
 
     public LoginService getLoginService() {
@@ -40,5 +43,9 @@ public class Request {
 
     public RobberyService getRobberyService() {
         return mRobberyService;
+    }
+
+    public GuardService getGuardService() {
+        return mGuardService;
     }
 }

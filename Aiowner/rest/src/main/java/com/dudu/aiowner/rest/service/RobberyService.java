@@ -12,7 +12,7 @@ import retrofit2.http.Path;
  */
 public interface RobberyService {
 
-    @GET("/external/mirror/robbery/{cellphone}/{type}/{value}")
+    @GET("/external/app/robbery/{cellphone}/{type}/{value}")
     public Call<RequestResponse> robberySwitch(@Path("cellphone") String cellphone, @Path("type")int type, @Path("value")int on_off);
 
     @GET("/external/getALLRobberySwitch/{cellphone}")

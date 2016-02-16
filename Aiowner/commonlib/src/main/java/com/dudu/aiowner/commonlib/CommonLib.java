@@ -31,6 +31,7 @@ public class CommonLib {
 
     public void init(){
         ConfigReader.getInstance().setIsTest(true);
+        ConfigReader.getInstance().initTestConfig();
     }
 
     public void init(Context context){
