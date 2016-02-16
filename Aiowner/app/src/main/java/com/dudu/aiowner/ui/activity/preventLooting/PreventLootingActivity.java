@@ -54,6 +54,7 @@ public class PreventLootingActivity extends BaseActivity {
                         light_switch.setChecked(flashRateTimes);
                         debus_switch.setChecked(emergencyCutoff);
                         brake_switch.setChecked(stepOnTheGas);
+
                     }
 
                     @Override
