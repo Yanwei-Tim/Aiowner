@@ -47,6 +47,20 @@ public class PreventLootingActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
+        RequestFactory.getRobberyRequest()
+                .getRobberyState(new RobberyRequest.RobberStateCallback() {
+                    @Override
+                    public void switchsState(boolean flashRateTimes, boolean emergencyCutoff, boolean stepOnTheGas) {
+                        light_switch.setChecked(flashRateTimes);
+                        debus_switch.setChecked(emergencyCutoff);
+                        brake_switch.setChecked(stepOnTheGas);
+                    }
+
+                    @Override
+                    public void requestError(String error) {
+
+                    }
+                });
         observableFactory.getTitleObservable().titleText.set("车辆防劫");
         observableFactory.getTitleObservable().userIcon.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);
