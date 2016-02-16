@@ -30,7 +30,25 @@ public class RobberyRequestRetrofitImpl implements RobberyRequest{
     }
 
     @Override
-    public void robberySwitch(String cellphone, int type, int on_off, final SwitchCallback callback) {
+    public void isCarRobbed(String cellphone, final CarRobberdCallback callback) {
+        Call<QueryRobberyResponse> call = Request.getInstance().getRobberyService()
+                .getRobberyState(cellphone);
+        call.enqueue(new Callback<QueryRobberyResponse>() {
+            @Override
+            public void onResponse(Call<QueryRobberyResponse> call, Response<QueryRobberyResponse> response) {
+                callback.hasRobbed(response.body().switch0==1);
+            }
+
+            @Override
+            public void onFailure(Call<QueryRobberyResponse> call, Throwable t) {
+                callback.requestError(t.toString());
+            }
+        });
+    }
+
+
+    @Override
+    public void settingAntiRobberyMode(String cellphone, int type, int on_off, final SwitchCallback callback) {
         Call<RequestResponse> call = Request.getInstance().getRobberyService()
                 .robberySwitch(cellphone, type, on_off);
         call.enqueue(new Callback<RequestResponse>() {
@@ -53,8 +71,7 @@ public class RobberyRequestRetrofitImpl implements RobberyRequest{
         call.enqueue(new Callback<QueryRobberyResponse>() {
             @Override
             public void onResponse(Call<QueryRobberyResponse> call, Response<QueryRobberyResponse> response) {
-
-                callback.switchsState(response.body().switch0==1,response.body().switch1==1,response.body().switch2==1,response.body().switch3==1);
+                callback.switchsState(response.body().switch1==1,response.body().switch2==1,response.body().switch3==1);
             }
 
             @Override

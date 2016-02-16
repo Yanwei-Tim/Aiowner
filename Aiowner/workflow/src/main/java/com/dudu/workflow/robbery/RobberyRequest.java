@@ -6,8 +6,14 @@ package com.dudu.workflow.robbery;
 public interface RobberyRequest {
     public void getCarInsuranceAuthState(String cellphone);
     public void requestCarInsuranceAuth();
-    public void robberySwitch(String cellphone,int type, int on_off,SwitchCallback callback);
+    public void isCarRobbed(String cellphone, CarRobberdCallback callback);
     public void getRobberyState(String cellphone,RobberStateCallback callback);
+    public void settingAntiRobberyMode(String cellphone,int type, int on_off,SwitchCallback callback);
+
+    public interface CarRobberdCallback{
+        void hasRobbed(boolean success);
+        void requestError(String error);
+    }
 
     public interface SwitchCallback{
         void switchSuccess(boolean success);
@@ -15,7 +21,7 @@ public interface RobberyRequest {
     }
 
     public interface RobberStateCallback{
-        void switchsState(boolean robbery,boolean flashRateTimes,boolean emergencyCutoff,boolean stepOnTheGas);
+        void switchsState(boolean flashRateTimes,boolean emergencyCutoff,boolean stepOnTheGas);
         void requestError(String error);
     }
 }

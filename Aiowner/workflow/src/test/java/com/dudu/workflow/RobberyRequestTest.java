@@ -15,13 +15,32 @@ import static org.junit.Assert.assertTrue;
  * Created by Administrator on 2016/2/15.
  */
 public class RobberyRequestTest {
+    @Test
+    public void test_isCarRobbed() throws InterruptedException {
 
+        final CountDownLatch signal = new CountDownLatch(1);
+        RobberyRequestRetrofitImpl.getInstance().isCarRobbed("13800138000", new RobberyRequest.CarRobberdCallback() {
+
+            @Override
+            public void hasRobbed(boolean success) {
+                signal.countDown();
+                assertTrue(success);
+            }
+
+            @Override
+            public void requestError(String error) {
+                signal.countDown();
+                assertNull(error);
+            }
+        });
+        signal.await();
+    }
     @Test
     public void test_robberySwitch() throws InterruptedException {
 
         final CountDownLatch signal = new CountDownLatch(1);
         RequestFactory.getInstance().getRobberyRequest()
-                .robberySwitch("13800138000", 0, 1, new RobberyRequest.SwitchCallback() {
+                .settingAntiRobberyMode("13800138000", 0, 1, new RobberyRequest.SwitchCallback() {
             @Override
             public void switchSuccess(boolean success) {
                 signal.countDown();
@@ -44,9 +63,8 @@ public class RobberyRequestTest {
         RobberyRequestRetrofitImpl.getInstance().getRobberyState("13800138000", new RobberyRequest.RobberStateCallback() {
 
             @Override
-            public void switchsState(boolean robbery, boolean flashRateTimes, boolean emergencyCutoff, boolean stepOnTheGas) {
+            public void switchsState(boolean flashRateTimes, boolean emergencyCutoff, boolean stepOnTheGas) {
                 signal.countDown();
-                assertTrue(robbery);
                 assertFalse(flashRateTimes);
                 assertTrue(emergencyCutoff);
                 assertFalse(stepOnTheGas);
