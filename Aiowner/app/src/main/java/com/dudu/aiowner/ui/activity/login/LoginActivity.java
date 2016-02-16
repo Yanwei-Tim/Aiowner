@@ -61,8 +61,10 @@ public class LoginActivity extends BaseActivity {
                             UserFlow.saveUserName(username);
                             ReceiverRegister.registPushManager(username);
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            Toast.makeText(getApplicationContext(), "登录请求成功", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            Toast.makeText(getApplicationContext(), "登录请求失败", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

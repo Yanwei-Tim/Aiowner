@@ -11,6 +11,8 @@ import android.widget.ToggleButton;
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
+import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.guard.GuardRequest;
 
 /**
  * Created by sunny_zhang on 2016/2/3.
@@ -32,6 +34,17 @@ public class PreventTheftActivity extends BaseActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     theft_switch.setBackgroundResource(R.drawable.theft_lock_off);
+                    RequestFactory.getGuardRequest().isAntiTheftOpened(new GuardRequest.LockStateCallBack() {
+                        @Override
+                        public void hasLocked(boolean locked) {
+
+                        }
+
+                        @Override
+                        public void requestError(String error) {
+
+                        }
+                    });
                 } else {
                     theft_switch.setBackgroundResource(R.drawable.theft_lock_on);
                 }

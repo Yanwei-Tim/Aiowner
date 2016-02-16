@@ -11,13 +11,13 @@ public class UserRequestTestImpl implements UserRequest {
         return mInstance;
     }
 
-    private boolean requestVerifyCodeResult;
+    private boolean requestVerifyCodeResult=true;
 
-    private boolean verifyCodeIsValid;
+    private boolean verifyCodeIsValid=true;
 
-    private boolean registerSuccess;
+    private boolean registerSuccess=true;
 
-    private boolean loginSuccess;
+    private boolean loginSuccess=true;
     @Override
     public void requestVerifyCode(String cellphone, final RequestVerifyCodeCallback callback) {
         callback.requestVerifyCodeResult(requestVerifyCodeResult);

@@ -6,11 +6,14 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
+import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.robbery.RobberyRequest;
 
 /**
  * Created by Administrator on 2016/2/2.
@@ -58,38 +61,48 @@ public class PreventLootingActivity extends BaseActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    public void settingAntiRobberyMode(final ToggleButton switchButton, int type, final boolean open) {
+        RequestFactory.getInstance().getRobberyRequest()
+                .settingAntiRobberyMode(type, open ? 1 : 0, new RobberyRequest.SwitchCallback() {
+                    @Override
+                    public void switchSuccess(boolean success) {
+                        if (success) {
+                            if (open) {
+                                switchButton.setBackgroundResource(R.drawable.looting_lock_on);
+                            } else {
+                                switchButton.setBackgroundResource(R.drawable.looting_lock_off);
+                            }
+                        } else {
+                            Toast.makeText(getApplication(), "防劫模式" + (open ? "开启" : "关闭") + "失败", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void requestError(String error) {
+                        Toast.makeText(getApplication(), "防劫模式" + (open ? "开启" : "关闭") + "请求失败", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
     private void initEvent() {
         light_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-//                    startActivity(new Intent(PreventLootingActivity.this, PreventLootingControlActivity.class));
-                    light_switch.setBackgroundResource(R.drawable.looting_lock_off);
-                } else {
-                    light_switch.setBackgroundResource(R.drawable.looting_lock_on);
-                }
+                settingAntiRobberyMode(light_switch, 1, isChecked);
             }
         });
 
         debus_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    debus_switch.setBackgroundResource(R.drawable.looting_lock_off);
-                } else {
-                    debus_switch.setBackgroundResource(R.drawable.looting_lock_on);
-                }
+                settingAntiRobberyMode(debus_switch, 2, isChecked);
             }
         });
 
         brake_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    brake_switch.setBackgroundResource(R.drawable.looting_lock_off);
-                } else {
-                    brake_switch.setBackgroundResource(R.drawable.looting_lock_on);
-                }
+                settingAntiRobberyMode(brake_switch, 3, isChecked);
             }
         });
     }

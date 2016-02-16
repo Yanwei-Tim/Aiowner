@@ -6,11 +6,14 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
+import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.robbery.RobberyRequest;
 
 /**
  * Created by Administrator on 2016/2/2.
@@ -60,9 +63,22 @@ public class PreventLootingControlActivity extends BaseActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    looting_switch.setBackgroundResource(R.drawable.theft_lock_off);
-                } else {
-                    looting_switch.setBackgroundResource(R.drawable.theft_lock_on);
+                    RequestFactory.getRobberyRequest().closeAntiRobberyMode(new RobberyRequest.CloseRobberyModeCallback() {
+                        @Override
+                        public void closeSuccess(boolean success) {
+                            if (success) {
+                                looting_switch.setBackgroundResource(R.drawable.theft_lock_off);
+                                Toast.makeText(getApplicationContext(), "请求关闭防劫模式成功", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "请求关闭防劫模式失败", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void requestError(String error) {
+
+                        }
+                    });
                 }
             }
         });
