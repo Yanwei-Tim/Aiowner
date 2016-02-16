@@ -2,7 +2,7 @@ package com.dudu.aiowner.commonlib;
 
 import android.content.Context;
 
-import com.dudu.aiowner.commonlib.xml.ConfigReader;
+import com.dudu.aiowner.commonlib.config.ConfigReader;
 
 
 /**

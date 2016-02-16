@@ -9,9 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.receiver.ReceiverRegister;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.main.MainActivity;
 import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.user.UserFlow;
 import com.dudu.workflow.user.UserRequest;
 
 /**
@@ -56,12 +58,13 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void loginSuccess(boolean success) {
                         if (success) {
+                            UserFlow.saveUserName(username);
+                            ReceiverRegister.registPushManager(username);
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         } else {
                             Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
                         }
                     }
-
                 });
 
     }

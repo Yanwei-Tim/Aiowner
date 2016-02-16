@@ -18,7 +18,7 @@ public interface GuardService {
      * @param on_off  开关
      * @return
      */
-    @GET("/external/app/theft/{cellphone}/{value}")
+    @GET("/external/app/theft/{cellphone}/{value}/android")
     public Call<RequestResponse> guardSwitch(@Path("cellphone") String cellphone, @Path("value")int on_off);
 
     /**

@@ -1,6 +1,6 @@
 package com.dudu.workflow;
 
-import com.dudu.aiowner.commonlib.xml.ConfigReader;
+import com.dudu.aiowner.commonlib.config.ConfigReader;
 import com.dudu.workflow.guard.GuardRequest;
 import com.dudu.workflow.guard.GuardRequestRetrofitImpl;
 import com.dudu.workflow.robbery.RobberyRequest;

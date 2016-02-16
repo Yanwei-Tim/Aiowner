@@ -1,4 +1,4 @@
-package com.dudu.aiowner.commonlib;
+package com.dudu.aiowner.commonlib.config;
 
 /**
  * Created by Administrator on 2016/2/15.

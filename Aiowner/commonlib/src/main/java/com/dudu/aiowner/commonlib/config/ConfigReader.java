@@ -1,8 +1,8 @@
-package com.dudu.aiowner.commonlib.xml;
+package com.dudu.aiowner.commonlib.config;
 
 import com.dudu.aiowner.commonlib.CommonLib;
-import com.dudu.aiowner.commonlib.Config;
 import com.dudu.aiowner.commonlib.R;
+import com.dudu.aiowner.commonlib.xml.JDomXmlDocument;
 
 import org.jdom2.Document;
 import org.jdom2.Element;

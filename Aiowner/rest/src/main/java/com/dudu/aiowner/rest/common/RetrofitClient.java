@@ -1,6 +1,6 @@
 package com.dudu.aiowner.rest.common;
 
-import com.dudu.aiowner.commonlib.xml.ConfigReader;
+import com.dudu.aiowner.commonlib.config.ConfigReader;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
