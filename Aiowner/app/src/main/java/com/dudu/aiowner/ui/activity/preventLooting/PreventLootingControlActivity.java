@@ -13,6 +13,7 @@ import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.robbery.RobberyFlow;
 import com.dudu.workflow.robbery.RobberyRequest;
 
 /**
@@ -44,10 +45,12 @@ public class PreventLootingControlActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
+        looting_switch.setChecked(RobberyFlow.getRobbeyState());
         RequestFactory.getRobberyRequest().isCarRobbed(new RobberyRequest.CarRobberdCallback() {
             @Override
-            public void hasRobbed(boolean success) {
-                looting_switch.setChecked(success);
+            public void hasRobbed(boolean robbed) {
+                RobberyFlow.saveRobbeyState(robbed);
+                looting_switch.setChecked(robbed);
             }
 
             @Override
@@ -78,6 +81,7 @@ public class PreventLootingControlActivity extends BaseActivity {
                         @Override
                         public void closeSuccess(boolean success) {
                             if (success) {
+                                RobberyFlow.saveRobbeyState(false);
                                 looting_switch.setBackgroundResource(R.drawable.theft_lock_on);
                                 Toast.makeText(getApplicationContext(), "请求关闭防劫模式成功", Toast.LENGTH_SHORT).show();
                             } else {

@@ -13,6 +13,7 @@ import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.guard.GuardFlow;
 import com.dudu.workflow.guard.GuardRequest;
 
 /**
@@ -42,6 +43,7 @@ public class PreventTheftActivity extends BaseActivity {
                         @Override
                         public void hasLocked(boolean locked) {
                             if (locked) {
+                                GuardFlow.saveGuardState(locked);
                                 theft_switch.setBackgroundResource(R.drawable.theft_lock_on);
                                 Toast.makeText(getApplicationContext(), "请求关闭防盗模式成功", Toast.LENGTH_SHORT).show();
                             } else {
@@ -59,6 +61,7 @@ public class PreventTheftActivity extends BaseActivity {
                         @Override
                         public void unlocked(boolean locked) {
                             if (locked) {
+                                GuardFlow.saveGuardState(locked);
                                 theft_switch.setBackgroundResource(R.drawable.theft_lock_off);
                                 Toast.makeText(getApplicationContext(), "请求开启防盗模式成功", Toast.LENGTH_SHORT).show();
                             } else {
@@ -94,9 +97,11 @@ public class PreventTheftActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
+        theft_switch.setChecked(GuardFlow.getGuardState());
         RequestFactory.getGuardRequest().isAntiTheftOpened(new GuardRequest.LockStateCallBack() {
             @Override
             public void hasLocked(boolean locked) {
+                GuardFlow.saveGuardState(locked);
                 theft_switch.setChecked(locked);
             }
 

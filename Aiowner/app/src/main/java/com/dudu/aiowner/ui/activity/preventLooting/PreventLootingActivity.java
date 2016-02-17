@@ -13,6 +13,7 @@ import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.robbery.RobberyFlow;
 import com.dudu.workflow.robbery.RobberyRequest;
 
 /**
@@ -47,6 +48,7 @@ public class PreventLootingActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
+        light_switch.setChecked(RobberyFlow.getRobbeySingleState());
         RequestFactory.getRobberyRequest()
                 .getRobberyState(new RobberyRequest.RobberStateCallback() {
                     @Override
@@ -76,12 +78,13 @@ public class PreventLootingActivity extends BaseActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    public void settingAntiRobberyMode(final ToggleButton switchButton, int type, final boolean open) {
+    public void settingAntiRobberyMode(final ToggleButton switchButton, final int type, final boolean open) {
         RequestFactory.getInstance().getRobberyRequest()
                 .settingAntiRobberyMode(type, open ? 1 : 0, new RobberyRequest.SwitchCallback() {
                     @Override
                     public void switchSuccess(boolean success) {
                         if (success) {
+                            RobberyFlow.saveRobbeySingleState(open, type);
                             if (open) {
                                 switchButton.setBackgroundResource(R.drawable.looting_lock_on);
                             } else {
