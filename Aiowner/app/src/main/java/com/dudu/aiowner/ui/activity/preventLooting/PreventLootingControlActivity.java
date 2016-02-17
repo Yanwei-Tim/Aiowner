@@ -44,6 +44,17 @@ public class PreventLootingControlActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
+        RequestFactory.getRobberyRequest().isCarRobbed(new RobberyRequest.CarRobberdCallback() {
+            @Override
+            public void hasRobbed(boolean success) {
+                looting_switch.setChecked(success);
+            }
+
+            @Override
+            public void requestError(String error) {
+
+            }
+        });
         observableFactory.getTitleObservable().titleText.set("车辆防劫");
         observableFactory.getTitleObservable().userIcon.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);
@@ -67,7 +78,7 @@ public class PreventLootingControlActivity extends BaseActivity {
                         @Override
                         public void closeSuccess(boolean success) {
                             if (success) {
-                                looting_switch.setBackgroundResource(R.drawable.theft_lock_off);
+                                looting_switch.setBackgroundResource(R.drawable.theft_lock_on);
                                 Toast.makeText(getApplicationContext(), "请求关闭防劫模式成功", Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(getApplicationContext(), "请求关闭防劫模式失败", Toast.LENGTH_SHORT).show();

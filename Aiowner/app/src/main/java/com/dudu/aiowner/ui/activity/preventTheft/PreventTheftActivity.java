@@ -6,6 +6,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.dudu.aiowner.R;
@@ -28,6 +29,10 @@ public class PreventTheftActivity extends BaseActivity {
         initEvent();
     }
 
+    private void initView() {
+        theft_switch = (ToggleButton) findViewById(R.id.prevent_theft_switch);
+    }
+
     private void initEvent() {
         theft_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -36,19 +41,29 @@ public class PreventTheftActivity extends BaseActivity {
                     RequestFactory.getGuardRequest().lockCar(new GuardRequest.LockStateCallBack() {
                         @Override
                         public void hasLocked(boolean locked) {
-                            theft_switch.setBackgroundResource(R.drawable.theft_lock_off);
+                            if (locked) {
+                                theft_switch.setBackgroundResource(R.drawable.theft_lock_on);
+                                Toast.makeText(getApplicationContext(), "请求关闭防盗模式成功", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "请求关闭防盗模式失败", Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                         @Override
                         public void requestError(String error) {
-
+                            return;
                         }
                     });
                 } else {
                     RequestFactory.getGuardRequest().unlockCar(new GuardRequest.UnlockCallBack() {
                         @Override
                         public void unlocked(boolean locked) {
-                            theft_switch.setBackgroundResource(R.drawable.theft_lock_on);
+                            if (locked) {
+                                theft_switch.setBackgroundResource(R.drawable.theft_lock_off);
+                                Toast.makeText(getApplicationContext(), "请求开启防盗模式成功", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "请求开启防盗模式失败", Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                         @Override
@@ -56,18 +71,15 @@ public class PreventTheftActivity extends BaseActivity {
 
                         }
                     });
+
                 }
             }
         });
     }
 
-    private void initView() {
-        theft_switch = (ToggleButton) findViewById(R.id.prevent_theft_switch);
-    }
-
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.activity_prevent_theft, null);
+        return LayoutInflater.from(PreventTheftActivity.this).inflate(R.layout.activity_prevent_theft, null);
     }
 
     public void startSetGesturePassword(View view) {
