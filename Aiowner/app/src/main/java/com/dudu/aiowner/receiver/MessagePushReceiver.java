@@ -29,6 +29,7 @@ public class MessagePushReceiver extends XGPushBaseReceiver {
         if (context == null || notifiShowedRlt == null) {
             return;
         }
+        Log.d("MessagePushReceiver",notifiShowedRlt.toString());
         show(context, "您有1条新消息, " + "通知被展示 ， " + notifiShowedRlt.toString());
     }
 

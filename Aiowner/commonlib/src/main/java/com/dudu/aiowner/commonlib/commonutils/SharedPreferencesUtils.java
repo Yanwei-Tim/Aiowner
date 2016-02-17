@@ -1,4 +1,4 @@
-package com.dudu.aiowner.commonlib.config;
+package com.dudu.aiowner.commonlib.commonutils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -57,8 +57,6 @@
         <activity
             android:name=".ui.activity.login.ForgetLoginPswActitivy"
             android:screenOrientation="portrait"></activity>
-        android:name=".ui.activity.login.ForgetPasswordActitivy"
-        android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.main.MainActivity"
@@ -136,8 +134,7 @@
             android:name=".ui.activity.preventLooting.PreventLootingControlActivity"
             android:screenOrientation="portrait"></activity>
 
-        <receiver
-            android:name="com.dudu.aiowner.receiver.MessagePushReceiver"
+        <receiver android:name="com.dudu.aiowner.receiver.MessagePushReceiver"
             android:exported="false">
             <intent-filter>
                 <!-- 接收消息透传 -->

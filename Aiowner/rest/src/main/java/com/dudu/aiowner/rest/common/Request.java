@@ -1,9 +1,9 @@
 package com.dudu.aiowner.rest.common;
 
+import com.dudu.aiowner.rest.service.DrivingService;
 import com.dudu.aiowner.rest.service.GuardService;
-import com.dudu.aiowner.rest.service.LoginService;
-import com.dudu.aiowner.rest.service.RegisterService;
 import com.dudu.aiowner.rest.service.RobberyService;
+import com.dudu.aiowner.rest.service.UserService;
 
 /**
  * Created by Administrator on 2016/2/13.
@@ -13,10 +13,10 @@ public class Request {
 
     private static RetrofitClient mClient;
 
-    private LoginService mLoginService;
-    private RegisterService mRegisterService;
+    private UserService mUserService;
     private RobberyService mRobberyService;
     private GuardService mGuardService;
+    private DrivingService mDrivingService;
 
     public static Request getInstance() {
         return mInstance;
@@ -27,18 +27,14 @@ public class Request {
 
     public void init(){
         mClient = new RetrofitClient();
-        mLoginService = mClient.getRetrofit().create(LoginService.class);
-        mRegisterService = mClient.getRetrofit().create(RegisterService.class);
+        mUserService = mClient.getRetrofit().create(UserService.class);
         mRobberyService = mClient.getRetrofit().create(RobberyService.class);
         mGuardService = mClient.getRetrofit().create(GuardService.class);
+        mDrivingService = mClient.getRetrofit().create(DrivingService.class);
     }
 
-    public LoginService getLoginService() {
-        return mLoginService;
-    }
-
-    public RegisterService getRegisterService() {
-        return mRegisterService;
+    public UserService getUserService() {
+        return mUserService;
     }
 
     public RobberyService getRobberyService() {
@@ -47,5 +43,9 @@ public class Request {
 
     public GuardService getGuardService() {
         return mGuardService;
+    }
+
+    public DrivingService getDrivingService() {
+        return mDrivingService;
     }
 }

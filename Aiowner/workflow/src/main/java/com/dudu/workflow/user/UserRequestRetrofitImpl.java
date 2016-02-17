@@ -22,7 +22,7 @@ public class UserRequestRetrofitImpl implements UserRequest {
 
     @Override
     public void requestVerifyCode(String cellphone, final RequestVerifyCodeCallback callback) {
-        Call<RequestResponse> call = Request.getInstance().getRegisterService()
+        Call<RequestResponse> call = Request.getInstance().getUserService()
                 .getSecurityCode(cellphone, "password", "method", "messageId");
         call.enqueue(new Callback<RequestResponse>() {
             @Override
@@ -39,7 +39,7 @@ public class UserRequestRetrofitImpl implements UserRequest {
 
     @Override
     public void isVerifyCodeValid(String cellphone, String securityCode, final VerifyCodeValidCallback callback) {
-        Call<RegisterResponse> call = Request.getInstance().getRegisterService()
+        Call<RegisterResponse> call = Request.getInstance().getUserService()
                 .registerWithPhone(cellphone, "securityCode", "password", "method", "messageId");
         call.enqueue(new Callback<RegisterResponse>() {
             @Override
@@ -56,7 +56,7 @@ public class UserRequestRetrofitImpl implements UserRequest {
 
     @Override
     public void settingPassword(String cellphone, String securityCode, String password, final RegisterCallback callback) {
-        Call<RegisterResponse> call = Request.getInstance().getRegisterService()
+        Call<RegisterResponse> call = Request.getInstance().getUserService()
                 .registerWithPhone(cellphone, "securityCode", "password", "method", "messageId");
         call.enqueue(new Callback<RegisterResponse>() {
             @Override
@@ -73,7 +73,7 @@ public class UserRequestRetrofitImpl implements UserRequest {
 
     @Override
     public void login(String cellphone, String password, final LoginCallback callback) {
-        Call<LoginResponse> call = Request.getInstance().getLoginService()
+        Call<LoginResponse> call = Request.getInstance().getUserService()
                 .login(cellphone, password, "method", "messageId");
         call.enqueue(new Callback<LoginResponse>() {
             @Override
