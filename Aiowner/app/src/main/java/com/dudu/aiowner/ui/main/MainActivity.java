@@ -56,7 +56,6 @@ public class MainActivity extends BaseActivity {
 //    }
 
     public void startPreventTheft(View view) {
-
         startActivity(new Intent(MainActivity.this, PreventTheftActivity.class));
     }
 
@@ -77,7 +76,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void requestError(String error) {
                 Toast.makeText(getApplication(), "请求防劫状态失败", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(MainActivity.this, PreventLootingActivity.class));
+                startActivity(new Intent(MainActivity.this, PreventLootingActivity.class));
             }
         });
     }

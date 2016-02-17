@@ -8,6 +8,8 @@ public interface GuardRequest {
     public void lockCar(LockStateCallBack callBack);
     public void unlockCar(UnlockCallBack callBack);
 
+
+
     public interface LockStateCallBack{
         public void hasLocked(boolean locked);
         public void requestError(String error);

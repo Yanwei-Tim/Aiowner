@@ -33,11 +33,10 @@ public class PreventTheftActivity extends BaseActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    theft_switch.setBackgroundResource(R.drawable.theft_lock_off);
-                    RequestFactory.getGuardRequest().isAntiTheftOpened(new GuardRequest.LockStateCallBack() {
+                    RequestFactory.getGuardRequest().lockCar(new GuardRequest.LockStateCallBack() {
                         @Override
                         public void hasLocked(boolean locked) {
-
+                            theft_switch.setBackgroundResource(R.drawable.theft_lock_off);
                         }
 
                         @Override
@@ -46,7 +45,17 @@ public class PreventTheftActivity extends BaseActivity {
                         }
                     });
                 } else {
-                    theft_switch.setBackgroundResource(R.drawable.theft_lock_on);
+                    RequestFactory.getGuardRequest().unlockCar(new GuardRequest.UnlockCallBack() {
+                        @Override
+                        public void unlocked(boolean locked) {
+                            theft_switch.setBackgroundResource(R.drawable.theft_lock_on);
+                        }
+
+                        @Override
+                        public void requestError(String error) {
+
+                        }
+                    });
                 }
             }
         });
@@ -73,6 +82,17 @@ public class PreventTheftActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
+        RequestFactory.getGuardRequest().isAntiTheftOpened(new GuardRequest.LockStateCallBack() {
+            @Override
+            public void hasLocked(boolean locked) {
+                theft_switch.setChecked(locked);
+            }
+
+            @Override
+            public void requestError(String error) {
+
+            }
+        });
         observableFactory.getTitleObservable().titleText.set("车辆防盗");
         observableFactory.getTitleObservable().userIcon.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);
