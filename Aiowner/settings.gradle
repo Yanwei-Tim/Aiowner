@@ -1,1 +1,1 @@
-include ':app', ':commonlib', ':rest', ':workflow'
+include ':app', ':commonlib', ':rest', ':workflow', ':persistence'

@@ -1,6 +1,6 @@
 package com.dudu.workflow.guard;
 
-import com.dudu.aiowner.commonlib.config.SharedPreferencesUtils;
+import com.dudu.aiowner.commonlib.commonutils.SharedPreferencesUtils;
 
 /**
  * Created by Administrator on 2016/2/17.

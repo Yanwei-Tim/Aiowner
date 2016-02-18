@@ -30,7 +30,7 @@ public class DrivingRequestTest {
     @Test
     public void test_requestAccTestStart() throws InterruptedException {
         final CountDownLatch signal = new CountDownLatch(1);
-        request.startacceleratedTesting("18520339890", 1, new DrivingRequest.RequestCallback() {
+        request.startacceleratedTesting(1, new DrivingRequest.RequestCallback() {
             @Override
             public void requestSuccess(boolean success) {
                 signal.countDown();

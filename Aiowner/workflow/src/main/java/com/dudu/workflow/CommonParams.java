@@ -1,6 +1,6 @@
 package com.dudu.workflow;
 
-import com.dudu.aiowner.commonlib.config.ConfigReader;
+import com.dudu.aiowner.commonlib.commonutils.TestVerify;
 import com.dudu.workflow.user.UserFlow;
 import com.dudu.workflow.user.UserInfo;
 
@@ -18,14 +18,15 @@ public class CommonParams {
     }
 
     public void init() {
-        if (ConfigReader.getInstance().isTest()) {
-            userInfo.setUserName("13800138000");
-        }else{
-            userInfo.setUserName(UserFlow.getUserName());
-        }
+        userInfo.setUserName(UserFlow.getUserName());
     }
 
-    public String getUserName(){
-        return userInfo.getUserName();
+    public String getUserName() {
+        return TestVerify.isEmpty(userInfo.getUserName()) ? "13800138000" : userInfo.getUserName();
+    }
+
+    public void setUserName(String userName) {
+        userInfo.setUserName(userName);
+        UserFlow.saveUserName(userName);
     }
 }
