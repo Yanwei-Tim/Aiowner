@@ -13,20 +13,20 @@ public class MainObservable {
 
 
     public MainObservable() {
-        remainingOil.set("92%");
-        gasMileage.set("80lr");
-        totalMileage.set("88");
+        remainingOil.set("95%");
+        gasMileage.set("90lr");
+        totalMileage.set("92");
     }
 
-    public void setRemainingOil(String remainingOil){
+    public void setRemainingOil(String remainingOil) {
         this.remainingOil.set(remainingOil + "%");
     }
 
-    public void setGasMileage(String gasMileage){
+    public void setGasMileage(String gasMileage) {
         this.gasMileage.set(gasMileage + "lr");
     }
 
-    public void setTotalMileage(String totalMileage){
+    public void setTotalMileage(String totalMileage) {
         this.totalMileage.set(totalMileage);
     }
 }

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,12 +22,22 @@ import com.dudu.workflow.driving.DrivingRequest;
 public class TestSpeedActivity extends BaseActivity {
 
     private TextView textSpeedButton;
+    private ImageView mImageView;
+    int[] images;
+    private FrameLayout count_down;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        textSpeedButton = (TextView)findViewById(R.id.start_test_speed);
+        textSpeedButton = (TextView) findViewById(R.id.start_test_speed);
         textSpeedButton.setOnClickListener(onClickListener);
+        count_down = (FrameLayout) findViewById(R.id.count_down);
+        mImageView = (ImageView) findViewById(R.id.check);
+
+        /*android帧动画animation-list*/
+        images = new ImagesList().getImages();
+        new TestingAnimation().play(mImageView, images, 5, this, count_down);
+
     }
 
     @Override
@@ -33,7 +45,7 @@ public class TestSpeedActivity extends BaseActivity {
         return LayoutInflater.from(this).inflate(R.layout.activity_test_speed, null);
     }
 
-    public void startTestSpeed(View view) {
+    public void startAccTesting(View view) {
 
     }
 
@@ -64,15 +76,15 @@ public class TestSpeedActivity extends BaseActivity {
     private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.start_test_speed:
                     RequestFactory.getDrivingRequest().startacceleratedTesting(1, new DrivingRequest.RequestCallback() {
                         @Override
                         public void requestSuccess(boolean success) {
-                            if(success) {
-                                Toast.makeText(TestSpeedActivity.this, "车辆已开始测试", Toast.LENGTH_SHORT).show();
+                            if (success) {
+                                Toast.makeText(getApplicationContext(), "车辆已开始测试", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(TestSpeedActivity.this, "请求失败，请重试", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "请求失败，请重试", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

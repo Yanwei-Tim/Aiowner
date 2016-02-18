@@ -30,6 +30,9 @@ public class MainActivity extends BaseActivity {
 
     private MainObservable mainObservable;
     private ActivityMainBinding activityMainBinding;
+    private int oilData;
+    private int gasMileageData;
+    private int totalMileageData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,17 @@ public class MainActivity extends BaseActivity {
         activityMainBinding.setTitle(observableFactory.getTitleObservable());
         activityMainBinding.setMainPage(mainObservable);
 
+        resetData();
+
     }
+
+    private void resetData() {
+
+        oilData = Integer.parseInt(mainObservable.remainingOil.get().replace("%", ""));
+        gasMileageData = Integer.parseInt(mainObservable.gasMileage.get().replace("lr", ""));
+        totalMileageData = Integer.parseInt(mainObservable.totalMileage.get());
+    }
+
 
     @Override
     protected View getChildView() {
@@ -73,9 +86,10 @@ public class MainActivity extends BaseActivity {
                     startActivity(new Intent(MainActivity.this, PreventLootingActivity.class));
                 }
             }
+
             @Override
             public void requestError(String error) {
-                Log.d("MainActivity",error);
+                Log.d("MainActivity", error);
                 Toast.makeText(getApplication(), "请求防劫状态失败", Toast.LENGTH_SHORT).show();
 //                startActivity(new Intent(MainActivity.this, PreventLootingActivity.class));
             }
@@ -98,11 +112,21 @@ public class MainActivity extends BaseActivity {
     }
 
     public void userInfo(View view) {
+
         startActivity(new Intent(MainActivity.this, UserInfoActivity.class));
     }
 
     @Override
     protected void onResume() {
+
+        String resultOilData = "" + oilData--;
+        String resultgasMileageData = "" + gasMileageData--;
+        String resulttotalMileageData = "" + totalMileageData--;
+
+        mainObservable.setRemainingOil(resultOilData);
+        mainObservable.setGasMileage(resultgasMileageData);
+        mainObservable.setTotalMileage(resulttotalMileageData);
+
         super.onResume();
     }
 }

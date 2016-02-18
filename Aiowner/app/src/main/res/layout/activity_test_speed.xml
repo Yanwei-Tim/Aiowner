@@ -1,118 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-                android:gravity="center">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/acc"
         android:layout_width="match_parent"
         android:layout_height="28dp"
-        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/acc"/>
+        android:layout_marginTop="60dp"
+        android:src="@drawable/acc" />
 
     <FrameLayout
         android:id="@+id/count_down"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/acc"
-        android:layout_marginTop="20dp">
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp">
+
         <ImageView
+            android:id="@+id/check"
             android:layout_width="230dp"
-            android:layout_height="170dp"
-            android:layout_gravity="center"
-            android:src="@drawable/acc_test_2_00033"/>
+            android:layout_height="170dp" />
 
         <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+            android:id="@+id/acc_testing_result_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="0.0s"
             android:textColor="@android:color/white"
-            android:textSize="114px"/>
+            android:textSize="114px" />
+
     </FrameLayout>
 
-    <RelativeLayout
-        android:id="@+id/speed_choose"
+    <RadioGroup
+        android:id="@+id/acc_texting_radiogroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/count_down"
-        android:layout_marginTop="40dp">
-        <ImageView
-            android:id="@+id/speed_100km"
-            android:layout_width="15dp"
-            android:layout_height="15.5dp"
-            android:layout_marginLeft="35dp"
-            android:src="@drawable/group_12"/>
+        android:layout_below="@id/count_down"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-            android:id="@+id/speed_100km_text"
+        <RadioButton
+            android:id="@+id/acc_texting_100km_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/speed_100km"
-            android:layout_marginLeft="7dp"
+            android:button="@drawable/acc_testing_km_sel"
             android:text="100km/h"
-            android:textColor="@android:color/white"
-            android:textSize="15dp" />
+            android:textSize="16sp"
+            android:textColor="@android:color/white" />
 
-        <ImageView
-            android:id="@+id/speed_200km"
-            android:layout_width="15dp"
-            android:layout_height="15.5dp"
-            android:layout_toRightOf="@+id/speed_100km_text"
-            android:layout_marginLeft="23.5dp"
-            android:src="@drawable/ellipse_4"/>
-
-        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-            android:id="@+id/speed_200km_text"
+        <RadioButton
+            android:id="@+id/acc_texting_200km_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/speed_200km"
-            android:layout_marginLeft="7dp"
+            android:layout_marginLeft="15dp"
             android:text="200km/h"
-            android:textColor="@android:color/white"
-            android:textSize="15dp" />
+            android:textSize="16sp"
+            android:textColor="@android:color/white" />
 
-        <ImageView
-            android:id="@+id/speed_300km"
-            android:layout_width="15dp"
-            android:layout_height="15.5dp"
-            android:layout_toRightOf="@+id/speed_200km_text"
-            android:layout_marginLeft="23.5dp"
-            android:src="@drawable/ellipse_4"/>
-
-        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        <RadioButton
+            android:id="@+id/acc_texting_300km_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/speed_300km"
-            android:layout_marginLeft="7dp"
+            android:layout_marginLeft="15dp"
             android:text="300km/h"
-            android:textColor="@android:color/white"
-            android:textSize="15dp" />
+            android:textSize="16sp"
+            android:textColor="@android:color/white" />
 
-        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-            android:id="@+id/start_test_speed"
-            style="@style/button_big"
-            android:layout_centerHorizontal="true"
-            android:singleLine="true"
-            android:layout_marginTop="44dp"
-            android:layout_below="@id/speed_100km"
-            android:textColor="@android:color/white"
-            android:background="@drawable/btn_bg_sel_line"
-            android:onClick="startTestSpeed"
-            android:text="开 始 测 速" />
+    </RadioGroup>
 
-        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-            android:id="@+id/history_records"
-            style="@style/button_big"
-            android:layout_centerHorizontal="true"
-            android:singleLine="true"
-            android:layout_marginTop="33dp"
-            android:layout_below="@id/start_test_speed"
-            android:textColor="@android:color/white"
-            android:background="@drawable/btn_bg_sel_line"
-            android:onClick="startHistoryRecords"
-            android:text="历 史 记 录" />
-    </RelativeLayout>
+
+
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        android:id="@+id/start_test_speed"
+        style="@style/button_big"
+        android:layout_below="@id/acc_texting_radiogroup"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/btn_bg_sel_line"
+        android:onClick="startAccTesting"
+        android:singleLine="true"
+        android:text="开 始 测 速"
+        android:textColor="@android:color/white" />
+
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        android:id="@+id/history_records"
+        style="@style/button_big"
+        android:layout_below="@id/start_test_speed"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="33dp"
+        android:background="@drawable/btn_bg_sel_line"
+        android:onClick="startHistoryRecords"
+        android:singleLine="true"
+        android:text="历 史 记 录"
+        android:textColor="@android:color/white" />
+
 </RelativeLayout>

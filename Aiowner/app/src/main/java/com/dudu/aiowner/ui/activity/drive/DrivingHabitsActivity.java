@@ -1,6 +1,6 @@
 package com.dudu.aiowner.ui.activity.drive;
 
-import android.databinding.DataBindingUtil;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.KeyEvent;
@@ -53,7 +53,7 @@ public class DrivingHabitsActivity extends BaseActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    /*public void startDriveHabitsInfoAcitity(View view){
+    public void startDriveHabitsInfoAcitity(View view){
         startActivity(new Intent(DrivingHabitsActivity.this, DrvingHabitsInfoAcitity.class));
-    }*/
+    }
 }

@@ -1,154 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
 
     <ImageView
         android:id="@+id/acc"
         android:layout_width="match_parent"
         android:layout_height="28dp"
-        android:layout_marginTop="60dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/acc"/>
+        android:layout_marginTop="60dp"
+        android:src="@drawable/acc" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_below="@+id/acc"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="36dp"
-        android:layout_below="@+id/acc">
+        android:layout_marginTop="80dp">
 
         <ImageView
             style="@style/test_Speed_imageview_style1"
-            android:src="@drawable/vector_smart_object"/>
+            android:src="@drawable/vector_smart_object" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             android:id="@+id/brand"
             style="@style/test_Speed_FZLFontTextView_style1"
-            android:text="品牌"/>
+            android:text="品牌" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             style="@style/test_Speed_FZLFontTextView_style2"
-            android:text="丰田"/>
+            android:text="丰田" />
 
         <ImageView
             style="@style/test_Speed_imageview_style2"
-            android:src="@drawable/user_bnt_arrow_blue_nor"/>
+            android:src="@drawable/user_bnt_arrow_blue_nor" />
 
         <ImageView
             style="@style/test_Speed_imageview_style3"
             android:layout_below="@+id/brand"
-            android:src="@drawable/vector_smart_line1"/>
+            android:src="@drawable/vector_smart_line1" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
+        android:layout_below="@+id/acc"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="36dp"
-        android:orientation="horizontal"
-        android:layout_below="@+id/acc">
+        android:layout_marginTop="136dp"
+        android:orientation="horizontal">
 
         <ImageView
             style="@style/test_Speed_imageview_style1"
-            android:src="@drawable/vector_smart_object"/>
+            android:src="@drawable/vector_smart_object" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             android:id="@+id/years"
             style="@style/test_Speed_FZLFontTextView_style1"
-            android:text="年份"/>
+            android:text="年份" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             style="@style/test_Speed_FZLFontTextView_style2"
-            android:text="2014"/>
+            android:text="2014" />
 
         <ImageView
             style="@style/test_Speed_imageview_style2"
-            android:src="@drawable/user_bnt_arrow_blue_nor"/>
+            android:src="@drawable/user_bnt_arrow_blue_nor" />
 
         <ImageView
             style="@style/test_Speed_imageview_style3"
             android:layout_below="@+id/years"
-            android:src="@drawable/vector_smart_line1"/>
+            android:src="@drawable/vector_smart_line1" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
+        android:layout_below="@+id/acc"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="36dp"
-        android:orientation="horizontal"
-        android:layout_below="@+id/acc">
+        android:layout_marginTop="192dp"
+        android:orientation="horizontal">
 
         <ImageView
             style="@style/test_Speed_imageview_style1"
-            android:src="@drawable/vector_smart_object"/>
+            android:src="@drawable/vector_smart_object" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             android:id="@+id/vehicle_type"
             style="@style/test_Speed_FZLFontTextView_style1"
-            android:text="车型"/>
+            android:text="车型" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             style="@style/test_Speed_FZLFontTextView_style2"
-            android:text="锐志"/>
+            android:text="锐志" />
 
         <ImageView
             style="@style/test_Speed_imageview_style2"
-            android:src="@drawable/user_bnt_arrow_blue_nor"/>
+            android:src="@drawable/user_bnt_arrow_blue_nor" />
 
         <ImageView
             style="@style/test_Speed_imageview_style3"
             android:layout_below="@+id/vehicle_type"
-            android:src="@drawable/vector_smart_line1"/>
+            android:src="@drawable/vector_smart_line1" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/cc_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="248dp"
+        android:layout_below="@+id/acc"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="36dp"
-        android:orientation="horizontal"
-        android:layout_below="@+id/acc">
+        android:layout_marginTop="248dp"
+        android:orientation="horizontal">
 
         <ImageView
             style="@style/test_Speed_imageview_style1"
-            android:src="@drawable/vector_smart_object"/>
+            android:src="@drawable/vector_smart_object" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             android:id="@+id/cc"
             style="@style/test_Speed_FZLFontTextView_style1"
-            android:text="排量"/>
+            android:text="排量" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             style="@style/test_Speed_FZLFontTextView_style2"
-            android:text="2.4"/>
+            android:text="2.4" />
 
         <ImageView
             style="@style/test_Speed_imageview_style2"
-            android:src="@drawable/user_bnt_arrow_blue_nor"/>
+            android:src="@drawable/user_bnt_arrow_blue_nor" />
 
         <ImageView
             style="@style/test_Speed_imageview_style3"
             android:layout_below="@+id/cc"
-            android:src="@drawable/vector_smart_line1"/>
+            android:src="@drawable/vector_smart_line1" />
     </RelativeLayout>
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         style="@style/button_big"
-        android:layout_centerHorizontal="true"
-        android:singleLine="true"
-        android:layout_marginTop="50dp"
         android:layout_below="@id/cc_layout"
-        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
         android:background="@drawable/btn_bg_sel_line"
         android:onClick="startTestSpeed"
-        android:text="下 一 步" />
+        android:singleLine="true"
+        android:text="下 一 步"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>
