@@ -1,8 +1,8 @@
 package com.dudu.workflow;
 
-import com.dudu.aiowner.commonlib.commonutils.TestVerify;
-import com.dudu.workflow.user.UserFlow;
 import com.dudu.workflow.user.UserInfo;
+
+import rx.functions.Action1;
 
 /**
  * Created by Administrator on 2016/2/16.
@@ -18,15 +18,21 @@ public class CommonParams {
     }
 
     public void init() {
-        userInfo.setUserName(UserFlow.getUserName());
+        DataFactory.getUserDataFlow().getUserName()
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String s) {
+                        userInfo.setUserName(s);
+                    }
+                });
     }
 
     public String getUserName() {
-        return TestVerify.isEmpty(userInfo.getUserName()) ? "13800138000" : userInfo.getUserName();
+        return userInfo.getUserName();
     }
 
     public void setUserName(String userName) {
         userInfo.setUserName(userName);
-        UserFlow.saveUserName(userName);
+        DataFactory.getUserDataFlow().saveUserName(userName);
     }
 }

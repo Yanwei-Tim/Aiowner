@@ -12,8 +12,8 @@ import com.dudu.aiowner.R;
 import com.dudu.aiowner.receiver.ReceiverRegister;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.main.MainActivity;
+import com.dudu.workflow.DataFactory;
 import com.dudu.workflow.RequestFactory;
-import com.dudu.workflow.user.UserFlow;
 import com.dudu.workflow.user.UserRequest;
 
 /**
@@ -58,7 +58,7 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void loginSuccess(boolean success) {
                         if (success) {
-                            UserFlow.saveUserName(username);
+                            DataFactory.getUserDataFlow().saveUserName(username);
                             ReceiverRegister.registPushManager(username);
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             Toast.makeText(getApplicationContext(), "登录请求成功", Toast.LENGTH_SHORT).show();
