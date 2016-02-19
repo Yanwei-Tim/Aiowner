@@ -4,15 +4,13 @@ import com.dudu.persistence.user.RealmUserDataService;
 import com.dudu.workflow.user.UserFlow;
 
 /**
- * Created by Administrator on 2016/2/18.
+ * Created by Administrator on 2016/2/19.
  */
-public class DataFactory {
-
-    private static DataFactory mInstance = new DataFactory();
-
+public class FlowFactory {
+    private static FlowFactory mInstance = new FlowFactory();
     private static UserFlow userFlow;
 
-    public static DataFactory getInstance() {
+    public static FlowFactory getInstance(){
         return mInstance;
     }
 

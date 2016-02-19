@@ -7,7 +7,7 @@ import com.dudu.aiowner.commonlib.CommonLib;
 import com.dudu.aiowner.receiver.ReceiverRegister;
 import com.dudu.aiowner.rest.common.Request;
 import com.dudu.workflow.CommonParams;
-import com.dudu.workflow.DataFactory;
+import com.dudu.workflow.FlowFactory;
 import com.dudu.workflow.RequestFactory;
 
 /**
@@ -23,7 +23,7 @@ public class AiownerApplication extends Application {
         super.onCreate();
         context=this;
         CommonLib.getInstance().init(this);
-        DataFactory.getInstance().init();
+        FlowFactory.getInstance().init();
         CommonParams.getInstance().init();
         RequestFactory.getInstance().init();
         Request.getInstance().init();

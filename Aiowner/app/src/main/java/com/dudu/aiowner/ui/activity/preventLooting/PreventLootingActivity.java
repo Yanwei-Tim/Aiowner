@@ -9,11 +9,17 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.commonlib.model.ReceiverData;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
+import com.dudu.workflow.ObservableFactory;
 import com.dudu.workflow.RequestFactory;
-import com.dudu.workflow.robbery.RobberyFlow;
 import com.dudu.workflow.robbery.RobberyRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import rx.functions.Action1;
 
 /**
  * Created by Administrator on 2016/2/2.
@@ -22,6 +28,8 @@ public class PreventLootingActivity extends BaseActivity {
     private ToggleButton light_switch;
     private ToggleButton debus_switch;
     private ToggleButton brake_switch;
+
+    private Logger logger = LoggerFactory.getLogger("PreventLootingActivity");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +55,23 @@ public class PreventLootingActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
-        light_switch.setChecked(RobberyFlow.getRobbeySingleState());
+        observableFactory.getTitleObservable().titleText.set("车辆防劫");
+        observableFactory.getTitleObservable().userIcon.set(true);
+        observableFactory.getCommonObservable().hasBottomIcon.set(false);
+        reflashSwitch();
+        super.onResume();
+    }
+
+    private void reflashSwitch() {
+        ObservableFactory.getRobberyFlow()
+                .subscribe(new Action1<ReceiverData>() {
+                    @Override
+                    public void call(ReceiverData receiverData) {
+                        light_switch.setChecked(receiverData.getSwitch1Value().equals("1"));
+                        debus_switch.setChecked(receiverData.getSwitch2Value().equals("1"));
+                        brake_switch.setChecked(receiverData.getSwitch3Value().equals("1"));
+                    }
+                });
         RequestFactory.getRobberyRequest()
                 .getRobberyState(new RobberyRequest.RobberStateCallback() {
                     @Override
@@ -55,18 +79,13 @@ public class PreventLootingActivity extends BaseActivity {
                         light_switch.setChecked(flashRateTimes);
                         debus_switch.setChecked(emergencyCutoff);
                         brake_switch.setChecked(stepOnTheGas);
-
                     }
 
                     @Override
                     public void requestError(String error) {
-
+                        logger.error(error);
                     }
                 });
-        observableFactory.getTitleObservable().titleText.set("车辆防劫");
-        observableFactory.getTitleObservable().userIcon.set(true);
-        observableFactory.getCommonObservable().hasBottomIcon.set(false);
-        super.onResume();
     }
 
     public void settingAntiRobberyMode(final ToggleButton switchButton, final int type, final boolean open) {
@@ -75,7 +94,7 @@ public class PreventLootingActivity extends BaseActivity {
                     @Override
                     public void switchSuccess(boolean success) {
                         if (success) {
-                            RobberyFlow.saveRobbeySingleState(open, type);
+//                            RobberyFlow.saveRobbeySingleState(open, type);
                             if (open) {
                                 switchButton.setBackgroundResource(R.drawable.looting_lock_on);
                             } else {

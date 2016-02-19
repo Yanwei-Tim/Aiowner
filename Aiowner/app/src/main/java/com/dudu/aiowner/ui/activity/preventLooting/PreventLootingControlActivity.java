@@ -9,11 +9,14 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.commonlib.model.ReceiverData;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
+import com.dudu.workflow.ObservableFactory;
 import com.dudu.workflow.RequestFactory;
-import com.dudu.workflow.robbery.RobberyFlow;
 import com.dudu.workflow.robbery.RobberyRequest;
+
+import rx.functions.Action1;
 
 /**
  * Created by Administrator on 2016/2/2.
@@ -44,12 +47,27 @@ public class PreventLootingControlActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
-        looting_switch.setChecked(RobberyFlow.getRobbeyState());
+        observableFactory.getTitleObservable().titleText.set("车辆防劫");
+        observableFactory.getTitleObservable().userIcon.set(true);
+        observableFactory.getCommonObservable().hasBottomIcon.set(false);
+        reflashSwitch();
+        super.onResume();
+    }
+
+    private void reflashSwitch(){
+//        looting_switch.setChecked(RobberyFlow.getRobbeyState());
+        ObservableFactory.getRobberyFlow()
+                .subscribe(new Action1<ReceiverData>() {
+                    @Override
+                    public void call(ReceiverData receiverData) {
+                        looting_switch.setChecked(!receiverData.getSwitch0Value().equals("1"));
+                    }
+                });
         RequestFactory.getRobberyRequest().isCarRobbed(new RobberyRequest.CarRobberdCallback() {
             @Override
             public void hasRobbed(boolean robbed) {
-                RobberyFlow.saveRobbeyState(robbed);
-                looting_switch.setChecked(robbed);
+//                RobberyFlow.saveRobbeyState(robbed);
+                looting_switch.setChecked(!robbed);
             }
 
             @Override
@@ -57,10 +75,6 @@ public class PreventLootingControlActivity extends BaseActivity {
 
             }
         });
-        observableFactory.getTitleObservable().titleText.set("车辆防劫");
-        observableFactory.getTitleObservable().userIcon.set(true);
-        observableFactory.getCommonObservable().hasBottomIcon.set(false);
-        super.onResume();
     }
 
     private void initEvent() {
@@ -72,8 +86,8 @@ public class PreventLootingControlActivity extends BaseActivity {
                         @Override
                         public void closeSuccess(boolean success) {
                             if (success) {
-                                RobberyFlow.saveRobbeyState(false);
-                                looting_switch.setBackgroundResource(R.drawable.theft_lock_on);
+//                                RobberyFlow.saveRobbeyState(false);
+//                                looting_switch.setBackgroundResource(R.drawable.theft_lock_on);
                                 Toast.makeText(getApplicationContext(), "请求关闭防劫模式成功", Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(getApplicationContext(), "请求关闭防劫模式失败", Toast.LENGTH_SHORT).show();

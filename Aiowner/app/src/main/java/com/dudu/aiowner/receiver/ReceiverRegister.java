@@ -2,7 +2,6 @@ package com.dudu.aiowner.receiver;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.dudu.aiowner.AiownerApplication;
 import com.tencent.android.tpush.XGIOperateCallback;
@@ -23,13 +22,11 @@ public class ReceiverRegister {
         XGPushManager.registerPush(context, username, new XGIOperateCallback() {
             @Override
             public void onSuccess(Object o, int i) {
-                Toast.makeText(context, "注册成功", Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "注册成功");
             }
 
             @Override
             public void onFail(Object o, int i, String s) {
-                Toast.makeText(context, "注册失败" + s, Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "注册失败" + s);
             }
         });

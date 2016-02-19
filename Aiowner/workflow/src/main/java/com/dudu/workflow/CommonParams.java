@@ -18,7 +18,7 @@ public class CommonParams {
     }
 
     public void init() {
-        DataFactory.getUserDataFlow().getUserInfo()
+        FlowFactory.getUserDataFlow().getUserInfo()
                 .subscribe(new Action1<User>() {
                     @Override
                     public void call(User user) {
