@@ -1,8 +1,11 @@
 package com.dudu.aiowner.ui.activity.maintenanceAssistant;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.login.ForgetLoginPswActitivy;
@@ -14,6 +17,21 @@ import com.dudu.aiowner.ui.base.BaseActivity;
  * Created by Administrator on 2016/2/2.
  */
 public class MaintenanceAssistantActivity extends BaseActivity {
+
+    private int[] images;
+    private FrameLayout count_down;
+    private ImageView mImageView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+          /*android帧动画animation-list*/
+        mImageView = (ImageView) findViewById(R.id.health_index_water_iv);
+        images = new WaterImagesList().getImages();
+//
+        new WaterAnimation().play(mImageView, images, 5, this, count_down);
+    }
+
     @Override
     protected View getChildView() {
 

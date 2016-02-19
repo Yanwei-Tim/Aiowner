@@ -10,293 +10,269 @@
         android:orientation="vertical">
 
         <FrameLayout
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="15dp">
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
 
-            <TextView
+            <ImageView
+                android:id="@+id/health_index_water_iv"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_gravity="center" />
+
+            <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+                android:id="@+id/health_index_data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="健康指数动画"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="80dp"
+                android:background="#01000000"
+                android:text="70"
                 android:textColor="@android:color/white"
-                android:textSize="25sp" />
+                android:textSize="45sp" />
+
+            <View
+                android:layout_width="58dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="124dp"
+                android:background="@android:color/white"></View>
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:id="@+id/health_index_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="129dp"
+                android:background="#01000000"
+                android:text="健康指数"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
 
         </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="5dp"
+                android:src="@drawable/small_rounded_rectangle" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_marginLeft="25dp"
+                android:text="上次保养"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
 
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="5dp"
-                    android:src="@drawable/small_rounded_rectangle" />
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="2016/02/05"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
 
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:text="上次保养"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp" />
-
-                <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:text="2016/02/05"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp" />
-
-                <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:text="10000KM"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="280dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="7dp"
-                android:background="@color/bluecolor"></View>
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="10000KM"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="280dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="7dp"
+            android:background="@color/bluecolor"></View>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="5dp"
+                android:src="@drawable/small_rounded_rectangle" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_marginLeft="15dp"
+                android:text="发动机舱"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
 
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="5dp"
-                    android:src="@drawable/small_rounded_rectangle" />
-
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:text="发动机舱"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp" />
-
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                    style="@style/assistant_btn"
-                    android:layout_marginLeft="120dp"
-                    android:background="@drawable/blue_rounded_rectangle_ring"
-                    android:text="建议清洗" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="280dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="14dp"
-                android:background="@color/bluecolor"></View>
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                style="@style/assistant_btn"
+                android:layout_marginLeft="120dp"
+                android:background="@drawable/blue_rounded_rectangle_ring"
+                android:text="建议清洗" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="280dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/bluecolor"></View>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="5dp"
+                android:src="@drawable/small_rounded_rectangle" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_marginLeft="15dp"
+                android:text="汽油泵"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
 
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="5dp"
-                    android:src="@drawable/small_rounded_rectangle" />
-
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:text="汽油泵"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp" />
-
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                    style="@style/assistant_btn"
-                    android:layout_marginLeft="132dp"
-                    android:background="@drawable/blue_rounded_rectangle_ring"
-                    android:text="建议清洗" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="280dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="14dp"
-                android:background="@color/bluecolor"></View>
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                style="@style/assistant_btn"
+                android:layout_marginLeft="132dp"
+                android:background="@drawable/blue_rounded_rectangle_ring"
+                android:text="建议清洗" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="280dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/bluecolor"></View>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="5dp"
+                android:src="@drawable/small_rounded_rectangle" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_marginLeft="15dp"
+                android:text="火花塞"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
 
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="5dp"
-                    android:src="@drawable/small_rounded_rectangle" />
-
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:text="火花塞"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp" />
-
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                    style="@style/assistant_btn"
-                    android:layout_marginLeft="132dp"
-                    android:background="@drawable/blue_rounded_rectangle_ring"
-                    android:text="建议清洗" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="280dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="14dp"
-                android:background="@color/bluecolor"></View>
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                style="@style/assistant_btn"
+                android:layout_marginLeft="132dp"
+                android:background="@drawable/blue_rounded_rectangle_ring"
+                android:text="建议清洗" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="280dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/bluecolor"></View>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="5dp"
+                android:src="@drawable/small_rounded_rectangle" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_marginLeft="15dp"
+                android:text="喷油嘴"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
 
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="5dp"
-                    android:src="@drawable/small_rounded_rectangle" />
-
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:text="喷油嘴"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp" />
-
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                    style="@style/assistant_btn"
-                    android:layout_marginLeft="132dp"
-                    android:background="@drawable/blue_rounded_rectangle_ring"
-                    android:text="建议清洗" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="280dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="14dp"
-                android:background="@color/bluecolor"></View>
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                style="@style/assistant_btn"
+                android:layout_marginLeft="132dp"
+                android:background="@drawable/blue_rounded_rectangle_ring"
+                android:text="建议清洗" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="280dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/bluecolor"></View>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="5dp"
+                android:src="@drawable/small_rounded_rectangle" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_marginLeft="15dp"
+                android:text="油路"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
 
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="5dp"
-                    android:src="@drawable/small_rounded_rectangle" />
-
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:text="油路"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp" />
-
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                    style="@style/assistant_btn"
-                    android:layout_marginLeft="145dp"
-                    android:background="@drawable/blue_rounded_rectangle_ring"
-                    android:text="建议清洗" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="280dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="14dp"
-                android:background="@color/bluecolor"></View>
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                style="@style/assistant_btn"
+                android:layout_marginLeft="145dp"
+                android:background="@drawable/blue_rounded_rectangle_ring"
+                android:text="建议清洗" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="280dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/bluecolor">
+
+        </View>
 
     </LinearLayout>
 

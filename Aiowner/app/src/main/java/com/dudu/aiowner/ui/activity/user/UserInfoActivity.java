@@ -20,7 +20,7 @@ public class UserInfoActivity extends BaseActivity {
 
     public void startModifyHeadPortraitAndNickname(View view) {
 
-        startActivity(new Intent(UserInfoActivity.this, ModifyHeadPortraitAndNicknameActivity.class));
+//        startActivity(new Intent(UserInfoActivity.this, ModifyHeadPortraitAndNicknameActivity.class));
     }
 
     public void startFogetPassword(View view) {

@@ -48,6 +48,6 @@ public class CarAnimation {
                     playConstant(pFrameNo + 1);
                 }
             }
-        }, 50);
+        }, 5);
     }
 }
