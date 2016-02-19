@@ -1,14 +1,12 @@
 package com.dudu.aiowner.ui.activity.preventTheft;
 
 import android.content.Intent;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
-import com.dudu.aiowner.ui.main.MainActivity;
 
 /**
  * Created by sunny_zhang on 2016/2/4.
@@ -36,15 +34,5 @@ public class ConfirmDigitalPswActivity extends BaseActivity {
     }
     public void userInfo(View view) {
         startActivity(new Intent(ConfirmDigitalPswActivity.this, UserInfoActivity.class));
-    }
-
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }

@@ -2,11 +2,11 @@ package com.dudu.aiowner.ui.activity.testSpeed;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,21 +23,46 @@ public class TestSpeedActivity extends BaseActivity {
 
     private TextView textSpeedButton;
     private ImageView mImageView;
-    int[] images;
+    private int[] images;
     private FrameLayout count_down;
+    private RadioGroup acc_texting_radiogroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        textSpeedButton = (TextView) findViewById(R.id.start_test_speed);
-        textSpeedButton.setOnClickListener(onClickListener);
-        count_down = (FrameLayout) findViewById(R.id.count_down);
-        mImageView = (ImageView) findViewById(R.id.check);
+
+        initView();
+        initEvent();
 
         /*android帧动画animation-list*/
-        images = new ImagesList().getImages();
+        images = new AccImagesList().getImages();
         new TestingAnimation().play(mImageView, images, 5, this, count_down);
 
+    }
+
+    private void initEvent() {
+
+        textSpeedButton.setOnClickListener(onClickListener);
+
+        int radioButtonId = acc_texting_radiogroup.getCheckedRadioButtonId();
+        switch (radioButtonId) {
+            case R.id.acc_texting_100km_rb:
+                //TODO
+                break;
+            case R.id.acc_texting_200km_rb:
+                //TODO
+                break;
+            case R.id.acc_texting_300km_rb:
+                //TODO
+                break;
+        }
+    }
+
+    private void initView() {
+        textSpeedButton = (TextView) findViewById(R.id.start_test_speed);
+        count_down = (FrameLayout) findViewById(R.id.count_down);
+        mImageView = (ImageView) findViewById(R.id.check);
+        acc_texting_radiogroup = (RadioGroup) findViewById(R.id.acc_texting_radiogroup);
     }
 
     @Override
@@ -63,14 +88,6 @@ public class TestSpeedActivity extends BaseActivity {
         observableFactory.getTitleObservable().userIcon.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);
         super.onResume();
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {

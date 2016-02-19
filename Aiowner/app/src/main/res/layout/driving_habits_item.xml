@@ -91,8 +91,8 @@
 
             <Button
                 android:id="@+id/habits_info_button"
-                android:layout_width="13dp"
-                android:layout_height="12dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/driving_habits_sel"

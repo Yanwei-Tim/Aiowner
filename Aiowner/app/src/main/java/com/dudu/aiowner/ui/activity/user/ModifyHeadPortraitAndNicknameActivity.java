@@ -1,6 +1,5 @@
 package com.dudu.aiowner.ui.activity.user;
 
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -25,13 +24,5 @@ public class ModifyHeadPortraitAndNicknameActivity extends BaseActivity {
         observableFactory.getTitleObservable().hasBackGround.set(true);
         observableFactory.getTitleObservable().hasUserBackButton.set(true);
         super.onResume();
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }

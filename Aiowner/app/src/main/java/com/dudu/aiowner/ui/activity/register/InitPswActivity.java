@@ -3,7 +3,6 @@ package com.dudu.aiowner.ui.activity.register;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -49,15 +48,6 @@ public class InitPswActivity extends BaseActivity {
         observableFactory.getTitleObservable().titleText.set("注册");
         super.onResume();
     }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
     public void startLogin(View v) {
 
         String newPassword = initpsw_psw_et.getText().toString();

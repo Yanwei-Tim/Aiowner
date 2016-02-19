@@ -2,7 +2,6 @@ package com.dudu.aiowner.ui.activity.preventLooting;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -68,14 +67,6 @@ public class PreventLootingActivity extends BaseActivity {
         observableFactory.getTitleObservable().userIcon.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);
         super.onResume();
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 
     public void settingAntiRobberyMode(final ToggleButton switchButton, final int type, final boolean open) {

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:bind="http://schemas.android.com/apk/res-auto">
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
     <data>
-        <import type="com.dudu.aiowner.ui.main.observable.MainObservable"/>
+
+        <import type="com.dudu.aiowner.ui.main.observable.MainObservable" />
 
         <variable
             name="MainPage"
-            type="MainObservable"/>
+            type="MainObservable" />
 
         <variable
             name="title"
@@ -19,32 +21,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/car"
-            android:layout_width="336.5dp"
-            android:layout_height="146dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="35dp"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/car"/>
+        <FrameLayout
+            android:id="@+id/main_car_fl"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/car"
+                android:layout_width="336.5dp"
+                android:layout_height="146dp"
+                android:layout_gravity="center" />
+
+            <ImageView
+                android:id="@+id/main_car_line_iv"
+                android:layout_width="305dp"
+                android:layout_height="34dp"
+                android:layout_below="@id/car"
+                android:layout_gravity="center"
+                android:layout_marginTop="55dp"
+                android:background="@drawable/main_car_blue_line" />
+        </FrameLayout>
 
         <include
             android:id="@+id/real_data_show"
             layout="@layout/real_data_show"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
+            android:layout_below="@+id/main_car_fl"
             android:layout_marginRight="8dp"
-            android:layout_below="@+id/car"
+            android:layout_marginTop="45dp"
             bind:MainPage="@{MainPage}" />
 
         <include
             layout="@layout/navigation_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
+            android:layout_below="@+id/real_data_show"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/real_data_show"/>
+            android:layout_marginTop="45dp" />
 
     </RelativeLayout>
 

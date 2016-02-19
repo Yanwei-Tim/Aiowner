@@ -2,7 +2,6 @@ package com.dudu.aiowner.ui.activity.testSpeed;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -30,13 +29,5 @@ public class HistoryRecordActivity extends BaseActivity{
     @Override
     protected View getChildView() {
         return LayoutInflater.from(this).inflate(R.layout.activity_history_record, null);
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }

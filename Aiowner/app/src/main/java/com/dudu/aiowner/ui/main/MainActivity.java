@@ -4,8 +4,11 @@ package com.dudu.aiowner.ui.main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.dudu.aiowner.R;
@@ -34,6 +37,10 @@ public class MainActivity extends BaseActivity {
     private int gasMileageData;
     private int totalMileageData;
 
+    private int[] images;
+    private FrameLayout count_down;
+    private ImageView mImageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +54,13 @@ public class MainActivity extends BaseActivity {
         activityMainBinding.setTitle(observableFactory.getTitleObservable());
         activityMainBinding.setMainPage(mainObservable);
 
-        resetData();
+         /*android帧动画animation-list*/
+        mImageView = (ImageView) findViewById(R.id.car);
+        images = new CarImagesList().getImages();
 
+        new CarAnimation().play(mImageView, images, 5, this, count_down);
+
+        resetData();
     }
 
     private void resetData() {
@@ -128,5 +140,13 @@ public class MainActivity extends BaseActivity {
         mainObservable.setTotalMileage(resulttotalMileageData);
 
         super.onResume();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

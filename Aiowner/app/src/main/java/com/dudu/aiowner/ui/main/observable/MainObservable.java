@@ -27,6 +27,6 @@ public class MainObservable {
     }
 
     public void setTotalMileage(String totalMileage) {
-        this.totalMileage.set(totalMileage);
+        this.totalMileage.set(totalMileage+".8");
     }
 }

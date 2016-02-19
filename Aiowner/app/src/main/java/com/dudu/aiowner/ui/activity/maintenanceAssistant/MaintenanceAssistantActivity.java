@@ -1,13 +1,11 @@
 package com.dudu.aiowner.ui.activity.maintenanceAssistant;
 
 import android.content.Intent;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.login.ForgetLoginPswActitivy;
-import com.dudu.aiowner.ui.activity.preventLooting.PreventLootingActivity;
 import com.dudu.aiowner.ui.activity.preventTheft.SetDigitalPswActivity;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
@@ -43,13 +41,5 @@ public class MaintenanceAssistantActivity extends BaseActivity {
         observableFactory.getTitleObservable().userIcon.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);
         super.onResume();
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }

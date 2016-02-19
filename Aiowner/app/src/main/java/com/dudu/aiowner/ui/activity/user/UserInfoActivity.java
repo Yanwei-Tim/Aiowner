@@ -1,7 +1,6 @@
 package com.dudu.aiowner.ui.activity.user;
 
 import android.content.Intent;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -29,7 +28,6 @@ public class UserInfoActivity extends BaseActivity {
         startActivity(new Intent(UserInfoActivity.this, ForgetLoginPswActitivy.class));
     }
 
-
     @Override
     protected void onResume() {
         observableFactory.getTitleObservable().titleText.set("");
@@ -39,13 +37,5 @@ public class UserInfoActivity extends BaseActivity {
         observableFactory.getTitleObservable().hasBackGround.set(true);
         observableFactory.getTitleObservable().hasUserBackButton.set(true);
         super.onResume();
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }

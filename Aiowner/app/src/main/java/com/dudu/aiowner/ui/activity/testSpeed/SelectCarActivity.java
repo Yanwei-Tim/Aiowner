@@ -1,7 +1,6 @@
 package com.dudu.aiowner.ui.activity.testSpeed;
 
 import android.content.Intent;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -30,15 +29,7 @@ public class SelectCarActivity extends BaseActivity {
         super.onResume();
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    public void startTestSpeed(View view){
+    public void startTestSpeed(View view) {
         startActivity(new Intent(SelectCarActivity.this, TestSpeedActivity.class));
     }
 }

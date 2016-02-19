@@ -50,29 +50,30 @@
             android:layout_height="wrap_content"
             android:button="@drawable/acc_testing_km_sel"
             android:text="100km/h"
-            android:textSize="16sp"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/acc_texting_200km_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
+            android:button="@drawable/acc_testing_km_sel"
             android:text="200km/h"
-            android:textSize="16sp"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/acc_texting_300km_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
+            android:button="@drawable/acc_testing_km_sel"
             android:text="300km/h"
-            android:textSize="16sp"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
 
     </RadioGroup>
-
 
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView

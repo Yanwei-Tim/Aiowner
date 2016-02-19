@@ -1,7 +1,6 @@
 package com.dudu.aiowner.ui.activity.preventTheft;
 
 import android.content.Intent;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -31,13 +30,5 @@ public class ForgetPreventTheftPswActitivy extends BaseActivity {
     protected void onResume() {
         observableFactory.getTitleObservable().titleText.set("忘记密码");
         super.onResume();
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }
