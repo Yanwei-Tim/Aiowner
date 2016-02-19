@@ -24,7 +24,7 @@ public class DrivingRequestRetrofitImpl implements DrivingRequest {
     @Override
     public void startacceleratedTesting(int type, final RequestCallback callback) {
         Call<RequestResponse> call = Request.getInstance().getDrivingService()
-                .startAcceleratedTesting(CommonParams.getInstance().getUserName(), type);
+                .startAcceleratedTesting(CommonParams.getInstance().getUser().getUserName(), type);
         call.enqueue(new Callback<RequestResponse>() {
             @Override
             public void onResponse(Call<RequestResponse> call, Response<RequestResponse> response) {

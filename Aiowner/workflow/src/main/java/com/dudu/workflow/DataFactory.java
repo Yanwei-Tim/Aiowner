@@ -1,6 +1,6 @@
 package com.dudu.workflow;
 
-import com.dudu.persistence.RealmUserDataService;
+import com.dudu.persistence.user.RealmUserDataService;
 import com.dudu.workflow.user.UserFlow;
 
 /**

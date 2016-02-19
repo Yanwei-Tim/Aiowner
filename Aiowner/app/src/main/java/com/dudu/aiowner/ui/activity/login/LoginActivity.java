@@ -15,6 +15,8 @@ import com.dudu.workflow.DataFactory;
 import com.dudu.workflow.RequestFactory;
 import com.dudu.workflow.user.UserRequest;
 
+import rx.functions.Action1;
+
 /**
  * Created by sunny_zhang on 2016/1/27.
  */
@@ -26,6 +28,7 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initView();
+        initUserName();
     }
 
     private void initView() {
@@ -73,6 +76,17 @@ public class LoginActivity extends BaseActivity {
     public void startForgetPreventTheftPsw(View view) {
 
         startActivity(new Intent(LoginActivity.this, ForgetLoginPswActitivy.class));
+    }
+
+    private void initUserName(){
+        DataFactory.getUserDataFlow()
+                .getUserName()
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String userName) {
+                        login_user_edittext.setText(userName);
+                    }
+                });
     }
 
     @Override

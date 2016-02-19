@@ -1,14 +1,16 @@
-package com.dudu.persistence.model;
+package com.dudu.persistence.user;
 
 /**
  * Created by Administrator on 2016/2/18.
  */
 public class User {
 
+    private int id;
+
     private String userName;
 
-    public User(String userName){
-        this.userName = userName;
+    public User(){
+
     }
 
     public User(RealmUser realmUser){
@@ -23,4 +25,11 @@ public class User {
         this.userName = userName;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

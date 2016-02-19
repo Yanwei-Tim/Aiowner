@@ -1,6 +1,6 @@
 package com.dudu.workflow;
 
-import com.dudu.workflow.user.UserInfo;
+import com.dudu.persistence.user.User;
 
 import rx.functions.Action1;
 
@@ -11,28 +11,32 @@ public class CommonParams {
 
     private static CommonParams mInstance = new CommonParams();
 
-    private UserInfo userInfo = new UserInfo();
+    private User user = new User();
 
     public static CommonParams getInstance() {
         return mInstance;
     }
 
     public void init() {
-        DataFactory.getUserDataFlow().getUserName()
-                .subscribe(new Action1<String>() {
+        DataFactory.getUserDataFlow().getUserInfo()
+                .subscribe(new Action1<User>() {
                     @Override
-                    public void call(String s) {
-                        userInfo.setUserName(s);
+                    public void call(User user) {
+                        CommonParams.this.user.setId(user.getId());
+                        CommonParams.this.user.setUserName(user.getUserName());
                     }
                 });
     }
 
-    public String getUserName() {
-        return userInfo.getUserName();
+    public User getUser() {
+        if(user == null){
+            user = new User();
+            user.setId(1);
+        }
+        return user;
     }
 
-    public void setUserName(String userName) {
-        userInfo.setUserName(userName);
-        DataFactory.getUserDataFlow().saveUserName(userName);
+    public String getUserName() {
+        return user.getUserName();
     }
 }

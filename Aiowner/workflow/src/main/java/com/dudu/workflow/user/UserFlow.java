@@ -1,7 +1,8 @@
 package com.dudu.workflow.user;
 
-import com.dudu.persistence.UserDataService;
-import com.dudu.persistence.model.User;
+import com.dudu.persistence.user.UserDataService;
+import com.dudu.persistence.user.User;
+import com.dudu.workflow.CommonParams;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,8 +27,9 @@ public class UserFlow {
     }
 
     public void saveUserName(String userName){
-        User user = new User(userName);
-        userDataService.addUser(user)
+        User user = CommonParams.getInstance().getUser();
+        user.setUserName(userName);
+        userDataService.saveUser(user)
             .subscribe(new Action1<User>() {
                 @Override
                 public void call(User user) {
@@ -46,5 +48,7 @@ public class UserFlow {
                 });
     }
 
-
+    public Observable<User> getUserInfo(){
+        return userDataService.findUser();
+    }
 }

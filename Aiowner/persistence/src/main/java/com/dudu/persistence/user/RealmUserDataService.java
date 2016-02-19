@@ -1,7 +1,5 @@
-package com.dudu.persistence;
+package com.dudu.persistence.user;
 
-import com.dudu.persistence.model.RealmUser;
-import com.dudu.persistence.model.User;
 import com.dudu.persistence.rx.RealmObservable;
 
 import io.realm.Realm;
@@ -38,28 +36,13 @@ public class RealmUserDataService implements UserDataService {
     }
 
     @Override
-    public Observable<User> findUser(final String username) {
-        return RealmObservable.object(new Func1<Realm, RealmUser>() {
-            @Override
-            public RealmUser call(Realm realm) {
-                return realm.where(RealmUser.class).equalTo("username", username).findFirst();
-            }
-        }).map(new Func1<RealmUser, User>() {
-            @Override
-            public User call(RealmUser realmUser) {
-                return userFromRealm(realmUser);
-            }
-        });
-    }
-
-    @Override
-    public Observable<User> addUser(final User user) {
+    public Observable<User> saveUser(final User user) {
         return RealmObservable.object(new Func1<Realm, RealmUser>() {
             @Override
             public RealmUser call(Realm realm) {
                 RealmUser realmUser = new RealmUser();
                 realmUser.setUserName(user.getUserName());
-                return realm.copyToRealm(realmUser);
+                return realm.copyToRealmOrUpdate(realmUser);
             }
         }).map(new Func1<RealmUser, User>() {
             @Override
@@ -71,6 +54,9 @@ public class RealmUserDataService implements UserDataService {
     }
 
     private static User userFromRealm(RealmUser realmUser) {
-        return new User(realmUser.getUserName());
+        User user = new User();
+        user.setUserName(realmUser.getUserName());
+        user.setId(realmUser.getUserId());
+        return user;
     }
 }
