@@ -26,7 +26,7 @@ public class HomeActivity extends Activity {
     }
 
     public void startLogin(View view) {
-
         startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+        finish();
     }
 }

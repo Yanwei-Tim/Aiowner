@@ -25,6 +25,7 @@ public class MaintenanceAssistantActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
           /*android帧动画animation-list*/
         mImageView = (ImageView) findViewById(R.id.health_index_water_iv);
         images = new WaterImagesList().getImages();

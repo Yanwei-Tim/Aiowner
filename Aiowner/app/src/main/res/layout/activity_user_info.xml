@@ -94,7 +94,7 @@
                 android:background="#01000000"
                 android:text="账号"
                 android:textColor="#727171"
-                android:textSize="17sp" />
+                android:textSize="18sp" />
 
             <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
                 android:layout_width="wrap_content"
@@ -136,7 +136,7 @@
                 android:background="#01000000"
                 android:text="密码"
                 android:textColor="#727171"
-                android:textSize="17sp" />
+                android:textSize="18sp" />
 
             <Button
                 android:layout_width="9.5dp"
@@ -175,7 +175,7 @@
                 android:background="#01000000"
                 android:text="手势密码"
                 android:textColor="#727171"
-                android:textSize="17sp" />
+                android:textSize="18sp" />
 
             <Button
                 android:layout_width="9.5dp"
@@ -214,7 +214,7 @@
                 android:background="#01000000"
                 android:text="用户反馈"
                 android:textColor="#727171"
-                android:textSize="17sp" />
+                android:textSize="18sp" />
 
             <Button
                 android:layout_width="9.5dp"
@@ -253,7 +253,7 @@
                 android:background="#01000000"
                 android:text="设备匹配"
                 android:textColor="#727171"
-                android:textSize="17sp" />
+                android:textSize="18sp" />
 
             <Button
                 android:layout_width="9.5dp"

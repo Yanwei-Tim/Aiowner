@@ -20,12 +20,13 @@
                 style="@style/container_operation_tips_text"
                 android:text="请确认您的数字密码"
                 android:textColor="#00bfff"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="11dp"
+                android:textSize="18sp"
                 android:text="PLEASE CONFIRM YOUR DIGITAL PASSWORD"
                 android:textColor="@android:color/white" />
         </LinearLayout>

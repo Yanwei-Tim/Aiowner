@@ -20,13 +20,14 @@
                 style="@style/container_operation_tips_text"
                 android:text="手势解锁"
                 android:textColor="#00bfff"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="11dp"
                 android:text="GESTURE LOCK"
+                android:textSize="18sp"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 

@@ -40,7 +40,7 @@
                 android:layout_gravity="center"
                 android:text="@{title.titleText}"
                 android:textColor="@android:color/white"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:visibility="@{title.titleLogo ? View.GONE : View.VISIBLE}" />
 
         </FrameLayout>

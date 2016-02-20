@@ -47,7 +47,7 @@
                     android:layout_marginTop="12dp"
                     android:text="DOE JOIN"
                     android:textColor="@android:color/white"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:text="粤B DE890"
                     android:textColor="@android:color/white"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <View
                     android:layout_width="150dp"
@@ -78,7 +78,7 @@
                     android:layout_marginTop="12dp"
                     android:text="本田 思铂睿"
                     android:textColor="@android:color/white"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <View
                     android:layout_width="150dp"
@@ -89,6 +89,7 @@
                 <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
                     android:id="@+id/register_btn1"
                     style="@style/theft_btn"
+                    android:textSize="16sp"
                     android:layout_marginTop="16dp"
                     android:background="@drawable/theft_btn_sel"
                     android:onClick="startRegister"

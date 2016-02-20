@@ -21,6 +21,9 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BATTERY_STATS" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
     <application
         android:name=".AiownerApplication"
         android:allowBackup="true"
@@ -134,7 +137,8 @@
             android:name=".ui.activity.preventLooting.PreventLootingControlActivity"
             android:screenOrientation="portrait"></activity>
 
-        <receiver android:name="com.dudu.aiowner.receiver.MessagePushReceiver"
+        <receiver
+            android:name="com.dudu.aiowner.receiver.MessagePushReceiver"
             android:exported="false">
             <intent-filter>
                 <!-- 接收消息透传 -->

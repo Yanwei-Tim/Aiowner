@@ -1,20 +1,24 @@
 package com.dudu.aiowner.ui.activity.testSpeed;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
-import com.dudu.workflow.common.ObservableFactory;
+import com.dudu.aiowner.ui.base.animation.AnimationView;
 import com.dudu.workflow.common.RequestFactory;
+import com.dudu.workflow.common.ObservableFactory;
 import com.dudu.workflow.driving.DrivingRequest;
 
 /**
@@ -27,6 +31,13 @@ public class TestSpeedActivity extends BaseActivity {
     private int[] images;
     private FrameLayout count_down;
     private RadioGroup acc_texting_radiogroup;
+    private RelativeLayout ani_rl;
+    private ImageView acc_testing_anim;
+    private AnimationView animationView;
+    private RadioButton acc_100km;
+    private RadioButton acc_200km;
+    private RadioButton acc_300km;
+    private AnimationDrawable animationDrawable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,35 +46,33 @@ public class TestSpeedActivity extends BaseActivity {
         initView();
         initEvent();
 
-        /*android帧动画animation-list*/
-        images = new AccImagesList().getImages();
-        new TestingAnimation().play(mImageView, images, 5, this, count_down);
+//        /*android帧动画animation-list*/
+//        images = new AccImagesList().getImages();
+//        new TestingAnimation().play(mImageView, images, 5, this, count_down);
+
+////
+//        ani_rl = (RelativeLayout) findViewById(R.id.check);
+//        animationView = new AnimationView(this, "acctesting", 1, 41);
+//        ani_rl.addView(animationView);
 
     }
 
     private void initEvent() {
 
-        textSpeedButton.setOnClickListener(onClickListener);
-
-        int radioButtonId = acc_texting_radiogroup.getCheckedRadioButtonId();
-        switch (radioButtonId) {
-            case R.id.acc_texting_100km_rb:
-                //TODO
-                break;
-            case R.id.acc_texting_200km_rb:
-                //TODO
-                break;
-            case R.id.acc_texting_300km_rb:
-                //TODO
-                break;
-        }
     }
 
     private void initView() {
         textSpeedButton = (TextView) findViewById(R.id.start_test_speed);
         count_down = (FrameLayout) findViewById(R.id.count_down);
-        mImageView = (ImageView) findViewById(R.id.check);
+//        ani_rl = (RelativeLayout) findViewById(R.id.acc_testing_anim);
+
+        acc_testing_anim = (ImageView) findViewById(R.id.acc_testing_anim);
+        animationDrawable = (AnimationDrawable) acc_testing_anim.getBackground();
         acc_texting_radiogroup = (RadioGroup) findViewById(R.id.acc_texting_radiogroup);
+
+        acc_100km = (RadioButton) findViewById(R.id.acc_texting_100km_rb);
+        acc_200km = (RadioButton) findViewById(R.id.acc_texting_200km_rb);
+        acc_300km = (RadioButton) findViewById(R.id.acc_texting_300km_rb);
     }
 
     @Override
@@ -72,8 +81,38 @@ public class TestSpeedActivity extends BaseActivity {
     }
 
     public void startAccTesting(View view) {
-
+        if (!(acc_100km.isChecked() || acc_200km.isChecked() || acc_300km.isChecked())) {
+            Toast.makeText(getApplicationContext(), "请选择公里数", Toast.LENGTH_SHORT).show();
+        } else if (!animationDrawable.isRunning()) {
+            //false为动画循环播放
+            animationDrawable.setOneShot(false);
+            animationDrawable.start();
+        }
     }
+
+//        if (acc_100km.isChecked() || acc_200km.isChecked() || acc_300km.isChecked()) {
+//
+//            /**启动加速环动画*/
+//            animationView = new AnimationView(this, "acctesting", 1, 41);
+//            ani_rl.addView(animationView);
+//
+//        } else {
+//            Toast.makeText(getApplicationContext(), "请选择公里数", Toast.LENGTH_SHORT).show();
+//        }
+
+//        int radioButtonId = acc_texting_radiogroup.getCheckedRadioButtonId();
+//        switch (radioButtonId) {
+//            case R.id.acc_texting_100km_rb:
+//                //TODO
+//                break;
+//            case R.id.acc_texting_200km_rb:
+//                //TODO
+//                break;
+//            case R.id.acc_texting_300km_rb:
+//                //TODO
+//                break;
+//        }
+//}
 
     public void userInfo(View view) {
         startActivity(new Intent(TestSpeedActivity.this, UserInfoActivity.class));
@@ -91,6 +130,14 @@ public class TestSpeedActivity extends BaseActivity {
         observableFactory.getTitleObservable().userIcon.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);
         super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        if (animationView != null) {
+            animationView.stopAnim();
+        }
+        super.onPause();
     }
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {

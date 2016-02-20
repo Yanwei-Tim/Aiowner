@@ -20,6 +20,7 @@
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:gravity">center</item>
         <item name="android:singleLine">true</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:background">@drawable/et_blue_line</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
@@ -31,7 +32,7 @@
         <item name="android:gravity">center</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">21sp</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
     <style name="theft_btn">
@@ -75,7 +76,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">40dp</item>
         <item name="android:textColor">@color/bluecolor</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="test_Speed_imageview_style1">

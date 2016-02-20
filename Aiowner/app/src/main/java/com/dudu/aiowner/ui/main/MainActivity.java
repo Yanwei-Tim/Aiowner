@@ -16,7 +16,7 @@ import com.dudu.aiowner.ui.activity.maintenanceAssistant.MaintenanceAssistantAct
 import com.dudu.aiowner.ui.activity.preventLooting.PreventLootingActivity;
 import com.dudu.aiowner.ui.activity.preventLooting.PreventLootingControlActivity;
 import com.dudu.aiowner.ui.activity.preventTheft.PreventTheftActivity;
-import com.dudu.aiowner.ui.activity.testSpeed.SelectCarActivity;
+import com.dudu.aiowner.ui.activity.testSpeed.TestSpeedActivity;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.main.observable.MainObservable;
@@ -41,6 +41,7 @@ public class MainActivity extends BaseActivity {
     private int[] images;
     private FrameLayout count_down;
     private ImageView mImageView;
+    private long mExitTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +56,16 @@ public class MainActivity extends BaseActivity {
         activityMainBinding.setTitle(observableFactory.getTitleObservable());
         activityMainBinding.setMainPage(mainObservable);
 
+        startAnimation();
+        resetData();
+    }
+
+    private void startAnimation() {
          /*android帧动画animation-list*/
         mImageView = (ImageView) findViewById(R.id.car);
         images = new CarImagesList().getImages();
 
-        new CarAnimation().play(mImageView, images, 5, this, count_down);
-
-        resetData();
+        new CarAnimation().play(mImageView, images, 10, this, count_down);
     }
 
     private void resetData() {
@@ -117,7 +121,7 @@ public class MainActivity extends BaseActivity {
 
     public void startTestSpeed(View view) {
 
-        startActivity(new Intent(MainActivity.this, SelectCarActivity.class));
+        startActivity(new Intent(MainActivity.this, TestSpeedActivity.class));
     }
 
     public void startDrive(View view) {
@@ -152,7 +156,13 @@ public class MainActivity extends BaseActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return false;
+            if ((System.currentTimeMillis() - mExitTime) > 2000) {
+                mExitTime = System.currentTimeMillis();
+
+            } else {
+                finish();
+            }
+            return true;
         }
         return super.onKeyDown(keyCode, event);
     }

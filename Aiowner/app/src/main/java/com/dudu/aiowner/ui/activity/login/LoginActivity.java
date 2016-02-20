@@ -70,15 +70,15 @@ public class LoginActivity extends BaseActivity {
                         }
                     }
                 });
-
+        finish();
     }
 
     public void startForgetPreventTheftPsw(View view) {
 
-        startActivity(new Intent(LoginActivity.this, ForgetLoginPswActitivy.class));
+//        startActivity(new Intent(LoginActivity.this, ForgetLoginPswActitivy.class));
     }
 
-    private void initUserName(){
+    private void initUserName() {
         FlowFactory.getUserDataFlow()
                 .getUserName()
                 .subscribe(new Action1<String>() {

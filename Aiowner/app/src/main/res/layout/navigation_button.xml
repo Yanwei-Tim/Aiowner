@@ -44,7 +44,7 @@
         android:onClick="startMaintenanceAssistant"
         android:text="保养助手"
         android:textColor="@android:color/white"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <ImageView
         android:layout_width="41dp"
@@ -69,9 +69,10 @@
         android:layout_marginTop="16.5dp"
         android:layout_weight="1"
         android:gravity="center"
+        android:onClick="startPreventTheft"
         android:text="防盗"
         android:textColor="@android:color/white"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         android:layout_width="wrap_content"
@@ -79,9 +80,10 @@
         android:layout_marginLeft="166dp"
         android:layout_marginTop="16.5dp"
         android:gravity="center"
+        android:onClick="startPreventLooting"
         android:text="防劫"
         android:textColor="@android:color/white"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         android:layout_width="wrap_content"
@@ -90,9 +92,10 @@
         android:layout_marginTop="127.5dp"
         android:layout_weight="1"
         android:gravity="center"
+        android:onClick="startTestSpeed"
         android:text="测速"
         android:textColor="@android:color/white"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         android:layout_width="wrap_content"
@@ -100,8 +103,9 @@
         android:layout_marginLeft="166dp"
         android:layout_marginTop="127.5dp"
         android:gravity="center"
+        android:onClick="startDrive"
         android:text="驾驶"
         android:textColor="@android:color/white"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
 </FrameLayout>

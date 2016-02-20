@@ -40,7 +40,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:textSize="25dp"
+                        android:textSize="25sp"
                         android:textColor="@android:color/white"
                         android:text="@{MainPage.remainingOil}"/>
                 </FrameLayout>
@@ -70,7 +70,7 @@
                             android:paddingTop="9dp"
                             android:layout_toRightOf="@+id/shape1"
                             android:text="ml"
-                            android:textSize="20dp"
+                            android:textSize="20sp"
                             android:paddingLeft="6dp"
                             android:textColor="@android:color/white"/>
                     </RelativeLayout>
@@ -87,7 +87,7 @@
                             android:layout_height="wrap_content"
                             android:paddingTop="6dp"
                             android:text="RemainingOil"
-                            android:textSize="11dp"
+                            android:textSize="12sp"
                             android:textColor="@android:color/white"/>
 
                         <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
@@ -95,7 +95,7 @@
                             android:layout_height="wrap_content"
                             android:paddingTop="6dp"
                             android:text="剩余油量"
-                            android:textSize="10dp"
+                            android:textSize="12sp"
                             android:textColor="@color/bluecolorAmount"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -129,7 +129,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:textSize="27dp"
+                        android:textSize="27sp"
                         android:textColor="@android:color/white"
                         android:text="@{MainPage.gasMileage}"/>
                 </FrameLayout>
@@ -159,7 +159,7 @@
                             android:paddingTop="9dp"
                             android:layout_toRightOf="@+id/shape2"
                             android:text="ml"
-                            android:textSize="20dp"
+                            android:textSize="20sp"
                             android:paddingLeft="6dp"
                             android:textColor="@android:color/white"/>
                     </RelativeLayout>
@@ -176,7 +176,7 @@
                             android:layout_height="wrap_content"
                             android:paddingTop="6dp"
                             android:text="Gas Mileage"
-                            android:textSize="11dp"
+                            android:textSize="12sp"
                             android:textColor="@android:color/white"/>
 
                         <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
@@ -184,7 +184,7 @@
                             android:layout_height="wrap_content"
                             android:paddingTop="6dp"
                             android:text="平均油量"
-                            android:textSize="10dp"
+                            android:textSize="12sp"
                             android:textColor="@color/bluecolorAmount"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -219,7 +219,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:textSize="27dp"
+                        android:textSize="27sp"
                         android:textColor="@android:color/white"
                         android:text="@{MainPage.totalMileage}"/>
                 </FrameLayout>
@@ -249,7 +249,7 @@
                             android:paddingTop="9dp"
                             android:layout_toRightOf="@+id/shape3"
                             android:text="Ah"
-                            android:textSize="20dp"
+                            android:textSize="20sp"
                             android:paddingLeft="6dp"
                             android:textColor="@android:color/white"/>
                     </RelativeLayout>
@@ -266,7 +266,7 @@
                             android:layout_height="wrap_content"
                             android:paddingTop="6dp"
                             android:text="Total Mileage"
-                            android:textSize="11dp"
+                            android:textSize="12sp"
                             android:textColor="@android:color/white"/>
 
                         <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
@@ -274,7 +274,7 @@
                             android:layout_height="wrap_content"
                             android:paddingTop="6dp"
                             android:text="电量"
-                            android:textSize="10dp"
+                            android:textSize="12sp"
                             android:textColor="@color/bluecolorAmount"/>
                     </LinearLayout>
                 </LinearLayout>
