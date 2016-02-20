@@ -5,16 +5,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.commonlib.model.ReceiverData;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
-import com.dudu.workflow.ObservableFactory;
-import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.common.FlowFactory;
+import com.dudu.workflow.common.ObservableFactory;
+import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.robbery.RobberyRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import rx.functions.Action1;
 
@@ -24,6 +27,8 @@ import rx.functions.Action1;
 public class PreventLootingControlActivity extends BaseActivity {
 
     private ToggleButton looting_switch;
+
+    private Logger logger = LoggerFactory.getLogger("PreventLootingControlActivity");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +60,13 @@ public class PreventLootingControlActivity extends BaseActivity {
     }
 
     private void reflashSwitch(){
-//        looting_switch.setChecked(RobberyFlow.getRobbeyState());
+        FlowFactory.getSwitchDataFlow().getRobberyState()
+                .subscribe(new Action1<Boolean>() {
+                    @Override
+                    public void call(Boolean aBoolean) {
+                        looting_switch.setChecked(aBoolean);
+                    }
+                });
         ObservableFactory.getRobberyFlow()
                 .subscribe(new Action1<ReceiverData>() {
                     @Override
@@ -66,13 +77,17 @@ public class PreventLootingControlActivity extends BaseActivity {
         RequestFactory.getRobberyRequest().isCarRobbed(new RobberyRequest.CarRobberdCallback() {
             @Override
             public void hasRobbed(boolean robbed) {
-//                RobberyFlow.saveRobbeyState(robbed);
                 looting_switch.setChecked(!robbed);
+                FlowFactory.getSwitchDataFlow().saveRobberyState(robbed);
+                if (!robbed) {
+                    startActivity(new Intent(PreventLootingControlActivity.this, PreventLootingActivity.class));
+                    PreventLootingControlActivity.this.finish();
+                }
             }
 
             @Override
             public void requestError(String error) {
-
+                logger.error(error);
             }
         });
     }
@@ -80,23 +95,24 @@ public class PreventLootingControlActivity extends BaseActivity {
     private void initEvent() {
         looting_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onCheckedChanged(CompoundButton buttonView, final boolean isChecked) {
+                FlowFactory.getSwitchDataFlow().saveRobberyState(isChecked);
                 if (isChecked) {
                     RequestFactory.getRobberyRequest().closeAntiRobberyMode(new RobberyRequest.CloseRobberyModeCallback() {
                         @Override
                         public void closeSuccess(boolean success) {
                             if (success) {
-//                                RobberyFlow.saveRobbeyState(false);
-//                                looting_switch.setBackgroundResource(R.drawable.theft_lock_on);
-                                Toast.makeText(getApplicationContext(), "请求关闭防劫模式成功", Toast.LENGTH_SHORT).show();
+                                logger.debug("请求关闭防劫模式成功");
                             } else {
-                                Toast.makeText(getApplicationContext(), "请求关闭防劫模式失败", Toast.LENGTH_SHORT).show();
+                                FlowFactory.getSwitchDataFlow().saveRobberyState(!isChecked);
+                                logger.debug("请求关闭防劫模式失败");
                             }
                         }
 
                         @Override
                         public void requestError(String error) {
-
+                            logger.error(error);
+                            FlowFactory.getSwitchDataFlow().saveRobberyState(!isChecked);
                         }
                     });
                 }

@@ -13,7 +13,7 @@ public class ReceiverData {
     public static final String CUSTOMCONTENT_KEY = "customContent";
     public static final String THEFT_VALUE = "theft";
     public static final String ROBBERY_VALUE = "robbery";
-    public static final String ACCELERATEDTESTSTART_VALUE = "acceleratedTestStart";
+    public static final String ACCELERATEDTEST_VALUE = "acceleratedTest";
 
     private String title;
     private String content;

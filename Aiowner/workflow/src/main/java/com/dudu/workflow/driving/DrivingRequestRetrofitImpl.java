@@ -2,7 +2,7 @@ package com.dudu.workflow.driving;
 
 import com.dudu.aiowner.rest.common.Request;
 import com.dudu.aiowner.rest.model.RequestResponse;
-import com.dudu.workflow.CommonParams;
+import com.dudu.workflow.common.CommonParams;
 
 import retrofit2.Call;
 import retrofit2.Callback;

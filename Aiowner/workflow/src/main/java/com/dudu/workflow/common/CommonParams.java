@@ -1,4 +1,4 @@
-package com.dudu.workflow;
+package com.dudu.workflow.common;
 
 import com.dudu.persistence.user.User;
 
@@ -8,6 +8,11 @@ import rx.functions.Action1;
  * Created by Administrator on 2016/2/16.
  */
 public class CommonParams {
+
+    public static final int ROBBERYSTATE = 0;
+    public static final int HEADLIGHT = 1;
+    public static final int PARK = 2;
+    public static final int GUN = 3;
 
     private static CommonParams mInstance = new CommonParams();
 

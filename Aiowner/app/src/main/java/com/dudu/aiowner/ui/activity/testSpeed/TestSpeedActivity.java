@@ -13,7 +13,8 @@ import android.widget.Toast;
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
-import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.common.ObservableFactory;
+import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.driving.DrivingRequest;
 
 /**
@@ -84,6 +85,8 @@ public class TestSpeedActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
+        ObservableFactory.getAccTestFlow()
+                .subscribe();
         observableFactory.getTitleObservable().titleText.set("加速测试");
         observableFactory.getTitleObservable().userIcon.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);

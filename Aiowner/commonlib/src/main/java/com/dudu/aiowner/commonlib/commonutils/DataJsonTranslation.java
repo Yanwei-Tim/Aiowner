@@ -40,7 +40,7 @@ public class DataJsonTranslation {
 
     public static ReceiverData setContentData(ReceiverData receiverData) throws JSONException {
         switch (receiverData.getTitle()){
-            case ReceiverData.ACCELERATEDTESTSTART_VALUE:
+            case ReceiverData.ACCELERATEDTEST_VALUE:
                 break;
             case ReceiverData.THEFT_VALUE:
                 receiverData.setSwitchValue(toMap(receiverData.getContent()).get(ReceiverData.SWITCH_KEY));

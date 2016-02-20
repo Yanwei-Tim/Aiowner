@@ -2,7 +2,7 @@ package com.dudu.workflow.user;
 
 import com.dudu.persistence.user.UserDataService;
 import com.dudu.persistence.user.User;
-import com.dudu.workflow.CommonParams;
+import com.dudu.workflow.common.CommonParams;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

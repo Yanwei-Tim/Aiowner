@@ -13,7 +13,7 @@ import com.dudu.aiowner.R;
 import com.dudu.aiowner.commonlib.MultVerify;
 import com.dudu.aiowner.ui.activity.login.LoginActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
-import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.user.UserRequest;
 
 /**

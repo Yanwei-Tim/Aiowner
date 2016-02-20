@@ -3,7 +3,6 @@ package com.dudu.aiowner.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +21,9 @@ import com.dudu.aiowner.ui.activity.testSpeed.SelectCarActivity;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.main.observable.MainObservable;
-import com.dudu.workflow.RequestFactory;
-import com.dudu.workflow.robbery.RobberyRequest;
+import com.dudu.workflow.common.FlowFactory;
+
+import rx.functions.Action1;
 
 /**
  * Created by sunny_zhang on 2016/1/27.
@@ -86,26 +86,19 @@ public class MainActivity extends BaseActivity {
     }
 
     public void startPreventLooting(View view) {
-        RequestFactory.getRobberyRequest().isCarRobbed(new RobberyRequest.CarRobberdCallback() {
-
-            @Override
-            public void hasRobbed(boolean success) {
-                if (success) {
-                    Toast.makeText(getApplication(), "已触发防劫模式，进入防劫控制中心", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this, PreventLootingControlActivity.class));
-                } else {
-                    Toast.makeText(getApplication(), "进入防劫模式设置", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this, PreventLootingActivity.class));
-                }
-            }
-
-            @Override
-            public void requestError(String error) {
-                Log.d("MainActivity", error);
-                Toast.makeText(getApplication(), "请求防劫状态失败", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(MainActivity.this, PreventLootingActivity.class));
-            }
-        });
+        FlowFactory.getSwitchDataFlow().getRobberyState()
+                .subscribe(new Action1<Boolean>() {
+                    @Override
+                    public void call(Boolean hasRobbed) {
+                        if (hasRobbed) {
+                            Toast.makeText(getApplication(), "已触发防劫模式，进入防劫控制中心", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(MainActivity.this, PreventLootingControlActivity.class));
+                        } else {
+                            Toast.makeText(getApplication(), "进入防劫模式设置", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(MainActivity.this, PreventLootingActivity.class));
+                        }
+                    }
+                });
     }
 
     public void startTestSpeed(View view) {

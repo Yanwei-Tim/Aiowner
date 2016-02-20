@@ -1,4 +1,4 @@
-package com.dudu.workflow;
+package com.dudu.workflow.common;
 
 import com.dudu.aiowner.commonlib.config.ConfigReader;
 import com.dudu.workflow.driving.DrivingRequest;

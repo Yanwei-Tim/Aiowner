@@ -1,12 +1,13 @@
 package com.dudu.workflow.robbery;
 
 import com.dudu.aiowner.commonlib.model.ReceiverData;
+import com.dudu.workflow.common.CommonParams;
+import com.dudu.workflow.common.FlowFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import rx.Observable;
-import rx.functions.Func1;
 
 /**
  * Created by Administrator on 2016/2/17.
@@ -18,11 +19,20 @@ public class RobberyFlow {
 
     public Observable<ReceiverData> getRobberyFlow(Observable<ReceiverData> observable) {
         return observable
-                .filter(new Func1<ReceiverData, Boolean>() {
-                    @Override
-                    public Boolean call(ReceiverData data) {
-                        return data.getTitle().equals(ReceiverData.ROBBERY_VALUE);
-                    }
-                });
+                .filter(receiverData ->
+                        receiverData.getTitle().equals(ReceiverData.ROBBERY_VALUE));
+    }
+
+    public void saveRobberyDataFlow(Observable<ReceiverData> observable) {
+        observable.subscribe(receiverData -> {
+            FlowFactory.getSwitchDataFlow()
+                    .saveRobberyState(receiverData.getSwitch0Value().equals("1"));
+            FlowFactory.getSwitchDataFlow()
+                    .saveRobberySwitch(CommonParams.HEADLIGHT, receiverData.getSwitch1Value().equals("1"));
+            FlowFactory.getSwitchDataFlow()
+                    .saveRobberySwitch(CommonParams.PARK, receiverData.getSwitch2Value().equals("1"));
+            FlowFactory.getSwitchDataFlow()
+                    .saveRobberySwitch(CommonParams.GUN, receiverData.getSwitch3Value().equals("1"));
+        });
     }
 }

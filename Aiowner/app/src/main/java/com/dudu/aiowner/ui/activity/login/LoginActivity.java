@@ -11,8 +11,8 @@ import com.dudu.aiowner.R;
 import com.dudu.aiowner.receiver.ReceiverRegister;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.main.MainActivity;
-import com.dudu.workflow.FlowFactory;
-import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.common.FlowFactory;
+import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.user.UserRequest;
 
 import rx.functions.Action1;

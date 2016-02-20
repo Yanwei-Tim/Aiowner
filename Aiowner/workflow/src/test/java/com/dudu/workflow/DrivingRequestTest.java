@@ -2,6 +2,7 @@ package com.dudu.workflow;
 
 import com.dudu.aiowner.commonlib.CommonLib;
 import com.dudu.aiowner.rest.common.Request;
+import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.driving.DrivingRequest;
 
 import org.junit.Before;
@@ -21,7 +22,8 @@ public class DrivingRequestTest {
     @Before
     public void setUp() {
         CommonLib.getInstance().init();
-        CommonParams.getInstance().init();
+//        FlowFactory.getInstance().init();
+//        CommonParams.getInstance().init();
         RequestFactory.getInstance().init();
         Request.getInstance().init();
         request = RequestFactory.getDrivingRequest();

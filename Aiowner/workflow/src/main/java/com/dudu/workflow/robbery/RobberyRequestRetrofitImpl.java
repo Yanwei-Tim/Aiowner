@@ -3,7 +3,7 @@ package com.dudu.workflow.robbery;
 import com.dudu.aiowner.rest.common.Request;
 import com.dudu.aiowner.rest.model.QueryRobberyResponse;
 import com.dudu.aiowner.rest.model.RequestResponse;
-import com.dudu.workflow.CommonParams;
+import com.dudu.workflow.common.CommonParams;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,7 +51,9 @@ public class RobberyRequestRetrofitImpl implements RobberyRequest{
     @Override
     public void settingAntiRobberyMode(int type, int on_off, final SwitchCallback callback) {
         Call<RequestResponse> call = Request.getInstance().getRobberyService()
-                .robberySwitch(CommonParams.getInstance().getUserName(), type, on_off);
+                .robberySwitch("123456"
+//                        CommonParams.getInstance().getUserName()
+                        , type, on_off);
         call.enqueue(new Callback<RequestResponse>() {
             @Override
             public void onResponse(Call<RequestResponse> call, Response<RequestResponse> response) {

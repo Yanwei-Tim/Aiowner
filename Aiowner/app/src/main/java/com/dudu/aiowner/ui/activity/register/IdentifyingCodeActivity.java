@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.base.BaseActivity;
-import com.dudu.workflow.RequestFactory;
+import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.user.UserRequest;
 
 /**

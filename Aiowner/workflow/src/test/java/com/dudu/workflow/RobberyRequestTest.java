@@ -2,6 +2,7 @@ package com.dudu.workflow;
 
 import com.dudu.aiowner.commonlib.CommonLib;
 import com.dudu.aiowner.rest.common.Request;
+import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.robbery.RobberyRequest;
 
 import org.junit.Before;
@@ -21,7 +22,8 @@ public class RobberyRequestTest {
     @Before
     public void setUp() {
         CommonLib.getInstance().init();
-        CommonParams.getInstance().init();
+//        FlowFactory.getInstance().init();
+//        CommonParams.getInstance().init()
         RequestFactory.getInstance().init();
         Request.getInstance().init();
     }

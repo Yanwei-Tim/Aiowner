@@ -2,6 +2,7 @@ package com.dudu.workflow;
 
 import com.dudu.aiowner.commonlib.CommonLib;
 import com.dudu.aiowner.commonlib.MultVerify;
+import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.user.UserRequest;
 
 import org.junit.Before;
