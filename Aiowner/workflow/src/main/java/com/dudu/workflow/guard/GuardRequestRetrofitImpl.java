@@ -57,7 +57,7 @@ public class GuardRequestRetrofitImpl implements GuardRequest {
     @Override
     public void unlockCar(final UnlockCallBack callBack) {
         Call<RequestResponse> call = Request.getInstance().getGuardService()
-                .guardSwitch(CommonParams.getInstance().getUserName(), 0);
+                .guardSwitch(CommonParams.getInstance().getUserName(),0);
         call.enqueue(new Callback<RequestResponse>() {
             @Override
             public void onResponse(Call<RequestResponse> call, Response<RequestResponse> response) {

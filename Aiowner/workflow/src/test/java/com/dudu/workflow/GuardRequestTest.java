@@ -42,6 +42,7 @@ public class GuardRequestTest {
 
                     @Override
                     public void requestError(String error) {
+                        System.out.print(error);
                         signal.countDown();
                         assertNull(error);
                     }

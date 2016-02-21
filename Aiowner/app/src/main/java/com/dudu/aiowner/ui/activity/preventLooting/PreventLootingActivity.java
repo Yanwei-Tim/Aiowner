@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
 import com.dudu.aiowner.R;
@@ -79,7 +78,7 @@ public class PreventLootingActivity extends BaseActivity {
                     FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.PARK, park);
                     FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.GUN, gun);
                     boolean robberyState = receiverData.getSwitch0Value().equals("1");
-                    if(robberyState){
+                    if (robberyState) {
                         startActivity(new Intent(PreventLootingActivity.this, PreventLootingControlActivity.class));
                         FlowFactory.getSwitchDataFlow().saveRobberyState(robberyState);
                         PreventLootingActivity.this.finish();
@@ -112,7 +111,7 @@ public class PreventLootingActivity extends BaseActivity {
                     public void switchSuccess(boolean success) {
                         logger.debug("防劫模式" + (open ? "开启" : "关闭") + "失败");
                         if (!success) {
-                            settingAntiRobberyMode(type,open);
+                            settingAntiRobberyMode(type, open);
                         }
                     }
 
@@ -125,24 +124,24 @@ public class PreventLootingActivity extends BaseActivity {
     }
 
     private void initEvent() {
-        light_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        light_switch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                settingAntiRobberyMode(CommonParams.HEADLIGHT, isChecked);
+            public void onClick(View v) {
+                settingAntiRobberyMode(CommonParams.HEADLIGHT, light_switch.isChecked());
             }
         });
 
-        debus_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        debus_switch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                settingAntiRobberyMode(CommonParams.PARK, isChecked);
+            public void onClick(View v) {
+                settingAntiRobberyMode(CommonParams.PARK, debus_switch.isChecked());
             }
         });
 
-        brake_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        brake_switch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                settingAntiRobberyMode(CommonParams.GUN, isChecked);
+            public void onClick(View v) {
+                settingAntiRobberyMode(CommonParams.GUN, brake_switch.isChecked());
             }
         });
     }

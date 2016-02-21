@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
 import com.dudu.aiowner.R;
@@ -71,13 +70,15 @@ public class PreventLootingControlActivity extends BaseActivity {
                 .subscribe(new Action1<ReceiverData>() {
                     @Override
                     public void call(ReceiverData receiverData) {
-                        looting_switch.setChecked(!receiverData.getSwitch0Value().equals("1"));
+                        boolean hasLocked = receiverData.getSwitch0Value().equals("1");
+                        FlowFactory.getSwitchDataFlow().saveRobberyState(hasLocked);
+                        looting_switch.setChecked(hasLocked);
                     }
                 });
         RequestFactory.getRobberyRequest().isCarRobbed(new RobberyRequest.CarRobberdCallback() {
             @Override
             public void hasRobbed(boolean robbed) {
-                looting_switch.setChecked(!robbed);
+                looting_switch.setChecked(robbed);
                 FlowFactory.getSwitchDataFlow().saveRobberyState(robbed);
                 if (!robbed) {
                     startActivity(new Intent(PreventLootingControlActivity.this, PreventLootingActivity.class));
@@ -93,10 +94,10 @@ public class PreventLootingControlActivity extends BaseActivity {
     }
 
     private void initEvent() {
-        looting_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        looting_switch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, final boolean isChecked) {
-                checkSwitch(isChecked);
+            public void onClick(View v) {
+                checkSwitch(looting_switch.isChecked());
             }
         });
     }

@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.databinding.ActivityMainBinding;
@@ -22,6 +21,8 @@ import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.main.observable.MainObservable;
 import com.dudu.workflow.common.FlowFactory;
+import com.dudu.workflow.common.RequestFactory;
+import com.dudu.workflow.robbery.RobberyRequest;
 
 import rx.functions.Action1;
 
@@ -90,15 +91,28 @@ public class MainActivity extends BaseActivity {
                 .subscribe(new Action1<Boolean>() {
                     @Override
                     public void call(Boolean hasRobbed) {
-                        if (hasRobbed) {
-                            Toast.makeText(getApplication(), "已触发防劫模式，进入防劫控制中心", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(MainActivity.this, PreventLootingControlActivity.class));
-                        } else {
-                            Toast.makeText(getApplication(), "进入防劫模式设置", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(MainActivity.this, PreventLootingActivity.class));
-                        }
+                        openRobberyActivity(hasRobbed);
                     }
                 });
+        RequestFactory.getRobberyRequest().isCarRobbed(new RobberyRequest.CarRobberdCallback() {
+            @Override
+            public void hasRobbed(boolean robbed) {
+                openRobberyActivity(robbed);
+            }
+
+            @Override
+            public void requestError(String error) {
+
+            }
+        });
+    }
+
+    public void openRobberyActivity(boolean hasRobbed){
+        if (hasRobbed) {
+            startActivity(new Intent(MainActivity.this, PreventLootingControlActivity.class));
+        } else {
+            startActivity(new Intent(MainActivity.this, PreventLootingActivity.class));
+        }
     }
 
     public void startTestSpeed(View view) {

@@ -27,7 +27,7 @@ public class GuardFlow {
     public void saveGuardDataFlow(Observable<Boolean> observable) {
         observable.subscribe(locked -> {
             FlowFactory.getSwitchDataFlow()
-                    .saveRobberyState(locked);
+                    .saveGuardSwitch(locked);
 
         });
     }

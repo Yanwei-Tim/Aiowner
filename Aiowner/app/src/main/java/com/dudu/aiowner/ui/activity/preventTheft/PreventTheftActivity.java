@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
 import com.dudu.aiowner.R;
@@ -41,15 +40,17 @@ public class PreventTheftActivity extends BaseActivity {
     }
 
     private void initEvent() {
-        theft_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        theft_switch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onClick(View v) {
+                boolean isChecked = theft_switch.isChecked();
                 checkSwitch(isChecked);
             }
         });
     }
 
-    private void checkSwitch(boolean isChecked){
+    private void checkSwitch(boolean isChecked) {
+        theft_switch.setChecked(isChecked);
         FlowFactory.getSwitchDataFlow()
                 .saveGuardSwitch(isChecked);
         if (isChecked) {
@@ -129,19 +130,20 @@ public class PreventTheftActivity extends BaseActivity {
                 .subscribe(new Action1<Boolean>() {
                     @Override
                     public void call(Boolean locked) {
-                        theft_switch.setChecked(!locked);
+                        FlowFactory.getSwitchDataFlow().saveGuardSwitch(locked);
+                        theft_switch.setChecked(locked);
                     }
                 });
         RequestFactory.getGuardRequest().isAntiTheftOpened(new GuardRequest.LockStateCallBack() {
             @Override
             public void hasLocked(boolean locked) {
-                theft_switch.setChecked(!locked);
-                FlowFactory.getSwitchDataFlow().saveRobberyState(locked);
+                theft_switch.setChecked(locked);
+                FlowFactory.getSwitchDataFlow().saveGuardSwitch(locked);
             }
 
             @Override
             public void requestError(String error) {
-
+                logger.error(error);
             }
         });
     }
