@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.dudu.aiowner.R;
@@ -44,49 +43,54 @@ public class PreventTheftActivity extends BaseActivity {
     private void initEvent() {
         theft_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, final boolean isChecked) {
-                FlowFactory.getSwitchDataFlow()
-                        .saveGuardSwitch(isChecked);
-                if (isChecked) {
-                    RequestFactory.getGuardRequest().lockCar(new GuardRequest.LockStateCallBack() {
-                        @Override
-                        public void hasLocked(boolean locked) {
-                            if (locked) {
-                                Toast.makeText(getApplicationContext(), "请求关闭防盗模式成功", Toast.LENGTH_SHORT).show();
-                            } else {
-                                FlowFactory.getSwitchDataFlow().saveGuardSwitch(!locked);
-                                Toast.makeText(getApplicationContext(), "请求关闭防盗模式失败", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void requestError(String error) {
-                            logger.error(error);
-                            FlowFactory.getSwitchDataFlow().saveGuardSwitch(!isChecked);
-                        }
-                    });
-                } else {
-                    RequestFactory.getGuardRequest().unlockCar(new GuardRequest.UnlockCallBack() {
-                        @Override
-                        public void unlocked(boolean locked) {
-                            if (locked) {
-                                Toast.makeText(getApplicationContext(), "请求开启防盗模式成功", Toast.LENGTH_SHORT).show();
-                            } else {
-                                FlowFactory.getSwitchDataFlow().saveGuardSwitch(!locked);
-                                Toast.makeText(getApplicationContext(), "请求开启防盗模式失败", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void requestError(String error) {
-                            logger.error(error);
-                            FlowFactory.getSwitchDataFlow().saveGuardSwitch(!isChecked);
-                        }
-                    });
-
-                }
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                checkSwitch(isChecked);
             }
         });
+    }
+
+    private void checkSwitch(boolean isChecked){
+        FlowFactory.getSwitchDataFlow()
+                .saveGuardSwitch(isChecked);
+        if (isChecked) {
+            RequestFactory.getGuardRequest().lockCar(new GuardRequest.LockStateCallBack() {
+                @Override
+                public void hasLocked(boolean locked) {
+                    if (locked) {
+                        logger.debug("请求打开防盗模式成功");
+                    } else {
+                        logger.debug("请求打开防盗模式失败");
+                        checkSwitch(isChecked);
+                    }
+                }
+
+                @Override
+                public void requestError(String error) {
+                    logger.error(error);
+                    checkSwitch(isChecked);
+                }
+            });
+        } else {
+            RequestFactory.getGuardRequest().unlockCar(new GuardRequest.UnlockCallBack() {
+                @Override
+                public void unlocked(boolean locked) {
+                    if (locked) {
+                        logger.debug("请求关闭防盗模式成功");
+                    } else {
+                        logger.debug("请求关闭防盗模式失败");
+                        checkSwitch(isChecked);
+                    }
+                }
+
+                @Override
+                public void requestError(String error) {
+                    logger.error(error);
+                    checkSwitch(isChecked);
+                }
+            });
+
+        }
+
     }
 
     @Override
@@ -131,7 +135,6 @@ public class PreventTheftActivity extends BaseActivity {
         RequestFactory.getGuardRequest().isAntiTheftOpened(new GuardRequest.LockStateCallBack() {
             @Override
             public void hasLocked(boolean locked) {
-//                GuardFlow.saveGuardState(locked);
                 theft_switch.setChecked(!locked);
                 FlowFactory.getSwitchDataFlow().saveRobberyState(locked);
             }

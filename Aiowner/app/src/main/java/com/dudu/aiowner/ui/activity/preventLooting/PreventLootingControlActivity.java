@@ -96,27 +96,31 @@ public class PreventLootingControlActivity extends BaseActivity {
         looting_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, final boolean isChecked) {
-                FlowFactory.getSwitchDataFlow().saveRobberyState(isChecked);
-                if (isChecked) {
-                    RequestFactory.getRobberyRequest().closeAntiRobberyMode(new RobberyRequest.CloseRobberyModeCallback() {
-                        @Override
-                        public void closeSuccess(boolean success) {
-                            if (success) {
-                                logger.debug("请求关闭防劫模式成功");
-                            } else {
-                                FlowFactory.getSwitchDataFlow().saveRobberyState(!isChecked);
-                                logger.debug("请求关闭防劫模式失败");
-                            }
-                        }
-
-                        @Override
-                        public void requestError(String error) {
-                            logger.error(error);
-                            FlowFactory.getSwitchDataFlow().saveRobberyState(!isChecked);
-                        }
-                    });
-                }
+                checkSwitch(isChecked);
             }
         });
+    }
+
+    private void checkSwitch(boolean isChecked){
+        FlowFactory.getSwitchDataFlow().saveRobberyState(isChecked);
+        if (isChecked) {
+            RequestFactory.getRobberyRequest().closeAntiRobberyMode(new RobberyRequest.CloseRobberyModeCallback() {
+                @Override
+                public void closeSuccess(boolean success) {
+                    if (success) {
+                        logger.debug("请求关闭防劫模式成功");
+                    } else {
+                        logger.debug("请求关闭防劫模式失败");
+                        checkSwitch(isChecked);
+                    }
+                }
+
+                @Override
+                public void requestError(String error) {
+                    logger.error(error);
+                    checkSwitch(isChecked);
+                }
+            });
+        }
     }
 }

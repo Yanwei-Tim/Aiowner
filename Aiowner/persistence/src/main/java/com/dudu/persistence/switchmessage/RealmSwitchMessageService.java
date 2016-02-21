@@ -20,6 +20,7 @@ public class RealmSwitchMessageService implements SwitchMessageService {
                                 .equalTo(SwitchMessage.SWITCH_KEY_ROW, Key).findFirst();
                         if (realmData == null) {
                             realmData = new RealmSwitchMessage();
+                            realmData.setSwitchKey(Key);
                         }
                         return realmData;
                     }

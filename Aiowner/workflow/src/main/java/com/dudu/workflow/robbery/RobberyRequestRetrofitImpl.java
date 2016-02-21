@@ -12,7 +12,7 @@ import retrofit2.Response;
 /**
  * Created by Administrator on 2016/2/15.
  */
-public class RobberyRequestRetrofitImpl implements RobberyRequest{
+public class RobberyRequestRetrofitImpl implements RobberyRequest {
 
     public static RobberyRequestRetrofitImpl mInstance = new RobberyRequestRetrofitImpl();
 
@@ -37,7 +37,7 @@ public class RobberyRequestRetrofitImpl implements RobberyRequest{
         call.enqueue(new Callback<QueryRobberyResponse>() {
             @Override
             public void onResponse(Call<QueryRobberyResponse> call, Response<QueryRobberyResponse> response) {
-                callback.hasRobbed(response.body().switch0==1);
+                callback.hasRobbed(response.body().switch0 == 1);
             }
 
             @Override
@@ -51,8 +51,7 @@ public class RobberyRequestRetrofitImpl implements RobberyRequest{
     @Override
     public void settingAntiRobberyMode(int type, int on_off, final SwitchCallback callback) {
         Call<RequestResponse> call = Request.getInstance().getRobberyService()
-                .robberySwitch("123456"
-//                        CommonParams.getInstance().getUserName()
+                .robberySwitch(CommonParams.getInstance().getUserName()
                         , type, on_off);
         call.enqueue(new Callback<RequestResponse>() {
             @Override
@@ -74,7 +73,7 @@ public class RobberyRequestRetrofitImpl implements RobberyRequest{
         call.enqueue(new Callback<RequestResponse>() {
             @Override
             public void onResponse(Call<RequestResponse> call, Response<RequestResponse> response) {
-                callback.closeSuccess(response.body().resultCode==0);
+                callback.closeSuccess(response.body().resultCode == 0);
             }
 
             @Override
@@ -91,7 +90,7 @@ public class RobberyRequestRetrofitImpl implements RobberyRequest{
         call.enqueue(new Callback<QueryRobberyResponse>() {
             @Override
             public void onResponse(Call<QueryRobberyResponse> call, Response<QueryRobberyResponse> response) {
-                callback.switchsState(response.body().switch1==1,response.body().switch2==1,response.body().switch3==1);
+                callback.switchsState(response.body().switch1 == 1, response.body().switch2 == 1, response.body().switch3 == 1);
             }
 
             @Override
