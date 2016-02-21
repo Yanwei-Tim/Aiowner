@@ -26,8 +26,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="11dp"
-                android:textSize="18sp"
-                android:text="PLEASE SET YOUR GESTURE PASSWORD"
+                android:textSize="19sp"
+                android:text="PLEASE SET YOUR PASSWORD"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 

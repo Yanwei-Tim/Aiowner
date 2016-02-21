@@ -44,6 +44,7 @@
         </activity>
         <activity
             android:name=".ui.activity.preventTheft.PreventTheftActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.register.TelephoneNumberActivity"
@@ -63,18 +64,22 @@
 
         <activity
             android:name=".ui.main.MainActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.preventLooting.PreventLootingActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.preventLooting.InsuranceCertificationActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.testSpeed.TestSpeedActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.drive.DrivingHabitsActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.preventTheft.OwnersCredentialsUploadActivity"
@@ -123,6 +128,7 @@
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.activity.maintenanceAssistant.MaintenanceAssistantActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.activity.user.UserInfoActivity"

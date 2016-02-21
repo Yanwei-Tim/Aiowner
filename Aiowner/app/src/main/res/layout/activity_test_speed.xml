@@ -28,7 +28,7 @@
             android:layout_gravity="center"
             android:background="@anim/acc_anim" />
 
-        <com.dudu.aiowner.utils.customFontUtils.DINRegularFontTextView
+        <com.dudu.aiowner.commonlib.commonutils.RiseNumberTextView
             android:id="@+id/acc_testing_result_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:background="#01000000"
             android:text="0.00s"
             android:textColor="@android:color/white"
-            android:textSize="114px" />
+            android:textSize="52sp" />
 
     </FrameLayout>
 

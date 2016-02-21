@@ -47,7 +47,7 @@
                     android:layout_marginTop="12dp"
                     android:text="DOE JOIN"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
