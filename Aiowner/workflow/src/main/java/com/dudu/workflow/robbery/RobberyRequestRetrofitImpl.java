@@ -51,8 +51,7 @@ public class RobberyRequestRetrofitImpl implements RobberyRequest {
     @Override
     public void settingAntiRobberyMode(int type, int on_off, final SwitchCallback callback) {
         Call<RequestResponse> call = Request.getInstance().getRobberyService()
-                .robberySwitch("1234"
-                //CommonParams.getInstance().getUserName()
+                .robberySwitch(CommonParams.getInstance().getUserName()
                 , type, on_off);
         call.enqueue(new Callback<RequestResponse>() {
             @Override
