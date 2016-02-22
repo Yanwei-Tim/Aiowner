@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zhy="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.dudu.aiowner.ui.activity.preventTheft.observable.InitGesturePswObservable" />
+
+        <variable
+            name="InitGesturePswPage"
+            type="InitGesturePswObservable" />
+
+        <variable
+            name="title"
+            type="com.dudu.aiowner.ui.base.observable.TitleBarObservable" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                    style="@style/container_operation_tips_text"
+                    android:text="手势解锁"
+                    android:textColor="#00bfff"
+                    android:textSize="18sp" />
+
+                <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:text="GESTURE LOCK"
+                    android:textColor="@android:color/white"
+                    android:textSize="19sp" />
+            </LinearLayout>
+
+            <com.dudu.aiowner.ui.activity.preventTheft.GestureLockViewGroup
+                android:id="@+id/gestureLockViewGroup_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                zhy:count="3"
+                zhy:tryTimes="5" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                    style="@style/geture_btn"
+                    android:background="@drawable/btn_theft_gesture_psw_sel"
+                    android:onClick="startIndentifyingDigitalPsw"
+                    android:text="密 码 解 锁" />
+
+                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                    style="@style/geture_btn"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/btn_theft_gesture_psw_sel"
+                    android:onClick="startFogetPreventTheftPsw"
+                    android:text="忘 记 密 码" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

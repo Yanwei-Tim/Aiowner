@@ -115,10 +115,10 @@
             android:name=".ui.activity.preventTheft.SetPreventTheftPswOkActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".ui.activity.preventTheft.IndentifyingGesturePswActivity"
+            android:name=".ui.activity.preventTheft.InitGesturePswActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".ui.activity.preventTheft.IndentifyingDigitalPswActivity"
+            android:name=".ui.activity.preventTheft.InitDigitalPswActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.activity.preventTheft.UnlockSuccessActivity"

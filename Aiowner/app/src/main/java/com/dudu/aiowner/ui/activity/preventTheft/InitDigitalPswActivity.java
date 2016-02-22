@@ -10,7 +10,7 @@ import com.dudu.aiowner.ui.base.BaseActivity;
 /**
  * Created by sunny_zhang on 2016/2/4.
  */
-public class IndentifyingDigitalPswActivity extends BaseActivity {
+public class InitDigitalPswActivity extends BaseActivity {
     @Override
     protected View getChildView() {
 
@@ -19,7 +19,7 @@ public class IndentifyingDigitalPswActivity extends BaseActivity {
 
     public void startUnlockSuccess(View view) {
 
-        startActivity(new Intent(IndentifyingDigitalPswActivity.this, UnlockSuccessActivity.class));
+        startActivity(new Intent(InitDigitalPswActivity.this, UnlockSuccessActivity.class));
     }
 
     @Override

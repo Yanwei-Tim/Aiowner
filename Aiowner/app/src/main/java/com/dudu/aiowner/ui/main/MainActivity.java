@@ -88,6 +88,7 @@ public class MainActivity extends BaseActivity {
 //    }
 
     public void startPreventTheft(View view) {
+
         startActivity(new Intent(MainActivity.this, PreventTheftActivity.class));
     }
 

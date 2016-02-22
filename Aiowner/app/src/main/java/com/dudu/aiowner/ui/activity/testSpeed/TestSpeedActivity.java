@@ -39,6 +39,8 @@ public class TestSpeedActivity extends BaseActivity {
         testSpeedBinding.setTestSpeedPage(testSpeedObservable);
 
         testSpeedBinding.setTitle(observableFactory.getTitleObservable());
+
+        //设置加速测试环动画
         animationDrawable = (AnimationDrawable) testSpeedBinding.accTestingAnim.getBackground();
     }
 

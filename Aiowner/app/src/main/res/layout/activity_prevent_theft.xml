@@ -1,116 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
-    <LinearLayout
+    <data>
+        <import type="com.dudu.aiowner.ui.activity.preventTheft.observable.PreventTheftObservable"/>
+        <variable
+            name="PreventTheftPage"
+            type="PreventTheftObservable"/>
+
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="29dp"
-                android:layout_marginTop="20dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <FrameLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_width="97dp"
-                        android:layout_height="97dp"
-                        android:src="@drawable/user_icon_ring" />
-
-                    <ImageView
-                        android:layout_width="76dp"
-                        android:layout_height="76dp"
-                        android:layout_gravity="center"
-                        android:background="#01000000"
-                        android:src="@drawable/user_icon_nor" />
-
-                </FrameLayout>
-
-                <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="DOE JOIN"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="40dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
 
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="粤B DE890"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp" />
+                    android:layout_marginLeft="29dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
 
-                <View
-                    android:layout_width="150dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="7dp"
-                    android:background="@color/bluecolor"></View>
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                    android:layout_width="wrap_content"
+                        <ImageView
+                            android:layout_width="97dp"
+                            android:layout_height="97dp"
+                            android:src="@drawable/user_icon_ring" />
+
+                        <ImageView
+                            android:layout_width="76dp"
+                            android:layout_height="76dp"
+                            android:layout_gravity="center"
+                            android:background="#01000000"
+                            android:src="@drawable/user_icon_nor" />
+
+                    </FrameLayout>
+
+                    <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="DOE JOIN"
+                        android:textColor="@android:color/white"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="本田 思铂睿"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp" />
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
 
-                <View
-                    android:layout_width="150dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="7dp"
-                    android:background="@color/bluecolor"></View>
+                    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="粤B DE890"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
 
-                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                    android:id="@+id/register_btn1"
-                    style="@style/theft_btn"
-                    android:textSize="16sp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/theft_btn_sel"
-                    android:onClick="startRegister"
-                    android:text="查看上传资料" />
+                    <View
+                        android:layout_width="150dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/bluecolor"></View>
+
+                    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="本田 思铂睿"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="150dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/bluecolor"></View>
+
+                    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                        android:id="@+id/register_btn1"
+                        style="@style/theft_btn"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/theft_btn_sel"
+                        android:onClick="startRegister"
+                        android:text="查看上传资料"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
+            <ToggleButton
+                android:id="@+id/prevent_theft_switch"
+                android:layout_width="130dp"
+                android:layout_height="285dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/theft_switch_btn_sel"
+                android:checked="false"
+                android:clickable="true"
+                android:onClick="theftSwitchClick"
+                android:textOff=""
+                android:textOn="" />
+
         </LinearLayout>
 
-        <ToggleButton
-            android:id="@+id/prevent_theft_switch"
-            android:layout_width="130dp"
-            android:layout_height="285dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="60dp"
-            android:background="@drawable/theft_switch_btn_sel"
-            android:checked="false"
-            android:textOff=""
-            android:textOn="" />
-
-    </LinearLayout>
-
-</RelativeLayout>
+    </RelativeLayout>
+</layout>
