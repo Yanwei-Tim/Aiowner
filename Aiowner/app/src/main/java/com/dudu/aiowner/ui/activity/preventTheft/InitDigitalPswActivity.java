@@ -19,7 +19,7 @@ public class InitDigitalPswActivity extends BaseActivity {
 
     public void startUnlockSuccess(View view) {
 
-        startActivity(new Intent(InitDigitalPswActivity.this, UnlockSuccessActivity.class));
+        startActivity(new Intent(InitDigitalPswActivity.this, PreventTheftActivity.class));
     }
 
     @Override

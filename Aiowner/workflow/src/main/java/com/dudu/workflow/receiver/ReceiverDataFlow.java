@@ -26,7 +26,10 @@ public class ReceiverDataFlow {
 
     public static void saveRobberyReceiveData(ReceiverData receiverData){
         if (getRobberyReceiveData(receiverData)){
-            FlowFactory.getSwitchDataFlow().saveRobberyState(receiverData.getSwitchValue().equals("1"));
+            FlowFactory.getSwitchDataFlow().saveRobberyState(receiverData.getSwitch0Value().equals("1"));
+            FlowFactory.getSwitchDataFlow().saveRobberyState(receiverData.getSwitch1Value().equals("1"));
+            FlowFactory.getSwitchDataFlow().saveRobberyState(receiverData.getSwitch2Value().equals("1"));
+            FlowFactory.getSwitchDataFlow().saveRobberyState(receiverData.getSwitch3Value().equals("1"));
         }
     }
 

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.receiver.ReceiverRegister;
@@ -15,6 +14,9 @@ import com.dudu.workflow.common.FlowFactory;
 import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.user.UserRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import rx.functions.Action1;
 
 /**
@@ -23,6 +25,7 @@ import rx.functions.Action1;
 public class LoginActivity extends BaseActivity {
     private EditText login_user_edittext;
     private EditText login_password_et;
+    private Logger logger = LoggerFactory.getLogger("PreventTheftActivity");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +50,11 @@ public class LoginActivity extends BaseActivity {
         final String password = login_password_et.getText().toString();
 
         if (username.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "请输入用户名", Toast.LENGTH_SHORT).show();
+            logger.debug("请输入用户名");
             return;
         }
         if (password.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "请输入密码", Toast.LENGTH_SHORT).show();
+            logger.debug("请输入密码");
             return;
         }
 
@@ -63,10 +66,10 @@ public class LoginActivity extends BaseActivity {
                             FlowFactory.getUserDataFlow().saveUserName(username);
                             ReceiverRegister.registPushManager(username);
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            Toast.makeText(getApplicationContext(), "登录请求成功", Toast.LENGTH_SHORT).show();
+                            logger.debug("登录请求成功");
                         } else {
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            Toast.makeText(getApplicationContext(), "登录请求失败", Toast.LENGTH_SHORT).show();
+                            logger.debug("登录请求失败");
                         }
                     }
                 });

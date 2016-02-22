@@ -155,6 +155,7 @@ public class RiseNumberTextView extends TextView implements IRiseNumber {
         }
     }
 
+
     /**
      * 设置一个小数进来
      */

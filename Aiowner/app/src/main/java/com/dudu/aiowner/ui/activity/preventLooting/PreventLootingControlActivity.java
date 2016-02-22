@@ -114,14 +114,12 @@ public class PreventLootingControlActivity extends BaseActivity {
                         logger.debug("请求关闭防劫模式成功");
                     } else {
                         logger.debug("请求关闭防劫模式失败");
-                        checkSwitch(isChecked);
                     }
                 }
 
                 @Override
                 public void requestError(String error) {
                     logger.error(error);
-                    checkSwitch(isChecked);
                 }
             });
         }
@@ -143,6 +141,6 @@ public class PreventLootingControlActivity extends BaseActivity {
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        EventBus.getDefault().register(this);
+        EventBus.getDefault().unregister(this);
     }
 }

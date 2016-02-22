@@ -114,15 +114,11 @@ public class PreventLootingActivity extends BaseActivity {
                     @Override
                     public void switchSuccess(boolean success) {
                         logger.debug("防劫模式" + (open ? "开启" : "关闭") + "失败");
-                        if (!success) {
-                            settingAntiRobberyMode(type, open);
-                        }
                     }
 
                     @Override
                     public void requestError(String error) {
                         logger.debug(error);
-                        settingAntiRobberyMode(type, open);
                     }
                 });
     }
@@ -173,6 +169,6 @@ public class PreventLootingActivity extends BaseActivity {
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        EventBus.getDefault().register(this);
+        EventBus.getDefault().unregister(this);
     }
 }

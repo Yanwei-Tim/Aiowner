@@ -62,14 +62,12 @@ public class PreventTheftActivity extends BaseActivity {
                                 logger.debug("请求打开防盗模式成功");
                             } else {
                                 logger.debug("请求打开防盗模式失败");
-                                checkSwitch(isChecked);
                             }
                         }
 
                         @Override
                         public void requestError(String error) {
                             logger.error(error);
-                            checkSwitch(isChecked);
                         }
                     });
         }
@@ -85,14 +83,12 @@ public class PreventTheftActivity extends BaseActivity {
                                 logger.debug("请求关闭防盗模式成功");
                             } else {
                                 logger.debug("请求关闭防盗模式失败");
-                                checkSwitch(isChecked);
                             }
                         }
 
                         @Override
                         public void requestError(String error) {
                             logger.error(error);
-                            checkSwitch(isChecked);
                         }
                     });
         }
@@ -159,15 +155,15 @@ public class PreventTheftActivity extends BaseActivity {
     }
 
     public void onEventMainThread(ReceiverData event) {
-        if(ReceiverDataFlow.getGuardReceiveData(event)){
+        if (ReceiverDataFlow.getGuardReceiveData(event)) {
             FlowFactory.getSwitchDataFlow().saveGuardSwitch(event.getSwitchValue().equals("1"));
-            theft_switch.setChecked(event.getSwitchValue().equals("1"));
+            preventTheftBinding.preventTheftSwitch.setChecked(event.getSwitchValue().equals("1"));
         }
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().register(this);
+        EventBus.getDefault().unregister(this);
     }
 }

@@ -21,6 +21,8 @@ import com.dudu.workflow.switchmessage.AccTestData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Random;
+
 import de.greenrobot.event.EventBus;
 
 /**
@@ -65,10 +67,14 @@ public class TestSpeedActivity extends BaseActivity {
         if (!animationDrawable.isRunning()) {
             //false为动画循环播放
             animationDrawable.setOneShot(false);
+            //1、启动加速测试环动画
             animationDrawable.start();
 
-//            //为了演示用，如果能获取到加速结果数据，则不用这句
-//            setupData(new Random().nextFloat());
+            /**
+             * 2、同时启动加速结果数字动画
+             *    为了演示用，使用随机数数据
+             */
+            setupData(new Random().nextFloat());
         }
     }
 
@@ -91,7 +97,7 @@ public class TestSpeedActivity extends BaseActivity {
     public void onEventMainThread(ReceiverData event) {
         if(ReceiverDataFlow.getAccTestReceiverData(event)) {
             AccTestData accTestData = ReceiverDataFlow.getReceiveDataFlow(event);
-            setupData(Double.valueOf(accTestData.getAccTotalTime()));
+            setupData(Float.valueOf(accTestData.getAccTotalTime()));
         }
     }
 
@@ -101,7 +107,7 @@ public class TestSpeedActivity extends BaseActivity {
         EventBus.getDefault().register(this);
     }
 
-    private void setupData(double resultData) {
+    private void setupData(float resultData) {
 
         // 设置数据
         testSpeedBinding.accTestingResultTv.withNumber(resultData);
