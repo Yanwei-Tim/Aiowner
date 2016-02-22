@@ -5,7 +5,6 @@ import com.dudu.aiowner.commonlib.model.ReceiverData;
 import com.dudu.workflow.driving.DrivingFlow;
 import com.dudu.workflow.guard.GuardFlow;
 import com.dudu.workflow.robbery.RobberyFlow;
-import com.dudu.workflow.switchmessage.AccTestData;
 
 import rx.Observable;
 
@@ -18,10 +17,7 @@ public class ObservableFactory {
     private static RobberyFlow robberyFlow = new RobberyFlow();
     private static DrivingFlow drivingFlow = new DrivingFlow();
 
-    public static void init(){
-        drivingFlow.saveDrivingDataFlow(getAccTestFlow());
-        guardFlow.saveGuardDataFlow(getGuardReceiveObservable());
-        robberyFlow.saveRobberyDataFlow(getRobberyFlow());
+    public static void init() {
     }
 
     private static Observable<ReceiverData> getReceiverObservable() {
@@ -30,15 +26,15 @@ public class ObservableFactory {
                 .map(receiverData -> (ReceiverData) receiverData);
     }
 
-    public static Observable<Boolean> getGuardReceiveObservable() {
-        return guardFlow.getGuardDataFlow(getReceiverObservable());
-    }
-
-    public static Observable<ReceiverData> getRobberyFlow() {
-        return robberyFlow.getRobberyFlow(getReceiverObservable());
-    }
-
-    public static Observable<AccTestData> getAccTestFlow() {
-        return drivingFlow.getReceiveDataFlow(getReceiverObservable());
-    }
+//    public static Observable<Boolean> getGuardReceiveObservable() {
+//        return guardFlow.getGuardDataFlow(getReceiverObservable());
+//    }
+//
+//    public static Observable<ReceiverData> getRobberyFlow() {
+//        return robberyFlow.getRobberyFlow(getReceiverObservable());
+//    }
+//
+//    public static Observable<AccTestData> getAccTestFlow() {
+//        return drivingFlow.getReceiveDataFlow(getReceiverObservable());
+//    }
 }

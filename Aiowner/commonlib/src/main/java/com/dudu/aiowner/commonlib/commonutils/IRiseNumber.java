@@ -16,7 +16,7 @@ public interface IRiseNumber {
      * @param number
      * @return
      */
-    public void withNumber(float number);
+    public void withNumber(double number);
 
     /**
      * 设置整数

@@ -1,13 +1,14 @@
 package com.dudu.workflow.receiver;
 
 import com.dudu.aiowner.commonlib.commonutils.DataJsonTranslation;
-import com.dudu.aiowner.commonlib.commonutils.RxBus;
 import com.dudu.aiowner.commonlib.model.ReceiverData;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * Created by Administrator on 2016/2/19.
@@ -125,7 +126,10 @@ public class MessageReceiverFlow {
         logger.debug("收到消息: title: "+title+"; content: "+content+"; customContent: "+customContent);
 
         ReceiverData data = DataJsonTranslation.getDataFromReceiver(new ReceiverData(title,content,customContent));
-        RxBus.getInstance().send(data);
+//        RxBus.getInstance().send(data);
+        EventBus.getDefault().post(data);
+        ReceiverDataFlow.saveGuardReceiveData(data);
+        ReceiverDataFlow.saveRobberyReceiveData(data);
 
         if (customContent != null && customContent.length() != 0) {
             try {

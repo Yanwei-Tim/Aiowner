@@ -65,4 +65,6 @@ dependencies {
     androidTestCompile "com.android.support.test.espresso:espresso-contrib:2.2.1"
     androidTestCompile "com.android.support.test.espresso:espresso-intents:2.2.1"
     compile project(':workflow')
+
+    compile 'de.greenrobot:eventbus:2.4.0'
 }

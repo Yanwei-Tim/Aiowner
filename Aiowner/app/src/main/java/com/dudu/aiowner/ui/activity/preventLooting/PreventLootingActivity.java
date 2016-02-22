@@ -7,16 +7,19 @@ import android.view.View;
 import android.widget.ToggleButton;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.commonlib.model.ReceiverData;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.workflow.common.CommonParams;
 import com.dudu.workflow.common.FlowFactory;
-import com.dudu.workflow.common.ObservableFactory;
 import com.dudu.workflow.common.RequestFactory;
+import com.dudu.workflow.receiver.ReceiverDataFlow;
 import com.dudu.workflow.robbery.RobberyRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * Created by Administrator on 2016/2/2.
@@ -33,6 +36,7 @@ public class PreventLootingActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         initView();
         initEvent();
+        EventBus.getDefault().register(this);
     }
 
     private void initView() {
@@ -66,24 +70,24 @@ public class PreventLootingActivity extends BaseActivity {
                     debus_switch.setChecked(robberySwitches.isPark());
                     brake_switch.setChecked(robberySwitches.isGun());
                 });
-        ObservableFactory.getRobberyFlow()
-                .subscribe(receiverData -> {
-                    boolean headLight = receiverData.getSwitch1Value().equals("1");
-                    boolean park = receiverData.getSwitch2Value().equals("1");
-                    boolean gun = receiverData.getSwitch3Value().equals("1");
-                    light_switch.setChecked(headLight);
-                    debus_switch.setChecked(park);
-                    brake_switch.setChecked(gun);
-                    FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.HEADLIGHT, headLight);
-                    FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.PARK, park);
-                    FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.GUN, gun);
-                    boolean robberyState = receiverData.getSwitch0Value().equals("1");
-                    if (robberyState) {
-                        startActivity(new Intent(PreventLootingActivity.this, PreventLootingControlActivity.class));
-                        FlowFactory.getSwitchDataFlow().saveRobberyState(robberyState);
-                        PreventLootingActivity.this.finish();
-                    }
-                });
+//        ObservableFactory.getRobberyFlow()
+//                .subscribe(receiverData -> {
+//                    boolean headLight = receiverData.getSwitch1Value().equals("1");
+//                    boolean park = receiverData.getSwitch2Value().equals("1");
+//                    boolean gun = receiverData.getSwitch3Value().equals("1");
+//                    light_switch.setChecked(headLight);
+//                    debus_switch.setChecked(park);
+//                    brake_switch.setChecked(gun);
+//                    FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.HEADLIGHT, headLight);
+//                    FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.PARK, park);
+//                    FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.GUN, gun);
+//                    boolean robberyState = receiverData.getSwitch0Value().equals("1");
+//                    if (robberyState) {
+//                        startActivity(new Intent(PreventLootingActivity.this, PreventLootingControlActivity.class));
+//                        FlowFactory.getSwitchDataFlow().saveRobberyState(robberyState);
+//                        PreventLootingActivity.this.finish();
+//                    }
+//                });
         RequestFactory.getRobberyRequest()
                 .getRobberyState(new RobberyRequest.RobberStateCallback() {
                     @Override
@@ -144,5 +148,31 @@ public class PreventLootingActivity extends BaseActivity {
                 settingAntiRobberyMode(CommonParams.GUN, brake_switch.isChecked());
             }
         });
+    }
+
+    public void onEventMainThread(ReceiverData receiverData) {
+        if(ReceiverDataFlow.getGuardReceiveData(receiverData)){
+            boolean headLight = receiverData.getSwitch1Value().equals("1");
+            boolean park = receiverData.getSwitch2Value().equals("1");
+            boolean gun = receiverData.getSwitch3Value().equals("1");
+            light_switch.setChecked(headLight);
+            debus_switch.setChecked(park);
+            brake_switch.setChecked(gun);
+            FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.HEADLIGHT, headLight);
+            FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.PARK, park);
+            FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.GUN, gun);
+            boolean robberyState = receiverData.getSwitch0Value().equals("1");
+            if (robberyState) {
+                startActivity(new Intent(PreventLootingActivity.this, PreventLootingControlActivity.class));
+                FlowFactory.getSwitchDataFlow().saveRobberyState(robberyState);
+                PreventLootingActivity.this.finish();
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        EventBus.getDefault().register(this);
     }
 }

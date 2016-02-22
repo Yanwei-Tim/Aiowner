@@ -8,18 +8,20 @@ import android.view.View;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.commonlib.commonutils.RiseNumberTextView;
+import com.dudu.aiowner.commonlib.model.ReceiverData;
 import com.dudu.aiowner.databinding.ActivityTestSpeedBinding;
 import com.dudu.aiowner.ui.activity.testSpeed.observable.TestSpeedObservable;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
-import com.dudu.workflow.common.ObservableFactory;
 import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.driving.DrivingRequest;
+import com.dudu.workflow.receiver.ReceiverDataFlow;
+import com.dudu.workflow.switchmessage.AccTestData;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Random;
+import de.greenrobot.event.EventBus;
 
 /**
  * Created by Administrator on 2016/2/2.
@@ -65,8 +67,8 @@ public class TestSpeedActivity extends BaseActivity {
             animationDrawable.setOneShot(false);
             animationDrawable.start();
 
-            //为了演示用，如果能获取到加速结果数据，则不用这句
-            setupData(new Random().nextFloat());
+//            //为了演示用，如果能获取到加速结果数据，则不用这句
+//            setupData(new Random().nextFloat());
         }
     }
 
@@ -80,27 +82,26 @@ public class TestSpeedActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
-        ObservableFactory.getAccTestFlow()
-                .subscribe(accTestData -> {
-
-                    //获取加速测试结果
-                    logger.debug("accTestData.getAccTotalTime()" + accTestData.getAccTotalTime());
-
-                    setupData(Float.valueOf(accTestData.getAccTotalTime()));
-
-                    //加速结果单位
-                    accTestData.getAccType();
-
-                    //加速结果时间
-                    accTestData.getDateTime();
-                });
         observableFactory.getTitleObservable().titleText.set("加速测试");
         observableFactory.getTitleObservable().userIcon.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);
         super.onResume();
     }
 
-    private void setupData(float resultData) {
+    public void onEventMainThread(ReceiverData event) {
+        if(ReceiverDataFlow.getAccTestReceiverData(event)) {
+            AccTestData accTestData = ReceiverDataFlow.getReceiveDataFlow(event);
+            setupData(Double.valueOf(accTestData.getAccTotalTime()));
+        }
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        EventBus.getDefault().register(this);
+    }
+
+    private void setupData(double resultData) {
 
         // 设置数据
         testSpeedBinding.accTestingResultTv.withNumber(resultData);

@@ -11,13 +11,14 @@ import com.dudu.aiowner.commonlib.model.ReceiverData;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.workflow.common.FlowFactory;
-import com.dudu.workflow.common.ObservableFactory;
 import com.dudu.workflow.common.RequestFactory;
+import com.dudu.workflow.receiver.ReceiverDataFlow;
 import com.dudu.workflow.robbery.RobberyRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.greenrobot.event.EventBus;
 import rx.functions.Action1;
 
 /**
@@ -34,6 +35,7 @@ public class PreventLootingControlActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         initView();
         initEvent();
+        EventBus.getDefault().register(this);
     }
 
     private void initView() {
@@ -66,15 +68,15 @@ public class PreventLootingControlActivity extends BaseActivity {
                         looting_switch.setChecked(aBoolean);
                     }
                 });
-        ObservableFactory.getRobberyFlow()
-                .subscribe(new Action1<ReceiverData>() {
-                    @Override
-                    public void call(ReceiverData receiverData) {
-                        boolean hasLocked = receiverData.getSwitch0Value().equals("1");
-                        FlowFactory.getSwitchDataFlow().saveRobberyState(hasLocked);
-                        looting_switch.setChecked(hasLocked);
-                    }
-                });
+//        ObservableFactory.getRobberyFlow()
+//                .subscribe(new Action1<ReceiverData>() {
+//                    @Override
+//                    public void call(ReceiverData receiverData) {
+//                        boolean hasLocked = receiverData.getSwitch0Value().equals("1");
+//                        FlowFactory.getSwitchDataFlow().saveRobberyState(hasLocked);
+//                        looting_switch.setChecked(hasLocked);
+//                    }
+//                });
         RequestFactory.getRobberyRequest().isCarRobbed(new RobberyRequest.CarRobberdCallback() {
             @Override
             public void hasRobbed(boolean robbed) {
@@ -123,5 +125,24 @@ public class PreventLootingControlActivity extends BaseActivity {
                 }
             });
         }
+    }
+
+    public void onEventMainThread(ReceiverData event) {
+        if(ReceiverDataFlow.getGuardReceiveData(event)){
+            boolean switchvalue = event.getSwitchValue().equals("1");
+            FlowFactory.getSwitchDataFlow().saveGuardSwitch(switchvalue);
+            looting_switch.setChecked(switchvalue);
+            if (!switchvalue) {
+                startActivity(new Intent(PreventLootingControlActivity.this, PreventLootingActivity.class));
+                FlowFactory.getSwitchDataFlow().saveRobberyState(switchvalue);
+                PreventLootingControlActivity.this.finish();
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        EventBus.getDefault().register(this);
     }
 }

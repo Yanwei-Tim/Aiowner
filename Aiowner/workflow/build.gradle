@@ -33,4 +33,5 @@ dependencies {
     androidTestCompile 'junit:junit:4.12'
     compile project(':persistence')
     compile 'org.slf4j:slf4j-api:1.7.12'
+    compile 'de.greenrobot:eventbus:2.4.0'
 }

@@ -7,16 +7,18 @@ import android.view.View;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.databinding.ActivityPreventTheftBinding;
+import com.dudu.aiowner.commonlib.model.ReceiverData;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.workflow.common.FlowFactory;
-import com.dudu.workflow.common.ObservableFactory;
 import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.guard.GuardRequest;
+import com.dudu.workflow.receiver.ReceiverDataFlow;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.greenrobot.event.EventBus;
 import rx.functions.Action1;
 
 /**
@@ -34,6 +36,7 @@ public class PreventTheftActivity extends BaseActivity {
 
         preventTheftBinding = ActivityPreventTheftBinding.bind(childView);
 
+        EventBus.getDefault().register(this);
     }
 
     public void theftSwitchClick(View view) {
@@ -131,14 +134,14 @@ public class PreventTheftActivity extends BaseActivity {
                     }
                 });
 
-        ObservableFactory.getGuardReceiveObservable()
-                .subscribe(new Action1<Boolean>() {
-                    @Override
-                    public void call(Boolean locked) {
-                        FlowFactory.getSwitchDataFlow().saveGuardSwitch(locked);
-                        preventTheftBinding.preventTheftSwitch.setChecked(locked);
-                    }
-                });
+//        ObservableFactory.getGuardReceiveObservable()
+//                .subscribe(new Action1<Boolean>() {
+//                    @Override
+//                    public void call(Boolean locked) {
+//                        FlowFactory.getSwitchDataFlow().saveGuardSwitch(locked);
+//                        theft_switch.setChecked(locked);
+//                    }
+//                });
 
         RequestFactory.getGuardRequest().isAntiTheftOpened(
                 new GuardRequest.LockStateCallBack() {
@@ -153,5 +156,18 @@ public class PreventTheftActivity extends BaseActivity {
                         logger.error(error);
                     }
                 });
+    }
+
+    public void onEventMainThread(ReceiverData event) {
+        if(ReceiverDataFlow.getGuardReceiveData(event)){
+            FlowFactory.getSwitchDataFlow().saveGuardSwitch(event.getSwitchValue().equals("1"));
+            theft_switch.setChecked(event.getSwitchValue().equals("1"));
+        }
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        EventBus.getDefault().register(this);
     }
 }
