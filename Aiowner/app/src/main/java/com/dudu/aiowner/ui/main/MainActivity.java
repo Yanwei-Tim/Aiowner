@@ -54,17 +54,18 @@ public class MainActivity extends BaseActivity {
         activityMainBinding.setMainPage(mainObservable);
 
         activityMainBinding.setTitle(observableFactory.getTitleObservable());
-        activityMainBinding.setMainPage(mainObservable);
 
         startAnimation();
         resetData();
     }
 
     private void startAnimation() {
-         /*android帧动画animation-list*/
+
+        //android帧动画animation-list
         mImageView = (ImageView) findViewById(R.id.car);
         images = new CarImagesList().getImages();
 
+        //启动动画
         new CarAnimation().play(mImageView, images, 10, this, count_down);
     }
 
@@ -111,7 +112,7 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    public void openRobberyActivity(boolean hasRobbed){
+    public void openRobberyActivity(boolean hasRobbed) {
         if (hasRobbed) {
             startActivity(new Intent(MainActivity.this, PreventLootingControlActivity.class));
         } else {

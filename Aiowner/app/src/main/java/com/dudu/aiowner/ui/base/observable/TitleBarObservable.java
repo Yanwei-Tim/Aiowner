@@ -24,6 +24,10 @@ public class TitleBarObservable {
 
     public final ObservableBoolean hasBackGround = new ObservableBoolean();
 
+    public final ObservableBoolean userIconClick = new ObservableBoolean();
+
+    public final ObservableBoolean backBtnClick = new ObservableBoolean();
+
     public TitleBarObservable() {
         this.userCommon.set(true);
         this.userIcon.set(false);
@@ -33,5 +37,7 @@ public class TitleBarObservable {
         this.userTitleLogo.set(false);
         this.hasBackGround.set(false);
         this.hasUserBackButton.set(false);
+        this.userIconClick.set(true);
+        this.backBtnClick.set(true);
     }
 }
