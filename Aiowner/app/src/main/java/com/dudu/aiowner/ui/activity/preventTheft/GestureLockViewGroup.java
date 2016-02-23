@@ -299,11 +299,13 @@ public class GestureLockViewGroup extends RelativeLayout {
                 if (mOnGestureLockViewListener != null && mChoose.size() > 0) {
 
                     mOnGestureLockViewListener.onGestureEvent(isOk);
-                    if (isOk) {
-                        mPaint.setColor(mWhite);
-                    } else {
-                        mPaint.setColor(mFingerUpFaultColor);
-                    }
+                    mPaint.setColor(mWhite);
+                    //注释了不用密码
+//                    if (isOk) {
+//                        mPaint.setColor(mWhite);
+//                    } else {
+//                        mPaint.setColor(mFingerUpFaultColor);
+//                    }
                     if (this.mTryTimes == 0) {
                         mOnGestureLockViewListener.onUnmatchedExceedBoundary();
                     }
@@ -346,11 +348,14 @@ public class GestureLockViewGroup extends RelativeLayout {
         for (GestureLockView gestureLockView : mGestureLockViews) {
             if (mChoose.contains(gestureLockView.getId())) {
                 gestureLockView.setMode(GestureLockView.Mode.STATUS_FINGER_UP);
-                if (isOk) {
-                    gestureLockView.setDraw(GestureLockView.Draw.OK);
-                } else {
-                    gestureLockView.setDraw(GestureLockView.Draw.Fault);
-                }
+
+                gestureLockView.setDraw(GestureLockView.Draw.OK);
+                //注释后不用密码
+//                if (isOk) {
+//                    gestureLockView.setDraw(GestureLockView.Draw.OK);
+//                } else {
+//                    gestureLockView.setDraw(GestureLockView.Draw.Fault);
+//                }
             }
         }
     }

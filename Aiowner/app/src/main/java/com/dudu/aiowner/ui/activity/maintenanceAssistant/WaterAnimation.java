@@ -48,6 +48,6 @@ public class WaterAnimation {
                     playConstant(pFrameNo + 1);
                 }
             }
-        }, 10);
+        }, 1);
     }
 }

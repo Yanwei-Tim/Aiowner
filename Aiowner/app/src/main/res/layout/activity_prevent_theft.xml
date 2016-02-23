@@ -73,7 +73,7 @@
                     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="粤B DE890"
+                        android:text="粤A 2Z888"
                         android:textColor="@android:color/white"
                         android:textSize="16sp" />
 
@@ -87,7 +87,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="本田 思铂睿"
+                        android:text="路虎 揽胜"
                         android:textColor="@android:color/white"
                         android:textSize="16sp" />
 

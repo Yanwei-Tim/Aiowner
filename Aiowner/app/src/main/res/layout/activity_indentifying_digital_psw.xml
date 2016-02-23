@@ -27,8 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="11dp"
                 android:text="PASSWORD UNLOCK"
-                android:textSize="19sp"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="19sp" />
         </LinearLayout>
 
         <TableLayout
@@ -43,16 +43,19 @@
 
                 <ImageView
                     style="@style/theft_psw_ring"
+                    android:onClick="startUnlockSuccess"
                     android:src="@drawable/sel_1" />
 
                 <ImageView
                     style="@style/theft_psw_ring"
                     android:layout_marginLeft="34dp"
+                    android:onClick="startUnlockSuccess"
                     android:src="@drawable/sel_2" />
 
                 <ImageView
                     style="@style/theft_psw_ring"
                     android:layout_marginLeft="34dp"
+                    android:onClick="startUnlockSuccess"
                     android:src="@drawable/sel_3" />
             </TableRow>
 
@@ -61,6 +64,7 @@
                 <ImageView
                     style="@style/theft_psw_ring"
                     android:layout_marginTop="34dp"
+                    android:onClick="startUnlockSuccess"
                     android:src="@drawable/sel_4" />
 
                 <ImageView
@@ -74,6 +78,7 @@
                     style="@style/theft_psw_ring"
                     android:layout_marginLeft="34dp"
                     android:layout_marginTop="34dp"
+                    android:onClick="startUnlockSuccess"
                     android:src="@drawable/sel_6" />
             </TableRow>
 
@@ -82,18 +87,21 @@
                 <ImageView
                     style="@style/theft_psw_ring"
                     android:layout_marginTop="34dp"
+                    android:onClick="startUnlockSuccess"
                     android:src="@drawable/sel_7" />
 
                 <ImageView
                     style="@style/theft_psw_ring"
                     android:layout_marginLeft="34dp"
                     android:layout_marginTop="34dp"
+                    android:onClick="startUnlockSuccess"
                     android:src="@drawable/sel_8" />
 
                 <ImageView
                     style="@style/theft_psw_ring"
                     android:layout_marginLeft="34dp"
                     android:layout_marginTop="34dp"
+                    android:onClick="startUnlockSuccess"
                     android:src="@drawable/sel_9" />
 
             </TableRow>
@@ -103,6 +111,7 @@
                 <ImageView
                     style="@style/theft_psw_ring"
                     android:layout_marginTop="34dp"
+                    android:onClick="startUnlockSuccess"
                     android:src="@drawable/sel_0" />
 
             </TableRow>

@@ -25,7 +25,7 @@ import rx.functions.Action1;
 public class LoginActivity extends BaseActivity {
     private EditText login_user_edittext;
     private EditText login_password_et;
-    private Logger logger = LoggerFactory.getLogger("PreventTheftActivity");
+    private Logger logger = LoggerFactory.getLogger("LoginActivity");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

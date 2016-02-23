@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.user.UserRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by sunny_zhang on 2016/1/27.
@@ -19,6 +21,7 @@ public class IdentifyingCodeActivity extends BaseActivity {
 
     private String mCellphone;
     private EditText verifyCode_et;
+    private Logger logger = LoggerFactory.getLogger("IdentifyingCodeActivity");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +39,12 @@ public class IdentifyingCodeActivity extends BaseActivity {
     public void startInitPassword(View view) {
         String verifyCode = verifyCode_et.getText().toString();
         if (verifyCode.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "请输入验证码", Toast.LENGTH_SHORT).show();
+            logger.info("请输入验证码");
             return;
         }
         //根据演示需求，注册演示到此，需点击返回登录
         if (verifyCode.length() < 20) {
-            Toast.makeText(getApplicationContext(), "请输入正确的验证码", Toast.LENGTH_SHORT).show();
+            logger.info("请输入正确的验证码");
             return;
         }
         RequestFactory.getUserRequest().isVerifyCodeValid(mCellphone, "", new UserRequest.VerifyCodeValidCallback() {
@@ -52,7 +55,7 @@ public class IdentifyingCodeActivity extends BaseActivity {
                     intent.putExtra("cellphone", mCellphone);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(IdentifyingCodeActivity.this, "校验失败", Toast.LENGTH_SHORT).show();
+                    logger.error("校验失败");
                 }
             }
         });

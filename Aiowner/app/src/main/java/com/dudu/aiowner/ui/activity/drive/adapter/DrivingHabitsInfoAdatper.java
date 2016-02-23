@@ -1,7 +1,6 @@
 package com.dudu.aiowner.ui.activity.drive.adapter;
 
 import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -27,6 +26,16 @@ public class DrivingHabitsInfoAdatper extends RecyclerView.Adapter<DrivingHabits
         this.drvingHabitsItemObservableList = drvingHabitsItemObservableList;
         if (drvingHabitsItemObservableList == null){
             this.drvingHabitsItemObservableList = new ArrayList<DrvingHabitsItemObservable>();
+            this.drvingHabitsItemObservableList.add(new DrvingHabitsItemObservable());
+            this.drvingHabitsItemObservableList.add(new DrvingHabitsItemObservable());
+            this.drvingHabitsItemObservableList.add(new DrvingHabitsItemObservable());
+            this.drvingHabitsItemObservableList.add(new DrvingHabitsItemObservable());
+            this.drvingHabitsItemObservableList.add(new DrvingHabitsItemObservable());
+            this.drvingHabitsItemObservableList.add(new DrvingHabitsItemObservable());
+            this.drvingHabitsItemObservableList.add(new DrvingHabitsItemObservable());
+            this.drvingHabitsItemObservableList.add(new DrvingHabitsItemObservable());
+            this.drvingHabitsItemObservableList.add(new DrvingHabitsItemObservable());
+            this.drvingHabitsItemObservableList.add(new DrvingHabitsItemObservable());
             this.drvingHabitsItemObservableList.add(new DrvingHabitsItemObservable());
             this.drvingHabitsItemObservableList.add(new DrvingHabitsItemObservable());
             this.drvingHabitsItemObservableList.add(new DrvingHabitsItemObservable());

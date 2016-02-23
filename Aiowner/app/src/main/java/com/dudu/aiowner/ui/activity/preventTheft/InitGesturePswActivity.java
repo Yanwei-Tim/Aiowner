@@ -32,6 +32,8 @@ public class InitGesturePswActivity extends BaseActivity {
         initGesturePswBinding = ActivityInitGesturePswBinding.bind(childView);
         initGesturePswBinding.setTitle(observableFactory.getTitleObservable());
         initGesturePswBinding.setInitGesturePswPage(initGesturePswObservable);
+
+        //设置手势密码
         initGesturePswBinding.gestureLockViewGroupView.setAnswer(new int[]{1, 2, 3, 4, 5});
 
         initEvent();
@@ -47,13 +49,16 @@ public class InitGesturePswActivity extends BaseActivity {
 
                     @Override
                     public void onGestureEvent(boolean matched) {
-                        if (matched) {
-                            //解锁成功
-                            startActivity(new Intent(InitGesturePswActivity.this, PreventTheftActivity.class));
 
-                        } else {
-                            //解锁失败
-                        }
+                        startActivity(new Intent(InitGesturePswActivity.this, PreventTheftActivity.class));
+                        //注释了不用密码
+//                        if (matched) {
+//                            //解锁成功
+//                            startActivity(new Intent(InitGesturePswActivity.this, PreventTheftActivity.class));
+//
+//                        } else {
+//                            //解锁失败
+//                        }
                     }
 
                     @Override

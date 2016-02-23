@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.commonlib.MultVerify;
@@ -15,6 +14,9 @@ import com.dudu.aiowner.ui.activity.login.LoginActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.user.UserRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by sunny_zhang on 2016/1/27.
@@ -24,6 +26,7 @@ public class InitPswActivity extends BaseActivity {
     private EditText initpsw_repsw_et;
     private TextView initpsw_confirm_btn;
     private String mCellphone;
+    private Logger logger = LoggerFactory.getLogger("InitPswActivity");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +57,11 @@ public class InitPswActivity extends BaseActivity {
         String confirmPassword = initpsw_repsw_et.getText().toString();
 
         if (TextUtils.isEmpty(newPassword)) {
-            Toast.makeText(getApplicationContext(), "请输入新密码", Toast.LENGTH_SHORT).show();
+            logger.info("请输入新密码");
             return;
         }
         if(!(MultVerify.isPasswordValid(newPassword))){
-            Toast.makeText(getApplicationContext(), "密码必须为大于6位的数字和字母的组合，且至少包含一位大写字母", Toast.LENGTH_SHORT).show();
+            logger.info("密码必须为大于6位的数字和字母的组合，且至少包含一位大写字母");
             return;
         }
 //        if (newPassword.length() < 6) {
@@ -66,11 +69,11 @@ public class InitPswActivity extends BaseActivity {
 //            return;
 //        }
         if (TextUtils.isEmpty(confirmPassword)) {
-            Toast.makeText(getApplicationContext(), "请确认密码", Toast.LENGTH_SHORT).show();
+            logger.info("请确认密码");
             return;
         }
         if (!(newPassword.equals(confirmPassword))) {
-            Toast.makeText(getApplicationContext(), "两次密码不一致", Toast.LENGTH_SHORT).show();
+            logger.info("两次密码不一致");
             return;
         }
         RequestFactory.getUserRequest().settingPassword(mCellphone, "securityCode", newPassword, new UserRequest.RegisterCallback() {
@@ -79,7 +82,7 @@ public class InitPswActivity extends BaseActivity {
                     if (success) {
                         startActivity(new Intent(InitPswActivity.this, LoginActivity.class));
                     }else{
-                        Toast.makeText(InitPswActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                        logger.info("注册失败");
                     }
                 }
             });

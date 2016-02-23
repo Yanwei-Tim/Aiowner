@@ -6,13 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.commonlib.MultVerify;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.user.UserRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by sunny_zhang on 2016/1/27.
@@ -22,6 +24,7 @@ public class TelephoneNumberActivity extends BaseActivity {
     private EditText regist_phonenumber_et;
     private String mobiles;
     private TextView mydialog_phone_tv;
+    private Logger logger = LoggerFactory.getLogger("TelephoneNumberActivity");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,7 @@ public class TelephoneNumberActivity extends BaseActivity {
         mobiles = regist_phonenumber_et.getText().toString();
 
         if (mobiles.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "请输入手机号码", Toast.LENGTH_SHORT).show();
+            logger.info("请输入手机号码");
         } else if (MultVerify.isPhoneNumberValid(mobiles)) {
 
 //            Dialog dialog = new Dialog(TelephoneNumberActivity.this, R.style.MyDialog);
@@ -69,13 +72,13 @@ public class TelephoneNumberActivity extends BaseActivity {
                         intent.putExtra("cellphone", mobiles);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(TelephoneNumberActivity.this, "请求验证码失败", Toast.LENGTH_SHORT).show();
+                        logger.error("请求验证码失败");
                     }
                 }
             });
 
         } else {
-            Toast.makeText(getApplicationContext(), "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
+            logger.info("请输入正确的手机号码");
         }
     }
 }
