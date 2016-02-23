@@ -29,6 +29,7 @@ public class PreventLootingActivity extends BaseActivity {
     private ToggleButton debus_switch;
     private ToggleButton brake_switch;
 
+    private boolean bool = true;
     private Logger logger = LoggerFactory.getLogger("PreventLootingActivity");
 
     @Override
@@ -37,6 +38,8 @@ public class PreventLootingActivity extends BaseActivity {
         initView();
         initEvent();
         EventBus.getDefault().register(this);
+
+//        new Thread(new RefreshThread()).start();
     }
 
     private void initView() {
@@ -98,6 +101,8 @@ public class PreventLootingActivity extends BaseActivity {
                         FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.HEADLIGHT, flashRateTimes);
                         FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.PARK, emergencyCutoff);
                         FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.GUN, stepOnTheGas);
+
+
                     }
 
                     @Override
@@ -147,7 +152,7 @@ public class PreventLootingActivity extends BaseActivity {
     }
 
     public void onEventMainThread(ReceiverData receiverData) {
-        if(ReceiverDataFlow.getGuardReceiveData(receiverData)){
+        if (ReceiverDataFlow.getRobberyReceiveData(receiverData)) {
             boolean headLight = receiverData.getSwitch1Value().equals("1");
             boolean park = receiverData.getSwitch2Value().equals("1");
             boolean gun = receiverData.getSwitch3Value().equals("1");
@@ -167,8 +172,34 @@ public class PreventLootingActivity extends BaseActivity {
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
+        bool = false;
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
+
+//    private class RefreshThread implements Runnable {
+//
+//        @Override
+//        public void run() {
+//            while (bool) {
+//                try {
+//                    Thread.sleep(2000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                synchronized (this) {
+//                    //用post方法刷新
+//                    light_switch.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            reflashSwitch();
+//                        }
+//                    });
+//
+//                }
+//            }
+//        }
+//    }
+
 }
