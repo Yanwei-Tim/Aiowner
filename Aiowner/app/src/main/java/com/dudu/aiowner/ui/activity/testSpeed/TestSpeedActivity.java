@@ -33,6 +33,7 @@ public class TestSpeedActivity extends BaseActivity {
     private AnimationDrawable animationDrawable;
     private TestSpeedObservable testSpeedObservable;
     private ActivityTestSpeedBinding testSpeedBinding;
+    private AccTestData accTestData;
     private Logger logger = LoggerFactory.getLogger("TestSpeedActivity");
 
     @Override
@@ -95,14 +96,15 @@ public class TestSpeedActivity extends BaseActivity {
     }
 
     public void onEventMainThread(ReceiverData event) {
-        if(ReceiverDataFlow.getAccTestReceiverData(event)) {
-            AccTestData accTestData = ReceiverDataFlow.getReceiveDataFlow(event);
-            setupData(Float.valueOf(accTestData.getAccTotalTime()));
+
+        if (ReceiverDataFlow.getAccTestReceiverData(event)) {
+            accTestData = ReceiverDataFlow.getReceiveDataFlow(event);
+           setupData(Float.valueOf(accTestData.getAccTotalTime()));
         }
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().register(this);
     }

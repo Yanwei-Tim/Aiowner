@@ -35,11 +35,10 @@ public class PreventLootingActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         initView();
         initEvent();
         EventBus.getDefault().register(this);
-
-//        new Thread(new RefreshThread()).start();
     }
 
     private void initView() {
@@ -177,29 +176,4 @@ public class PreventLootingActivity extends BaseActivity {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
-
-//    private class RefreshThread implements Runnable {
-//
-//        @Override
-//        public void run() {
-//            while (bool) {
-//                try {
-//                    Thread.sleep(2000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//                synchronized (this) {
-//                    //用post方法刷新
-//                    light_switch.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            reflashSwitch();
-//                        }
-//                    });
-//
-//                }
-//            }
-//        }
-//    }
-
 }

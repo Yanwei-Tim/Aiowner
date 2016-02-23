@@ -50,6 +50,7 @@ public class InitGesturePswActivity extends BaseActivity {
                     @Override
                     public void onGestureEvent(boolean matched) {
 
+
                         startActivity(new Intent(InitGesturePswActivity.this, PreventTheftActivity.class));
                         //注释了不用密码
 //                        if (matched) {

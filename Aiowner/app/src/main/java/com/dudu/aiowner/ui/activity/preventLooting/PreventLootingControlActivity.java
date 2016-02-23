@@ -106,7 +106,7 @@ public class PreventLootingControlActivity extends BaseActivity {
 
     private void checkSwitch(boolean isChecked){
         FlowFactory.getSwitchDataFlow().saveRobberyState(isChecked);
-        if (isChecked) {
+        if (!isChecked) {
             RequestFactory.getRobberyRequest().closeAntiRobberyMode(new RobberyRequest.CloseRobberyModeCallback() {
                 @Override
                 public void closeSuccess(boolean success) {

@@ -73,6 +73,7 @@ public class PreventTheftActivity extends BaseActivity {
         }
         //
         else {
+            preventTheftBinding.preventTheftSwitch.setChecked(!isChecked);
             startActivity(new Intent(PreventTheftActivity.this, InitGesturePswActivity.class));
 
             RequestFactory.getGuardRequest().unlockCar(

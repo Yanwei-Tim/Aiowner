@@ -125,6 +125,7 @@ public class RiseNumberTextView extends TextView implements IRiseNumber {
                     }
                 });
         valueAnimator.start();
+        valueAnimator.cancel();
     }
 
     static int sizeOfInt(int x) {
