@@ -21,8 +21,6 @@ import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.main.observable.MainObservable;
 import com.dudu.workflow.common.FlowFactory;
-import com.dudu.workflow.common.RequestFactory;
-import com.dudu.workflow.robbery.RobberyRequest;
 
 import rx.functions.Action1;
 
@@ -100,17 +98,17 @@ public class MainActivity extends BaseActivity {
                         openRobberyActivity(hasRobbed);
                     }
                 });
-        RequestFactory.getRobberyRequest().isCarRobbed(new RobberyRequest.CarRobberdCallback() {
-            @Override
-            public void hasRobbed(boolean robbed) {
-                openRobberyActivity(robbed);
-            }
-
-            @Override
-            public void requestError(String error) {
-
-            }
-        });
+//        RequestFactory.getRobberyRequest().isCarRobbed(new RobberyRequest.CarRobberdCallback() {
+//            @Override
+//            public void hasRobbed(boolean robbed) {
+//                openRobberyActivity(robbed);
+//            }
+//
+//            @Override
+//            public void requestError(String error) {
+//
+//            }
+//        });
     }
 
     public void openRobberyActivity(boolean hasRobbed) {

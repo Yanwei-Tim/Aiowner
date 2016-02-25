@@ -90,6 +90,21 @@ public class PreventLootingActivity extends BaseActivity {
 //                        PreventLootingActivity.this.finish();
 //                    }
 //                });
+        RequestFactory.getRobberyRequest().isCarRobbed(new RobberyRequest.CarRobberdCallback() {
+            @Override
+            public void hasRobbed(boolean robbed) {
+                FlowFactory.getSwitchDataFlow().saveRobberyState(robbed);
+                if (robbed) {
+                    startActivity(new Intent(PreventLootingActivity.this, PreventLootingControlActivity.class));
+                    PreventLootingActivity.this.finish();
+                }
+            }
+
+            @Override
+            public void requestError(String error) {
+                logger.error(error);
+            }
+        });
         RequestFactory.getRobberyRequest()
                 .getRobberyState(new RobberyRequest.RobberStateCallback() {
                     @Override
@@ -100,8 +115,6 @@ public class PreventLootingActivity extends BaseActivity {
                         FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.HEADLIGHT, flashRateTimes);
                         FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.PARK, emergencyCutoff);
                         FlowFactory.getSwitchDataFlow().saveRobberySwitch(CommonParams.GUN, stepOnTheGas);
-
-
                     }
 
                     @Override

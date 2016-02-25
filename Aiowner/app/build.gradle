@@ -48,7 +48,7 @@ dependencies {
     testCompile 'org.powermock:powermock-module-junit4:1.6.2'
     testCompile 'org.powermock:powermock-api-mockito:1.6.2'
     androidTestCompile 'org.mockito:mockito-core:2.0.42-beta'
-    androidTestCompile 'com.android.support:support-annotations:23.1.1'
+    androidTestCompile 'com.android.support:support-annotations:23.2.0'
     androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
     androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
     // Android Testing Support Library's runner and rules

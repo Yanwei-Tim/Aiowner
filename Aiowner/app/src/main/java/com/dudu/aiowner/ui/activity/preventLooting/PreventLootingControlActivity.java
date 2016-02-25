@@ -126,9 +126,9 @@ public class PreventLootingControlActivity extends BaseActivity {
     }
 
     public void onEventMainThread(ReceiverData event) {
-        if(ReceiverDataFlow.getGuardReceiveData(event)){
-            boolean switchvalue = event.getSwitchValue().equals("1");
-            FlowFactory.getSwitchDataFlow().saveGuardSwitch(switchvalue);
+        if(ReceiverDataFlow.getRobberyReceiveData(event)){
+            boolean switchvalue = event.getSwitch0Value().equals("1");
+            FlowFactory.getSwitchDataFlow().saveRobberyState(switchvalue);
             looting_switch.setChecked(switchvalue);
             if (!switchvalue) {
                 startActivity(new Intent(PreventLootingControlActivity.this, PreventLootingActivity.class));
