@@ -1,6 +1,7 @@
 package com.dudu.aiowner.ui.activity.user;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -13,6 +14,11 @@ import com.dudu.aiowner.ui.base.BaseActivity;
  */
 public class UserInfoActivity extends BaseActivity {
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     protected View getChildView() {
 
         return LayoutInflater.from(this).inflate(R.layout.activity_user_info, null);
@@ -20,7 +26,7 @@ public class UserInfoActivity extends BaseActivity {
 
     public void startModifyHeadPortraitAndNickname(View view) {
 
-//        startActivity(new Intent(UserInfoActivity.this, ModifyHeadPortraitAndNicknameActivity.class));
+        startActivity(new Intent(UserInfoActivity.this, ModifyHeadActivity.class));
     }
 
     public void startFogetPassword(View view) {
@@ -32,10 +38,11 @@ public class UserInfoActivity extends BaseActivity {
     protected void onResume() {
         observableFactory.getTitleObservable().titleText.set("");
         observableFactory.getTitleObservable().userIcon.set(false);
-        observableFactory.getCommonObservable().hasBottomIcon.set(false);
         observableFactory.getTitleObservable().userTitleLogo.set(true);
         observableFactory.getTitleObservable().hasBackGround.set(true);
         observableFactory.getTitleObservable().hasUserBackButton.set(true);
+        observableFactory.getCommonObservable().hasBottomIcon.set(false);
+        observableFactory.getCommonObservable().hasUserBackground.set(true);
         super.onResume();
     }
 }

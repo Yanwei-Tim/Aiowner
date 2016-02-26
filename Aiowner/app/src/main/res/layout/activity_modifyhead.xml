@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="ModifyHeadDataBinding">
+
+        <import type="com.dudu.aiowner.ui.activity.user.observable.ModifyHeadObservable"/>
+        <variable
+            name="ModifyHeadPage"
+            type="ModifyHeadObservable"/>
+
+
+        <variable
+            name="title"
+            type="com.dudu.aiowner.ui.base.observable.TitleBarObservable" />
+        
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#01000000"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#01000000"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:background="#01000000"
+                        android:text="头像"
+                        android:textColor="#727171"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/main_show_image"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginLeft="150dp"
+                        android:background="#01000000"
+                        android:src="@drawable/user_head" />
+
+                    <Button
+                        android:layout_width="9.5dp"
+                        android:layout_height="16.5dp"
+                        android:layout_marginLeft="18dp"
+                        android:background="@drawable/user_set_psw_btn_sel"
+                        android:onClick="choseHeadImage" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="290dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="17dp"
+                    android:background="#BBBCBC"></View>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:background="#01000000"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:background="#01000000"
+                    android:text="昵称"
+                    android:textColor="#727171"
+                    android:textSize="18sp" />
+
+
+                <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="180dp"
+                    android:background="#01000000"
+                    android:text="Jack"
+                    android:textColor="#727171"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:layout_width="9.5dp"
+                    android:layout_height="16.5dp"
+                    android:layout_marginLeft="18dp"
+                    android:background="@drawable/user_set_psw_btn_sel" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="290dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="17dp"
+                android:background="#BBBCBC"></View>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

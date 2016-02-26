@@ -48,7 +48,9 @@
                 android:id="@+id/main_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/base_title_layout">
+                android:layout_below="@+id/base_title_layout"
+
+                android:background="@{common.hasUserBackground ? @android:color/white : @color/aiowner }">
 
                 <ImageView
                     android:id="@+id/base_bottom_icon"
