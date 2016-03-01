@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data class="NickNameBinding">
+
+        <import type="com.dudu.aiowner.ui.activity.user.observable.NickNameObservable" />
+
+        <variable
+            name="NickNamePage"
+            type="NickNameObservable" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:id="@+id/setnickname_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:background="#01000000"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:background="#01000000"
+                android:text="昵称"
+                android:textColor="#727171"
+                android:textSize="18sp" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+                android:id="@+id/nickname_et"
+                android:layout_width="195dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="#01000000"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="@{NickNamePage.newName}"
+                android:textColor="#727171"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="28dp"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/btn_blue_delete_sel"
+            android:onClick="cleanNickName" />
+
+        <View
+            android:layout_width="290dp"
+            android:layout_height="1dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="82dp"
+            android:background="#BBBCBC"></View>
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/nickname_submit_btn"
+            style="@style/button_big"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="37dp"
+            android:background="@drawable/btn_bg_sel_fill"
+            android:onClick="backModityHead"
+            android:text="提 交" />
+
+    </RelativeLayout>
+
+</layout>

@@ -9,9 +9,10 @@ import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
- * Created by Administrator on 2016/2/2.
+ * Created by sunny_zhang on 2016/3/1.
  */
-public class UserInfoActivity extends BaseActivity {
+public class ModifyPswActivity extends BaseActivity{
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,39 +20,17 @@ public class UserInfoActivity extends BaseActivity {
 
     @Override
     protected View getChildView() {
-
-        return LayoutInflater.from(this).inflate(R.layout.activity_user_info, null);
+        return LayoutInflater.from(this).inflate(R.layout.acitivty_modify_psw, null);
     }
 
-    public void startModifyHeadPortraitAndNickname(View view) {
-
-        startActivity(new Intent(UserInfoActivity.this, ModifyHeadActivity.class));
+    public void backUserInfo(View view){
+        startActivity(new Intent(ModifyPswActivity.this,UserInfoActivity.class));
     }
-
-    public void startModifyPsw(View view) {
-
-        startActivity(new Intent(UserInfoActivity.this, ModifyPswActivity.class));
-    }
-
-    public void startGesturePsw(View view) {
-        startActivity(new Intent(UserInfoActivity.this, GesturePswActivity.class));
-    }
-
-    public void startUserFeedback(View view) {
-        startActivity(new Intent(UserInfoActivity.this, UserFeedbackActivity.class));
-    }
-
-    public void startDeviceMatch(View view) {
-        startActivity(new Intent(UserInfoActivity.this, DeviceMatchAcitivty.class));
-    }
-
-
 
     @Override
     protected void onResume() {
         observableFactory.getTitleObservable().titleText.set("");
         observableFactory.getTitleObservable().userIcon.set(false);
-        observableFactory.getTitleObservable().userTitleLogo.set(true);
         observableFactory.getTitleObservable().hasBackGround.set(true);
         observableFactory.getTitleObservable().hasUserBackButton.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);

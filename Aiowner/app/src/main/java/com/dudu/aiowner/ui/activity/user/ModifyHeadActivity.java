@@ -17,6 +17,7 @@ import android.widget.PopupWindow;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.databinding.ModifyHeadDataBinding;
+import com.dudu.aiowner.databinding.NickNameBinding;
 import com.dudu.aiowner.ui.activity.user.observable.ModifyHeadObservable;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.utils.PhotoUtils.PhotoUtil;
@@ -30,6 +31,7 @@ import java.io.File;
 public class ModifyHeadActivity extends BaseActivity {
 
     private ModifyHeadDataBinding modifyheadBinding;
+    private NickNameBinding nicknameBinding;
     private ModifyHeadObservable modifyheadObservable;
 
     private PopupWindow mSetPhotoPop;
@@ -50,11 +52,16 @@ public class ModifyHeadActivity extends BaseActivity {
         modifyheadBinding = ModifyHeadDataBinding.bind(childView);
         modifyheadBinding.setModifyHeadPage(modifyheadObservable);
         modifyheadBinding.setTitle(observableFactory.getTitleObservable());
+
     }
 
     @Override
     protected View getChildView() {
         return LayoutInflater.from(this).inflate(R.layout.activity_modifyhead, null);
+    }
+
+    public void setNickName(View view){
+        startActivity(new Intent(ModifyHeadActivity.this,SetNickNameActivity.class));
     }
 
     public void choseHeadImage(View view) {

@@ -6,46 +6,39 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.databinding.NickNameBinding;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
  * Created by Administrator on 2016/2/2.
  */
-public class UserInfoActivity extends BaseActivity {
+public class SetNickNameActivity extends BaseActivity {
+
+    private NickNameBinding nickNameBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        nickNameBinding = NickNameBinding.bind(childView);
+
     }
 
     @Override
     protected View getChildView() {
 
-        return LayoutInflater.from(this).inflate(R.layout.activity_user_info, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_set_nickname, null);
     }
 
-    public void startModifyHeadPortraitAndNickname(View view) {
+    public void cleanNickName(View view) {
 
-        startActivity(new Intent(UserInfoActivity.this, ModifyHeadActivity.class));
+        nickNameBinding.nicknameEt.setText("");
     }
 
-    public void startModifyPsw(View view) {
+    public void backModityHead(View view) {
 
-        startActivity(new Intent(UserInfoActivity.this, ModifyPswActivity.class));
+        startActivity(new Intent(SetNickNameActivity.this, ModifyHeadActivity.class));
     }
-
-    public void startGesturePsw(View view) {
-        startActivity(new Intent(UserInfoActivity.this, GesturePswActivity.class));
-    }
-
-    public void startUserFeedback(View view) {
-        startActivity(new Intent(UserInfoActivity.this, UserFeedbackActivity.class));
-    }
-
-    public void startDeviceMatch(View view) {
-        startActivity(new Intent(UserInfoActivity.this, DeviceMatchAcitivty.class));
-    }
-
-
 
     @Override
     protected void onResume() {

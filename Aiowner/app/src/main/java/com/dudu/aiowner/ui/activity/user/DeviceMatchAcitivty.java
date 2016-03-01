@@ -1,6 +1,5 @@
 package com.dudu.aiowner.ui.activity.user;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,7 @@ import com.dudu.aiowner.ui.base.BaseActivity;
 /**
  * Created by sunny_zhang on 2016/3/1.
  */
-public class UserFeedbackActivity extends BaseActivity {
+public class DeviceMatchAcitivty extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,11 +18,7 @@ public class UserFeedbackActivity extends BaseActivity {
 
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.acitivty_user_feedback, null);
-    }
-
-    public void backUserInfo(View view) {
-        startActivity(new Intent(UserFeedbackActivity.this, UserInfoActivity.class));
+        return LayoutInflater.from(this).inflate(R.layout.acitivty_device_match, null);
     }
 
     @Override

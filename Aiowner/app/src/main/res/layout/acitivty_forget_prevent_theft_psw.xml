@@ -43,7 +43,7 @@
             style="@style/button_big"
             android:layout_marginTop="180dp"
             android:background="@drawable/btn_bg_sel_line"
-            android:onClick="startGesturePsw"
+            android:onClick="startSetGesturePsw"
             android:text="下 一 步" />
 
     </RelativeLayout>

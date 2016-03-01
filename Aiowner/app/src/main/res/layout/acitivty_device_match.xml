@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:background="@drawable/user_title_bg"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="80.5dp"
+            android:layout_height="18.5dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#01000000"
+            android:src="@drawable/user_content_logo" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:background="#01000000"
+            android:text="设 备 匹 配"
+            android:textColor="@android:color/white"
+            android:textSize="27sp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="14dp"
+            android:background="#01000000"
+            android:text="Device Matching"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="178dp"
+        android:background="@null"
+        android:hint="IME码" />
+
+    <View
+        android:layout_width="290dp"
+        android:layout_height="1dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="210dp"
+        android:background="#BBBCBC"></View>
+
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        android:id="@+id/device_match_bind_btn"
+        style="@style/button_big"
+        android:layout_marginTop="275dp"
+        android:background="@drawable/btn_bg_sel_fill"
+        android:text="绑 定" />
+
+</RelativeLayout>
