@@ -16,7 +16,15 @@ import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
 import com.dudu.aiowner.R;
+<<<<<<< HEAD
+<<<<<<< HEAD
+import com.dudu.aiowner.databinding.ModifyHeadDataBinding;
+=======
 import com.dudu.aiowner.databinding.ModifyHeadBinding;
+>>>>>>> 52ada4f... 增加防盗防劫-查看上传资料页面；个人中心-手势设置、密码设置相关页面
+=======
+import com.dudu.aiowner.databinding.ModifyHeadBinding;
+>>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
 import com.dudu.aiowner.ui.activity.user.observable.ModifyHeadObservable;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.utils.PhotoUtils.PhotoUtil;
@@ -29,7 +37,15 @@ import java.io.File;
  */
 public class ModifyHeadActivity extends BaseActivity {
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+    private ModifyHeadDataBinding modifyheadBinding;
+=======
     private ModifyHeadBinding modifyheadBinding;
+>>>>>>> 52ada4f... 增加防盗防劫-查看上传资料页面；个人中心-手势设置、密码设置相关页面
+=======
+    private ModifyHeadBinding modifyheadBinding;
+>>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
     private ModifyHeadObservable modifyheadObservable;
 
     private PopupWindow mSetPhotoPop;

@@ -33,8 +33,15 @@ public class UserInfoActivity extends BaseActivity {
         startActivity(new Intent(UserInfoActivity.this, ModifyPswActivity.class));
     }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    public void startGesturePsw(View view) {
+        startActivity(new Intent(UserInfoActivity.this, TheftPswActivity.class));
+=======
     public void startGesturePsw(View view) {
         startActivity(new Intent(UserInfoActivity.this, GesturePswActivity.class));
+>>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
     }
 
     public void startUserFeedback(View view) {
@@ -46,6 +53,10 @@ public class UserInfoActivity extends BaseActivity {
     }
 
 
+<<<<<<< HEAD
+>>>>>>> 52ada4f... 增加防盗防劫-查看上传资料页面；个人中心-手势设置、密码设置相关页面
+=======
+>>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
     @Override
     protected void onResume() {
         observableFactory.getTitleObservable().titleText.set("");

@@ -1,14 +1,5 @@
 package com.dudu.aiowner.ui.activity.user;
 
-<<<<<<< HEAD
-<<<<<<< HEAD:Aiowner/app/src/main/java/com/dudu/aiowner/ui/activity/user/GesturePswActivity.java
-/**
- * Created by Administrator on 2016/2/2.
- */
-public class GesturePswActivity {
-=======
-=======
->>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,25 +8,33 @@ import android.view.View;
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * Created by sunny_zhang on 2016/3/2.
  */
-public class ConfirmIdentifyingCodeActivity extends BaseActivity {
-
+public class SetTheftGesturePswOk extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        initIntent();
     }
 
+    private void initIntent() {
+
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                startActivity(new Intent(SetTheftGesturePswOk.this, TheftPswActivity.class));
+            }
+        }, 3000);
+    }
     @Override
     protected View getChildView() {
 
-        return LayoutInflater.from(this).inflate(R.layout.acitivty_confirm_identifyingcode, null);
-    }
-
-    public void startNewGesturePsw(View view) {
-
-        startActivity(new Intent(ConfirmIdentifyingCodeActivity.this, NewGesturePswActivity.class));
+        return LayoutInflater.from(this).inflate(R.layout.activity_set_theft_gesture_psw_ok, null);
     }
 
     @Override
@@ -49,8 +48,4 @@ public class ConfirmIdentifyingCodeActivity extends BaseActivity {
         observableFactory.getCommonObservable().hasUserBackground.set(true);
         super.onResume();
     }
-<<<<<<< HEAD
->>>>>>> 52ada4f... 增加防盗防劫-查看上传资料页面；个人中心-手势设置、密码设置相关页面:Aiowner/app/src/main/java/com/dudu/aiowner/ui/activity/user/ConfirmIdentifyingCodeActivity.java
-=======
->>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
 }

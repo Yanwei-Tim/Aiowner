@@ -58,6 +58,13 @@
         <item name="android:clickable">true</item>
     </style>
 
+    <style name="theft_psw_ring_white">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:layout_width">69dp</item>
+        <item name="android:layout_height">69dp</item>
+        <item name="android:clickable">true</item>
+    </style>
+
     <style name="geture_btn">
         <item name="android:layout_width">120dp</item>
         <item name="android:layout_height">32dp</item>

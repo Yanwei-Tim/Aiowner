@@ -4,11 +4,14 @@
 
     <data>
 
+<<<<<<< HEAD
+=======
         <import type="com.dudu.aiowner.ui.activity.user.observable.NewGesturePswObservable" />
 
         <variable
             name="NewGesturePswPage"
             type="NewGesturePswObservable" />
+>>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
     </data>
 
     <RelativeLayout

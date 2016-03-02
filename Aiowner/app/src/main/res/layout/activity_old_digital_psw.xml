@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            style="@style/container_operation_tips_text"
+            android:background="@android:color/white"
+            android:text="请输入原防盗密码"
+            android:textColor="#00bfff"
+            android:textSize="18sp" />
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="45dp"
+            android:background="@android:color/white"
+            android:stretchColumns="0,1,2,0">
+
+            <TableRow android:background="@android:color/white">
+
+                <ImageView
+                    style="@style/theft_psw_ring_white"
+                    android:src="@drawable/sel1" />
+
+                <ImageView
+                    style="@style/theft_psw_ring_white"
+                    android:layout_marginLeft="34dp"
+                    android:src="@drawable/sel2" />
+
+                <ImageView
+                    style="@style/theft_psw_ring_white"
+                    android:layout_marginLeft="34dp"
+                    android:src="@drawable/sel3" />
+            </TableRow>
+
+            <TableRow android:background="@android:color/white">
+
+                <ImageView
+                    style="@style/theft_psw_ring_white"
+                    android:layout_marginTop="34dp"
+                    android:src="@drawable/sel4" />
+
+                <ImageView
+                    style="@style/theft_psw_ring_white"
+                    android:layout_marginLeft="34dp"
+                    android:layout_marginTop="34dp"
+                    android:onClick="startConfirmDigitalPsw"
+                    android:src="@drawable/sel5" />
+
+                <ImageView
+                    style="@style/theft_psw_ring_white"
+                    android:layout_marginLeft="34dp"
+                    android:layout_marginTop="34dp"
+                    android:src="@drawable/sel6" />
+            </TableRow>
+
+            <TableRow android:background="@android:color/white">
+
+                <ImageView
+                    style="@style/theft_psw_ring_white"
+                    android:layout_marginTop="34dp"
+                    android:src="@drawable/sel7" />
+
+                <ImageView
+                    style="@style/theft_psw_ring_white"
+                    android:layout_marginLeft="34dp"
+                    android:layout_marginTop="34dp"
+                    android:src="@drawable/sel8" />
+
+                <ImageView
+                    style="@style/theft_psw_ring_white"
+                    android:layout_marginLeft="34dp"
+                    android:layout_marginTop="34dp"
+                    android:src="@drawable/sel9" />
+
+            </TableRow>
+
+            <TableRow
+                android:background="@android:color/white"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    style="@style/theft_psw_ring_white"
+                    android:layout_marginTop="34dp"
+                    android:src="@drawable/sel0" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="42dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:onClick="startConfirmIdentifyingCode"
+            android:text="忘记密码"
+            android:textColor="#00bfff"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</RelativeLayout>
