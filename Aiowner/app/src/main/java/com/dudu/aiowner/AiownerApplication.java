@@ -22,7 +22,7 @@ public class AiownerApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        context=this;
+        context = this;
         CommonLib.getInstance().init(this);
         FlowFactory.getInstance().init();
         CommonParams.getInstance().init();
@@ -31,7 +31,6 @@ public class AiownerApplication extends Application {
         Request.getInstance().init();
         ReceiverRegister.registPushManager(CommonParams.getInstance().getUserName());
     }
-
 
     public static Context getContext() {
         return context;

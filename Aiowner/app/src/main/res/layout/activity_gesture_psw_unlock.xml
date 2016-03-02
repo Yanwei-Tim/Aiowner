@@ -4,11 +4,11 @@
 
     <data>
 
-        <import type="com.dudu.aiowner.ui.activity.preventTheft.observable.InitGesturePswObservable" />
+        <import type="com.dudu.aiowner.ui.activity.preventTheft.observable.GesturePswUnlockObservable" />
 
         <variable
-            name="InitGesturePswPage"
-            type="InitGesturePswObservable" />
+            name="GesturePswUnlockPage"
+            type="GesturePswUnlockObservable" />
 
         <variable
             name="title"

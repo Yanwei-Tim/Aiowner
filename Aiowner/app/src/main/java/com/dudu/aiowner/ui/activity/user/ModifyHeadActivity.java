@@ -16,8 +16,7 @@ import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
 import com.dudu.aiowner.R;
-import com.dudu.aiowner.databinding.ModifyHeadDataBinding;
-import com.dudu.aiowner.databinding.NickNameBinding;
+import com.dudu.aiowner.databinding.ModifyHeadBinding;
 import com.dudu.aiowner.ui.activity.user.observable.ModifyHeadObservable;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.utils.PhotoUtils.PhotoUtil;
@@ -30,8 +29,7 @@ import java.io.File;
  */
 public class ModifyHeadActivity extends BaseActivity {
 
-    private ModifyHeadDataBinding modifyheadBinding;
-    private NickNameBinding nicknameBinding;
+    private ModifyHeadBinding modifyheadBinding;
     private ModifyHeadObservable modifyheadObservable;
 
     private PopupWindow mSetPhotoPop;
@@ -49,7 +47,7 @@ public class ModifyHeadActivity extends BaseActivity {
 
         modifyheadObservable = new ModifyHeadObservable();
 
-        modifyheadBinding = ModifyHeadDataBinding.bind(childView);
+        modifyheadBinding = ModifyHeadBinding.bind(childView);
         modifyheadBinding.setModifyHeadPage(modifyheadObservable);
         modifyheadBinding.setTitle(observableFactory.getTitleObservable());
 

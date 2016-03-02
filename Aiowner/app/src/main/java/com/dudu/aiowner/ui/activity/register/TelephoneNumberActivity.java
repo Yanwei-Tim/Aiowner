@@ -63,7 +63,7 @@ public class TelephoneNumberActivity extends BaseActivity {
 //            dialog.setContentView(R.layout.mydialog);
 //            dialog.show();
 
-             RequestFactory.getUserRequest().requestVerifyCode(mobiles, new UserRequest.RequestVerifyCodeCallback() {
+            RequestFactory.getUserRequest().requestVerifyCode(mobiles, new UserRequest.RequestVerifyCodeCallback() {
 
                 @Override
                 public void requestVerifyCodeResult(boolean success) {

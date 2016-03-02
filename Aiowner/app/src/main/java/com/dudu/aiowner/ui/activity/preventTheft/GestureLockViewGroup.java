@@ -72,7 +72,7 @@ public class GestureLockViewGroup extends RelativeLayout {
     /**
      * GestureLockView手指触摸的状态下内圆和外圆的颜色
      */
-    private int mFingerOnColor = 0xFFFFFFFF;
+    private int mFingerOnColor = 0xFF00BFFF;
 //    private int mFingerOnColor = 0xFFFFFFFF;
     /**
      * GestureLockView手指抬起的状态下内圆和外圆的颜色
@@ -80,9 +80,9 @@ public class GestureLockViewGroup extends RelativeLayout {
     private int mFingerUpFaultColor = 0xFFFF0000;
 
     /**
-     * GestureLockView手指抬起的状态下密码错误时线的颜色
+     * GestureLockView手指抬起的状态下密码正确时线的颜色
      */
-    private int mWhite = 0xFFFFFFFF;
+    private int mPswRightColor = 0xFFFFFFFF;
 
     /**
      * 宽度
@@ -117,6 +117,10 @@ public class GestureLockViewGroup extends RelativeLayout {
     private OnGestureLockViewListener mOnGestureLockViewListener;
 
     private Handler handler = new MyHandler();
+
+    public GestureLockViewGroup(Context context){
+        super(context);
+    }
 
     public GestureLockViewGroup(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
@@ -299,13 +303,13 @@ public class GestureLockViewGroup extends RelativeLayout {
                 if (mOnGestureLockViewListener != null && mChoose.size() > 0) {
 
                     mOnGestureLockViewListener.onGestureEvent(isOk);
-                    mPaint.setColor(mWhite);
-                    //注释了不用密码
-//                    if (isOk) {
-//                        mPaint.setColor(mWhite);
-//                    } else {
-//                        mPaint.setColor(mFingerUpFaultColor);
-//                    }
+//                    mPaint.setColor(mPswRightColor);
+//                    注释了不用密码
+                    if (isOk) {
+                        mPaint.setColor(mPswRightColor);
+                    } else {
+                        mPaint.setColor(mFingerUpFaultColor);
+                    }
                     if (this.mTryTimes == 0) {
                         mOnGestureLockViewListener.onUnmatchedExceedBoundary();
                     }
@@ -349,13 +353,13 @@ public class GestureLockViewGroup extends RelativeLayout {
             if (mChoose.contains(gestureLockView.getId())) {
                 gestureLockView.setMode(GestureLockView.Mode.STATUS_FINGER_UP);
 
-                gestureLockView.setDraw(GestureLockView.Draw.OK);
+//                gestureLockView.setDraw(GestureLockView.Draw.OK);
                 //注释后不用密码
-//                if (isOk) {
-//                    gestureLockView.setDraw(GestureLockView.Draw.OK);
-//                } else {
-//                    gestureLockView.setDraw(GestureLockView.Draw.Fault);
-//                }
+                if (isOk) {
+                    gestureLockView.setDraw(GestureLockView.Draw.OK);
+                } else {
+                    gestureLockView.setDraw(GestureLockView.Draw.Fault);
+                }
             }
         }
     }
@@ -443,6 +447,13 @@ public class GestureLockViewGroup extends RelativeLayout {
     public void setAnswer(int[] answer) {
         this.mAnswer = answer;
     }
+
+
+    public void setPswRightColor(int color) {
+
+        this.mPswRightColor = color;
+    }
+
 
     /**
      * 设置最大实验次数

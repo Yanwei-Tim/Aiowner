@@ -26,7 +26,6 @@ import rx.functions.Action1;
  */
 public class PreventTheftActivity extends BaseActivity {
 
-
     private ActivityPreventTheftBinding preventTheftBinding;
     private Logger logger = LoggerFactory.getLogger("PreventTheftActivity");
 
@@ -43,9 +42,7 @@ public class PreventTheftActivity extends BaseActivity {
 
         boolean isChecked = preventTheftBinding.preventTheftSwitch.isChecked();
         checkSwitch(isChecked);
-
     }
-
 
     private void checkSwitch(boolean isChecked) {
 
@@ -74,7 +71,7 @@ public class PreventTheftActivity extends BaseActivity {
         //
         else {
             preventTheftBinding.preventTheftSwitch.setChecked(!isChecked);
-            startActivity(new Intent(PreventTheftActivity.this, InitGesturePswActivity.class));
+            startActivity(new Intent(PreventTheftActivity.this, GesturePswUnlockActivity.class));
 
             RequestFactory.getGuardRequest().unlockCar(
                     new GuardRequest.UnlockCallBack() {
@@ -104,6 +101,11 @@ public class PreventTheftActivity extends BaseActivity {
     public void startSetGesturePassword(View view) {
 
 //        startActivity(new Intent(PreventTheftActivity.this, SetGesturePswActivity.class));
+    }
+
+    public void startLookCredentials(View view) {
+
+        startActivity(new Intent(PreventTheftActivity.this, LookCredentialsActivity.class));
     }
 
     public void userInfo(View view) {

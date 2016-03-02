@@ -8,6 +8,7 @@ import android.widget.ToggleButton;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.commonlib.model.ReceiverData;
+import com.dudu.aiowner.ui.activity.preventTheft.LookCredentialsActivity;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.workflow.common.FlowFactory;
@@ -51,6 +52,11 @@ public class PreventLootingControlActivity extends BaseActivity {
         startActivity(new Intent(PreventLootingControlActivity.this, UserInfoActivity.class));
     }
 
+    public void startLookCredentials(View view) {
+
+        startActivity(new Intent(PreventLootingControlActivity.this, LookCredentialsActivity.class));
+    }
+
     @Override
     protected void onResume() {
         observableFactory.getTitleObservable().titleText.set("车辆防劫");
@@ -60,7 +66,7 @@ public class PreventLootingControlActivity extends BaseActivity {
         super.onResume();
     }
 
-    private void reflashSwitch(){
+    private void reflashSwitch() {
         FlowFactory.getSwitchDataFlow().getRobberyState()
                 .subscribe(new Action1<Boolean>() {
                     @Override
@@ -104,7 +110,7 @@ public class PreventLootingControlActivity extends BaseActivity {
         });
     }
 
-    private void checkSwitch(boolean isChecked){
+    private void checkSwitch(boolean isChecked) {
         FlowFactory.getSwitchDataFlow().saveRobberyState(isChecked);
         if (!isChecked) {
             RequestFactory.getRobberyRequest().closeAntiRobberyMode(new RobberyRequest.CloseRobberyModeCallback() {
@@ -126,7 +132,7 @@ public class PreventLootingControlActivity extends BaseActivity {
     }
 
     public void onEventMainThread(ReceiverData event) {
-        if(ReceiverDataFlow.getRobberyReceiveData(event)){
+        if (ReceiverDataFlow.getRobberyReceiveData(event)) {
             boolean switchvalue = event.getSwitch0Value().equals("1");
             FlowFactory.getSwitchDataFlow().saveRobberyState(switchvalue);
             looting_switch.setChecked(switchvalue);
@@ -139,7 +145,7 @@ public class PreventLootingControlActivity extends BaseActivity {
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }

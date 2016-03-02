@@ -45,7 +45,7 @@ public class SetPreventTheftPswOkActivity extends BaseActivity {
 
     public void startIndentifyingGesturePsw(View view) {
 
-        startActivity(new Intent(SetPreventTheftPswOkActivity.this, InitGesturePswActivity.class));
+        startActivity(new Intent(SetPreventTheftPswOkActivity.this, GesturePswUnlockActivity.class));
     }
 
     public void userInfo(View view) {

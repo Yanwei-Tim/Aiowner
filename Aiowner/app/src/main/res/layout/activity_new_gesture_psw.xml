@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zhy="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.dudu.aiowner.ui.activity.user.observable.NewGesturePswObservable" />
+
+        <variable
+            name="NewGesturePswPage"
+            type="NewGesturePswObservable" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                style="@style/container_operation_tips_text"
+                android:layout_marginTop="50dp"
+                android:background="@android:color/white"
+                android:text="设置您的手势密码"
+                android:textColor="#00bfff"
+                android:textSize="18sp" />
+
+
+            <com.dudu.aiowner.ui.activity.preventTheft.GestureLockViewGroup
+                android:id="@+id/gestureLockViewGroup_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="60dp"
+                android:background="@android:color/white"
+                zhy:count="3"
+                zhy:tryTimes="5" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

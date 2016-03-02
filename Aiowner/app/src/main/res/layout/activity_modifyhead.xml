@@ -2,18 +2,19 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data class="ModifyHeadDataBinding">
+    <data class="ModifyHeadBinding">
 
-        <import type="com.dudu.aiowner.ui.activity.user.observable.ModifyHeadObservable"/>
+        <import type="com.dudu.aiowner.ui.activity.user.observable.ModifyHeadObservable" />
+
         <variable
             name="ModifyHeadPage"
-            type="ModifyHeadObservable"/>
+            type="ModifyHeadObservable" />
 
 
         <variable
             name="title"
             type="com.dudu.aiowner.ui.base.observable.TitleBarObservable" />
-        
+
     </data>
 
     <RelativeLayout
@@ -21,7 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -112,8 +112,8 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginLeft="17dp"
-                    android:onClick="setNickName"
-                    android:background="@drawable/btn_user_blue_multset_sel" />
+                    android:background="@drawable/btn_user_blue_multset_sel"
+                    android:onClick="setNickName" />
 
             </LinearLayout>
 

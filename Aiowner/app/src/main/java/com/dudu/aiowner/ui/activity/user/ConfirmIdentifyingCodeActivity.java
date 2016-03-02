@@ -9,9 +9,10 @@ import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
- * Created by sunny_zhang on 2016/3/1.
+ * Created by sunny_zhang on 2016/3/2.
  */
-public class GesturePswActivity extends BaseActivity {
+public class ConfirmIdentifyingCodeActivity extends BaseActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,15 +20,18 @@ public class GesturePswActivity extends BaseActivity {
 
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.acitivty_gesture_psw, null);
+
+        return LayoutInflater.from(this).inflate(R.layout.acitivty_confirm_identifyingcode, null);
     }
 
-    public void startGesturePswOld(View view) {
-        startActivity(new Intent(GesturePswActivity.this, OldGesturePswActivity.class));
+    public void startNewGesturePsw(View view) {
+
+        startActivity(new Intent(ConfirmIdentifyingCodeActivity.this, NewGesturePswActivity.class));
     }
 
     @Override
     protected void onResume() {
+
         observableFactory.getTitleObservable().titleText.set("");
         observableFactory.getTitleObservable().userIcon.set(false);
         observableFactory.getTitleObservable().hasBackGround.set(true);

@@ -6,11 +6,13 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.commonlib.MultVerify;
 import com.dudu.aiowner.ui.base.BaseActivity;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by sunny_zhang on 2016/1/29.
@@ -21,6 +23,8 @@ public class ForgetLoginPswActitivy extends BaseActivity {
     private EditText forgetPsw_verifyCode_et;
     private EditText forgetPsw_newPsw_et;
     private EditText forgetPsw_confirmPsw_et;
+
+    private Logger logger = LoggerFactory.getLogger("ForgetLoginPswActitivy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +49,10 @@ public class ForgetLoginPswActitivy extends BaseActivity {
 
         String mobiles = forgetPsw_phone_et.getText().toString();
         if (TextUtils.isEmpty(mobiles)) {
-            Toast.makeText(getApplicationContext(), "请输入手机号码", Toast.LENGTH_SHORT).show();
+            logger.info("请输入手机号码");
         }//
         else if (!(MultVerify.isPhoneNumberValid(mobiles))) {
-            Toast.makeText(getApplicationContext(), "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
+            logger.info("请输入正确的手机号码");
         }
 
         //TODO 请求后台发送验证码到手机
@@ -59,30 +63,30 @@ public class ForgetLoginPswActitivy extends BaseActivity {
         String confirmPassword = forgetPsw_confirmPsw_et.getText().toString();
         String phone_et = forgetPsw_phone_et.getText().toString();
         if (TextUtils.isEmpty(phone_et)) {
-            Toast.makeText(getApplicationContext(), "请输入手机号码", Toast.LENGTH_SHORT).show();
+            logger.info("请输入手机号码");
             return;
         }
         if (!(MultVerify.isPhoneNumberValid(phone_et))) {
-            Toast.makeText(getApplicationContext(), "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
+            logger.info("请输入正确的手机号码");
             return;
         }
         if (TextUtils.isEmpty(forgetPsw_verifyCode_et.getText().toString())) {
-            Toast.makeText(getApplicationContext(), "请输入验证码", Toast.LENGTH_SHORT).show();
+            logger.info("请输入验证码");
             return;
         }
 
         switch (MultVerify.isPasswordValid(newPassword, confirmPassword)) {
             case 0:
-                Toast.makeText(getApplicationContext(), "请输入新密码", Toast.LENGTH_SHORT).show();
+                logger.info("请输入新密码");
                 break;
             case 1:
-                Toast.makeText(getApplicationContext(), "密码必须为大于6位的数字和字母的组合，且至少包含一位大写字母", Toast.LENGTH_SHORT).show();
+                logger.info("密码必须为大于6位的数字和字母的组合，且至少包含一位大写字母");
                 break;
             case 2:
-                Toast.makeText(getApplicationContext(), "请确认密码", Toast.LENGTH_SHORT).show();
+                logger.info("请确认密码");
                 break;
             case 3:
-                Toast.makeText(getApplicationContext(), "两次密码不一致", Toast.LENGTH_SHORT).show();
+                logger.info("两次密码不一致");
                 break;
             default:
                 startActivity(new Intent(ForgetLoginPswActitivy.this, LoginActivity.class));

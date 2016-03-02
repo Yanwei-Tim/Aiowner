@@ -46,7 +46,6 @@ public class UserInfoActivity extends BaseActivity {
     }
 
 
-
     @Override
     protected void onResume() {
         observableFactory.getTitleObservable().titleText.set("");

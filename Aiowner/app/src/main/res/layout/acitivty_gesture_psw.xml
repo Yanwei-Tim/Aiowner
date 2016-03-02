@@ -64,7 +64,7 @@
             android:layout_height="24dp"
             android:layout_marginLeft="198dp"
             android:background="@drawable/btn_user_blue_multset_sel"
-            android:onClick="startGesturePsw" />
+            android:onClick="startGesturePswOld" />
 
     </LinearLayout>
 

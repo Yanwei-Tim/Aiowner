@@ -10,16 +10,16 @@ import com.dudu.aiowner.ui.base.BaseActivity;
 /**
  * Created by sunny_zhang on 2016/2/4.
  */
-public class InitDigitalPswActivity extends BaseActivity {
+public class DigitalPswUnlockActivity extends BaseActivity {
     @Override
     protected View getChildView() {
 
-        return LayoutInflater.from(this).inflate(R.layout.activity_indentifying_digital_psw, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_digital_psw_unlock, null);
     }
 
     public void startUnlockSuccess(View view) {
 
-        startActivity(new Intent(InitDigitalPswActivity.this, PreventTheftActivity.class));
+        startActivity(new Intent(DigitalPswUnlockActivity.this, PreventTheftActivity.class));
     }
 
     @Override

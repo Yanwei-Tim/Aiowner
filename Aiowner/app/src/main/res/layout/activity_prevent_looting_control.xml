@@ -92,7 +92,7 @@
                     android:textSize="16sp"
                     android:layout_marginTop="16dp"
                     android:background="@drawable/theft_btn_sel"
-                    android:onClick="startRegister"
+                    android:onClick="startLookCredentials"
                     android:text="查看上传资料" />
 
             </LinearLayout>

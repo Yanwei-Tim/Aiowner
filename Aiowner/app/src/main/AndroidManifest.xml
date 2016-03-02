@@ -51,8 +51,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.register.TelephoneNumberActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppBaseTheme" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.register.IdentifyingCodeActivity"
             android:screenOrientation="portrait" />
@@ -119,10 +118,10 @@
             android:name=".ui.activity.preventTheft.SetPreventTheftPswOkActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".ui.activity.preventTheft.InitGesturePswActivity"
+            android:name=".ui.activity.preventTheft.GesturePswUnlockActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".ui.activity.preventTheft.InitDigitalPswActivity"
+            android:name=".ui.activity.preventTheft.DigitalPswUnlockActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.activity.preventTheft.UnlockSuccessActivity"
@@ -167,6 +166,22 @@
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.activity.user.DeviceMatchAcitivty"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.preventTheft.LookCredentialsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.user.OldGesturePswActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.user.ConfirmIdentifyingCodeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.user.NewGesturePswActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"></activity>
 
