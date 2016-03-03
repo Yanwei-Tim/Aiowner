@@ -1,14 +1,6 @@
 package com.dudu.aiowner.ui.activity.user;
 
-<<<<<<< HEAD
-<<<<<<< HEAD:Aiowner/app/src/main/java/com/dudu/aiowner/ui/activity/user/GesturePswActivity.java
-/**
- * Created by Administrator on 2016/2/2.
- */
-public class GesturePswActivity {
-=======
-=======
->>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -49,8 +41,4 @@ public class ConfirmIdentifyingCodeActivity extends BaseActivity {
         observableFactory.getCommonObservable().hasUserBackground.set(true);
         super.onResume();
     }
-<<<<<<< HEAD
->>>>>>> 52ada4f... 增加防盗防劫-查看上传资料页面；个人中心-手势设置、密码设置相关页面:Aiowner/app/src/main/java/com/dudu/aiowner/ui/activity/user/ConfirmIdentifyingCodeActivity.java
-=======
->>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
 }

@@ -38,11 +38,6 @@ public class OldGesturePswActivity extends BaseActivity {
                     @Override
                     public void onGestureEvent(boolean matched) {
 
-<<<<<<< HEAD
-//                        startActivity(new Intent(OldGesturePswActivity.this, TheftPswActivity.class));
-=======
-//                        startActivity(new Intent(OldGesturePswActivity.this, GesturePswActivity.class));
->>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
 //                        注释了不用密码
                         if (matched) {
                             //密码正确

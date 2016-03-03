@@ -107,26 +107,13 @@
                     android:textColor="#727171"
                     android:textSize="18sp" />
 
-
                 <Button
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    android:layout_width="9.5dp"
-                    android:layout_height="16.5dp"
-                    android:layout_marginLeft="18dp"
-                    android:background="@drawable/user_set_psw_btn_sel" />
-=======
-=======
->>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
+
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginLeft="17dp"
                     android:background="@drawable/btn_user_blue_multset_sel"
                     android:onClick="setNickName" />
-<<<<<<< HEAD
->>>>>>> 52ada4f... 增加防盗防劫-查看上传资料页面；个人中心-手势设置、密码设置相关页面
-=======
->>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
 
             </LinearLayout>
 

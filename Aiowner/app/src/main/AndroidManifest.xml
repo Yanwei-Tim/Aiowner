@@ -27,6 +27,13 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <!-- 设置支持多分辨率屏幕 -->
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"/>
+
     <application
         android:name=".AiownerApplication"
         android:allowBackup="true"
@@ -51,13 +58,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.register.TelephoneNumberActivity"
-<<<<<<< HEAD
-<<<<<<< HEAD
-            android:theme="@style/AppBaseTheme"
-=======
->>>>>>> 52ada4f... 增加防盗防劫-查看上传资料页面；个人中心-手势设置、密码设置相关页面
-=======
->>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.register.IdentifyingCodeActivity"
@@ -71,7 +71,6 @@
         <activity
             android:name=".ui.activity.login.ForgetLoginPswActitivy"
             android:screenOrientation="portrait"></activity>
-
         <activity
             android:name=".ui.main.MainActivity"
             android:launchMode="singleTask"
@@ -155,11 +154,6 @@
             android:name=".ui.activity.preventLooting.PreventLootingControlActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"></activity>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
         <activity
             android:name=".ui.activity.user.SetNickNameActivity"
             android:launchMode="singleTask"
@@ -169,11 +163,11 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"></activity>
         <activity
-<<<<<<< HEAD
             android:name=".ui.activity.user.TheftPswActivity"
-=======
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
+        <activity
             android:name=".ui.activity.user.GesturePswActivity"
->>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
             android:launchMode="singleTask"
             android:screenOrientation="portrait"></activity>
         <activity
@@ -200,7 +194,6 @@
             android:name=".ui.activity.user.NewGesturePswActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"></activity>
-<<<<<<< HEAD
         <activity
             android:name=".ui.activity.user.ConfirmNewGesturePsw"
             android:launchMode="singleTask"
@@ -213,9 +206,10 @@
             android:name=".ui.activity.user.OldDigitalPswActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"></activity>
->>>>>>> 52ada4f... 增加防盗防劫-查看上传资料页面；个人中心-手势设置、密码设置相关页面
-=======
->>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
+        <activity
+            android:name=".ui.activity.user.NewDigitalPswActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
 
         <receiver
             android:name="com.dudu.aiowner.receiver.MessagePushReceiver"

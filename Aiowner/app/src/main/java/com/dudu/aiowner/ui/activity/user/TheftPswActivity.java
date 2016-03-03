@@ -27,7 +27,7 @@ public class TheftPswActivity extends BaseActivity {
     }
 
     public void startOldDigitalPsw(View view){
-        startActivity(new Intent(TheftPswActivity.this,OldDigitalPswActivity.class));
+        startActivity(new Intent(TheftPswActivity.this,NewDigitalPswActivity.class));
     }
 
     @Override

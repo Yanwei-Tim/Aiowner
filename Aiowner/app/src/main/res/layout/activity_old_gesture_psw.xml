@@ -4,15 +4,6 @@
 
     <data>
 
-<<<<<<< HEAD
-=======
-        <import type="com.dudu.aiowner.ui.activity.user.observable.OldGesturePswObservable" />
-        
-        <variable
-            name="OldGesturePswPage"
-            type="OldGesturePswObservable"/>
-
->>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
     </data>
 
     <RelativeLayout
@@ -46,23 +37,19 @@
                 zhy:count="3"
                 zhy:tryTimes="5" />
 
-
             <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="42dp"
                 android:layout_marginTop="70dp"
-                android:clickable="true"
                 android:background="@android:color/white"
+                android:clickable="true"
                 android:onClick="startConfirmIdentifyingCode"
                 android:text="忘记密码"
                 android:textColor="#00bfff"
-<<<<<<< HEAD
                 android:textSize="16sp" />
-=======
-                android:textSize="14sp" />
->>>>>>> 579f22a0aafce27064d4cc20effa448db2a10642
+
         </LinearLayout>
 
     </RelativeLayout>
