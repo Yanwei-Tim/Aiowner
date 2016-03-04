@@ -15,7 +15,7 @@ public class ForgetPreventTheftPswActitivy extends BaseActivity {
 
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.acitivty_forget_prevent_theft_psw, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_forget_prevent_theft_psw, null);
     }
 
     public void startSetGesturePsw(View view) {

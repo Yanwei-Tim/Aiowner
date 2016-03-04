@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/login_user_tx"
+            style="@style/login_container_tips_text"
+            android:layout_marginTop="75dp"
+            android:text="用户" />
+
+        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+            android:id="@+id/username_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="92dp"
+            android:text="Username"
+            android:textColor="@android:color/white" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+           android:layout_toRightOf="@id/username_hint"
+            android:id="@+id/login_user_et"
+            style="@style/registAndLogin_editText"
+            android:paddingLeft="15dp"
+            android:paddingRight="45dp"
+            android:layout_marginTop="90dp"
+            android:gravity="center" />
+
+        <View
+            style="@style/edit_blue_line"
+            android:layout_marginTop="1dp"
+            android:layout_below="@id/login_user_et" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/login_password_tx"
+            style="@style/login_container_tips_text"
+            android:layout_marginTop="162dp"
+            android:text="密码" />
+
+        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+            android:id="@+id/psw_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="179dp"
+            android:text="Password"
+            android:textColor="@android:color/white" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+            android:id="@+id/login_psw_et"
+            style="@style/registAndLogin_editText"
+            android:layout_toRightOf="@id/psw_hint"
+            android:paddingLeft="15dp"
+            android:paddingRight="45dp"
+
+            android:layout_marginTop="180dp"
+            android:gravity="center"
+            android:background="@null"
+            android:password="true" />
+
+        <View
+            style="@style/edit_blue_line"
+            android:layout_marginTop="1dp"
+            android:layout_below="@id/login_psw_et" />
+
+        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="217dp"
+            android:clickable="true"
+            android:onClick="startForgetPreventTheftPsw"
+            android:paddingRight="42dp"
+            android:text="Forget?"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            style="@style/button_big"
+            android:layout_marginTop="275dp"
+            android:background="@drawable/btn_bg_sel_line"
+            android:onClick="startMain"
+            android:text="登 录" />
+
+    </RelativeLayout>
+
+</layout>

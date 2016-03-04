@@ -22,7 +22,7 @@ public class ConfirmIdentifyingCodeActivity extends BaseActivity {
     @Override
     protected View getChildView() {
 
-        return LayoutInflater.from(this).inflate(R.layout.acitivty_confirm_identifyingcode, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_confirm_identifyingcode, null);
     }
 
     public void startNewGesturePsw(View view) {

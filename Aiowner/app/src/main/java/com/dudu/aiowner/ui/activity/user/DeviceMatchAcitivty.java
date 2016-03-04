@@ -18,7 +18,7 @@ public class DeviceMatchAcitivty extends BaseActivity {
 
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.acitivty_device_match, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_device_match, null);
     }
 
     @Override

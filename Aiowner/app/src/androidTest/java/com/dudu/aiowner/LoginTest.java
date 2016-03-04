@@ -32,6 +32,6 @@ public class LoginTest {
 
     @Test
     public void test_input() {
-        onView(withId(R.id.login_user_edittext)).perform(typeText("aaaa"),closeSoftKeyboard());
+        onView(withId(R.id.login_user_et)).perform(typeText("aaaa"),closeSoftKeyboard());
     }
 }

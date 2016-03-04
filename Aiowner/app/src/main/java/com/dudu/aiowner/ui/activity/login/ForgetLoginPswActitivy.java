@@ -42,7 +42,7 @@ public class ForgetLoginPswActitivy extends BaseActivity {
 
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.acitivty_forget_login_psw, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_forget_login_psw, null);
     }
 
     public void getVerifyCode(View view) {

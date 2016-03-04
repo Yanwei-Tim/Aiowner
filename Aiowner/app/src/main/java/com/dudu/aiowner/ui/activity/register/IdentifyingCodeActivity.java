@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.databinding.ActivityVerifycodeBinding;
+import com.dudu.aiowner.ui.activity.login.LoginActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.user.UserRequest;
@@ -20,38 +22,35 @@ import org.slf4j.LoggerFactory;
 public class IdentifyingCodeActivity extends BaseActivity {
 
     private String mCellphone;
-    private EditText verifyCode_et;
     private Logger logger = LoggerFactory.getLogger("IdentifyingCodeActivity");
+    private ActivityVerifycodeBinding verifycodeBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        verifycodeBinding = ActivityVerifycodeBinding.bind(childView);
+
         mCellphone = getIntent().getStringExtra("cellphone");
-        verifyCode_et = (EditText) findViewById(R.id.verifyCode_et);
     }
 
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.activity_identifyingcode, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_verifycode, null);
     }
 
     public void startInitPassword(View view) {
-        String verifyCode = verifyCode_et.getText().toString();
+        String verifyCode = verifycodeBinding.verifyCodeEt.getText().toString();
         if (verifyCode.isEmpty()) {
             logger.info("请输入验证码");
             return;
         }
-        //根据演示需求，注册演示到此，需点击返回登录
-        if (verifyCode.length() < 20) {
-            logger.info("请输入正确的验证码");
-            return;
-        }
+
         RequestFactory.getUserRequest().isVerifyCodeValid(mCellphone, "", new UserRequest.VerifyCodeValidCallback() {
             @Override
             public void verifyCodeIsValid(boolean success) {
                 if (success) {
-                    Intent intent = new Intent(IdentifyingCodeActivity.this, InitPswActivity.class);
+                    Intent intent = new Intent(IdentifyingCodeActivity.this, LoginActivity.class);
                     intent.putExtra("cellphone", mCellphone);
                     startActivity(intent);
                 } else {

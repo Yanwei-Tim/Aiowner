@@ -19,7 +19,7 @@ public class TheftPswActivity extends BaseActivity {
 
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.acitivty_theft_psw, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_theft_psw, null);
     }
 
     public void startOldGesturePsw(View view) {

@@ -1,18 +1,14 @@
 package com.dudu.aiowner.ui.activity.register;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextPaint;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.commonlib.MultVerify;
-import com.dudu.aiowner.databinding.ActivityRegistPhonenumberBinding;
+import com.dudu.aiowner.databinding.ActivityRegistPhoneBinding;
 import com.dudu.aiowner.ui.base.BaseActivity;
-import com.dudu.aiowner.utils.customFontUtils.FZLFontTextView;
 import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.user.UserRequest;
 
@@ -26,39 +22,35 @@ public class TelephoneNumberActivity extends BaseActivity {
 
     private String mobiles;
     private String psw;
-    private TextView mydialog_phone_tv;
     private Logger logger = LoggerFactory.getLogger("TelephoneNumberActivity");
-    private ActivityRegistPhonenumberBinding registPhonenumberBinding;
+    private ActivityRegistPhoneBinding registPhoneBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        registPhonenumberBinding = ActivityRegistPhonenumberBinding.bind(childView);
-        initView();
-    }
+        registPhoneBinding = ActivityRegistPhoneBinding.bind(childView);
 
-    private void initView() {
-        mydialog_phone_tv = (TextView) findViewById(R.id.mydialog_phone_tv);
     }
 
     @Override
     protected View getChildView() {
 
-        return LayoutInflater.from(this).inflate(R.layout.activity_regist_phonenumber, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_regist_phone, null);
     }
 
 
     @Override
     protected void onResume() {
+
         observableFactory.getTitleObservable().titleText.set("注册");
         super.onResume();
     }
 
     public void startIdentifyingCode(View v) {
 
-        mobiles = registPhonenumberBinding.registPhoneEt.getText().toString();
-        psw = registPhonenumberBinding.registPswEt.getText().toString();
+        mobiles = registPhoneBinding.registPhoneEt.getText().toString();
+        psw = registPhoneBinding.registPswEt.getText().toString();
 
         if (mobiles.isEmpty()) {
             logger.info("请输入手机号码");

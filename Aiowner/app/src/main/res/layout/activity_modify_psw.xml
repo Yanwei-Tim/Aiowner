@@ -41,7 +41,7 @@
     </LinearLayout>
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-        style="@style/login_container_tips_text_"
+        style="@style/login_container_tips_text"
         android:layout_marginTop="160dp"
         android:background="#01000000"
         android:text="手机号"
@@ -77,7 +77,7 @@
         android:textSize="14sp" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-        style="@style/login_container_tips_text_"
+        style="@style/login_container_tips_text"
         android:layout_marginTop="282dp"
         android:background="#01000000"
         android:text="新密码"
@@ -93,7 +93,7 @@
         android:password="true" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-        style="@style/login_container_tips_text_"
+        style="@style/login_container_tips_text"
         android:layout_marginTop="343dp"
         android:background="#01000000"
         android:text="新密码"

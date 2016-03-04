@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/fogetPsw_phone_hint"
+            style="@style/login_container_tips_text"
+            android:layout_marginTop="35dp"
+            android:text="手机号"
+            android:textSize="16sp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+            android:id="@+id/forgetPsw_phone_et"
+            style="@style/registAndLogin_editText"
+            android:layout_marginTop="35dp"
+            android:layout_toRightOf="@id/fogetPsw_phone_hint"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="45dp" />
+
+        <View
+            style="@style/edit_blue_line"
+            android:layout_below="@id/forgetPsw_phone_et"
+            android:layout_marginTop="1dp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+            android:id="@+id/forgetPsw_verifyCode_et"
+            style="@style/registAndLogin_editText"
+            android:layout_marginTop="101dp"
+            android:gravity="left"
+            android:hint="输入验证码"
+            android:paddingLeft="5dp"
+            android:paddingRight="120dp"
+            android:textColorHint="@color/hintcolor" />
+
+        <View
+            style="@style/edit_blue_line"
+            android:layout_below="@id/forgetPsw_verifyCode_et"
+            android:layout_marginTop="1dp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            style="@style/button_big"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="84dp"
+            android:background="@drawable/btn_bg_checkcode"
+            android:onClick="getVerifyCode"
+            android:text="获取验证码"
+            android:textSize="14sp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/fogetPsw_psw"
+            style="@style/login_container_tips_text"
+            android:layout_marginTop="157dp"
+            android:text="新密码"
+            android:textSize="16sp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+            android:id="@+id/forgetPsw_newPsw_et"
+            style="@style/registAndLogin_editText"
+            android:layout_marginTop="157dp"
+            android:layout_toRightOf="@id/fogetPsw_psw"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="45dp"
+            android:password="true" />
+
+        <View
+            style="@style/edit_blue_line"
+            android:layout_below="@id/forgetPsw_newPsw_et"
+            android:layout_marginTop="1dp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/fogetPsw_psw_confirm"
+            style="@style/login_container_tips_text"
+            android:layout_marginTop="218dp"
+            android:text="新密码"
+            android:textSize="16sp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+            android:id="@+id/forgetPsw_confirmPsw_et"
+            style="@style/registAndLogin_editText"
+            android:layout_marginTop="218dp"
+            android:layout_toRightOf="@id/fogetPsw_psw_confirm"
+            android:gravity="center"
+            android:hint="请确认密码"
+            android:paddingLeft="15dp"
+            android:paddingRight="45dp"
+            android:password="true"
+            android:textColorHint="@color/hintcolor" />
+
+        <View
+            style="@style/edit_blue_line"
+            android:layout_below="@id/forgetPsw_confirmPsw_et"
+            android:layout_marginTop="1dp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/forgetPsw_confirm_btn"
+            style="@style/button_big"
+            android:layout_marginTop="305dp"
+            android:background="@drawable/btn_bg_sel_line"
+            android:onClick="startLogin"
+            android:text="确 定" />
+
+    </RelativeLayout>
+
+</layout>

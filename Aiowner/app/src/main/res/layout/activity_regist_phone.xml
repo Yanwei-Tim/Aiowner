@@ -18,7 +18,7 @@
             android:orientation="horizontal">
 
             <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                style="@style/login_container_tips_text_"
+                style="@style/login_container_tips_text"
                 android:layout_marginTop="35dp"
                 android:text="@string/regist_phone"
                 android:textSize="16sp" />
@@ -27,7 +27,7 @@
                 android:id="@+id/regist_phone_et"
                 style="@style/registAndLogin_editText"
                 android:layout_width="230dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="36dp"
                 android:background="@null"
                 android:gravity="left"
                 android:hint="@string/regist_phone_hint"
@@ -49,7 +49,7 @@
             android:orientation="horizontal">
 
             <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-                style="@style/login_container_tips_text_"
+                style="@style/login_container_tips_text"
                 android:layout_marginTop="35dp"
                 android:text="@string/regist_psw"
                 android:textSize="16sp" />
@@ -58,7 +58,7 @@
                 android:id="@+id/regist_psw_et"
                 style="@style/registAndLogin_editText"
                 android:layout_width="245dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="36dp"
                 android:background="@null"
                 android:gravity="left"
                 android:hint="@string/regist_psw_hint"

@@ -19,7 +19,7 @@ public class GesturePswActivity extends BaseActivity {
 
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.acitivty_gesture_psw, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_gesture_psw, null);
     }
 
     public void startGesturePswOld(View view) {

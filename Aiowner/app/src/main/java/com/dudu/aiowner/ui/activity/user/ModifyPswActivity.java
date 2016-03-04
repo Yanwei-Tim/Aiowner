@@ -20,7 +20,7 @@ public class ModifyPswActivity extends BaseActivity{
 
     @Override
     protected View getChildView() {
-        return LayoutInflater.from(this).inflate(R.layout.acitivty_modify_psw, null);
+        return LayoutInflater.from(this).inflate(R.layout.activity_modify_psw, null);
     }
 
     public void backUserInfo(View view){

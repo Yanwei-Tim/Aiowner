@@ -11,7 +11,7 @@
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             android:id="@+id/login_user_tx"
-            style="@style/login_container_tips_text_"
+            style="@style/login_container_tips_text"
             android:layout_marginTop="35dp"
             android:text="手机号"
             android:textSize="16sp" />
