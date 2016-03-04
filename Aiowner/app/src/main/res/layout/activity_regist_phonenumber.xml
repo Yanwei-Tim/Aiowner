@@ -1,23 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-        style="@style/container_operation_tips_text"
-        android:text="请输入您的手机号码" />
+    <data>
 
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
-        android:id="@+id/regist_input_phonenumber_et"
-        style="@style/registAndLogin_editText"
-        android:layout_marginTop="80dp" />
 
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-        android:id="@+id/regist_phonenumber_btn"
-        style="@style/button_big"
-        android:layout_marginTop="170dp"
-        android:background="@drawable/btn_bg_sel_line"
-        android:onClick="startIdentifyingCode"
-        android:text="注 册" />
+    </data>
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/regist_phone_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                style="@style/login_container_tips_text_"
+                android:layout_marginTop="35dp"
+                android:text="@string/regist_phone"
+                android:textSize="16sp" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+                android:id="@+id/regist_phone_et"
+                style="@style/registAndLogin_editText"
+                android:layout_width="230dp"
+                android:layout_marginTop="35dp"
+                android:background="@null"
+                android:gravity="left"
+                android:hint="@string/regist_phone_hint"
+                android:paddingLeft="40dp"
+                android:textColorHint="@color/hintcolor" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/regist_phone_view"
+            style="@style/edit_blue_line"
+            android:layout_below="@id/regist_phone_ll" />
+
+        <LinearLayout
+            android:id="@+id/regist_psw_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/regist_phone_view"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                style="@style/login_container_tips_text_"
+                android:layout_marginTop="35dp"
+                android:text="@string/regist_psw"
+                android:textSize="16sp" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+                android:id="@+id/regist_psw_et"
+                style="@style/registAndLogin_editText"
+                android:layout_width="245dp"
+                android:layout_marginTop="35dp"
+                android:background="@null"
+                android:gravity="left"
+                android:hint="@string/regist_psw_hint"
+                android:paddingLeft="57dp"
+                android:password="true"
+                android:textColorHint="@color/hintcolor" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/regist_psw_view"
+            style="@style/edit_blue_line"
+            android:layout_below="@id/regist_psw_ll" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/regist_phonenumber_btn"
+            style="@style/button_big"
+            android:layout_below="@id/regist_psw_view"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/btn_bg_sel_line"
+            android:onClick="startIdentifyingCode"
+            android:text="注 册" />
+
+    </RelativeLayout>
+</layout>

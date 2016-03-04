@@ -1,15 +1,18 @@
 package com.dudu.aiowner.ui.activity.register;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextPaint;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.commonlib.MultVerify;
+import com.dudu.aiowner.databinding.ActivityRegistPhonenumberBinding;
 import com.dudu.aiowner.ui.base.BaseActivity;
+import com.dudu.aiowner.utils.customFontUtils.FZLFontTextView;
 import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.user.UserRequest;
 
@@ -21,20 +24,21 @@ import org.slf4j.LoggerFactory;
  */
 public class TelephoneNumberActivity extends BaseActivity {
 
-    private EditText regist_phonenumber_et;
     private String mobiles;
+    private String psw;
     private TextView mydialog_phone_tv;
     private Logger logger = LoggerFactory.getLogger("TelephoneNumberActivity");
+    private ActivityRegistPhonenumberBinding registPhonenumberBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        registPhonenumberBinding = ActivityRegistPhonenumberBinding.bind(childView);
         initView();
     }
 
     private void initView() {
-        regist_phonenumber_et = (EditText) findViewById(R.id.regist_input_phonenumber_et);
         mydialog_phone_tv = (TextView) findViewById(R.id.mydialog_phone_tv);
     }
 
@@ -52,10 +56,14 @@ public class TelephoneNumberActivity extends BaseActivity {
     }
 
     public void startIdentifyingCode(View v) {
-        mobiles = regist_phonenumber_et.getText().toString();
+
+        mobiles = registPhonenumberBinding.registPhoneEt.getText().toString();
+        psw = registPhonenumberBinding.registPswEt.getText().toString();
 
         if (mobiles.isEmpty()) {
             logger.info("请输入手机号码");
+        } else if (psw.isEmpty()) {
+            logger.info("请输入密码");
         } else if (MultVerify.isPhoneNumberValid(mobiles)) {
 
 //            Dialog dialog = new Dialog(TelephoneNumberActivity.this, R.style.MyDialog);

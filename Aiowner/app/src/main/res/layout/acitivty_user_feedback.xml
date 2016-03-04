@@ -40,6 +40,7 @@
     </LinearLayout>
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+        android:id="@+id/feedback_et"
         android:layout_width="315dp"
         android:layout_height="250dp"
         android:layout_centerHorizontal="true"
@@ -57,8 +58,8 @@
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         android:id="@+id/feedback_submit_btn"
         style="@style/button_big"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="37dp"
+        android:layout_below="@id/feedback_et"
+        android:layout_marginTop="60dp"
         android:background="@drawable/btn_bg_sel_fill"
         android:onClick="backUserInfo"
         android:text="提 交" />

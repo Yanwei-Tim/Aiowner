@@ -1,57 +1,88 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- 提示信息 -->
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-        android:id="@+id/tv_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
+    <data>
+
+        <import type="com.dudu.aiowner.ui.activity.user.observable.NewDigitalPswObservable" />
+
+        <variable
+            name="NewDigitalPswPage"
+            type="NewDigitalPswObservable" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@android:color/white"
-        android:text="@string/please_input_pwd"
-        android:textColor="#00bfff"
-        android:textSize="18sp" />
+        android:orientation="vertical">
 
-    <!-- 密码显示框 -->
-    <LinearLayout
-        android:id="@+id/ll_pass"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_info"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/white"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        <!-- 提示信息 -->
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/tv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:background="@android:color/white"
+            android:text="@string/please_input_pwd"
+            android:textColor="#00bfff"
+            android:textSize="18sp" />
 
-        <com.dudu.aiowner.ui.activity.user.widget.PasswordTextView
-            android:id="@+id/et_pwd1"
-            style="@style/style_edit" />
+        <!-- 密码显示框 -->
+        <LinearLayout
+            android:id="@+id/ll_pass"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_info"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/white"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-        <com.dudu.aiowner.ui.activity.user.widget.PasswordTextView
-            android:id="@+id/et_pwd2"
-            style="@style/style_edit"
+            <com.dudu.aiowner.ui.activity.user.widget.PasswordTextView
+                android:id="@+id/et_pwd1"
+                style="@style/style_edit" />
 
-            android:layout_marginLeft="15dp" />
+            <com.dudu.aiowner.ui.activity.user.widget.PasswordTextView
+                android:id="@+id/et_pwd2"
+                style="@style/style_edit"
 
-        <com.dudu.aiowner.ui.activity.user.widget.PasswordTextView
-            android:id="@+id/et_pwd3"
-            style="@style/style_edit"
-            android:layout_marginLeft="15dp" />
+                android:layout_marginLeft="15dp" />
 
-        <com.dudu.aiowner.ui.activity.user.widget.PasswordTextView
-            android:id="@+id/et_pwd4"
-            style="@style/style_edit"
-            android:layout_marginLeft="15dp" />
-    </LinearLayout>
-    <!-- 数字键盘 -->
-    <com.dudu.aiowner.ui.activity.user.widget.NumericKeyboard
-        android:id="@+id/nk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white" />
+            <com.dudu.aiowner.ui.activity.user.widget.PasswordTextView
+                android:id="@+id/et_pwd3"
+                style="@style/style_edit"
+                android:layout_marginLeft="15dp" />
 
-</LinearLayout>
+            <com.dudu.aiowner.ui.activity.user.widget.PasswordTextView
+                android:id="@+id/et_pwd4"
+                style="@style/style_edit"
+                android:layout_marginLeft="15dp" />
+        </LinearLayout>
+
+
+        <!-- 数字键盘 -->
+        <com.dudu.aiowner.ui.activity.user.widget.NumericKeyboard
+            android:id="@+id/nk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/forgetPsw_tv"
+            android:layout_below="@id/ll_pass"
+            android:background="@android:color/white" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/forgetPsw_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="40dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:onClick="startConfirmIdentifyingCode"
+            android:paddingBottom="30dp"
+            android:text="忘记密码"
+            android:textColor="#00bfff"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</layout>

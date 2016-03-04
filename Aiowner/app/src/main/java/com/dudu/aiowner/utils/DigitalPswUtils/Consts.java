@@ -9,13 +9,15 @@ package com.dudu.aiowner.utils.DigitalPswUtils;
  *
  */
 public class Consts {
-	
+
 	/** 初始设置密码 */
-	public static final int SETTING_PASSWORD = 0;
+	public static final int OLD_PASSWORD = 0;
+	/** 初始设置密码 */
+	public static final int NEW_PASSWORD = 1;
 	/** 确认密码 */
 	public static final int SURE_SETTING_PASSWORD = 2;
 	/** 验证登录密码 */
-	public static final int LOGIN_PASSWORD = 1;
+	public static final int LOGIN_PASSWORD = 3;
 	/** SharedPreferences的文件名 */
 	public static final String PREF_NAME = "numberlock";
 	

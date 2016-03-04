@@ -27,9 +27,17 @@
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:gravity">center</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:background">@drawable/et_blue_line</item>
         <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="edit_blue_line">
+        <item name="android:layout_width">280dp</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:background">@color/bluecolor</item>
     </style>
 
     <style name="button_big">
@@ -86,7 +94,7 @@
 
 
     <style name="login_container_tips_text_">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">40dp</item>
         <item name="android:textColor">@color/bluecolor</item>

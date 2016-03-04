@@ -113,9 +113,9 @@
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
         android:id="@+id/modifyPsw_confirm_btn"
         style="@style/button_big"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="45dp"
+        android:layout_below="@id/modifyPsw_confirmPsw_et"
         android:background="@drawable/btn_bg_sel_fill"
+        android:layout_marginTop="100dp"
         android:onClick="backUserInfo"
         android:text="确 定" />
 

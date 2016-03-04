@@ -1,13 +1,14 @@
 package com.dudu.aiowner.ui.activity.user;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.databinding.ActivityNewDigitalPswBinding;
 import com.dudu.aiowner.ui.activity.user.widget.NumericKeyboard;
 import com.dudu.aiowner.ui.activity.user.widget.PasswordTextView;
 import com.dudu.aiowner.ui.base.BaseActivity;
@@ -18,20 +19,22 @@ import com.dudu.aiowner.utils.DigitalPswUtils.MyPrefs;
  * Created by sunny_zhang on 2016/3/2.
  */
 public class NewDigitalPswActivity extends BaseActivity {
-    private NumericKeyboard nk;// 数字键盘布局
     // 密码框
-    private PasswordTextView et_pwd1, et_pwd2, et_pwd3, et_pwd4;
     private int type = 0;
-    private TextView tv_info;//提示信息
     //声明字符串保存每一次输入的密码
     private String input;
     private StringBuffer fBuffer = new StringBuffer();
 
+    private ActivityNewDigitalPswBinding widget;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initWidget();// 初始化控件
+
+        widget = ActivityNewDigitalPswBinding.bind(childView);
         initListener();// 事件处理
+
+
     }
 
     @Override
@@ -52,24 +55,12 @@ public class NewDigitalPswActivity extends BaseActivity {
     }
 
     /**
-     * 初始化控件
-     */
-    private void initWidget() {
-        nk = (NumericKeyboard) findViewById(R.id.nk);// 数字键盘
-        // 密码框
-        et_pwd1 = (PasswordTextView) findViewById(R.id.et_pwd1);
-        et_pwd2 = (PasswordTextView) findViewById(R.id.et_pwd2);
-        et_pwd3 = (PasswordTextView) findViewById(R.id.et_pwd3);
-        et_pwd4 = (PasswordTextView) findViewById(R.id.et_pwd4);
-        tv_info = (TextView) findViewById(R.id.tv_info);//提示信息
-    }
-
-    /**
      * 事件处理
      */
     private void initListener() {
+
         // 设置点击的按钮回调事件
-        nk.setOnNumberClick(new NumericKeyboard.OnNumberClick() {
+        widget.nk.setOnNumberClick(new NumericKeyboard.OnNumberClick() {
             @Override
             public void onNumberReturn(int number) {
                 // 设置显示密码
@@ -78,15 +69,22 @@ public class NewDigitalPswActivity extends BaseActivity {
         });
 
         //监听最后一个密码框的文本改变事件回调
-        et_pwd4.setOnTextChangedListener(new PasswordTextView.OnTextChangedListener() {
+        widget.etPwd4.setOnTextChangedListener(new PasswordTextView.OnTextChangedListener() {
             @Override
             public void textChanged(String content) {
-                input = et_pwd1.getTextContent() + et_pwd2.getTextContent() +
-                        et_pwd3.getTextContent() + et_pwd4.getTextContent();
+                input = widget.etPwd1.getTextContent() + widget.etPwd2.getTextContent() +
+                        widget.etPwd3.getTextContent() + widget.etPwd4.getTextContent();
                 //判断类型
-                if (type == Consts.SETTING_PASSWORD) {//设置密码
+
+                if (type == Consts.OLD_PASSWORD) {//输入原密码
+                    widget.tvInfo.setText(getString(R.string.please_input_new_pwd));
+                    widget.forgetPswTv.setVisibility(View.INVISIBLE);
+                    type = Consts.NEW_PASSWORD;
+                    clearText();//清除输入
+                } else if (type == Consts.NEW_PASSWORD) {//输入新密码
                     //重新输入密码
-                    tv_info.setText(getString(R.string.please_input_pwd_again));
+                    widget.tvInfo.setText(getString(R.string.please_input_pwd_again));
+                    widget.forgetPswTv.setVisibility(View.INVISIBLE);
                     type = Consts.SURE_SETTING_PASSWORD;
                     fBuffer.append(input);//保存第一次输入的密码
                     clearText();//清除输入
@@ -95,9 +93,9 @@ public class NewDigitalPswActivity extends BaseActivity {
                 } else if (type == Consts.SURE_SETTING_PASSWORD) {//确认密码
                     //判断两次输入的密码是否一致
                     if (input.equals(fBuffer.toString())) {//一致
-                        showToastMsg(getString(R.string.setting_pwd_success));
                         //保存密码到文件中
                         MyPrefs.getInstance().initSharedPreferences(NewDigitalPswActivity.this);
+                        startActivity(new Intent(NewDigitalPswActivity.this, SetTheftGesturePswOk.class));
                     } else {//不一致
                         showToastMsg(getString(R.string.not_equals));
                         clearText();//清除输入
@@ -114,14 +112,14 @@ public class NewDigitalPswActivity extends BaseActivity {
      */
     private void setText(String text) {
         // 从左往右依次显示
-        if (TextUtils.isEmpty(et_pwd1.getTextContent())) {
-            et_pwd1.setTextContent(text);
-        } else if (TextUtils.isEmpty(et_pwd2.getTextContent())) {
-            et_pwd2.setTextContent(text);
-        } else if (TextUtils.isEmpty(et_pwd3.getTextContent())) {
-            et_pwd3.setTextContent(text);
-        } else if (TextUtils.isEmpty(et_pwd4.getTextContent())) {
-            et_pwd4.setTextContent(text);
+        if (TextUtils.isEmpty(widget.etPwd1.getTextContent())) {
+            widget.etPwd1.setTextContent(text);
+        } else if (TextUtils.isEmpty(widget.etPwd2.getTextContent())) {
+            widget.etPwd2.setTextContent(text);
+        } else if (TextUtils.isEmpty(widget.etPwd3.getTextContent())) {
+            widget.etPwd3.setTextContent(text);
+        } else if (TextUtils.isEmpty(widget.etPwd4.getTextContent())) {
+            widget.etPwd4.setTextContent(text);
         }
     }
 
@@ -129,10 +127,10 @@ public class NewDigitalPswActivity extends BaseActivity {
      * 清除输入的内容--重输
      */
     private void clearText() {
-        et_pwd1.setTextContent("");
-        et_pwd2.setTextContent("");
-        et_pwd3.setTextContent("");
-        et_pwd4.setTextContent("");
+        widget.etPwd1.setTextContent("");
+        widget.etPwd2.setTextContent("");
+        widget.etPwd3.setTextContent("");
+        widget.etPwd4.setTextContent("");
     }
 
     /**
@@ -140,14 +138,14 @@ public class NewDigitalPswActivity extends BaseActivity {
      */
     private void deleteText() {
         // 从右往左依次删除
-        if (!TextUtils.isEmpty(et_pwd4.getTextContent())) {
-            et_pwd4.setTextContent("");
-        } else if (!TextUtils.isEmpty(et_pwd3.getTextContent())) {
-            et_pwd3.setTextContent("");
-        } else if (!TextUtils.isEmpty(et_pwd2.getTextContent())) {
-            et_pwd2.setTextContent("");
-        } else if (!TextUtils.isEmpty(et_pwd1.getTextContent())) {
-            et_pwd1.setTextContent("");
+        if (!TextUtils.isEmpty(widget.etPwd4.getTextContent())) {
+            widget.etPwd4.setTextContent("");
+        } else if (!TextUtils.isEmpty(widget.etPwd3.getTextContent())) {
+            widget.etPwd3.setTextContent("");
+        } else if (!TextUtils.isEmpty(widget.etPwd2.getTextContent())) {
+            widget.etPwd2.setTextContent("");
+        } else if (!TextUtils.isEmpty(widget.etPwd1.getTextContent())) {
+            widget.etPwd1.setTextContent("");
         }
     }
 
@@ -176,6 +174,6 @@ public class NewDigitalPswActivity extends BaseActivity {
      * @param text
      */
     private void showToastMsg(String text) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
     }
 }
