@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <import type="com.dudu.aiowner.ui.activity.preventTheft.observable.PreventTheftObservable"/>
+
+        <import type="com.dudu.aiowner.ui.activity.preventTheft.observable.PreventTheftObservable" />
+
         <variable
             name="PreventTheftPage"
-            type="PreventTheftObservable"/>
+            type="PreventTheftObservable" />
 
     </data>
 
@@ -110,19 +111,25 @@
 
             </LinearLayout>
 
-            <ToggleButton
-                android:id="@+id/prevent_theft_switch"
-                android:layout_width="130dp"
-                android:layout_height="285dp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="60dp"
-                android:background="@drawable/theft_switch_btn_sel"
-                android:checked="false"
-                android:clickable="true"
-                android:onClick="theftSwitchClick"
-                android:textOff=""
-                android:textOn="" />
+            <RelativeLayout
+                android:id="@+id/anim_lock_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ToggleButton
+                    android:id="@+id/theft_switch"
+                    android:layout_width="130dp"
+                    android:layout_height="285dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/theft_switch_btn_sel"
+                    android:checked="false"
+                    android:clickable="true"
+                    android:onClick="theftSwitchClick"
+                    android:textOff=""
+                    android:textOn="" />
+
+            </RelativeLayout>
 
         </LinearLayout>
 

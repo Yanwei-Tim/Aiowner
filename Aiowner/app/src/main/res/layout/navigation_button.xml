@@ -32,7 +32,7 @@
         android:layout_height="80dp"
         android:layout_gravity="center"
         android:clickable="true"
-        android:onClick="startMaintenanceAssistant"
+        android:onClick="openMaintenanceAssistant"
         android:src="@drawable/center_btn" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
@@ -41,7 +41,7 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:clickable="true"
-        android:onClick="startMaintenanceAssistant"
+        android:onClick="openMaintenanceAssistant"
         android:text="保养助手"
         android:textColor="@android:color/white"
         android:textSize="15sp" />
@@ -51,7 +51,7 @@
         android:layout_height="40dp"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="95dp"
-        android:onClick="startTestSpeed"
+        android:onClick="openTestSpeed"
         android:src="@drawable/testspeed_btn_sel" />
 
     <ImageView
@@ -59,7 +59,7 @@
         android:layout_height="40dp"
         android:layout_marginLeft="221.5dp"
         android:layout_marginTop="95dp"
-        android:onClick="startDrive"
+        android:onClick="openDrive"
         android:src="@drawable/drive_btn_sel" />
 
     <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
@@ -92,7 +92,7 @@
         android:layout_marginTop="127.5dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:onClick="startTestSpeed"
+        android:onClick="openTestSpeed"
         android:text="测速"
         android:textColor="@android:color/white"
         android:textSize="15sp" />
@@ -103,7 +103,7 @@
         android:layout_marginLeft="166dp"
         android:layout_marginTop="127.5dp"
         android:gravity="center"
-        android:onClick="startDrive"
+        android:onClick="openDrive"
         android:text="驾驶"
         android:textColor="@android:color/white"
         android:textSize="15sp" />

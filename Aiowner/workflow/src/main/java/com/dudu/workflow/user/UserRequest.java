@@ -11,7 +11,7 @@ public interface UserRequest {
 
     public void settingPassword(String cellphone, String securityCode, String password, final RegisterCallback callback);
 
-    public void login(String cellphone, String password, final LoginCallback callback);
+    public void login(String cellphone, String password, String platform, final LoginCallback callback);
 
     void setRequestVerifyCodeResult(boolean requestVerifyCodeResult);
 

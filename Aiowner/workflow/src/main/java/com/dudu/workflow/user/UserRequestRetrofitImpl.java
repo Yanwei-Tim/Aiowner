@@ -1,9 +1,12 @@
 package com.dudu.workflow.user;
 
+import android.util.Log;
+
 import com.dudu.aiowner.rest.common.Request;
 import com.dudu.aiowner.rest.model.LoginResponse;
 import com.dudu.aiowner.rest.model.RegisterResponse;
 import com.dudu.aiowner.rest.model.RequestResponse;
+import com.dudu.aiowner.rest.model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -72,17 +75,19 @@ public class UserRequestRetrofitImpl implements UserRequest {
     }
 
     @Override
-    public void login(String cellphone, String password, final LoginCallback callback) {
+    public void login(String cellphone, String password, String platform, final LoginCallback callback) {
         Call<LoginResponse> call = Request.getInstance().getUserService()
-                .login(cellphone, password, "method", "messageId");
+                .login(new User(cellphone,password,"android"));
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                callback.loginSuccess(true);
+                Log.d("LoginResponse","LoginResponse:"+response.body().resultCode);
+                callback.loginSuccess(response.body().resultCode==0);
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Log.d("loginError","loginError:"+t);
                 callback.loginSuccess(false);
             }
         });

@@ -146,7 +146,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:background="@drawable/btn_bg_sel_line"
-        android:onClick="startTestSpeed"
+        android:onClick="openTestSpeed"
         android:singleLine="true"
         android:text="下 一 步"
         android:textColor="@android:color/white" />

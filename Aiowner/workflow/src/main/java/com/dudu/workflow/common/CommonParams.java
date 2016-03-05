@@ -44,4 +44,5 @@ public class CommonParams {
     public String getUserName() {
         return user.getUserName();
     }
+
 }

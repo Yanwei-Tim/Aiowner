@@ -2,6 +2,7 @@ package com.dudu.aiowner.ui.activity.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -45,30 +46,30 @@ public class LoginActivity extends BaseActivity {
         final String password = loginBinding.loginPswEt.getText().toString();
 
         if (username.isEmpty()) {
-            logger.debug("请输入用户名");
+            Log.d("login", "login:" + "请输入用户名");
             return;
         }
         if (password.isEmpty()) {
-            logger.debug("请输入密码");
+            Log.d("login", "login:" + "请输入密码");
             return;
         }
 
         RequestFactory.getUserRequest()
-                .login(username, password, new UserRequest.LoginCallback() {
+                .login(username, password, "android", new UserRequest.LoginCallback() {
                     @Override
                     public void loginSuccess(boolean success) {
                         if (success) {
                             FlowFactory.getUserDataFlow().saveUserName(username);
                             ReceiverRegister.registPushManager(username);
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            logger.debug("登录请求成功");
+                            Log.d("login", "loginSuccess:" + "登录请求成功");
+                            finish();
                         } else {
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            logger.debug("登录请求失败");
+//                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            Log.d("login", "loginError:" + "登录请求失败");
                         }
                     }
                 });
-        finish();
     }
 
     public void startForgetPreventTheftPsw(View view) {

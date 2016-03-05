@@ -35,7 +35,7 @@ public class UserRequestTestImpl implements UserRequest {
     }
 
     @Override
-    public void login(String cellphone, String password, LoginCallback callback) {
+    public void login(String cellphone, String password, String platform, LoginCallback callback) {
         callback.loginSuccess(loginSuccess);
     }
 

@@ -1,4 +1,4 @@
-package com.dudu.aiowner.utils.FileUtils;
+package com.dudu.aiowner.commonlib.commonutils;
 
 import android.content.Context;
 import android.os.Environment;

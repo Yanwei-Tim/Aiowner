@@ -60,4 +60,6 @@ dependencies {
     androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2.1'
     compile project(':workflow')
     compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'net.bytebuddy:byte-buddy:1.2.1'
+    compile project(':persistence')
 }

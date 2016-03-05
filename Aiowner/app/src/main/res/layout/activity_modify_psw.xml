@@ -1,122 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="130dp"
-        android:background="@drawable/user_title_bg"
-        android:orientation="vertical">
+    <data>
 
-        <ImageView
-            android:layout_width="80.5dp"
-            android:layout_height="18.5dp"
-            android:layout_gravity="center_horizontal"
-            android:background="#01000000"
-            android:src="@drawable/user_content_logo" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:background="@drawable/user_title_bg"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="80.5dp"
+                android:layout_height="18.5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#01000000"
+                android:src="@drawable/user_content_logo" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25dp"
+                android:background="#01000000"
+                android:text="密 码 修 改"
+                android:textColor="@android:color/white"
+                android:textSize="27sp" />
+
+            <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="14dp"
+                android:background="#01000000"
+                android:text="Change Password"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
+            style="@style/login_container_tips_text"
+            android:layout_marginTop="160dp"
             android:background="#01000000"
-            android:text="密 码 修 改"
-            android:textColor="@android:color/white"
-            android:textSize="27sp" />
+            android:text="手机号"
+            android:textColor="#727171"
+            android:textSize="16sp" />
 
-        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="14dp"
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+            android:id="@+id/modifyPsw_phone_et"
+            style="@style/registAndLogin_editText"
+            android:layout_marginTop="160dp"
+            android:paddingLeft="70dp"
+            android:paddingRight="10dp"
+            android:textColor="@android:color/black" />
+
+        <View
+            style="@style/edit_blue_line"
+            android:layout_below="@id/modifyPsw_phone_et"
+            android:background="#BBBCBC"></View>
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+            android:id="@+id/modifyPsw_verifyCode_et"
+            style="@style/registAndLogin_editText"
+            android:layout_marginTop="226dp"
+            android:gravity="left"
+            android:hint="请输入手机验证码"
+            android:paddingRight="110dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="#cecfcf" />
+
+        <View
+            style="@style/edit_blue_line"
+            android:layout_below="@id/modifyPsw_verifyCode_et"
+            android:background="#BBBCBC"></View>
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            style="@style/button_big"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="215dp"
+            android:background="@drawable/btn_bg_checkcode"
+            android:onClick="getVerifyCode"
+            android:text="获取验证码"
+            android:textSize="14sp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            style="@style/login_container_tips_text"
+            android:layout_marginTop="282dp"
             android:background="#01000000"
-            android:text="Change Password"
-            android:textColor="@android:color/white"
-            android:textSize="12sp" />
+            android:text="新密码"
+            android:textColor="#727171"
+            android:textSize="16sp" />
 
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+            android:id="@+id/forgetPsw_newPsw_et"
+            style="@style/registAndLogin_editText"
+            android:layout_marginTop="282dp"
+            android:gravity="center"
+            android:paddingLeft="70dp"
+            android:paddingRight="10dp"
+            android:password="true"
+            android:textColor="@android:color/black" />
 
-    </LinearLayout>
+        <View
+            style="@style/edit_blue_line"
+            android:layout_below="@id/forgetPsw_newPsw_et"
+            android:background="#BBBCBC"></View>
 
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-        style="@style/login_container_tips_text"
-        android:layout_marginTop="160dp"
-        android:background="#01000000"
-        android:text="手机号"
-        android:textColor="#727171"
-        android:textSize="16sp" />
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            style="@style/login_container_tips_text"
+            android:layout_marginTop="343dp"
+            android:background="#01000000"
+            android:text="新密码"
+            android:textColor="#727171"
+            android:textSize="16sp" />
 
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
-        android:id="@+id/modifyPsw_phone_et"
-        style="@style/registAndLogin_editText"
-        android:layout_marginTop="165dp"
-        android:gravity="center"
-        android:textColor="@android:color/black" />
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+            android:id="@+id/modifyPsw_confirmPsw_et"
+            style="@style/registAndLogin_editText"
+            android:layout_marginTop="343dp"
+            android:gravity="center"
+            android:hint="请确认密码"
+            android:paddingLeft="70dp"
+            android:paddingRight="10dp"
+            android:password="true"
+            android:textColor="@android:color/black"
+            android:textColorHint="#cecfcf" />
 
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
-        android:id="@+id/modifyPsw_verifyCode_et"
-        style="@style/registAndLogin_editText"
-        android:layout_marginTop="226dp"
-        android:gravity="left"
-        android:hint="请输入手机验证码"
-        android:textColor="@android:color/black"
-        android:textColorHint="#cecfcf" />
+        <View
+            style="@style/edit_blue_line"
+            android:layout_below="@id/modifyPsw_confirmPsw_et"
+            android:background="#BBBCBC"></View>
 
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-        style="@style/button_big"
-        android:layout_width="90dp"
-        android:layout_height="30dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="209dp"
-        android:background="@drawable/btn_bg_checkcode"
-        android:onClick="getVerifyCode"
-        android:text="获取验证码"
-        android:textSize="14sp" />
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/modifyPsw_confirm_btn"
+            style="@style/button_big"
+            android:layout_below="@id/modifyPsw_confirmPsw_et"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/btn_bg_sel_fill"
+            android:onClick="backUserInfo"
+            android:text="确 定" />
 
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-        style="@style/login_container_tips_text"
-        android:layout_marginTop="282dp"
-        android:background="#01000000"
-        android:text="新密码"
-        android:textColor="#727171"
-        android:textSize="16sp" />
-
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
-        android:id="@+id/forgetPsw_newPsw_et"
-        style="@style/registAndLogin_editText"
-        android:layout_marginTop="287dp"
-        android:gravity="center"
-        android:textColor="@android:color/black"
-        android:password="true" />
-
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-        style="@style/login_container_tips_text"
-        android:layout_marginTop="343dp"
-        android:background="#01000000"
-        android:text="新密码"
-        android:textColor="#727171"
-        android:textSize="16sp" />
-
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
-        android:id="@+id/modifyPsw_confirmPsw_et"
-        style="@style/registAndLogin_editText"
-        android:layout_marginTop="348dp"
-        android:gravity="center"
-        android:hint="请确认密码"
-        android:password="true"
-        android:textColor="@android:color/black"
-        android:textColorHint="#cecfcf" />
-
-    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
-        android:id="@+id/modifyPsw_confirm_btn"
-        style="@style/button_big"
-        android:layout_below="@id/modifyPsw_confirmPsw_et"
-        android:background="@drawable/btn_bg_sel_fill"
-        android:layout_marginTop="100dp"
-        android:onClick="backUserInfo"
-        android:text="确 定" />
-
-</RelativeLayout>
+    </RelativeLayout>
+</layout>

@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.commonlib.MultVerify;
+import com.dudu.aiowner.databinding.ActivityForgetLoginPswBinding;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 import org.slf4j.Logger;
@@ -19,25 +20,14 @@ import org.slf4j.LoggerFactory;
  */
 public class ForgetLoginPswActitivy extends BaseActivity {
 
-    private EditText forgetPsw_phone_et;
-    private EditText forgetPsw_verifyCode_et;
-    private EditText forgetPsw_newPsw_et;
-    private EditText forgetPsw_confirmPsw_et;
-
     private Logger logger = LoggerFactory.getLogger("ForgetLoginPswActitivy");
+    private ActivityForgetLoginPswBinding widget;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initView();
-    }
 
-    private void initView() {
-
-        forgetPsw_phone_et = (EditText) findViewById(R.id.forgetPsw_phone_et);
-        forgetPsw_verifyCode_et = (EditText) findViewById(R.id.forgetPsw_verifyCode_et);
-        forgetPsw_newPsw_et = (EditText) findViewById(R.id.forgetPsw_newPsw_et);
-        forgetPsw_confirmPsw_et = (EditText) findViewById(R.id.forgetPsw_confirmPsw_et);
+        widget = ActivityForgetLoginPswBinding.bind(childView);
     }
 
     @Override
@@ -47,7 +37,7 @@ public class ForgetLoginPswActitivy extends BaseActivity {
 
     public void getVerifyCode(View view) {
 
-        String mobiles = forgetPsw_phone_et.getText().toString();
+        String mobiles = widget.forgetPswPhoneEt.getText().toString();
         if (TextUtils.isEmpty(mobiles)) {
             logger.info("请输入手机号码");
         }//
@@ -59,9 +49,9 @@ public class ForgetLoginPswActitivy extends BaseActivity {
     }
 
     public void startLogin(View view) {
-        String newPassword = forgetPsw_newPsw_et.getText().toString();
-        String confirmPassword = forgetPsw_confirmPsw_et.getText().toString();
-        String phone_et = forgetPsw_phone_et.getText().toString();
+        String newPassword = widget.forgetPswNewPswEt.getText().toString();
+        String confirmPassword = widget.forgetPswConfirmPswEt.getText().toString();
+        String phone_et = widget.forgetPswPhoneEt.getText().toString();
         if (TextUtils.isEmpty(phone_et)) {
             logger.info("请输入手机号码");
             return;
@@ -70,7 +60,7 @@ public class ForgetLoginPswActitivy extends BaseActivity {
             logger.info("请输入正确的手机号码");
             return;
         }
-        if (TextUtils.isEmpty(forgetPsw_verifyCode_et.getText().toString())) {
+        if (TextUtils.isEmpty(widget.forgetPswVerifyCodeEt.getText().toString())) {
             logger.info("请输入验证码");
             return;
         }

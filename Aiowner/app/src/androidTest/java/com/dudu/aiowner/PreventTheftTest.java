@@ -37,8 +37,8 @@ public class PreventTheftTest {
 
     @Test
     public void test_theft_switch_click() {
-        onView(withId(R.id.prevent_theft_switch)).perform(click());
-        onView(withId(R.id.prevent_theft_switch)).check(matches(isChecked()));
+        onView(withId(R.id.theft_switch)).perform(click());
+        onView(withId(R.id.theft_switch)).check(matches(isChecked()));
 
     }
 

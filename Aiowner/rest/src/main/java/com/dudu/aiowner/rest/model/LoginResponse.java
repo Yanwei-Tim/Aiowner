@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by Eaway on 2016/2/13.
  */
-public class LoginResponse extends RequestResponse {
+public class LoginResponse{
     /**
      * 0	    操作成功
      * 50007	method参数为NULL
@@ -17,17 +17,9 @@ public class LoginResponse extends RequestResponse {
      * 50014	密码包含非法字符
      */
     @SerializedName("resultCode")
-    private long resultCode;
+    public int resultCode;
 
-    /*
-     * 发送数据时调用的接口名
-     */
-    @SerializedName("method")
-    private long method;
+    @SerializedName("resultMsg")
+    public String resultMsg;
 
-    /*
-     * 消息ID
-     */
-    @SerializedName("messageId")
-    private long messageId;
 }

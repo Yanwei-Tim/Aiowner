@@ -9,11 +9,11 @@ public class User {
 
     private String userName;
 
-    public User(){
+    public User() {
 
     }
 
-    public User(RealmUser realmUser){
+    public User(RealmUser realmUser) {
         this.userName = realmUser.getUserName();
     }
 

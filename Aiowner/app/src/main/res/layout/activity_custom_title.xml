@@ -61,7 +61,7 @@
             android:layout_centerInParent="true"
             android:layout_marginRight="18dp"
             android:background="@{title.userCommon ? @drawable/user_icon : @drawable/user_message}"
-            android:onClick="userInfo"
+            android:onClick="openUserInfo"
             android:clickable="@{title.userIconClick ? true : false}"
             android:visibility="@{title.userIcon ? View.VISIBLE : View.GONE}" />
 

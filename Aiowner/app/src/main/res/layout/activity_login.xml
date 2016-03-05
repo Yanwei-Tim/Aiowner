@@ -3,6 +3,12 @@
 
     <data>
 
+        <import type="com.dudu.aiowner.ui.activity.login.observable.LoginObservable" />
+
+        <variable
+            name="LoginPage"
+            type="LoginObservable" />
+
     </data>
 
     <RelativeLayout
@@ -25,18 +31,17 @@
             android:textColor="@android:color/white" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
-           android:layout_toRightOf="@id/username_hint"
             android:id="@+id/login_user_et"
             style="@style/registAndLogin_editText"
-            android:paddingLeft="15dp"
-            android:paddingRight="45dp"
             android:layout_marginTop="90dp"
-            android:gravity="center" />
+            android:layout_toRightOf="@id/username_hint"
+            android:paddingLeft="15dp"
+            android:paddingRight="45dp" />
 
         <View
             style="@style/edit_blue_line"
-            android:layout_marginTop="1dp"
-            android:layout_below="@id/login_user_et" />
+            android:layout_below="@id/login_user_et"
+            android:layout_marginTop="1dp" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             android:id="@+id/login_password_tx"
@@ -56,19 +61,19 @@
         <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
             android:id="@+id/login_psw_et"
             style="@style/registAndLogin_editText"
+            android:layout_marginTop="180dp"
             android:layout_toRightOf="@id/psw_hint"
+            android:background="@null"
+
+            android:gravity="center"
             android:paddingLeft="15dp"
             android:paddingRight="45dp"
-
-            android:layout_marginTop="180dp"
-            android:gravity="center"
-            android:background="@null"
             android:password="true" />
 
         <View
             style="@style/edit_blue_line"
-            android:layout_marginTop="1dp"
-            android:layout_below="@id/login_psw_et" />
+            android:layout_below="@id/login_psw_et"
+            android:layout_marginTop="1dp" />
 
         <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
             android:layout_width="wrap_content"

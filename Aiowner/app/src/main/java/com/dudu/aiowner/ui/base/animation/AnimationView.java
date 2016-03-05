@@ -12,7 +12,8 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import com.dudu.aiowner.utils.FileUtils.FileUtils;
+
+import com.dudu.aiowner.commonlib.commonutils.FileUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,6 +28,8 @@ public class AnimationView extends SurfaceView implements SurfaceHolder.Callback
     private static final String TAG = "AnimationView";
 
     private AnimationThread mThread;
+
+    private OnAnimPlayListener onAnimPlayListener;
 
     private String category;
 
@@ -100,9 +103,9 @@ public class AnimationView extends SurfaceView implements SurfaceHolder.Callback
 
     private class AnimationThread extends Thread {
 
-        private static final int MAXIMUM_FRAME_COUNT = 142;
+        private static final int MAXIMUM_FRAME_COUNT = 101;
 
-//        private  int maxImageCycleCount = 127;
+        private  int maxImageCycleCount = 101;
 
         private static final String PICTURE_PREFIX = "Ani_";
 
@@ -149,12 +152,16 @@ public class AnimationView extends SurfaceView implements SurfaceHolder.Callback
                     Canvas c = null;
                     try {
                         synchronized (mHolder) {
-                            if (mFrameCounter == maxImageCycleCount) {
-                                mFrameCounter = 0;
-                            }
                             Log.v("CarCheckingView1", "当前播放帧数: " + mFrameCounter);
                             c = mHolder.lockCanvas();
                             doAnimation(c);
+
+                            if (mFrameCounter == maxImageCycleCount) {
+                                boolean play = onAnimPlayListener.play();
+                                if (!play) {
+                                    mFrameCounter = 0;
+                                }
+                            }
                         }
                     } finally {
                         if (c != null) {
@@ -230,5 +237,13 @@ public class AnimationView extends SurfaceView implements SurfaceHolder.Callback
             }
             return null;
         }
+    }
+
+    public void setOnAnimPlayListener(OnAnimPlayListener listener) {
+        this.onAnimPlayListener = listener;
+    }
+
+    public interface OnAnimPlayListener {
+        boolean play();
     }
 }
