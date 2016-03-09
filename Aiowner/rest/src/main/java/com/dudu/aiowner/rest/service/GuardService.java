@@ -1,12 +1,15 @@
 package com.dudu.aiowner.rest.service;
 
 import com.dudu.aiowner.rest.model.GuardStateResponse;
+import com.dudu.aiowner.rest.model.PutTheftLicenseRequest;
+import com.dudu.aiowner.rest.model.PutTheftLicenseResponse;
 import com.dudu.aiowner.rest.model.RequestResponse;
 import com.dudu.aiowner.rest.model.TheftStatusResponse;
 import com.dudu.aiowner.rest.model.TheftUploadResponse;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -66,19 +69,7 @@ public interface GuardService {
             @Part("type") String  type);
 
 
-//    /**
-//     * 获取防盗证件上传的结果
-//     *
-//     * @return TheftUploadResponse 上传资料返回的方法
-//     */
-//    @FormUrlEncoded
-//    @POST("/theft/upload")
-//    public Call<TheftUploadResponse> getTheftUploadResult(@Field("cellphone") String cellphone,
-//                                                          @Field("platform") String platform,
-//                                                          @Field("type") String type,
-//                                                          @Field("method") String method,
-//                                                          @Field("messageId") String messageId);
+    @POST("/binding/toDetermineAudit")
+    public Call<PutTheftLicenseResponse>getTheftLicenseResult(@Body PutTheftLicenseRequest body);
 
-//    @POST("/theft/setProtectThiefPassword")
-//    public Call<SetTheftPswResponse> setTheftPsw
 }

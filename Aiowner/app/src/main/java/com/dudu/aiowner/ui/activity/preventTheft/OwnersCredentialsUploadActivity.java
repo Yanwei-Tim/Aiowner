@@ -48,8 +48,23 @@ public class OwnersCredentialsUploadActivity extends BaseActivity {
     }
 
     public void startOwnersCredentialsUploadOk(View view) {
+        RequestFactory.getGuardRequest().getTheftLicenseResult(new GuardRequest.TheftLicenceCallBack() {
+            @Override
+            public void LicenceSucceed(boolean succeed) {
+                Log.d("LicenceSucceed", "认证成功！");
+            }
 
-        Log.d("upload", "上传图片");
+            @Override
+            public void LicenceError(String error) {
+                Log.d("LicenceError", "认证失败！");
+            }
+        });
+
+    }
+
+    public void chooseDrivingLicense(View view) {
+
+        Log.d("upload", "上传驾驶证图片");
 
         RequestFactory.getGuardRequest().getTheftUploadResult(new GuardRequest.UploadLicenceCallBack() {
             @Override
@@ -63,7 +78,11 @@ public class OwnersCredentialsUploadActivity extends BaseActivity {
                 Log.d("uploadError", "上传失败！");
             }
         });
-
     }
 
+    public void chooseTravelLicense(View view){
+
+        Log.d("upload", "上传行驶证图片");
+
+    }
 }

@@ -10,6 +10,8 @@ import com.dudu.aiowner.commonlib.commonutils.DataJsonTranslation;
 import com.dudu.aiowner.commonlib.commonutils.FileUtils;
 import com.dudu.aiowner.rest.common.Request;
 import com.dudu.aiowner.rest.model.GuardStateResponse;
+import com.dudu.aiowner.rest.model.PutTheftLicenseRequest;
+import com.dudu.aiowner.rest.model.PutTheftLicenseResponse;
 import com.dudu.aiowner.rest.model.RequestResponse;
 import com.dudu.aiowner.rest.model.TheftStatusResponse;
 import com.dudu.aiowner.rest.model.TheftUploadResponse;
@@ -145,7 +147,7 @@ public class GuardRequestRetrofitImpl implements GuardRequest {
                     public void onResponse(String response) {
 
                         TheftUploadResponse response1 = (TheftUploadResponse) DataJsonTranslation.jsonToObject(response, TheftUploadResponse.class);
-                        callBack.uploadSucceed(response1.resultCode==0);
+                        callBack.uploadSucceed(response1.resultCode == 0);
 
                         logger.debug(response);
                         logger.debug("请求完成");
@@ -160,5 +162,30 @@ public class GuardRequestRetrofitImpl implements GuardRequest {
         });
         queue.add(multipartRequest);
 
+    }
+
+    @Override
+    public void getTheftLicenseResult(TheftLicenceCallBack callBack) {
+
+        Call<PutTheftLicenseResponse> call = Request.getInstance().getGuardService()
+                .getTheftLicenseResult(new PutTheftLicenseRequest(CommonParams.getInstance().getUserName(), "android"));
+
+
+        call.enqueue(new Callback<PutTheftLicenseResponse>() {
+
+            @Override
+            public void onResponse(Call<PutTheftLicenseResponse> call, Response<PutTheftLicenseResponse> response) {
+
+                Log.d("PutTheftLicenseResponse", "-------" + response.body().resultCode);
+                callBack.LicenceSucceed(response.body().resultCode == 0);
+            }
+
+            @Override
+            public void onFailure(Call<PutTheftLicenseResponse> call, Throwable t) {
+
+                Log.d("PutTheftLicenseResponse", "------" + t);
+                callBack.LicenceError(t.toString());
+            }
+        });
     }
 }
