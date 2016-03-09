@@ -1,8 +1,8 @@
 package com.dudu.aiowner.ui.base;
 
-import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 
@@ -14,7 +14,7 @@ import com.dudu.aiowner.utils.ActivitiesManager;
 /**
  * Created by sunny_zhang on 2016/1/27.
  */
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends AppCompatActivity{
 
     protected ActivityCommonBinding baseBinding;
 

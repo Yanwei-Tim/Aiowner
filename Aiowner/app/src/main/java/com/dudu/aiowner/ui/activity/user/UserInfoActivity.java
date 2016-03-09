@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.ui.activity.bind.DeviceBindActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 
 /**
@@ -42,7 +43,9 @@ public class UserInfoActivity extends BaseActivity {
     }
 
     public void startDeviceMatch(View view) {
-        startActivity(new Intent(UserInfoActivity.this, DeviceMatchAcitivty.class));
+//        startActivity(new Intent(UserInfoActivity.this, DeviceMatchAcitivty.class));
+//        QrScan.launch(this, 500,500);
+        DeviceBindActivity.launch(this);
     }
     @Override
     protected void onResume() {

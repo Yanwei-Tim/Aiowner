@@ -1,1 +1,2 @@
-include ':app', ':commonlib', ':rest', ':workflow', ':persistence'
+include ':app', ':commonlib', ':rest', ':workflow', ':persistence', ':qrscanlib'
+include ':myapplication'

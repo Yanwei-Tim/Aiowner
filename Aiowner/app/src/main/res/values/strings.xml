@@ -48,5 +48,7 @@
     <string name="seven">7</string>
     <string name="eight">8</string>
     <string name="neigh">9</string>
+    <string name="tip_device_bind">设备绑定</string>
+    <string name="tip_qr_scan">将二维码/条形码放入框内,完成绑定</string>
 
 </resources>

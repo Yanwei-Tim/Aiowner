@@ -2,7 +2,9 @@
 <resources>
 
     <style name="AiownerBackground" parent="AppTheme">
-        <item name="android:background">@color/aiowner</item>
+        <!--<item name="android:background">@color/aiowner</item>-->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="AppBaseTheme" parent="android:Theme">

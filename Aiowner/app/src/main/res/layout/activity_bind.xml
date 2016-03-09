@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.zxing.android.view.ViewfinderView
+        android:id="@+id/finderView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/tvBindTip"
+            android:layout_width="wrap_content"
+            android:text="@string/tip_device_bind"
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="17dp"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content" />
+
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/tvScanTip"
+            android:layout_width="wrap_content"
+            android:text="@string/tip_qr_scan"
+            android:textSize="12sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tvBindTip"
+            android:layout_marginTop="280dp"
+            android:layout_marginBottom="17dp"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content" />
+
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/tvInput"
+            android:layout_width="wrap_content"
+            android:text="手动输入IMEI码绑定"
+            android:textSize="23sp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="94dp"
+            android:background="@drawable/default_bg_selector"
+            android:textColor="#06ABFA"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</FrameLayout>

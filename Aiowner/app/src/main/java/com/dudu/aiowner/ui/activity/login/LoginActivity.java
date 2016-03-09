@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.dudu.aiowner.BuildConfig;
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.databinding.ActivityLoginBinding;
 import com.dudu.aiowner.receiver.ReceiverRegister;
@@ -86,6 +87,10 @@ public class LoginActivity extends BaseActivity {
                         loginBinding.loginUserEt.setText(userName);
                     }
                 });
+
+        if (BuildConfig.DEBUG) {
+            loginBinding.loginPswEt.setText("123123");
+        }
     }
 
     @Override

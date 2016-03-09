@@ -112,7 +112,7 @@
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:background="#BBBCBC"></View>
+            android:background="#BBBCBC"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -152,7 +152,7 @@
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:background="#BBBCBC"></View>
+            android:background="#BBBCBC"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -193,7 +193,7 @@
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:background="#BBBCBC"></View>
+            android:background="#BBBCBC"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -234,14 +234,15 @@
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:background="#BBBCBC"></View>
+            android:background="#BBBCBC"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="33dp"
             android:layout_marginTop="20dp"
-            android:background="#01000000"
+            android:onClick="startDeviceMatch"
+            android:background="@drawable/default_bg_selector"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -265,7 +266,7 @@
                 android:layout_height="24dp"
                 android:layout_marginLeft="175dp"
                 android:background="@drawable/btn_user_blue_multset_sel"
-                android:onClick="startDeviceMatch" />
+                />
 
         </LinearLayout>
 
@@ -274,7 +275,7 @@
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:background="#BBBCBC"></View>
+            android:background="#BBBCBC"/>
 
     </LinearLayout>
 
