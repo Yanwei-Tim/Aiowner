@@ -63,4 +63,6 @@ dependencies {
     compile 'net.bytebuddy:byte-buddy:1.2.1'
     compile project(':persistence')
     compile project(':qrscanlib')
+
+    compile 'com.mcxiaoke.volley:library:1.0.19'
 }

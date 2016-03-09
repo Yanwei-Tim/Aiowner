@@ -46,18 +46,18 @@ public class IdentifyingCodeActivity extends BaseActivity {
             return;
         }
 
-        RequestFactory.getUserRequest().isVerifyCodeValid(mCellphone, "", new UserRequest.VerifyCodeValidCallback() {
-            @Override
-            public void verifyCodeIsValid(boolean success) {
-                if (success) {
-                    Intent intent = new Intent(IdentifyingCodeActivity.this, LoginActivity.class);
-                    intent.putExtra("cellphone", mCellphone);
-                    startActivity(intent);
-                } else {
-                    logger.error("校验失败");
-                }
-            }
-        });
+//        RequestFactory.getUserRequest().isVerifyCodeValid(mCellphone, "", new UserRequest.VerifyCodeValidCallback() {
+//            @Override
+//            public void verifyCodeIsValid(boolean success) {
+//                if (success) {
+//                    Intent intent = new Intent(IdentifyingCodeActivity.this, LoginActivity.class);
+//                    intent.putExtra("cellphone", mCellphone);
+//                    startActivity(intent);
+//                } else {
+//                    logger.error("校验失败");
+//                }
+//            }
+//        });
     }
 
     @Override

@@ -59,11 +59,11 @@ public interface GuardService {
      */
     @Multipart
     @POST("/theft/upload")
-    Call<TheftUploadResponse> getTheftUploadResult(
-            @Part("file\"; name=\"file\" ") RequestBody file,
-            @Part("phone") RequestBody  phone,
-            @Part("platform") RequestBody  platform,
-            @Part("type") RequestBody  type);
+    public Call<TheftUploadResponse> getTheftUploadResult(
+            @Part("file\"; name=\"image.png\"") RequestBody file,
+            @Part("phone") String  phone,
+            @Part("platform") String  platform,
+            @Part("type") String  type);
 
 
 //    /**

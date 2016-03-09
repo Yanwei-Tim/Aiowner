@@ -1,6 +1,5 @@
 package com.dudu.aiowner.ui.activity.register;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -10,10 +9,7 @@ import android.widget.TextView;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.commonlib.MultVerify;
-import com.dudu.aiowner.ui.activity.login.LoginActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
-import com.dudu.workflow.common.RequestFactory;
-import com.dudu.workflow.user.UserRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -76,15 +72,15 @@ public class InitPswActivity extends BaseActivity {
             logger.info("两次密码不一致");
             return;
         }
-        RequestFactory.getUserRequest().settingPassword(mCellphone, "securityCode", newPassword, new UserRequest.RegisterCallback() {
-                @Override
-                public void registerSuccess(boolean success) {
-                    if (success) {
-                        startActivity(new Intent(InitPswActivity.this, LoginActivity.class));
-                    }else{
-                        logger.info("注册失败");
-                    }
-                }
-            });
+//        RequestFactory.getUserRequest().settingPassword(mCellphone, "securityCode", newPassword, new UserRequest.RegisterCallback() {
+//                @Override
+//                public void registerSuccess(boolean success) {
+//                    if (success) {
+//                        startActivity(new Intent(InitPswActivity.this, LoginActivity.class));
+//                    }else{
+//                        logger.info("注册失败");
+//                    }
+//                }
+//            });
     }
 }

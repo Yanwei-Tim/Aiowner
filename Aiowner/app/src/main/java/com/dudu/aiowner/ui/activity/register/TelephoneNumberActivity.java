@@ -63,20 +63,20 @@ public class TelephoneNumberActivity extends BaseActivity {
 //            dialog.setContentView(R.layout.mydialog);
 //            dialog.show();
 
-            RequestFactory.getUserRequest().requestVerifyCode(mobiles, new UserRequest.RequestVerifyCodeCallback() {
-
-                @Override
-                public void requestVerifyCodeResult(boolean success) {
-                    if (success) {
-                        Intent intent = new Intent(TelephoneNumberActivity.this, IdentifyingCodeActivity.class);
-                        intent.putExtra("cellphone", mobiles);
-                        startActivity(intent);
-                    } else {
-                        logger.error("请求验证码失败");
-                    }
-                }
-            });
-
+//            RequestFactory.getUserRequest().requestVerifyCode(mobiles, new UserRequest.RequestVerifyCodeCallback() {
+//
+//                @Override
+//                public void requestVerifyCodeResult(boolean success) {
+//                    if (success) {
+//                        Intent intent = new Intent(TelephoneNumberActivity.this, IdentifyingCodeActivity.class);
+//                        intent.putExtra("cellphone", mobiles);
+//                        startActivity(intent);
+//                    } else {
+//                        logger.error("请求验证码失败");
+//                    }
+//                }
+//            });
+//
         } else {
             logger.info("请输入正确的手机号码");
         }

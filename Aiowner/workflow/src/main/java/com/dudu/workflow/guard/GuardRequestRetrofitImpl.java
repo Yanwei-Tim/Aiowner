@@ -2,13 +2,23 @@ package com.dudu.workflow.guard;
 
 import android.util.Log;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
+import com.dudu.aiowner.commonlib.CommonLib;
+import com.dudu.aiowner.commonlib.commonutils.DataJsonTranslation;
 import com.dudu.aiowner.commonlib.commonutils.FileUtils;
 import com.dudu.aiowner.rest.common.Request;
 import com.dudu.aiowner.rest.model.GuardStateResponse;
 import com.dudu.aiowner.rest.model.RequestResponse;
 import com.dudu.aiowner.rest.model.TheftStatusResponse;
 import com.dudu.aiowner.rest.model.TheftUploadResponse;
+import com.dudu.aiowner.rest.model.volley.MultipartRequest;
+import com.dudu.aiowner.rest.model.volley.MultipartRequestParams;
 import com.dudu.workflow.common.CommonParams;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
@@ -25,8 +35,19 @@ public class GuardRequestRetrofitImpl implements GuardRequest {
 
     public static GuardRequestRetrofitImpl mInstance = new GuardRequestRetrofitImpl();
 
+    private Logger logger = LoggerFactory.getLogger("GuardRequestRetrofitImpl");
+
+    private RequestQueue queue;
+
+    private String uploadUrl = "http://192.168.0.177:8888/theft/upload";
+
     public static GuardRequestRetrofitImpl getInstance() {
         return mInstance;
+    }
+
+    public GuardRequestRetrofitImpl() {
+
+        queue = Volley.newRequestQueue(CommonLib.getInstance().getContext());
     }
 
     @Override
@@ -93,6 +114,7 @@ public class GuardRequestRetrofitImpl implements GuardRequest {
             public void onResponse(Call<TheftStatusResponse> call, Response<TheftStatusResponse> response) {
                 callBack.getTheftStatus(response.body());
             }
+
             @Override
             public void onFailure(Call<TheftStatusResponse> call, Throwable t) {
                 callBack.requestError(t.toString());
@@ -103,54 +125,40 @@ public class GuardRequestRetrofitImpl implements GuardRequest {
     @Override
     public void getTheftUploadResult(final UploadLicenceCallBack callBack) {
 
+        File file = new File(FileUtils.getStorageDir(), "aaa.png");
 
-        File file = new File(FileUtils.getStorageDir(),"aaa.png");
-
-        Log.d("file","-----"+file.getPath()+" is exist: "+file.exists());
+        Log.d("file", "-----" + file.getPath() + " is exist: " + file.exists());
+        logger.debug("-----" + file.getPath() + " is exist: " + file.exists());
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
 
-        String phoneString = CommonParams.getInstance().getUserName();
+        MultipartRequestParams multiPartParams = new MultipartRequestParams();
 
-        RequestBody phone = RequestBody.create(MediaType.parse("multipart/form-data"), phoneString);
+        multiPartParams.put("file", file, file.getName());
+        multiPartParams.put("phone", CommonParams.getInstance().getUserName());
+        multiPartParams.put("platform", "android");
+        multiPartParams.put("type", "driving");
 
-        RequestBody platform = RequestBody.create(MediaType.parse("multipart/form-data"), "android");
+        MultipartRequest multipartRequest = new MultipartRequest(com.android.volley.Request.Method.POST, multiPartParams, uploadUrl,
+                new com.android.volley.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
-        RequestBody type = RequestBody.create(MediaType.parse("multipart/form-data"), "driving");
+                        TheftUploadResponse response1 = (TheftUploadResponse) DataJsonTranslation.jsonToObject(response, TheftUploadResponse.class);
+                        callBack.uploadSucceed(response1.resultCode==0);
 
-        Call<TheftUploadResponse> call = Request.getInstance().getGuardService().getTheftUploadResult(requestBody, phone, platform, type);
-
-        call.enqueue(new Callback<TheftUploadResponse>() {
+                        logger.debug(response);
+                        logger.debug("请求完成");
+                    }
+                }, new com.android.volley.Response.ErrorListener() {
             @Override
-            public void onResponse(Call<TheftUploadResponse> call, Response<TheftUploadResponse> response) {
+            public void onErrorResponse(VolleyError error) {
 
-                Log.d("TheftUploadResponse", response.body().toString());
-
-                callBack.uploadSucceed(response.body().resultCode == 0);
-            }
-
-            @Override
-            public void onFailure(Call<TheftUploadResponse> call, Throwable t) {
-                callBack.uploadError(t.toString());
-
-                Log.d("TheftUploadResponse", "Error---"+t);
+                callBack.uploadError(error.toString());
+                logger.error("请求出错:", error);
             }
         });
+        queue.add(multipartRequest);
 
-
-//
-//        Call<TheftUploadResponse> call = Request.getInstance().getGuardService()
-//                .getTheftUploadResult(CommonParams.getInstance().getUserName(), "android", "driving", "method", "messageId");
-//        call.enqueue(new Callback<TheftUploadResponse>() {
-//            @Override
-//            public void onResponse(Call<TheftUploadResponse> call, Response<TheftUploadResponse> response) {
-//                callBack.uploadSucceed(response.body().resultCode == 0);
-//            }
-//
-//            @Override
-//            public void onFailure(Call<TheftUploadResponse> call, Throwable t) {
-//                callBack.uploadError(t.toString());
-//            }
-//        });
     }
 }
