@@ -7,7 +7,12 @@ import android.view.View;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.activity.bind.DeviceBindActivity;
+import com.dudu.aiowner.ui.activity.bind.DeviceBindInfoActivity;
+import com.dudu.aiowner.ui.activity.bind.T;
 import com.dudu.aiowner.ui.base.BaseActivity;
+import com.dudu.workflow.bind.BindServiceImpl;
+import com.dudu.workflow.bind.SimpleBindListener;
+import com.dudu.workflow.common.CommonParams;
 
 /**
  * Created by Administrator on 2016/2/2.
@@ -45,7 +50,32 @@ public class UserInfoActivity extends BaseActivity {
     public void startDeviceMatch(View view) {
 //        startActivity(new Intent(UserInfoActivity.this, DeviceMatchAcitivty.class));
 //        QrScan.launch(this, 500,500);
-        DeviceBindActivity.launch(this);
+
+        BindServiceImpl.getBindStatus(CommonParams.getInstance().getUserName(), "android", new SimpleBindListener() {
+            @Override
+            public void onGetBindStatus(boolean isBind, String obeId) {
+                if (isBind) {
+                    //如果已经绑定
+                    DeviceBindInfoActivity.launch(UserInfoActivity.this, obeId);
+                } else {
+                    showMaterialDialog("友情提示", "设备未绑定,是否绑定?", "立即绑定", v -> {
+                        DeviceBindActivity.launch(UserInfoActivity.this);
+                    }, v -> {
+
+                    }, dialog -> {
+
+                    });
+                }
+            }
+
+            @Override
+            public void onFailed(String msg) {
+                T.show(UserInfoActivity.this, msg);
+            }
+        });
+
+
+//        DeviceBindActivity.launch(this);
     }
     @Override
     protected void onResume() {

@@ -14,7 +14,6 @@ import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.main.MainActivity;
 import com.dudu.workflow.common.FlowFactory;
 import com.dudu.workflow.common.RequestFactory;
-import com.dudu.workflow.user.UserRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,12 +33,15 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         loginBinding = ActivityLoginBinding.bind(childView);
         initUserName();
+
+        findViewById(R.id.base_view).setBackgroundColor(getResources().getColor(R.color.aiowner));
     }
 
     @Override
     protected View getChildView() {
         return LayoutInflater.from(this).inflate(R.layout.activity_login, null);
     }
+
 
     public void startMain(View view) {
 
@@ -56,21 +58,22 @@ public class LoginActivity extends BaseActivity {
         }
 
         RequestFactory.getUserRequest()
-                .login(username, password, "android", new UserRequest.LoginCallback() {
-                    @Override
-                    public void loginSuccess(boolean success) {
-                        if (success) {
-                            FlowFactory.getUserDataFlow().saveUserName(username);
-                            ReceiverRegister.registPushManager(username);
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            Log.d("login", "loginSuccess:" + "登录请求成功");
-                            finish();
-                        } else {
+                .login(username, password, "android", success -> {
+                    if (success) {
+                        launchMainActivity(username);
+                    } else {
 //                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            Log.d("login", "loginError:" + "登录请求失败");
-                        }
+                        Log.d("login", "loginError:" + "登录请求失败");
                     }
                 });
+    }
+
+    private void launchMainActivity(String username) {
+        FlowFactory.getUserDataFlow().saveUserName(username);
+        ReceiverRegister.registPushManager(username);
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        Log.d("login", "loginSuccess:" + "登录请求成功");
+        finish();
     }
 
     public void startForgetPreventTheftPsw(View view) {

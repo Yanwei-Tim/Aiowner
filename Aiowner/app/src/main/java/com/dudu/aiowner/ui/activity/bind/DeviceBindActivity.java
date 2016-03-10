@@ -31,11 +31,12 @@ import android.widget.Toast;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.rest.model.BindRequest;
-import com.dudu.aiowner.rest.model.BindResponse;
 import com.dudu.aiowner.ui.activity.bind.decoding.CaptureActivityHandler;
 import com.dudu.aiowner.ui.activity.bind.decoding.InactivityTimer;
-import com.dudu.aiowner.ui.activity.user.DeviceMatchAcitivty;
+import com.dudu.aiowner.ui.activity.user.DeviceMatchActivity;
 import com.dudu.aiowner.ui.base.RBaseActivity;
+import com.dudu.workflow.bind.BindServiceImpl;
+import com.dudu.workflow.bind.SimpleBindListener;
 import com.dudu.workflow.common.CommonParams;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ChecksumException;
@@ -54,10 +55,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.Vector;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by Robi on 2016-03-0917:27.
@@ -224,7 +221,7 @@ public class DeviceBindActivity extends RBaseActivity implements SurfaceHolder.C
     protected void initEvent() {
         super.initEvent();
         mViewHolder.v(R.id.tvInput).setOnClickListener(v -> {
-            launchActivity(DeviceMatchAcitivty.class);
+            launchActivity(DeviceMatchActivity.class);
             finish();
         });
     }
@@ -496,24 +493,25 @@ public class DeviceBindActivity extends RBaseActivity implements SurfaceHolder.C
         final String phone = CommonParams.getInstance().getUserName();
 
         if (!TextUtils.isEmpty(result)) {
-            BindServiceImpl.bind(new BindRequest(phone, "android", result), new Callback<BindResponse>() {
+            BindServiceImpl.bind(new BindRequest(phone, "android", result), new SimpleBindListener() {
                 @Override
-                public void onResponse(Call<BindResponse> call, Response<BindResponse> response) {
-                    BindResponse body = response.body();
-                    if (body != null) {
-                        showToast(body.resultMsg);
-                        if (body.resultCode == 0) {
-                            //绑定成功
-                        } else {
-                            onPause();
-                            onResume();
-                        }
+                public void onBind(boolean isSuccess, String msg) {
+                    showToast(msg);
+                    DeviceBindInfoActivity.launch(DeviceBindActivity.this, isSuccess);
+                    if (isSuccess) {
+                        finish();
                     }
+//                    else {
+//                        onPause();
+//                        onResume();
+//                    }
                 }
 
                 @Override
-                public void onFailure(Call<BindResponse> call, Throwable t) {
-                    showToast(t.toString());
+                public void onFailed(String msg) {
+                    showToast(msg);
+                    onPause();
+                    onResume();
                 }
             });
         }

@@ -50,5 +50,10 @@
     <string name="neigh">9</string>
     <string name="tip_device_bind">设备绑定</string>
     <string name="tip_qr_scan">将二维码/条形码放入框内,完成绑定</string>
+    <string name="tip_bind_failed">绑定失败</string>
+    <string name="tip_bind_failed2">请重新绑定你的设备</string>
+    <string name="tip_bind_success">绑定成功</string>
+    <string name="tip_bind_success2">感谢使用AIO智能后视镜</string>
+    <string name="tip_imei_error">请输入有效IMEI码</string>
 
 </resources>

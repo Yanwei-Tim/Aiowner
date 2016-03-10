@@ -13,4 +13,8 @@ public class BindResponse {
 
     public int resultCode;
     public String resultMsg;
+    /**
+     * 返回绑定状态专用字段; 为空时,表示没有绑定,否则就是IMEI码
+     * */
+    public String obeId;
 }

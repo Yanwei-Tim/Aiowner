@@ -25,6 +25,10 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <style name="DialogWindowAnim">
+        <item name="android:windowEnterAnimation">@anim/dialog_fragment_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/dialog_fragment_exit_anim</item>
+    </style>
 </resources>
 
 

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:background="@drawable/user_title_bg"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="80.5dp"
+            android:layout_height="18.5dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#01000000"
+            android:src="@drawable/user_content_logo" />
+
+        <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:background="#01000000"
+            android:text="设&#160;备&#160;绑&#160;定"
+            android:textColor="@android:color/white"
+            android:textSize="27sp" />
+
+        <com.dudu.aiowner.utils.customFontUtils.DINLightFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="14dp"
+            android:background="#01000000"
+            android:text="Customer Feedback"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/layout1"
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="已绑定"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/imei"
+            android:layout_alignParentRight="true"
+            tools:text="D80009000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:background="#BBBCBC" />
+
+    </RelativeLayout>
+
+    <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+        android:id="@+id/unbind"
+        style="@style/button_big"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/btn_bg_sel_fill"
+        android:text="解&#160;除&#160;绑&#160;定" />
+
+</RelativeLayout>

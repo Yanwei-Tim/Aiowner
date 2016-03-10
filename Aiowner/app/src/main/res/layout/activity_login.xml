@@ -88,6 +88,7 @@
             android:textSize="14sp" />
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/startMain"
             style="@style/button_big"
             android:layout_marginTop="275dp"
             android:background="@drawable/btn_bg_sel_line"

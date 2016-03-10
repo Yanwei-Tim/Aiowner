@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.databinding.ActivityMainBinding;
 import com.dudu.aiowner.rest.model.TheftStatusResponse;
+import com.dudu.aiowner.ui.activity.bind.DeviceBindActivity;
+import com.dudu.aiowner.ui.activity.bind.T;
 import com.dudu.aiowner.ui.activity.drive.DrivingHabitsActivity;
 import com.dudu.aiowner.ui.activity.maintenanceAssistant.MaintenanceAssistantActivity;
 import com.dudu.aiowner.ui.activity.preventLooting.PreventLootingActivity;
@@ -24,6 +26,9 @@ import com.dudu.aiowner.ui.activity.testSpeed.TestSpeedActivity;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
 import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.aiowner.ui.main.observable.MainObservable;
+import com.dudu.workflow.bind.BindServiceImpl;
+import com.dudu.workflow.bind.SimpleBindListener;
+import com.dudu.workflow.common.CommonParams;
 import com.dudu.workflow.common.FlowFactory;
 import com.dudu.workflow.common.RequestFactory;
 import com.dudu.workflow.guard.GuardRequest;
@@ -61,6 +66,8 @@ public class MainActivity extends BaseActivity {
 
         startAnimation();
         resetData();
+
+        findViewById(R.id.base_view).setBackgroundColor(getResources().getColor(R.color.aiowner));
     }
 
     private void startAnimation() {
@@ -92,30 +99,50 @@ public class MainActivity extends BaseActivity {
 //    }
 
     public void startPreventTheft(View view) {
-
-        RequestFactory.getGuardRequest().getTheftStatus(new GuardRequest.TheftStatusCallBack() {
-
+        BindServiceImpl.getBindStatus(CommonParams.getInstance().getUserName(), "android", new SimpleBindListener() {
             @Override
-            public void getTheftStatus(TheftStatusResponse response) {
-                Log.d("checkTheftStates", "audit_state:" + response.audit_state);
-                switch (response.audit_state) {
-                    case 0:
-                        startActivity(new Intent(MainActivity.this, OwnersCredentialsUploadActivity.class));
-                        break;
-                    case 1:
-                        startActivity(new Intent(MainActivity.this, OwnersReviewActivity.class));
-                        break;
-                    case 2:
-                        startActivity(new Intent(MainActivity.this, PreventTheftActivity.class));
-                        break;
-                    case 3:
-                        startActivity(new Intent(MainActivity.this, OwnersCredentialsUploadActivity.class));
+            public void onGetBindStatus(boolean isBind, String obeId) {
+                if (isBind) {
+                    //如果已经绑定
+                    RequestFactory.getGuardRequest().getTheftStatus(new GuardRequest.TheftStatusCallBack() {
+
+                        @Override
+                        public void getTheftStatus(TheftStatusResponse response) {
+                            Log.d("checkTheftStates", "audit_state:" + response.audit_state);
+                            switch (response.audit_state) {
+                                case 0:
+                                    startActivity(new Intent(MainActivity.this, OwnersCredentialsUploadActivity.class));
+                                    break;
+                                case 1:
+                                    startActivity(new Intent(MainActivity.this, OwnersReviewActivity.class));
+                                    break;
+                                case 2:
+                                    startActivity(new Intent(MainActivity.this, PreventTheftActivity.class));
+                                    break;
+                                case 3:
+                                    startActivity(new Intent(MainActivity.this, OwnersCredentialsUploadActivity.class));
+                            }
+                        }
+
+                        @Override
+                        public void requestError(String error) {
+                            Log.e("checkTheftStates", "error:" + error);
+                        }
+                    });
+                } else {
+                    showMaterialDialog("友情提示", "设备未绑定,是否绑定?", "立即绑定", v -> {
+                        DeviceBindActivity.launch(MainActivity.this);
+                    }, v -> {
+
+                    }, dialog -> {
+
+                    });
                 }
             }
 
             @Override
-            public void requestError(String error) {
-                Log.e("checkTheftStates", "error:" + error);
+            public void onFailed(String msg) {
+                T.show(MainActivity.this, msg);
             }
         });
     }
