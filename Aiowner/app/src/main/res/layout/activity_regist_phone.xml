@@ -36,7 +36,7 @@
         </LinearLayout>
 
         <View
-            android:id="@+id/regist_phone_view"
+            android:id="@+id/regist_phone_line"
             style="@style/edit_blue_line"
             android:layout_below="@id/regist_phone_ll" />
 
@@ -44,7 +44,7 @@
             android:id="@+id/regist_psw_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/regist_phone_view"
+            android:layout_below="@id/regist_phone_line"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
@@ -68,18 +68,51 @@
         </LinearLayout>
 
         <View
-            android:id="@+id/regist_psw_view"
+            android:id="@+id/regist_psw_line"
             style="@style/edit_blue_line"
             android:layout_below="@id/regist_psw_ll" />
+
+        <LinearLayout
+            android:id="@+id/confirm_psw_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/regist_psw_line"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
+                style="@style/login_container_tips_text"
+                android:layout_marginTop="35dp"
+                android:text="@string/confirm_psw"
+                android:textSize="16sp" />
+
+            <com.dudu.aiowner.utils.customFontUtils.FZLFontEditText
+                style="@style/registAndLogin_editText"
+                android:layout_width="215dp"
+                android:layout_marginTop="36dp"
+                android:background="@null"
+                android:gravity="left"
+                android:hint="@string/confirm_psw"
+                android:paddingLeft="57dp"
+                android:password="true"
+                android:textColorHint="@color/hintcolor" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/confirm_psw_line"
+            style="@style/edit_blue_line"
+            android:layout_below="@id/confirm_psw_ll" />
+
 
         <com.dudu.aiowner.utils.customFontUtils.FZLFontTextView
             android:id="@+id/regist_phonenumber_btn"
             style="@style/button_big"
-            android:layout_below="@id/regist_psw_view"
+            android:layout_below="@id/confirm_psw_line"
             android:layout_marginTop="80dp"
             android:background="@drawable/btn_bg_sel_line"
             android:onClick="startIdentifyingCode"
-            android:text="注 册" />
+            android:text="下 一 步" />
 
     </RelativeLayout>
+
 </layout>

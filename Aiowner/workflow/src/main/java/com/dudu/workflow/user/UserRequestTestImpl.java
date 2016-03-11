@@ -18,6 +18,8 @@ public class UserRequestTestImpl implements UserRequest {
     private boolean registerSuccess=true;
 
     private boolean loginSuccess=true;
+
+    private boolean requestSuccess = true;
 //    @Override
 //    public void requestVerifyCode(String cellphone, final RequestVerifyCodeCallback callback) {
 //        callback.requestVerifyCodeResult(requestVerifyCodeResult);
@@ -35,8 +37,17 @@ public class UserRequestTestImpl implements UserRequest {
 //    }
 
     @Override
+    public void register(String phone, String platform, RegisterCallback callback) {
+
+    }
+
+    @Override
     public void login(String cellphone, String password, String platform, LoginCallback callback) {
         callback.loginSuccess(loginSuccess);
+    }
+
+    @Override
+    public void userInfo(UserInfoCallback callback) {
     }
 
     public void setRequestVerifyCodeResult(boolean requestVerifyCodeResult) {

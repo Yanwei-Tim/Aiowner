@@ -13,7 +13,11 @@ import com.dudu.aiowner.rest.model.GuardStateResponse;
 import com.dudu.aiowner.rest.model.PutTheftLicenseRequest;
 import com.dudu.aiowner.rest.model.PutTheftLicenseResponse;
 import com.dudu.aiowner.rest.model.RequestResponse;
+import com.dudu.aiowner.rest.model.SetTheftPswRequest;
+import com.dudu.aiowner.rest.model.SetTheftPswResponse;
+import com.dudu.aiowner.rest.model.SetTheftSwitchResponse;
 import com.dudu.aiowner.rest.model.TheftStatusResponse;
+import com.dudu.aiowner.rest.model.TheftSwitchRequest;
 import com.dudu.aiowner.rest.model.TheftUploadResponse;
 import com.dudu.aiowner.rest.model.volley.MultipartRequest;
 import com.dudu.aiowner.rest.model.volley.MultipartRequestParams;
@@ -107,6 +111,11 @@ public class GuardRequestRetrofitImpl implements GuardRequest {
         });
     }
 
+    /**
+     * 获取防盗状态
+     *
+     * @param callBack
+     */
     @Override
     public void getTheftStatus(final TheftStatusCallBack callBack) {
         Call<TheftStatusResponse> call = Request.getInstance().getGuardService()
@@ -114,7 +123,7 @@ public class GuardRequestRetrofitImpl implements GuardRequest {
         call.enqueue(new Callback<TheftStatusResponse>() {
             @Override
             public void onResponse(Call<TheftStatusResponse> call, Response<TheftStatusResponse> response) {
-                callBack.getTheftStatus(response.body());
+                callBack.requestSucceed(response.body());
             }
 
             @Override
@@ -124,6 +133,11 @@ public class GuardRequestRetrofitImpl implements GuardRequest {
         });
     }
 
+    /**
+     * 获取防盗证件上传结果
+     *
+     * @param callBack
+     */
     @Override
     public void getTheftUploadResult(final UploadLicenceCallBack callBack) {
 
@@ -161,15 +175,18 @@ public class GuardRequestRetrofitImpl implements GuardRequest {
             }
         });
         queue.add(multipartRequest);
-
     }
 
+    /**
+     * 获取请求防盗证件认证结果
+     *
+     * @param callBack
+     */
     @Override
     public void getTheftLicenseResult(TheftLicenceCallBack callBack) {
 
         Call<PutTheftLicenseResponse> call = Request.getInstance().getGuardService()
                 .getTheftLicenseResult(new PutTheftLicenseRequest(CommonParams.getInstance().getUserName(), "android"));
-
 
         call.enqueue(new Callback<PutTheftLicenseResponse>() {
 
@@ -177,14 +194,66 @@ public class GuardRequestRetrofitImpl implements GuardRequest {
             public void onResponse(Call<PutTheftLicenseResponse> call, Response<PutTheftLicenseResponse> response) {
 
                 Log.d("PutTheftLicenseResponse", "-------" + response.body().resultCode);
+                Log.d("PutTheftLicenseResponse", "-------" + response.body().resultMsg);
                 callBack.LicenceSucceed(response.body().resultCode == 0);
             }
 
             @Override
             public void onFailure(Call<PutTheftLicenseResponse> call, Throwable t) {
 
-                Log.d("PutTheftLicenseResponse", "------" + t);
+                Log.d("PutTheftLicenseFailure", "------" + t);
                 callBack.LicenceError(t.toString());
+            }
+        });
+    }
+
+    /**
+     * 设置防盗密码
+     *
+     * @param password
+     * @param protectThiefState
+     * @param callBack
+     */
+    @Override
+    public void setTheftPsw(String password, int protectThiefState, final SetTheftPswCallBack callBack) {
+        Call<SetTheftPswResponse> call = Request.getInstance().getGuardService()
+                .setTheftPsw(new SetTheftPswRequest(CommonParams.getInstance().getUserName(), "android", password, protectThiefState));
+        call.enqueue(new Callback<SetTheftPswResponse>() {
+            @Override
+            public void onResponse(Call<SetTheftPswResponse> call, Response<SetTheftPswResponse> response) {
+                Log.d("SetTheftPswResponse", "----" + response.body().resultCode);
+                callBack.SetTheftPswSucceed(response.body().resultCode == 0);
+            }
+
+            @Override
+            public void onFailure(Call<SetTheftPswResponse> call, Throwable t) {
+                Log.d("SetTheftPswFailure", "----" + t);
+                callBack.SetTheftPswError(t.toString());
+            }
+        });
+    }
+
+    /**
+     * 设置防盗开关状态
+     *
+     * @param thiefSwitchState
+     * @param callBack
+     */
+    @Override
+    public void setTheftSwitchState(int thiefSwitchState,final SetTheftSwitchCallBack callBack) {
+        Call<SetTheftSwitchResponse> call = Request.getInstance().getGuardService()
+                .setThiefSwitchState(new TheftSwitchRequest(CommonParams.getInstance().getUserName(), "android", thiefSwitchState));
+        call.enqueue(new Callback<SetTheftSwitchResponse>() {
+            @Override
+            public void onResponse(Call<SetTheftSwitchResponse> call, Response<SetTheftSwitchResponse> response) {
+                Log.d("SetTheftSwitchResponse", "----" + response.body().resultCode);
+                callBack.SetTheftSwitchSucceed(response.body().resultCode == 200);
+            }
+
+            @Override
+            public void onFailure(Call<SetTheftSwitchResponse> call, Throwable t) {
+                Log.d("SetTheftSwitchFailure", "----" + t);
+                callBack.SetTheftSwitchError(t.toString());
             }
         });
     }

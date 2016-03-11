@@ -4,16 +4,16 @@ import com.dudu.aiowner.rest.model.GuardStateResponse;
 import com.dudu.aiowner.rest.model.PutTheftLicenseRequest;
 import com.dudu.aiowner.rest.model.PutTheftLicenseResponse;
 import com.dudu.aiowner.rest.model.RequestResponse;
+import com.dudu.aiowner.rest.model.SetTheftPswRequest;
+import com.dudu.aiowner.rest.model.SetTheftPswResponse;
+import com.dudu.aiowner.rest.model.SetTheftSwitchResponse;
 import com.dudu.aiowner.rest.model.TheftStatusResponse;
-import com.dudu.aiowner.rest.model.TheftUploadResponse;
+import com.dudu.aiowner.rest.model.TheftSwitchRequest;
 
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 /**
@@ -40,6 +40,23 @@ public interface GuardService {
     @GET("/external/getThelfSwitch/{cellphone}")
     public Call<GuardStateResponse> getGuardState(@Path("cellphone") String cellphone);
 
+//    /**
+//     * 获取防盗证件上传的结果
+//     *
+//     * @return TheftUploadResponse 上传资料返回的方法
+//     * @param file
+//     * @param phone
+//     * @param platform
+//     * @param type
+//     */
+//    @Multipart
+//    @POST("/theft/upload")
+//    public Call<TheftUploadResponse> getTheftUploadResult(
+//            @Part("file\"; name=\"image.png\"") RequestBody file,
+//            @Part("phone") String  phone,
+//            @Part("platform") String  platform,
+//            @Part("type") String  type);
+
     /**
      * 获取防盗状态
      *
@@ -50,26 +67,33 @@ public interface GuardService {
     @GET("/theft/getStatus/{businessId}/{platform}")
     public Call<TheftStatusResponse> getTheftState(@Path("businessId") String businessId, @Path("platform") String platform);
 
+    /**
+     * 设置防盗开关状态
+     *
+     * @param body
+     * @return
+     */
+    @POST("/theft/setThiefSwitchState")
+    public Call<SetTheftSwitchResponse> setThiefSwitchState(@Body TheftSwitchRequest body);
 
     /**
-     * 获取防盗证件上传的结果
+     * 请求防盗证件认证
      *
-     * @return TheftUploadResponse 上传资料返回的方法
-     * @param file
-     * @param phone
-     * @param platform
-     * @param type
+     * @param body
+     * @return
      */
-    @Multipart
-    @POST("/theft/upload")
-    public Call<TheftUploadResponse> getTheftUploadResult(
-            @Part("file\"; name=\"image.png\"") RequestBody file,
-            @Part("phone") String  phone,
-            @Part("platform") String  platform,
-            @Part("type") String  type);
+    @POST("/theft/toDetermineAudit")
+    public Call<PutTheftLicenseResponse> getTheftLicenseResult(@Body PutTheftLicenseRequest body);
+
+    /**
+     * 设置防盗密码
+     *
+     * @param body
+     * @return
+     */
+    @POST("/theft/toDetermineAudit")
+    public Call<SetTheftPswResponse> setTheftPsw(@Body SetTheftPswRequest body);
 
 
-    @POST("/binding/toDetermineAudit")
-    public Call<PutTheftLicenseResponse>getTheftLicenseResult(@Body PutTheftLicenseRequest body);
 
 }

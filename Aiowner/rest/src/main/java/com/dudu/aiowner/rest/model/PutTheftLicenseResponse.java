@@ -10,7 +10,11 @@ public class PutTheftLicenseResponse {
     @SerializedName("resultCode")
     public int resultCode;
 
-    public PutTheftLicenseResponse(int resultCode) {
+    @SerializedName("resultMsg")
+    public String resultMsg;
+
+    public PutTheftLicenseResponse(int resultCode, String resultMsg) {
         this.resultCode = resultCode;
+        this.resultMsg = resultMsg;
     }
 }

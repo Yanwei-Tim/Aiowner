@@ -4,7 +4,11 @@ import android.util.Log;
 
 import com.dudu.aiowner.rest.common.Request;
 import com.dudu.aiowner.rest.model.LoginResponse;
-import com.dudu.aiowner.rest.model.User;
+import com.dudu.aiowner.rest.model.RegisterResponse;
+import com.dudu.aiowner.rest.model.UserInfoResponse;
+import com.dudu.aiowner.rest.model.UserLogin;
+import com.dudu.aiowner.rest.model.UserRegister;
+import com.dudu.workflow.common.CommonParams;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -72,21 +76,76 @@ public class UserRequestRetrofitImpl implements UserRequest {
 //        });
 //    }
 
+    /**
+     * 请求注册用户
+     *
+     * @param cellphone
+     * @param platform
+     * @param callback
+     */
+    @Override
+    public void register(String cellphone, String platform, final RegisterCallback callback) {
+        Call<RegisterResponse> call = Request.getInstance().getUserService()
+                .register(new UserRegister(cellphone, "android"));
+        call.enqueue(new Callback<RegisterResponse>() {
+            @Override
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+                Log.d("registerResponse", "----" + response.body().resultCode + response.body().resultMsg);
+                callback.registerSuccess(response.body().resultCode == 0);
+            }
+
+            @Override
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+                Log.d("registerError", "-----" + t);
+                callback.registerSuccess(false);
+            }
+        });
+    }
+
+    /**
+     * 请求登录
+     *
+     * @param cellphone
+     * @param password
+     * @param platform
+     * @param callback
+     */
     @Override
     public void login(String cellphone, String password, String platform, final LoginCallback callback) {
         Call<LoginResponse> call = Request.getInstance().getUserService()
-                .login(new User(cellphone,password,"android"));
+                .login(new UserLogin(cellphone, password, "android"));
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                Log.d("LoginResponse","LoginResponse:"+response.body().resultCode);
-                callback.loginSuccess(response.body().resultCode==0);
+                Log.d("LoginResponse", "LoginResponse:" + response.body().resultCode);
+                callback.loginSuccess(response.body().resultCode == 0);
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Log.d("loginError","loginError:"+t);
+                Log.d("loginError", "loginError:" + t);
                 callback.loginSuccess(false);
+            }
+        });
+    }
+
+    /**
+     * 获取用户信息详情
+     * @param callback
+     */
+    @Override
+    public void userInfo(final UserInfoCallback callback) {
+        Call<UserInfoResponse> call = Request.getInstance().getUserService()
+                .getUserInfo(CommonParams.getInstance().getUserName(), "android");
+        call.enqueue(new Callback<UserInfoResponse>() {
+            @Override
+            public void onResponse(Call<UserInfoResponse> call, Response<UserInfoResponse> response) {
+                callback.requestSuccess(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<UserInfoResponse> call, Throwable t) {
+                callback.requestError(t.toString());
             }
         });
     }

@@ -2,6 +2,7 @@ package com.dudu.aiowner.ui.activity.register;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -53,11 +54,25 @@ public class TelephoneNumberActivity extends BaseActivity {
         psw = registPhoneBinding.registPswEt.getText().toString();
 
         if (mobiles.isEmpty()) {
-            logger.info("请输入手机号码");
+            Log.d("mobiles", "请输入手机号码");
         } else if (psw.isEmpty()) {
-            logger.info("请输入密码");
+            Log.d("psw", "请输入密码");
         } else if (MultVerify.isPhoneNumberValid(mobiles)) {
 
+            RequestFactory.getUserRequest().register(mobiles, "android", new UserRequest.RegisterCallback() {
+                @Override
+                public void registerSuccess(boolean success) {
+                    if(success){
+                    Log.d("registerSuccess", "----" +"注册成功");
+                    Intent intent = new Intent(TelephoneNumberActivity.this, IdentifyingCodeActivity.class);
+                    intent.putExtra("cellphone", mobiles);
+                    intent.putExtra("password", psw);
+                    startActivity(intent);}
+                    else {
+                        Log.d("registerError", "----" + "注册失败");
+                    }
+                }
+            });
 //            Dialog dialog = new Dialog(TelephoneNumberActivity.this, R.style.MyDialog);
 //            //设置它的ContentView
 //            dialog.setContentView(R.layout.mydialog);

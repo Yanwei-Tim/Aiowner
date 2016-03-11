@@ -2,10 +2,12 @@ package com.dudu.aiowner.ui.activity.user;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dudu.aiowner.R;
+import com.dudu.aiowner.rest.model.UserInfoResponse;
 import com.dudu.aiowner.ui.activity.bind.DeviceBindActivity;
 import com.dudu.aiowner.ui.activity.bind.DeviceBindInfoActivity;
 import com.dudu.aiowner.ui.activity.bind.T;
@@ -13,6 +15,8 @@ import com.dudu.aiowner.ui.base.BaseActivity;
 import com.dudu.workflow.bind.BindServiceImpl;
 import com.dudu.workflow.bind.SimpleBindListener;
 import com.dudu.workflow.common.CommonParams;
+import com.dudu.workflow.common.RequestFactory;
+import com.dudu.workflow.user.UserRequest;
 
 /**
  * Created by Administrator on 2016/2/2.
@@ -77,8 +81,22 @@ public class UserInfoActivity extends BaseActivity {
 
 //        DeviceBindActivity.launch(this);
     }
+
     @Override
     protected void onResume() {
+
+        RequestFactory.getUserRequest().userInfo(new UserRequest.UserInfoCallback() {
+            @Override
+            public void requestSuccess(UserInfoResponse response) {
+                Log.d("UserInfoRequestSuccess", "---------"+response.toString());
+            }
+
+            @Override
+            public void requestError(String error) {
+                Log.d("UserInfoRequestError", error);
+            }
+        });
+
         observableFactory.getTitleObservable().titleText.set("");
         observableFactory.getTitleObservable().userIcon.set(false);
         observableFactory.getTitleObservable().userTitleLogo.set(true);

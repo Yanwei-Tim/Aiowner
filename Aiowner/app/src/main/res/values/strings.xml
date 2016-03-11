@@ -9,7 +9,9 @@
     <string name="regist_phone">手机号</string>
     <string name="regist_phone_hint">你的手机号码</string>
     <string name="regist_psw">密码</string>
+    <string name="confirm_psw">确认密码</string>
     <string name="regist_psw_hint">填写密码</string>
+    <string name="regist_next">下一步</string>
 
 
 

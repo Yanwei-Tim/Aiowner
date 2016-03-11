@@ -3,22 +3,17 @@ package com.dudu.aiowner.rest.model;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Administrator on 2016/3/5.
+ * Created by sunny_zhang on 2016/3/10.
  */
-public class User {
-
+public class UserRegister {
     @SerializedName("phone")
     String phone;
-
-    @SerializedName("password")
-    String password;
 
     @SerializedName("platform")
     String platform;
 
-    public User(String phone, String password, String platform) {
+    public UserRegister(String phone, String platform) {
         this.phone = phone;
-        this.password = password;
         this.platform = platform;
     }
 }

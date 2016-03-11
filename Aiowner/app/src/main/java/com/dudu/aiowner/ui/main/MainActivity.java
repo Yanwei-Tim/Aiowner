@@ -20,7 +20,6 @@ import com.dudu.aiowner.ui.activity.maintenanceAssistant.MaintenanceAssistantAct
 import com.dudu.aiowner.ui.activity.preventLooting.PreventLootingActivity;
 import com.dudu.aiowner.ui.activity.preventLooting.PreventLootingControlActivity;
 import com.dudu.aiowner.ui.activity.preventTheft.OwnersCredentialsUploadActivity;
-import com.dudu.aiowner.ui.activity.preventTheft.OwnersReviewActivity;
 import com.dudu.aiowner.ui.activity.preventTheft.PreventTheftActivity;
 import com.dudu.aiowner.ui.activity.testSpeed.TestSpeedActivity;
 import com.dudu.aiowner.ui.activity.user.UserInfoActivity;
@@ -99,6 +98,7 @@ public class MainActivity extends BaseActivity {
 //    }
 
     public void startPreventTheft(View view) {
+
         BindServiceImpl.getBindStatus(CommonParams.getInstance().getUserName(), "android", new SimpleBindListener() {
             @Override
             public void onGetBindStatus(boolean isBind, String obeId) {
@@ -107,14 +107,16 @@ public class MainActivity extends BaseActivity {
                     RequestFactory.getGuardRequest().getTheftStatus(new GuardRequest.TheftStatusCallBack() {
 
                         @Override
-                        public void getTheftStatus(TheftStatusResponse response) {
+                        public void requestSucceed(TheftStatusResponse response) {
                             Log.d("checkTheftStates", "audit_state:" + response.audit_state);
                             switch (response.audit_state) {
                                 case 0:
                                     startActivity(new Intent(MainActivity.this, OwnersCredentialsUploadActivity.class));
                                     break;
                                 case 1:
-                                    startActivity(new Intent(MainActivity.this, OwnersReviewActivity.class));
+//                                    startActivity(new Intent(MainActivity.this, PreventTheftActivity.class));
+                                    startActivity(new Intent(MainActivity.this, OwnersCredentialsUploadActivity.class));
+//                                    startActivity(new Intent(MainActivity.this, OwnersReviewActivity.class));
                                     break;
                                 case 2:
                                     startActivity(new Intent(MainActivity.this, PreventTheftActivity.class));

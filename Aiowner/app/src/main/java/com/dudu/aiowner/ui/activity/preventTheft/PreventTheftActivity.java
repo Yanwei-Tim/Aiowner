@@ -200,7 +200,7 @@ public class PreventTheftActivity extends BaseActivity {
         RequestFactory.getGuardRequest().getTheftStatus(new GuardRequest.TheftStatusCallBack() {
 
             @Override
-            public void getTheftStatus(TheftStatusResponse response) {
+            public void requestSucceed(TheftStatusResponse response) {
 
                 int audit_state = response.audit_state;
                 Log.d("checkTheftStates", "audit_state:" + audit_state);
@@ -227,12 +227,31 @@ public class PreventTheftActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
+        Log.d("PreventTheftActivityOnResume", "----------");
+        setTheftPsw();
 
         observableFactory.getTitleObservable().titleText.set("车辆防盗");
         observableFactory.getTitleObservable().userIcon.set(true);
         observableFactory.getCommonObservable().hasBottomIcon.set(false);
         reflashSwitch();
         super.onResume();
+    }
+
+    private void setTheftPsw() {
+
+        Log.d("setTheftPsw", "----------");
+        RequestFactory.getGuardRequest().setTheftPsw("123123", 1, new GuardRequest.SetTheftPswCallBack() {
+            @Override
+            public void SetTheftPswSucceed(boolean succeed) {
+                Log.d("SetTheftPswSucceed", ":设置防盗密码成功");
+            }
+
+            @Override
+            public void SetTheftPswError(String error) {
+                Log.d("SetTheftPswError", ":设置防盗密码失败" + error);
+                System.out.println("SetTheftPswError----------");
+            }
+        });
     }
 
     @Override
