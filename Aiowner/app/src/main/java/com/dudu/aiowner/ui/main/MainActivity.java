@@ -97,6 +97,7 @@ public class MainActivity extends BaseActivity {
 //        startActivity(new Intent(MainActivity.this, OwnersCredentialsUploadActivity.class));
 //    }
 
+    /**防盗入口*/
     public void startPreventTheft(View view) {
 
         BindServiceImpl.getBindStatus(CommonParams.getInstance().getUserName(), "android", new SimpleBindListener() {
@@ -105,7 +106,6 @@ public class MainActivity extends BaseActivity {
                 if (isBind) {
                     //如果已经绑定
                     RequestFactory.getGuardRequest().getTheftStatus(new GuardRequest.TheftStatusCallBack() {
-
                         @Override
                         public void requestSucceed(TheftStatusResponse response) {
                             Log.d("checkTheftStates", "audit_state:" + response.audit_state);
@@ -132,10 +132,12 @@ public class MainActivity extends BaseActivity {
                         }
                     });
                 } else {
-                    showMaterialDialog("友情提示", "设备未绑定,是否绑定?", "立即绑定", v -> {
+                    //未绑定设备逻辑
+                    showMaterialDialog(getString(R.string.dialog_default_title), getString(R.string.dialog_content_unbind), getString(R.string.dialog_bind_bt_text), v -> {
                         DeviceBindActivity.launch(MainActivity.this);
+                        dismissDialog();
                     }, v -> {
-
+                        dismissDialog();
                     }, dialog -> {
 
                     });
@@ -149,6 +151,7 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    /**防劫入口*/
     public void startPreventLooting(View view) {
         FlowFactory.getSwitchDataFlow().getRobberyState()
                 .subscribe(new Action1<Boolean>() {
@@ -178,11 +181,13 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    /**测速入口*/
     public void openTestSpeed(View view) {
 
         startActivity(new Intent(MainActivity.this, TestSpeedActivity.class));
     }
 
+    /**驾驶入口*/
     public void openDrive(View view) {
 
         startActivity(new Intent(MainActivity.this, DrivingHabitsActivity.class));

@@ -47,7 +47,7 @@ public class DeviceMatchActivity extends BaseActivity {
 
         imei = ((TextView) findViewById(R.id.imei));
 
-        //单机开始绑定
+        //单击开始绑定
         findViewById(R.id.device_match_bind_btn).setOnClickListener(view -> {
                     final String phone = CommonParams.getInstance().getUserName();
                     String obeId = imei.getText().toString();

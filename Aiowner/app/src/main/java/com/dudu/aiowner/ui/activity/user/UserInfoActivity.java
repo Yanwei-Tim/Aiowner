@@ -51,6 +51,7 @@ public class UserInfoActivity extends BaseActivity {
         startActivity(new Intent(UserInfoActivity.this, UserFeedbackActivity.class));
     }
 
+    /**设备匹配*/
     public void startDeviceMatch(View view) {
 //        startActivity(new Intent(UserInfoActivity.this, DeviceMatchAcitivty.class));
 //        QrScan.launch(this, 500,500);
@@ -62,10 +63,11 @@ public class UserInfoActivity extends BaseActivity {
                     //如果已经绑定
                     DeviceBindInfoActivity.launch(UserInfoActivity.this, obeId);
                 } else {
-                    showMaterialDialog("友情提示", "设备未绑定,是否绑定?", "立即绑定", v -> {
+                    showMaterialDialog(getString(R.string.dialog_default_title), getString(R.string.dialog_content_unbind), getString(R.string.dialog_bind_bt_text), v -> {
                         DeviceBindActivity.launch(UserInfoActivity.this);
+                        dismissDialog();
                     }, v -> {
-
+                        dismissDialog();
                     }, dialog -> {
 
                     });

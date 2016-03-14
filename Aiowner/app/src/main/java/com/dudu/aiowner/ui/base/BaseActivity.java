@@ -51,7 +51,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void showMaterialDialog(String title, String message,
                                       final View.OnClickListener positiveListener, final View.OnClickListener negativeListener,
                                       DialogInterface.OnDismissListener onDismissListener) {
-        showMaterialDialog(title, message, "确定", positiveListener, negativeListener, onDismissListener);
+        showMaterialDialog(title, message, getString(R.string.dialog_positive_text), positiveListener, negativeListener, onDismissListener);
     }
 
     protected void showMaterialDialog(String title, String message, String positiveButtonText,
@@ -61,7 +61,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 .setTitle(title)
                 .setMessage(message)
                 .setPositiveButton(positiveButtonText, positiveListener)
-                .setNegativeButton("取消", negativeListener)
+                .setNegativeButton(getString(R.string.dialog_negative_text), negativeListener)
                 .setOnDismissListener(onDismissListener);
         mMaterialDialog.setCanceledOnTouchOutside(false);
         mMaterialDialog.show();

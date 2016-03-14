@@ -2,6 +2,7 @@ package com.dudu.aiowner.ui.activity.bind;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.dudu.aiowner.R;
 import com.dudu.aiowner.ui.base.RBaseFragment;
@@ -43,23 +44,27 @@ public class BindFragment extends RBaseFragment {
 
     @Override
     protected void initViewData() {
-        String tip1, tip2;
+        String tip1, tip2, ok;
         int imgId;
         if (isSuccess) {
             tip1 = getString(R.string.tip_bind_success);
             tip2 = getString(R.string.tip_bind_success2);
             imgId = R.drawable.ok_icon;
+            ok = mBaseActivity.getString(R.string.tip_bt_bind_success);
         } else {
             tip1 = getString(R.string.tip_bind_failed);
             tip2 = getString(R.string.tip_bind_failed2);
             imgId = R.drawable.theft_icon_through;
+            ok = mBaseActivity.getString(R.string.tip_bt_bind_failed);
         }
 
         mViewHolder.tV(R.id.tvBindTip).setText(tip1);
         mViewHolder.tV(R.id.tvBindTip2).setText(tip2);
         mViewHolder.imgV(R.id.img).setImageResource(imgId);
+        TextView okButton = mViewHolder.tV(R.id.ok);
+        okButton.setText(ok);
 
-        mViewHolder.v(R.id.ok).setOnClickListener(v -> {
+        okButton.setOnClickListener(v -> {
             mBaseActivity.onBackPressed();
         });
     }

@@ -496,10 +496,11 @@ public class DeviceBindActivity extends RBaseActivity implements SurfaceHolder.C
             BindServiceImpl.bind(new BindRequest(phone, "android", result), new SimpleBindListener() {
                 @Override
                 public void onBind(boolean isSuccess, String msg) {
-                    showToast(msg);
                     DeviceBindInfoActivity.launch(DeviceBindActivity.this, isSuccess);
                     if (isSuccess) {
                         finish();
+                    } else {
+                        showToast(msg);
                     }
 //                    else {
 //                        onPause();

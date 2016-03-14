@@ -57,5 +57,13 @@
     <string name="tip_bind_success">绑定成功</string>
     <string name="tip_bind_success2">感谢使用AIO智能后视镜</string>
     <string name="tip_imei_error">请输入有效IMEI码</string>
+    <string name="tip_bt_bind_success">继续使用</string>
+    <string name="tip_bt_bind_failed">重新绑定</string>
+    <string name="dialog_positive_text">确定</string>
+    <string name="dialog_negative_text">取消</string>
+    <string name="dialog_default_title">嘟嘟提醒</string>
+    <string name="dialog_content_unbind">设备未绑定,是否绑定?</string>
+    <string name="dialog_bind_bt_text">立即绑定</string>
+    <string name="tip_unbind_success">解除绑定成功</string>
 
 </resources>
